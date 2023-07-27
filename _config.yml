@@ -18,13 +18,15 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Pyro-Maniac-Net
+title: Pyro-net
 email: yankos001@gmail.com
-description: Safeguard our digital world from cyber threats
+linkedin_username: yankos001
+description: Researching staff in Network and System Security
+about_description: HHH
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-username: Pyro-Maniac
-github_username:  pyro-mania
+username: Pyromaniac
+github_username: Lil-pyro
 
 # Build settings
 theme: minima

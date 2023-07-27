@@ -1,10 +1,10 @@
 .main-banner {
-    background: #1a222c;
+    background: url(/assets/img/background.png);
     display: flex;
     vertical-align: bottom;
-    min-height: 100vh;
+    min-height: 50vh;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw;
     background-attachment: fixed;
 
     .header {
@@ -13,7 +13,7 @@
         text-align: center;
         color:#FFF;
         position: absolute;
-        top: 50%;
+        top: 25%;
         left: 50%;
         margin: 0 auto;
         -webkit-transform: translate(-50%, -50%);
@@ -60,6 +60,18 @@
         padding: none;
         margin: none;
     }
+
+    /*
+    i {
+        display: inline-block;
+        color: #FFF;
+        width: 20px;
+        height: 20px;
+        //line-height: 2em;
+        position: relative;
+        vertical-align: middle;
+    }
+    */
 
     .icon {
         text-align: center;
