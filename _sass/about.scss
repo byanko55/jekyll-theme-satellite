@@ -1,0 +1,63 @@
+#about{
+    font-family: 'Lora', 'Times New Roman', serif;
+}
+
+.page-description {
+    text-align: center;
+    margin: 5px auto;
+    
+    h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #343a40;
+    }
+}
+
+.main-loc {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1280px;
+
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .content {
+        margin: 32px;
+        flex: 1 1 0;
+
+        h2 {
+            margin-bottom: 48px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #343a40;
+        }
+    }
+
+    p {
+        font-size: 16px;
+        text-align:justify;
+    }
+
+    svg {
+        //width: 60px !important;
+        width: auto;
+        height: 60px !important;
+        //height: auto;
+        margin: 8px;
+
+        image {
+            //width: 128px;
+            width: auto;
+            height: 128px;
+        }
+    }
+
+    @media only screen and (min-width: $cut) {
+        width: 80%;
+        flex-wrap: nowrap;
+    }
+}
