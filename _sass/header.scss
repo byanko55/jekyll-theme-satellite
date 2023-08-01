@@ -11,7 +11,7 @@
     background: url(/assets/img/background.png);
     display: flex;
     vertical-align: bottom;
-    min-height: 55vh;
+    min-height: 50vh;
     background-repeat: no-repeat;
     background-size: 100vw;
     background-attachment: fixed;
@@ -21,33 +21,33 @@
         z-index: 1;
         text-align: center;
         color:#FFF;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        margin: 0 auto;
+        margin: 40px auto;
         line-height: 1.5;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+
+        @media only screen and (min-width:$cut){
+            margin: var(--font-size-lg) auto;
+        }
     
         .site-title {
-            font-size: 3rem;
+            font-size: 40px;
             display: block;
             color: #FFF;
     
             @media only screen and (min-width:$cut){
                 margin: 0;
-                font-size: 76px;
+                font-size: var(--font-size-lg);
             }
         }
     
         .site-description {
-            font-size: 1.5rem;
+            font-size: 16px;
+            margin-bottom: 24px;
             display: block;
             color: #FFF;
-            margin-top: 1rem;
     
             @media only screen and (min-width:$cut){
-                font-size: 34px;
+                font-size: var(--font-size-sm);
+                margin-bottom: var(--font-size-md);
             }
         }
     }
@@ -55,13 +55,11 @@
 
 .header-icons {
     display: flex;
-    margin-top: 10%;
     justify-content: center;
     align-items: center;
     text-align: center;
 
     a {
-        // no borders
         outline: 0 !important;
         border: none !important;
         outline-style: none !important;
@@ -73,10 +71,10 @@
     .icon {
         text-align: center;
         color: #FFF;
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
-        padding: 0.75rem;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        padding: 8px;
         margin: 0.5rem;
         border-radius: 50%;
         border: 2px solid #FFF;
@@ -93,33 +91,37 @@
         }
 
         @media only screen and (min-width:$cut) {
-            width: 30px;
-            height: 30px;
-            font-size: 30px;
-            line-height: 30px;
+            width: var(--font-size-sm);
+            height: var(--font-size-sm);
+            font-size: var(--font-size-sm);
+            line-height: var(--font-size-sm);
+            padding: var(--font-size-ss);
         }
     }
 }
 
 .about-page{
-    margin: 4rem auto 0;
+    margin: 24px auto 0;
     width: 90%;
-    max-width: 1040px;
-    min-height: 40vh;
+    max-width: 1024px;
+    min-height: 50vh;
     font-family: 'Lora', 'Times New Roman', serif;
+
+    @media only screen and (min-width:$cut) {
+        margin-top: var(--font-size-md);
+    }
     
     h1 {
-        margin: 2rem auto;
         font-size: 2rem;
         font-weight: 600;
         color: #343a40;
     }
 
     .page-description {
-        font-size: 1.25rem;
+        font-size: 16px;
         font-weight: 200;
         background: #eee;
-        padding: 1rem 2rem;
+        padding: 8px 16px;
         border-radius: 0.3rem;
 
         span {
@@ -127,26 +129,31 @@
             font-style: italic;
             font-weight: 500;
         }
+
+        @media only screen and (min-width:$cut) {
+            font-size: 1.25rem;
+            padding: 0.75rem 1.5rem;
+        }
     }
 
     .down {
         color: #343a40;
-        font-size: 3rem;
-        margin: 2rem auto 0;
-        width: 6rem;
+        font-size: 40px;
+        margin: 16px auto 0;
+        width: 40px;
         display: block;
         cursor: pointer;
 
         i {
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            fill: #fff;
-            -webkit-animation: pulse 1.3s infinite;
-            animation: pulse 1.3s infinite;
-
             &:hover {
                 color: #cc693c;
             }
+        }
+
+        @media only screen and (min-width:$cut) {
+            font-size: var(--font-size-lg);
+            margin-top: var(--font-size-sm);
+            width: var(--font-size-lg);
         }
     }
 }
