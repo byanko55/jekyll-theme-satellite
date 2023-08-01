@@ -40,13 +40,13 @@
         }
     
         .site-description {
-            font-size: 16px;
+            font-size: 20px;
             margin-bottom: 24px;
             display: block;
             color: #FFF;
     
             @media only screen and (min-width:$cut){
-                font-size: var(--font-size-sm);
+                font-size: calc(5*var(--font-size-md)/6);
                 margin-bottom: var(--font-size-md);
             }
         }
@@ -104,7 +104,7 @@
     margin: 24px auto 0;
     width: 90%;
     max-width: 1024px;
-    min-height: 50vh;
+    max-height: 50vh;
     font-family: 'Lora', 'Times New Roman', serif;
 
     @media only screen and (min-width:$cut) {
