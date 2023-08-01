@@ -38,12 +38,12 @@
 
 .title {
     z-index: 1;
-    margin-top: 40px;
+    margin: 24px auto;
     line-height: 1.5;
     width: 100%;
 
-    @media only screen and (min-width:$screen-sm){
-        margin-top: var(--font-size-lg);
+    @media only screen and (min-width:$screen-lg){
+        margin: var(--font-size-md) auto;
     }
 
     .site-owner {
@@ -80,10 +80,18 @@
 .banner-icons {
     display: block;
     width: 100%;
-    margin: 40px auto;
+    margin: 24px auto;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+        margin: var(--font-size-md) auto;
+    }
+
+    @media only screen and (min-width:$screen-lg) {
+        margin: var(--font-size-lg) auto;
+    }
 
     a {
         outline: 0 !important;
