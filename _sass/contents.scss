@@ -37,7 +37,7 @@
 
     .loc-table {
         flex: 1 1 0;
-        border-spacing: 24px;
+        border-spacing: 0 24px;
         table-layout: fixed;
         width: 100%;
 
@@ -55,12 +55,10 @@
 
     svg {
         width: auto;
-        height: 128px;
-        margin: 0 12px;
+        height: 144px;
 
         @media only screen and (min-width: $cut) {
             height: var(--img-size-md);
-            margin: 0 var(--font-size-sm);
         }
 
         image {
