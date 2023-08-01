@@ -1,8 +1,17 @@
+#header{
+    text-align: center;
+
+    p {
+        font-family: 'Open Sans';
+        line-height: 1.5;
+    }
+}
+
 .main-banner {
     background: url(/assets/img/background.png);
     display: flex;
     vertical-align: bottom;
-    min-height: 50vh;
+    min-height: 55vh;
     background-repeat: no-repeat;
     background-size: 100vw;
     background-attachment: fixed;
@@ -13,16 +22,16 @@
         text-align: center;
         color:#FFF;
         position: absolute;
-        top: 25%;
+        top: 30%;
         left: 50%;
         margin: 0 auto;
+        line-height: 1.5;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     
         .site-title {
-            font-size: 50px;
+            font-size: 3rem;
             display: block;
-            line-height: 1;
             color: #FFF;
     
             @media only screen and (min-width:$cut){
@@ -32,11 +41,10 @@
         }
     
         .site-description {
-            font-size: 20px;
+            font-size: 1.5rem;
             display: block;
-            line-height: 1;
             color: #FFF;
-            margin-top: 10px;
+            margin-top: 1rem;
     
             @media only screen and (min-width:$cut){
                 font-size: 34px;
@@ -47,6 +55,7 @@
 
 .header-icons {
     display: flex;
+    margin-top: 10%;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -61,26 +70,14 @@
         margin: none;
     }
 
-    /*
-    i {
-        display: inline-block;
-        color: #FFF;
-        width: 20px;
-        height: 20px;
-        //line-height: 2em;
-        position: relative;
-        vertical-align: middle;
-    }
-    */
-
     .icon {
         text-align: center;
         color: #FFF;
         width: 20px;
         height: 20px;
         font-size: 20px;
-        padding: 10px;
-        margin: 5px;
+        padding: 0.75rem;
+        margin: 0.5rem;
         border-radius: 50%;
         border: 2px solid #FFF;
         transition: all .5s;
@@ -104,43 +101,52 @@
     }
 }
 
-.down {
-    color: #FFF;
-    position: absolute;
-    bottom: 25px;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    font-size: 30px;
-    line-height: 30px;
-    cursor: pointer;
-    // no borders
-    outline: 0 !important;
-    border: none !important;
-    outline-style: none !important;
-    -moz-outline-style: none !important;
+.about-page{
+    margin: 4rem auto 0;
+    width: 90%;
+    max-width: 1040px;
+    min-height: 40vh;
+    font-family: 'Lora', 'Times New Roman', serif;
+    
+    h1 {
+        margin: 2rem auto;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #343a40;
+    }
 
-    .icon {
-        position: absolute;
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: 100px;
-        height: 100px;
-        fill: #fff;
-        -webkit-animation: pulse 1.3s infinite;
-        animation: pulse 1.3s infinite;
+    .page-description {
+        font-size: 1.25rem;
+        font-weight: 200;
+        background: #eee;
+        padding: 1rem 2rem;
+        border-radius: 0.3rem;
 
-        &:hover {
-          color: $sec;
+        span {
+            color: #343a40; 
+            font-style: italic;
+            font-weight: 500;
         }
+    }
 
-        &:active {
-          color: $sec;
+    .down {
+        color: #343a40;
+        font-size: 3rem;
+        margin: 2rem auto 0;
+        width: 6rem;
+        display: block;
+        cursor: pointer;
+
+        i {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            fill: #fff;
+            -webkit-animation: pulse 1.3s infinite;
+            animation: pulse 1.3s infinite;
+
+            &:hover {
+                color: #cc693c;
+            }
         }
     }
 }
