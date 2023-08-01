@@ -27,11 +27,11 @@
     display: flex;
     flex-wrap:wrap;
     vertical-align: bottom;
-    min-height:50%;
+    //min-height:50%;
     background-repeat: no-repeat;
     background-size: 1024px;
 
-    @media only screen and (min-width:$cut){
+    @media only screen and (min-width:$screen-sm){
         background-size: 100%;
     }
 }
@@ -42,7 +42,7 @@
     line-height: 1.5;
     width: 100%;
 
-    @media only screen and (min-width:$cut){
+    @media only screen and (min-width:$screen-sm){
         margin-top: var(--font-size-lg);
     }
 
@@ -51,19 +51,28 @@
         display: block;
         margin: 0;
 
-        @media only screen and (min-width:$cut){
+        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
             font-size: var(--font-size-lg);
+        }
+
+        @media only screen and (min-width:$screen-lg) {
+            font-size: var(--font-size-ll);
         }
     }
 
     .site-description {
         font-size: 20px;
         display: block;
-        margin-bottom: 24px;
+        margin: 16px auto;
 
-        @media only screen and (min-width:$cut){
+        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
             font-size: calc(5*var(--font-size-md)/6);
-            margin-bottom: var(--font-size-md);
+            margin: var(--font-size-sm) auto;
+        }
+
+        @media only screen and (min-width:$screen-lg) {
+            font-size: var(--font-size-md);
+            margin: var(--font-size-sm) auto;
         }
     }
 }
@@ -71,7 +80,7 @@
 .banner-icons {
     display: block;
     width: 100%;
-    margin-bottom: 40px;
+    margin: 40px auto;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -107,19 +116,25 @@
             background: #FFF;
         }
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
             width: var(--font-size-sm);
             height: var(--font-size-sm);
             font-size: var(--font-size-sm);
-            line-height: var(--font-size-sm);
             padding: var(--font-size-ss);
+        }
+
+        @media only screen and (min-width:$screen-lg) {
+            width: var(--font-size-md);
+            height: var(--font-size-md);
+            font-size: var(--font-size-md);
+            padding: var(--font-size-sm);
         }
     }
 }
 
 .about-page{
     display: relative;
-    margin: 6vh auto;
+    margin: 4vh auto;
     width: 90%;
     max-width: 1024px;
     
@@ -131,7 +146,7 @@
         font-size: 16px;
         font-weight: 200;
         background: #eee;
-        margin: 3vh auto;
+        margin: 2vh auto;
         padding: 8px 16px;
         border-radius: 0.3rem;
 
@@ -141,7 +156,7 @@
             font-weight: 500;
         }
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) {
             font-size: 1.25rem;
             padding: 0.75rem 1.5rem;
         }
@@ -161,7 +176,7 @@
             }
         }
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) {
             font-size: var(--font-size-lg);
             width: var(--font-size-lg);
         }
