@@ -6,7 +6,11 @@
         font-family: 'Open Sans';
         line-height: 1.5;
         margin: 0;
-        font-size: 1.125rem;
+        font-size: 12px;
+
+        @media only screen and (min-width:$cut) {
+            font-size: calc(3*var(--font-size-sm)/4);
+        }
     }
 
     a:-webkit-any-link {
@@ -22,9 +26,9 @@
 }
 
 .main-loc {
-    width: 90%;
+    width: 900px;
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 90rem;
 
     font-weight: 400;
     display: flex;
@@ -34,30 +38,39 @@
 
     .loc-table {
         flex: 1 1 0;
-        border-spacing: 2.375rem 2rem;
+        border-spacing: 24px;
         table-layout: fixed;
         width: 100%;
 
         th {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: var(--font-size-sm);
             color: #343a40;
+        }
+
+        @media only screen and (min-width: $cut) {
+            border-spacing: var(--font-size-md);
         }
     }
 
     svg {
         width: auto;
-        height: 200px !important;
-        margin: 0 1rem;
+        height: 128px;
+        margin: 0 12px;
+
+        @media only screen and (min-width: $cut) {
+            height: var(--img-size-md);
+            margin: 0 var(--font-size-sm);
+        }
 
         image {
             width: auto;
-            height: 200px;
+            height:100%;
         }
     }
 
     @media only screen and (min-width: $cut) {
-        width: 80%;
+        width: 90%;
         flex-wrap: nowrap;
     }
 }
