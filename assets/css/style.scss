@@ -11,6 +11,11 @@
     --font-size-ss: clamp(0.5rem, 0.75vw, 0.75rem); // 8 ~ 12
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 @import 'vars';
 @import "footer";
 @import "header";

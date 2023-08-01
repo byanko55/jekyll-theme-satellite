@@ -1,5 +1,4 @@
 #contents{
-    font-family: 'Lora', 'Times New Roman', serif;
     text-align: center;
 
     p {
@@ -43,6 +42,7 @@
         width: 100%;
 
         th {
+            font-family: 'Lora', 'Times New Roman', serif;
             text-align: center;
             font-size: var(--font-size-sm);
             color: #343a40;

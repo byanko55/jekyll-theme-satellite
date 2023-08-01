@@ -1,60 +1,77 @@
 #header{
-    text-align: center;
+    text-align: center !important;
+    align-items: center !important;
 
     p {
         font-family: 'Open Sans';
-        line-height: 1.5;
     }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        color:#FFF;
+    }
+
+    h2 {
+        font-family: 'Lora', 'Times New Roman', serif;
+        font-weight: 600;
+        color: #343a40;
+    }
+}
+
+.header {
+    height: 100vh !important;
 }
 
 .main-banner {
     background: url(/assets/img/background.png);
     display: flex;
+    flex-wrap:wrap;
     vertical-align: bottom;
-    min-height: 50vh;
+    min-height:50%;
     background-repeat: no-repeat;
-    background-size: 100vw;
-    background-attachment: fixed;
+    background-size: 1024px;
 
-    .header {
-        font-family: 'Montserrat', sans-serif;
-        z-index: 1;
-        text-align: center;
-        color:#FFF;
-        margin: 40px auto;
-        line-height: 1.5;
+    @media only screen and (min-width:$cut){
+        background-size: 100%;
+    }
+}
+
+.title {
+    z-index: 1;
+    margin-top: 40px;
+    line-height: 1.5;
+    width: 100%;
+
+    @media only screen and (min-width:$cut){
+        margin-top: var(--font-size-lg);
+    }
+
+    .site-owner {
+        font-size: 40px;
+        display: block;
+        margin: 0;
 
         @media only screen and (min-width:$cut){
-            margin: var(--font-size-lg) auto;
+            font-size: var(--font-size-lg);
         }
-    
-        .site-title {
-            font-size: 40px;
-            display: block;
-            color: #FFF;
-    
-            @media only screen and (min-width:$cut){
-                margin: 0;
-                font-size: var(--font-size-lg);
-            }
-        }
-    
-        .site-description {
-            font-size: 20px;
-            margin-bottom: 24px;
-            display: block;
-            color: #FFF;
-    
-            @media only screen and (min-width:$cut){
-                font-size: calc(5*var(--font-size-md)/6);
-                margin-bottom: var(--font-size-md);
-            }
+    }
+
+    .site-description {
+        font-size: 20px;
+        display: block;
+        margin-bottom: 24px;
+
+        @media only screen and (min-width:$cut){
+            font-size: calc(5*var(--font-size-md)/6);
+            margin-bottom: var(--font-size-md);
         }
     }
 }
 
-.header-icons {
-    display: flex;
+.banner-icons {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -69,7 +86,6 @@
     }
 
     .icon {
-        text-align: center;
         color: #FFF;
         width: 16px;
         height: 16px;
@@ -79,6 +95,7 @@
         border-radius: 50%;
         border: 2px solid #FFF;
         transition: all .5s;
+        display: inline-block;
 
         &:hover {
             color: $main;
@@ -101,26 +118,20 @@
 }
 
 .about-page{
-    margin: 24px auto 0;
+    display: relative;
+    margin: 40px auto;
     width: 90%;
     max-width: 1024px;
-    max-height: 50vh;
-    font-family: 'Lora', 'Times New Roman', serif;
-
-    @media only screen and (min-width:$cut) {
-        margin-top: var(--font-size-md);
-    }
     
-    h1 {
+    h2 {
         font-size: 2rem;
-        font-weight: 600;
-        color: #343a40;
     }
 
     .page-description {
         font-size: 16px;
         font-weight: 200;
         background: #eee;
+        margin: 16px auto;
         padding: 8px 16px;
         border-radius: 0.3rem;
 
@@ -132,6 +143,7 @@
 
         @media only screen and (min-width:$cut) {
             font-size: 1.25rem;
+            margin: var(--font-size-sm) auto;
             padding: 0.75rem 1.5rem;
         }
     }
@@ -139,7 +151,7 @@
     .down {
         color: #343a40;
         font-size: 40px;
-        margin: 16px auto 0;
+        margin: auto;
         width: 40px;
         display: block;
         cursor: pointer;
@@ -152,7 +164,6 @@
 
         @media only screen and (min-width:$cut) {
             font-size: var(--font-size-lg);
-            margin-top: var(--font-size-sm);
             width: var(--font-size-lg);
         }
     }
