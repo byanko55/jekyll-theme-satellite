@@ -1,5 +1,4 @@
 #contents{
-    font-family: 'Lora', 'Times New Roman', serif;
     text-align: center;
 
     p {
@@ -8,7 +7,7 @@
         margin: 0;
         font-size: 12px;
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) {
             font-size: calc(3*var(--font-size-sm)/4);
         }
     }
@@ -38,29 +37,28 @@
 
     .loc-table {
         flex: 1 1 0;
-        border-spacing: 24px;
+        border-spacing: 0 24px;
         table-layout: fixed;
         width: 100%;
 
         th {
+            font-family: 'Lora', 'Times New Roman', serif;
             text-align: center;
             font-size: var(--font-size-sm);
             color: #343a40;
         }
 
-        @media only screen and (min-width: $cut) {
+        @media only screen and (min-width: $screen-sm) {
             border-spacing: var(--font-size-md);
         }
     }
 
     svg {
         width: auto;
-        height: 128px;
-        margin: 0 12px;
+        height: 144px;
 
-        @media only screen and (min-width: $cut) {
+        @media only screen and (min-width: $screen-sm) {
             height: var(--img-size-md);
-            margin: 0 var(--font-size-sm);
         }
 
         image {
@@ -69,7 +67,7 @@
         }
     }
 
-    @media only screen and (min-width: $cut) {
+    @media only screen and (min-width: $screen-sm) {
         width: 90%;
         flex-wrap: nowrap;
     }

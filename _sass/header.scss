@@ -1,63 +1,97 @@
 #header{
-    text-align: center;
+    text-align: center !important;
+    align-items: center !important;
 
     p {
         font-family: 'Open Sans';
-        line-height: 1.5;
     }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        color:#FFF;
+    }
+
+    h2 {
+        font-family: 'Lora', 'Times New Roman', serif;
+        font-weight: 600;
+        color: #343a40;
+    }
+}
+
+.header {
+    height: 100vh !important;
 }
 
 .main-banner {
     background: url(/assets/img/background.png);
     display: flex;
+    flex-wrap:wrap;
     vertical-align: bottom;
-    min-height: 50vh;
+    //min-height:50%;
     background-repeat: no-repeat;
-    background-size: 100vw;
-    background-attachment: fixed;
+    background-size: 1024px;
 
-    .header {
-        font-family: 'Montserrat', sans-serif;
-        z-index: 1;
-        text-align: center;
-        color:#FFF;
-        margin: 40px auto;
-        line-height: 1.5;
+    @media only screen and (min-width:$screen-sm){
+        background-size: 100%;
+    }
+}
 
-        @media only screen and (min-width:$cut){
-            margin: var(--font-size-lg) auto;
+.title {
+    z-index: 1;
+    margin: 24px auto;
+    line-height: 1.5;
+    width: 100%;
+
+    @media only screen and (min-width:$screen-lg){
+        margin: var(--font-size-md) auto;
+    }
+
+    .site-owner {
+        font-size: 40px;
+        display: block;
+        margin: 0;
+
+        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+            font-size: var(--font-size-lg);
         }
-    
-        .site-title {
-            font-size: 40px;
-            display: block;
-            color: #FFF;
-    
-            @media only screen and (min-width:$cut){
-                margin: 0;
-                font-size: var(--font-size-lg);
-            }
+
+        @media only screen and (min-width:$screen-lg) {
+            font-size: var(--font-size-ll);
         }
-    
-        .site-description {
-            font-size: 16px;
-            margin-bottom: 24px;
-            display: block;
-            color: #FFF;
-    
-            @media only screen and (min-width:$cut){
-                font-size: var(--font-size-sm);
-                margin-bottom: var(--font-size-md);
-            }
+    }
+
+    .site-description {
+        font-size: 20px;
+        display: block;
+        margin: 16px auto;
+
+        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+            font-size: calc(5*var(--font-size-md)/6);
+            margin: var(--font-size-sm) auto;
+        }
+
+        @media only screen and (min-width:$screen-lg) {
+            font-size: var(--font-size-md);
+            margin: var(--font-size-sm) auto;
         }
     }
 }
 
-.header-icons {
-    display: flex;
+.banner-icons {
+    display: block;
+    width: 100%;
+    margin: 24px auto;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+        margin: var(--font-size-md) auto;
+    }
+
+    @media only screen and (min-width:$screen-lg) {
+        margin: var(--font-size-lg) auto;
+    }
 
     a {
         outline: 0 !important;
@@ -69,7 +103,6 @@
     }
 
     .icon {
-        text-align: center;
         color: #FFF;
         width: 16px;
         height: 16px;
@@ -79,6 +112,7 @@
         border-radius: 50%;
         border: 2px solid #FFF;
         transition: all .5s;
+        display: inline-block;
 
         &:hover {
             color: $main;
@@ -90,37 +124,37 @@
             background: #FFF;
         }
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
             width: var(--font-size-sm);
             height: var(--font-size-sm);
             font-size: var(--font-size-sm);
-            line-height: var(--font-size-sm);
             padding: var(--font-size-ss);
+        }
+
+        @media only screen and (min-width:$screen-lg) {
+            width: var(--font-size-md);
+            height: var(--font-size-md);
+            font-size: var(--font-size-md);
+            padding: var(--font-size-sm);
         }
     }
 }
 
 .about-page{
-    margin: 24px auto 0;
+    display: relative;
+    margin: 4vh auto;
     width: 90%;
     max-width: 1024px;
-    min-height: 50vh;
-    font-family: 'Lora', 'Times New Roman', serif;
-
-    @media only screen and (min-width:$cut) {
-        margin-top: var(--font-size-md);
-    }
     
-    h1 {
+    h2 {
         font-size: 2rem;
-        font-weight: 600;
-        color: #343a40;
     }
 
     .page-description {
         font-size: 16px;
         font-weight: 200;
         background: #eee;
+        margin: 2vh auto;
         padding: 8px 16px;
         border-radius: 0.3rem;
 
@@ -130,7 +164,7 @@
             font-weight: 500;
         }
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) {
             font-size: 1.25rem;
             padding: 0.75rem 1.5rem;
         }
@@ -139,7 +173,7 @@
     .down {
         color: #343a40;
         font-size: 40px;
-        margin: 16px auto 0;
+        margin: auto;
         width: 40px;
         display: block;
         cursor: pointer;
@@ -150,9 +184,8 @@
             }
         }
 
-        @media only screen and (min-width:$cut) {
+        @media only screen and (min-width:$screen-sm) {
             font-size: var(--font-size-lg);
-            margin-top: var(--font-size-sm);
             width: var(--font-size-lg);
         }
     }

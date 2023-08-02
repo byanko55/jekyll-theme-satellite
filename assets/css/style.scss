@@ -2,13 +2,18 @@
 ---
 
 :root{
-    --img-size-md: clamp(8rem, 12vw, 12rem);
+    --img-size-md: clamp(9rem, 13.5vw, 13.5rem);
 
     --font-size-ll: clamp(4rem, 6vw, 6rem); // 64 ~ 96
     --font-size-lg: clamp(2.5rem, 3.75vw, 3.75rem); // 40 ~ 60
     --font-size-md: clamp(1.5rem, 2.25vw, 2.25rem); // 24 ~ 36
     --font-size-sm: clamp(1rem, 1.5vw, 1.5rem); // 16 ~ 24
     --font-size-ss: clamp(0.5rem, 0.75vw, 0.75rem); // 8 ~ 12
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
 @import 'vars';
