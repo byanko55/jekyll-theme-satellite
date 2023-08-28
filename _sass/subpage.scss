@@ -1,0 +1,22 @@
+.leftbar {
+    position: relative;
+    display: inline-block;
+    direction: rtl;
+    height: 100%;
+    margin-right: 3rem;
+    width: 2rem;
+    bottom: 0px;
+    left:1rem;
+}
+
+.home-logo {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    position: absolute;
+}
+
+.leftbar p {
+    font-size: 30px;
+    color: aqua;
+}
