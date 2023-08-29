@@ -31,7 +31,7 @@
     background-repeat: no-repeat;
     background-size: 1024px;
 
-    @media only screen and (min-width:$screen-sm){
+    @include mq(desktop){
         background-size: 100%;
     }
 }
@@ -42,7 +42,7 @@
     line-height: 1.5;
     width: 100%;
 
-    @media only screen and (min-width:$screen-lg){
+    @include mq(wide){
         margin: var(--font-size-md) auto;
     }
 
@@ -51,11 +51,11 @@
         display: block;
         margin: 0;
 
-        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+        @include mq(desktop){
             font-size: var(--font-size-lg);
         }
 
-        @media only screen and (min-width:$screen-lg) {
+        @include mq(wide){
             font-size: var(--font-size-ll);
         }
     }
@@ -65,12 +65,12 @@
         display: block;
         margin: 16px auto;
 
-        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+        @include mq(desktop){
             font-size: calc(5*var(--font-size-md)/6);
             margin: var(--font-size-sm) auto;
         }
 
-        @media only screen and (min-width:$screen-lg) {
+        @include mq(wide){
             font-size: var(--font-size-md);
             margin: var(--font-size-sm) auto;
         }
@@ -85,11 +85,11 @@
     align-items: center;
     text-align: center;
 
-    @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+    @include mq(desktop){
         margin: var(--font-size-md) auto;
     }
 
-    @media only screen and (min-width:$screen-lg) {
+    @include mq(wide){
         margin: var(--font-size-lg) auto;
     }
 
@@ -124,14 +124,14 @@
             background: #FFF;
         }
 
-        @media only screen and (min-width:$screen-sm) and (max-width:$screen-lg) {
+        @include mq(desktop){
             width: var(--font-size-sm);
             height: var(--font-size-sm);
             font-size: var(--font-size-sm);
             padding: var(--font-size-ss);
         }
 
-        @media only screen and (min-width:$screen-lg) {
+        @include mq(wide){
             width: var(--font-size-md);
             height: var(--font-size-md);
             font-size: var(--font-size-md);
@@ -164,7 +164,7 @@
             font-weight: 500;
         }
 
-        @media only screen and (min-width:$screen-sm) {
+        @include mq(desktop){
             font-size: 1.25rem;
             padding: 0.75rem 1.5rem;
         }
@@ -184,7 +184,7 @@
             }
         }
 
-        @media only screen and (min-width:$screen-sm) {
+        @include mq(desktop){
             font-size: var(--font-size-lg);
             width: var(--font-size-lg);
         }
