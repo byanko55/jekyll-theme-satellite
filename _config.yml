@@ -18,28 +18,40 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Pyronet
+title: Pyro-Maniac
 email: yankos001@gmail.com
 linkedin_username: yankos001
 description: Research staff in Network & System Security
 about_description: With my expertise in network and cyber security, I've set up this open page and shared a wealth of resources, including network traffic dataset, tutorials, research papers, and even some of my repositories that I've developed so far. All these materials can be downloaded and configured for personal and business use alike.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
-username: Pyromaniac
+username: Pyro-Maniac
 github_username: lilpyro
 
 # Build settings
-# theme: minima
+theme: minima
 plugins:
   - jekyll-feed
 
 defaults:
   -
     scope:
+      path: "toolkits"
+      type: "pages"
+    values:
+      layout: "toolkits"
+  -
+    scope:
+      path: "datasets"
+      type: "pages"
+    values:
+      layout: "datasets"
+  -
+    scope:
       path: "blog"
       type: "pages"
     values:
-      layout: "subpage"
+      layout: "blog"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
