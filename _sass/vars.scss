@@ -1,5 +1,17 @@
 $main: #1a222c;
 $sec: #4B5664;
-$purple: #54516A;
+$color-purple: #54516A;
+$color-beige: #F1EBE5;
+$color-brown: #3A241A;
+$color-orange: #E49D14;
 $screen-sm: 1024px;
 $screen-lg: 1600px;
+$sidebar-wd: 16rem;
+$content-wd: 51.5rem;
+
+$media-wd: (
+  mobile: 20rem, // 320px
+  tablet: 48rem, // 768px
+  desktop: 67.5rem, // 1080px
+  wide: 100rem, // 1600px
+) !default;
