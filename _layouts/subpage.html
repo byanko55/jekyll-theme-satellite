@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link href="https://fonts.cdnfonts.com/css/guerrilla" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel="preload" href="{{ '/assets/img/favicon.webp' }}" as="image">
+
+        <title>
+            {% if page.title %}{{ page.title }}
+            {% else %}{{ site.title }}
+            {% endif %}
+        </title>
+
+        <meta
+        name="description"
+        content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+        <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.webp' }}">
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
+        <style>
+            .thumbnail {
+                background-image: url("{{ '/assets/img/thumbnail/' }}{{ page.thumbnail }}");
+            }
+        </style>
+
+        <link rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
+        <script src="{{ '/assets/js/highlight.min.js' }}"></script>
+        <script>hljs.highlightAll();</script>
+        <script src="{{ '/assets/js/subpage.js' | prepend: site.baseurl }}"></script>
+    </head>
+    <body>
+        {% include sidebar.html %}
+        <div class="inner-content">
+            <div class="post-header">
+                {% if page.thumbnail %}
+                    <div class="thumbnail">
+                        <div class="transbox">
+                            {% if page.title %}
+                                <h1 class="post-title">{{ page.title }} &#128395;</h1>
+                            {% endif %}
+                            <div class="post-info">
+                                <a class="link-category">
+                                    {% if page.parent %}
+                                        {{ page.parent }}
+                                    {% else %}
+                                        None
+                                    {% endif %}
+                                </a>
+                                <span class="post-date">
+                                    {% if page.title %}
+                                        · {{ page.date }}
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <main>
+                {{ content }}
+            </main>
+        </div>
+    </body>
+</html>
