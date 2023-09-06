@@ -1,7 +1,7 @@
 ---
 layout: subpage
 title: "Home"
-theme: datasets
+theme: blog
 ---
 
 # To be updated
