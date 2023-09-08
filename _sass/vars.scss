@@ -2,12 +2,23 @@ $main: #1a222c;
 $sec: #4B5664;
 $color-purple: #54516A;
 $color-beige: #F1EBE5;
+$color-darkbeige: #c6b598;
 $color-brown: #3A241A;
 $color-orange: #E49D14;
+$color-darkorange: #C65102;
+$color-blue: #2c84fa;
+$color-lightgrey: #cccccc;
+$color-darkgrey: #333;
+$color-grey: #5c5962;
+$color-lightgrey: #e0e0e0;
+$color-rose: #fa4251;
+$feedback-color: darken(#ebe3db, 3%);
 $screen-sm: 1024px;
 $screen-lg: 1600px;
 $sidebar-wd: 16rem;
 $content-wd: 51.5rem;
+$line-space-lg: 3rem;
+$line-space-sm: 1.5rem;
 
 $media-wd: (
   mobile: 20rem, // 320px
