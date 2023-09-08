@@ -13,16 +13,15 @@ $color-grey: #5c5962;
 $color-lightgrey: #e0e0e0;
 $color-rose: #fa4251;
 $feedback-color: darken(#ebe3db, 3%);
-$screen-sm: 1024px;
-$screen-lg: 1600px;
-$sidebar-wd: 16rem;
-$content-wd: 51.5rem;
+$leftbar-wd: 14rem;
+$content-wd: 50rem;
+$rightbar-wd: 20rem;
 $line-space-lg: 3rem;
 $line-space-sm: 1.5rem;
 
 $media-wd: (
   mobile: 20rem, // 320px
   tablet: 48rem, // 768px
-  desktop: 67.5rem, // 1080px
-  wide: 100rem, // 1600px
+  desktop: 64rem, // 1024px
+  wide: 90rem, // 1440px
 ) !default;
