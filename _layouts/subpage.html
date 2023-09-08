@@ -33,40 +33,42 @@
 
         <link rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
         <script src="{{ '/assets/js/highlight.min.js' }}"></script>
-        <script>hljs.highlightAll();</script>
-        <script src="{{ '/assets/js/subpage.js' | prepend: site.baseurl }}"></script>
+        <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
     </head>
     <body>
         {% include sidebar.html %}
-        <div class="inner-content">
-            <div class="post-header">
-                {% if page.thumbnail %}
-                    <div class="thumbnail">
-                        <div class="transbox">
-                            {% if page.title %}
-                                <h1 class="post-title">{{ page.title }} &#128395;</h1>
-                            {% endif %}
-                            <div class="post-info">
-                                <a class="link-category">
-                                    {% if page.parent %}
-                                        {{ page.parent }}
-                                    {% else %}
-                                        None
-                                    {% endif %}
-                                </a>
-                                <span class="post-date">
-                                    {% if page.title %}
-                                        · {{ page.date }}
-                                    {% endif %}
-                                </span>
+        <div class="post">
+            <div class="inner-content">
+                <div class="post-header">
+                    {% if page.thumbnail %}
+                        <div class="thumbnail">
+                            <div class="transbox">
+                                {% if page.title %}
+                                    <span class="post-title">{{ page.title }} &#128395;</span>
+                                {% endif %}
+                                <div class="post-info">
+                                    <a class="link-category">
+                                        {% if page.parent %}
+                                            {{ page.parent }}
+                                        {% else %}
+                                            None
+                                        {% endif %}
+                                    </a>
+                                    <span class="post-date">
+                                        {% if page.title %}
+                                            · {{ page.date }}
+                                        {% endif %}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
+                </div>
+                <main>
+                    {{ content }}
+                </main>
             </div>
-            <main>
-                {{ content }}
-            </main>
         </div>
     </body>
+    <script src="{{ '/assets/js/subpage.js' }}"></script>
 </html>

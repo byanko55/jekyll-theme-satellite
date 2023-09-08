@@ -1,22 +1,30 @@
-.inner-content {
-    padding: 2rem;
-
+.post {
     @include mq(tablet){
         position: relative;
         max-width: $content-wd;
-        margin-left: $sidebar-wd;
+        margin-left: $leftbar-wd;
     }
 
     @include mq(desktop){
         margin-left: Max(
-            #{$sidebar-wd},
-            calc(#{$sidebar-wd} + (100vw - #{$sidebar-wd + $content-wd})/3)
+            #{$leftbar-wd},
+            calc(#{$leftbar-wd} + 3*(100vw - #{$leftbar-wd + $content-wd})/13)
         );
     }
+
+    @include mq(wide){
+        margin-left: calc((100vw - #{$content-wd})/2);
+    }
+}
+
+.inner-content {
+    margin: auto 1.5rem;
 
     img {
         display: block;
         text-align: center;
+        max-width: 100%;
+        margin: auto;
     }
 
     .thumbnail {
@@ -77,25 +85,21 @@ main {
     font-size: 1.125rem;
     font-family: 'Noto Sans KR', sans-serif;
 
-    h1, h2, h3, h4 {
+    h1, h2, h3 {
         font-family: "Helvetica";
         padding-bottom: 0.5rem;
         margin: $line-space-lg auto 0 auto;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     h3 {
-        font-size: 1.625rem;
-    }
-
-    h4 {
         font-size: 1.375rem;
     }
 
@@ -209,7 +213,6 @@ main {
 
         tbody tr {
             height: 3rem;
-            //border-bottom: 1px solid $color-lightgrey;
         }
 
         tbody td {
