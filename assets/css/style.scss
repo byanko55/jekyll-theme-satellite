@@ -2,13 +2,14 @@
 ---
 
 :root{
-    --img-size-md: clamp(9rem, 13.5vw, 13.5rem);
+    --img-size-md: clamp(7.5rem, 12vw, 15rem);
 
-    --font-size-ll: clamp(4rem, 6vw, 6rem); // 64 ~ 96
-    --font-size-lg: clamp(2.5rem, 3.75vw, 3.75rem); // 40 ~ 60
-    --font-size-md: clamp(1.5rem, 2.25vw, 2.25rem); // 24 ~ 36
-    --font-size-sm: clamp(1rem, 1.5vw, 1.5rem); // 16 ~ 24
-    --font-size-ss: clamp(0.5rem, 0.75vw, 0.75rem); // 8 ~ 12
+    --font-size-xxl: clamp(5rem, 8vw, 10rem); // 80 ~ 160
+    --font-size-xl: clamp(3.75rem, 6vw, 7.5rem); // 60 ~ 120
+    --font-size-lg: clamp(2.5rem, 4vw, 5rem); // 40 ~ 80
+    --font-size-md: clamp(1.5625rem, 2.5vw, 3.125rem); // 25 ~ 50
+    --font-size-sm: clamp(0.9375rem, 1.5vw, 1.875rem); // 15 ~ 30
+    --font-size-xs: clamp(0.625rem, 1vw, 1.25rem); // 10 ~ 20
 }
 
 html, body {
@@ -20,6 +21,7 @@ html, body {
 @import 'layout';
 @import "footer";
 @import "header";
+@import "about";
 @import "contents";
 
 @import "subpage";
