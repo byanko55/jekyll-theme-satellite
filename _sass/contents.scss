@@ -1,5 +1,7 @@
 #contents{
     text-align: center;
+    min-height: 320px;
+    height: calc(28.125vw - 3.75rem);
 
     p {
         font-family: 'Open Sans';
@@ -37,9 +39,10 @@
 
     .loc-table {
         flex: 1 1 0;
-        border-spacing: 0 24px;
+        border-spacing: 0 calc(3*var(--font-size-sm)/4);
         table-layout: fixed;
         width: 100%;
+        margin: 0 auto;
 
         th {
             font-family: 'Lora', 'Times New Roman', serif;
@@ -47,19 +50,11 @@
             font-size: var(--font-size-sm);
             color: #343a40;
         }
-
-        @include mq(desktop){
-            border-spacing: var(--font-size-md);
-        }
     }
 
     svg {
         width: auto;
-        height: 144px;
-
-        @include mq(desktop){
-            height: var(--img-size-md);
-        }
+        height: var(--img-size-md);
 
         image {
             width: auto;

@@ -10,88 +10,52 @@
         font-family: 'Montserrat', sans-serif;
         color:#FFF;
     }
-
-    h2 {
-        font-family: 'Lora', 'Times New Roman', serif;
-        font-weight: 600;
-        color: #343a40;
-    }
-}
-
-.header {
-    height: 100vh !important;
 }
 
 .main-banner {
-    background: url(/assets/img/background.png);
+    background: url(/assets/img/background.webp);
     display: flex;
     flex-wrap:wrap;
     vertical-align: bottom;
-    //min-height:50%;
+    min-height:288px;
     background-repeat: no-repeat;
     background-size: 1024px;
 
     @include mq(desktop){
+        height: 28.125vw;
         background-size: 100%;
     }
 }
 
 .title {
     z-index: 1;
-    margin: 24px auto;
-    line-height: 1.5;
+    margin: var(--font-size-md) auto var(--font-size-xl) auto;
     width: 100%;
 
-    @include mq(wide){
-        margin: var(--font-size-md) auto;
+    h1 {
+        margin: 0 auto;
     }
 
     .site-owner {
-        font-size: 40px;
+        font-size: calc(5*var(--font-size-lg)/4);
         display: block;
         margin: 0;
-
-        @include mq(desktop){
-            font-size: var(--font-size-lg);
-        }
-
-        @include mq(wide){
-            font-size: var(--font-size-ll);
-        }
     }
 
     .site-description {
-        font-size: 20px;
+        font-size: calc(4*var(--font-size-md)/5);
         display: block;
-        margin: 16px auto;
-
-        @include mq(desktop){
-            font-size: calc(5*var(--font-size-md)/6);
-            margin: var(--font-size-sm) auto;
-        }
-
-        @include mq(wide){
-            font-size: var(--font-size-md);
-            margin: var(--font-size-sm) auto;
-        }
+        margin: var(--font-size-sm) auto 0 auto;
     }
 }
 
 .banner-icons {
     display: block;
     width: 100%;
-    margin: 24px auto;
+    margin: 0 auto var(--font-size-sm) auto;
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    @include mq(desktop){
-        margin: var(--font-size-md) auto;
-    }
-
-    @include mq(wide){
-        margin: var(--font-size-lg) auto;
-    }
 
     a {
         outline: 0 !important;
@@ -104,11 +68,11 @@
 
     .icon {
         color: #FFF;
-        width: 16px;
-        height: 16px;
-        font-size: 16px;
-        padding: 8px;
-        margin: 0.5rem;
+        width: var(--font-size-sm);
+        height: var(--font-size-sm);
+        font-size: var(--font-size-sm);
+        padding: var(--font-size-xs);
+        margin: 0 var(--font-size-xs);
         border-radius: 50%;
         border: 2px solid #FFF;
         transition: all .5s;
@@ -122,71 +86,6 @@
         &:active {
             color: $main;
             background: #FFF;
-        }
-
-        @include mq(desktop){
-            width: var(--font-size-sm);
-            height: var(--font-size-sm);
-            font-size: var(--font-size-sm);
-            padding: var(--font-size-ss);
-        }
-
-        @include mq(wide){
-            width: var(--font-size-md);
-            height: var(--font-size-md);
-            font-size: var(--font-size-md);
-            padding: var(--font-size-sm);
-        }
-    }
-}
-
-.about-page{
-    display: relative;
-    margin: 4vh auto;
-    width: 90%;
-    max-width: 1024px;
-    
-    h2 {
-        font-size: 2rem;
-    }
-
-    .page-description {
-        font-size: 16px;
-        font-weight: 200;
-        background: #eee;
-        margin: 2vh auto;
-        padding: 8px 16px;
-        border-radius: 0.3rem;
-
-        span {
-            color: #343a40; 
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        @include mq(desktop){
-            font-size: 1.25rem;
-            padding: 0.75rem 1.5rem;
-        }
-    }
-
-    .down {
-        color: #343a40;
-        font-size: 40px;
-        margin: auto;
-        width: 40px;
-        display: block;
-        cursor: pointer;
-
-        i {
-            &:hover {
-                color: #cc693c;
-            }
-        }
-
-        @include mq(desktop){
-            font-size: var(--font-size-lg);
-            width: var(--font-size-lg);
         }
     }
 }
