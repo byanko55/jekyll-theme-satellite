@@ -2,6 +2,32 @@ document.addEventListener('DOMContentLoaded', function(){
     // code highlighter
     hljs.highlightAll();
 
+    // navigation (mobile)
+    var siteNav = document.querySelector('#site-nav');
+    var menuButton = document.querySelector("#open-nav");
+
+    menuButton.addEventListener('click', function() {
+        if (menuButton.classList.toggle('nav-open')) {
+            siteNav.classList.add('nav-open');
+        } else {
+            siteNav.classList.remove('nav-open');
+        }
+    });
+
+    // navigation (toogle sub-category)
+    document.addEventListener('click', function(e){
+        var target = e.target;
+
+        while (target && !(target.classList && target.classList.contains('nav-list-expander'))) {
+            target = target.parentNode;
+        }
+
+        if (target) {
+            e.preventDefault();
+            target.ariaPressed = target.parentNode.classList.toggle('active');
+        }
+    });
+
     // tocbot
     var content = document.querySelector('.inner-content');
     var headings = content.querySelectorAll('h1, h2');
