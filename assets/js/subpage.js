@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // navigation (toogle sub-category)
+    document.addEventListener('click', function(e){
+        var target = e.target;
+
+        while (target && !(target.classList && target.classList.contains('nav-list-expander'))) {
+            target = target.parentNode;
+        }
+
+        if (target) {
+            e.preventDefault();
+            target.ariaPressed = target.parentNode.classList.toggle('active');
+        }
+    });
+
     // tocbot
     var content = document.querySelector('.inner-content');
     var headings = content.querySelectorAll('h1, h2');

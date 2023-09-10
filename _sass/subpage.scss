@@ -171,7 +171,7 @@
             height: 3rem;
             padding: 0.75rem;
             background-color: $color-beige;
-            color: $color-brown;
+            color: $color-grey;
             border: none;
     
             @include mq(tablet) {
@@ -190,7 +190,6 @@
     
             i {
                 font-size:24px;
-                //transform: rotate(90deg);
             }
         }
   
@@ -205,18 +204,12 @@
                 .nav-list-link {
                     color: $color-grey;
                 }
-                
-                /*
-                .nav-list-expander {
-                    color: $color-grey;
-                }
-                */
             }
         }
   
         &.active {
-            > .nav-list-expander svg {
-                transform: rotate(-90deg);
+            > .nav-list-expander i {
+                transform: rotate(180deg);
             }
 
             > .nav-list {

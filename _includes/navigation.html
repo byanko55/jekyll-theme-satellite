@@ -33,7 +33,7 @@
                 <li class="nav-list-item">
                 {%- if child.has_children -%}
                 <button class="nav-list-expander" id="btn-reset" aria-label="toggle items in {{ child.title }} category" aria-pressed="false">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+                    <i class="fa fa-angle-down"></i>
                 </button>
                 {%- endif -%}
                 <a href="{{ child.url | relative_url }}" class="nav-list-link">{{ child.title }}</a>
