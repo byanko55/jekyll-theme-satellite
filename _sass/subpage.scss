@@ -1,7 +1,11 @@
 .sidebar {
-    position: fixed;
+    //position: fixed;
     z-index: 0;
     flex-wrap: wrap;
+
+    @include mq(tablet){
+        position: fixed;
+    }
 }
 
 .sidebar-left {
@@ -29,10 +33,10 @@
 .side-banner {
     width: 100%;
     text-align:center;
-    padding-top: 1rem;
 
     @include mq(tablet){
         width: $leftbar-wd;
+        padding-top: 1rem;
     }
 
     .site-avatar {
@@ -55,7 +59,7 @@
     }
 
     .site-name {
-        margin:1rem auto;
+        margin:0.8rem auto;
         cursor: pointer;
         font-family: 'GUERRILLA', sans-serif;
         font-weight: 700;
@@ -79,8 +83,8 @@
         border: 0;
         width: 4rem;
         height: 4rem;
-        top: 2px;
-        right: 4rem;
+        top: 0px;
+        right: 0;
         font-size: 1.5rem;
         color: $color-brown;
 
@@ -99,6 +103,10 @@
     flex: 1 1 auto;
     overflow-y: auto;
     width: 100%;
+
+    &.nav-open {
+        display: block;
+    }
 
     @include mq(tablet){
         display: block;
@@ -128,15 +136,14 @@
         }
   
         .nav-list-link {
-            display: block;
+            display: flex;
             min-height: 3rem;
-            padding: 0.25rem 1rem 0.25rem 3rem;
-            line-height: 2.5rem;
+            align-items: center;
+            padding-right: 2rem;
+            padding-left: 1rem;
   
             @include mq(tablet) {
                 min-height: 2rem;
-                padding-right: 2rem;
-                padding-left: 2rem;
             }
     
             &.active {
@@ -156,18 +163,21 @@
         }
   
         .nav-list-expander {
+            display: inline-block;
             position: absolute;
             right: 0;
     
             width: 3rem;
             height: 3rem;
             padding: 0.75rem;
-            color: $color-blue;
+            background-color: $color-beige;
+            color: $color-grey;
+            border: none;
     
             @include mq(tablet) {
                 width: 2rem;
                 height: 2rem;
-                padding: 0.5rem;
+                padding: 0.25rem;
             }
   
             &:hover {
@@ -180,7 +190,6 @@
     
             i {
                 font-size:24px;
-                transform: rotate(90deg);
             }
         }
   
@@ -195,18 +204,14 @@
                 .nav-list-link {
                     color: $color-grey;
                 }
-        
-                .nav-list-expander {
-                    color: $color-grey;
-                }
             }
         }
   
         &.active {
-            > .nav-list-expander svg {
-                transform: rotate(-90deg);
+            > .nav-list-expander i {
+                transform: rotate(180deg);
             }
-    
+
             > .nav-list {
                 display: block;
             }
