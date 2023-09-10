@@ -326,3 +326,66 @@
         font-weight:950;
     }
 }
+
+.help_box{
+    position: fixed;
+    top: 40rem;
+    display: block;
+
+    .speech_area {
+        display: block;
+        position: absolute;
+        bottom: 6rem;
+    }
+
+    .speech_area .speech_bubble {
+        background-color: #f4f4f4;
+        border: #b2b2b2 solid 2px;
+        border-radius: 5px;
+        color: #472731;
+        font-size: 0.75rem;
+        font-weight: 600;
+        height: fit-content;
+        letter-spacing: -0.25px;
+        line-height: 200%;
+        padding: 8px;
+        position: relative;
+        width: 8.5rem;
+        white-space: pre-line;
+        z-index: 100;
+    }
+
+    .speech_area .speech_bubble::after {
+        border-color: #f4f4f4 transparent;
+        border-style: solid;
+        border-width: 12px 9px 0px 10px;
+        content: '';
+        display: block;
+        left: 3rem;
+        position: absolute;
+        bottom: -10.5px;
+        width: 0;
+        z-index: 1;
+    }
+
+    .speech_area .speech_bubble::before {
+        border-color: #b2b2b2 transparent;
+        border-style: solid;
+        border-width: 12px 9px 0px 10px;
+        content: '';
+        display: block;
+        left: 3rem;
+        position: absolute;
+        bottom: -12px;
+        width: 0;
+        z-index: 0;
+    }
+
+    .helper_img {
+        width: 5rem;
+        height: 5rem;
+        display: inline-block;
+        bottom: 0px;
+        position: absolute;
+    }
+}
