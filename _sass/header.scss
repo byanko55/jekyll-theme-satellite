@@ -17,12 +17,12 @@
     display: flex;
     flex-wrap:wrap;
     vertical-align: bottom;
-    min-height:288px;
+    min-height:256px;
     background-repeat: no-repeat;
     background-size: 1024px;
 
     @include mq(desktop){
-        height: 28.125vw;
+        height: 25vw;
         background-size: 100%;
     }
 }
@@ -37,7 +37,7 @@
     }
 
     .site-owner {
-        font-size: calc(5*var(--font-size-lg)/4);
+        font-size: var(--font-size-lg);
         display: block;
         margin: 0;
     }
