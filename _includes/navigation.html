@@ -4,7 +4,8 @@
     {%- assign nav_pages = site.pages 
         | where_exp: "item", "item.title != nil"
         | where_exp: "item", "item.theme == page_type"
-        | where_exp: "item", "item.nav_exclude != true" -%}
+        | where_exp: "item", "item.nav_exclude != true"
+        | sort: 'title' -%}
 
     {%- assign first_level_pages = nav_pages
         | where_exp: "item", "item.parent == nil" -%}
