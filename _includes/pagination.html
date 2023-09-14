@@ -1,0 +1,70 @@
+{%- assign page_category = page.url -%}
+{%- assign page_tree = page_category | split: "/" -%}
+{%- assign nav_pages = site.pages -%}
+
+<div class="category_name">
+    <h3 id="category">
+        {% if page_tree.size == 2 %}
+            All Posts
+        {% else %}
+            {%- for sub_tree in page_tree -%}
+                {{ sub_tree }}{% unless forloop.last or forloop.first %} > {% endunless -%}
+            {%- endfor -%}
+        {% endif %}
+    </h3>
+</div>
+<div class="category_list">
+    <ul class="paginated-list" data-current-page="1" aria-live="polite">
+    {%- for sub_page in nav_pages -%}
+        {%- assign checkArray = sub_page.url | split:page_category -%} <!-- check whether the post belongs to the parent category -->
+        {%- assign is_post = sub_page.url | split: ".html" -%} <!-- check whether its URL ends with .html -->
+        {% if checkArray[0] == "" and is_post.size == 1 and is_post[0] != sub_page.url %}
+            <li class="paginated-item">
+                <div class="article_content">
+                    <div class="thumbnail_zone">
+                        {%- assign thumbnail_path = "/assets/img/thumbnail/" | append: sub_page.thumbnail -%}
+                        {% if sub_page.thumbnail == nil %}
+                            {%- assign thumbnail_path = "/assets/img/thumbnail/empty.jpg" -%}
+                        {% endif %}
+                        <a href="{{ sub_page.url }}" class="thumbnail_post" style="background-image:url('{{ thumbnail_path }}') !important"></a>
+                    </div>
+
+                    <div class="box_contents">
+                        <a href="{{ sub_page.url }}" class="title_post">{{ sub_page.title }}</a>
+                        <div class="info_post">
+                            {%- assign parent_category = "None" -%}
+                            {%- assign parent_url = "/blog" -%}
+                            {% if sub_page.grand_parent != nil %}
+                                {%- assign parent_category = sub_page.grand_parent -%}
+                                {%- assign parent_url = "/blog/" | append: sub_page.grand_parent -%}
+                            {% elsif sub_page.parent != nil" %}
+                                {%- assign parent_category = sub_page.parent -%}
+                                {%- assign parent_url = "/blog/" | append: sub_page.parent -%}
+                            {% endif %}
+                            <a href="{{ parent_url }}" class="category">{{ parent_category }}</a>
+                            <span class="date">· {{ sub_page.date }}</span>
+                        </div>
+
+                        <a href="{{ sub_page.url }}" class="txt_post">
+                            {{ sub_page.content | markdownify | strip_html | truncatewords: 20 }}
+                        </a>
+                    </div>
+                </div>
+            </li>
+        {% endif %}
+    {%- endfor -%}
+    </ul>
+</div>
+<div class="pagination">
+    <nav class="pagination-container">
+        <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+            &lt;
+        </button>
+    
+        <div id="pagination-numbers"></div>
+      
+        <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+            &gt;
+        </button>
+    </nav>
+</div>
