@@ -1,0 +1,28 @@
+<div class="post-header">
+    {% if page.thumbnail %}
+        <div class="thumbnail">
+            <div class="transbox">
+                {% if page.title %}
+                    <span class="post-title">{{ page.title }} &#128395;</span>
+                {% endif %}
+                <div class="post-info">
+                    <a class="link-category">
+                        {% if page.parent %}
+                            {{ page.parent }}
+                        {% else %}
+                            None
+                        {% endif %}
+                    </a>
+                    <span class="post-date">
+                        {% if page.title %}
+                            · {{ page.date }}
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+<main>
+    {{ content }}
+</main>
