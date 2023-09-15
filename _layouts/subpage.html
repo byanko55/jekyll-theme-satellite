@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
         <link href="https://fonts.cdnfonts.com/css/guerrilla" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="preload" href="{{ '/assets/img/favicon.webp' }}" as="image">
 
@@ -39,34 +39,13 @@
         {% include sidebar.html %}
         <div class="post">
             <div class="inner-content">
-                <div class="post-header">
-                    {% if page.thumbnail %}
-                        <div class="thumbnail">
-                            <div class="transbox">
-                                {% if page.title %}
-                                    <span class="post-title">{{ page.title }} &#128395;</span>
-                                {% endif %}
-                                <div class="post-info">
-                                    <a class="link-category">
-                                        {% if page.parent %}
-                                            {{ page.parent }}
-                                        {% else %}
-                                            None
-                                        {% endif %}
-                                    </a>
-                                    <span class="post-date">
-                                        {% if page.title %}
-                                            · {{ page.date }}
-                                        {% endif %}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-                <main>
-                    {{ content }}
-                </main>
+                {%- assign page_path = page.path | split: "/" -%}
+                {%- assign page_name = page_path[-1] -%}
+                {% if page_name == "index.md" and page.theme == "blog" %}
+                    {% include pagination.html %}
+                {% else %}
+                    {% include post.html %}
+                {% endif %}
             </div>
         </div>
     </body>

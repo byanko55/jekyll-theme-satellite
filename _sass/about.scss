@@ -1,7 +1,5 @@
 #about{
     display: flex;
-    min-height: 320px;
-    height: calc(100vh - 288px);
     width: 90%;
     max-width: 1024px;
     margin: 0 auto;
@@ -9,9 +7,25 @@
     text-align: center !important;
     align-items: center !important;
     justify-content: center !important;
+    -webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
 
-    @include mq(desktop){
-        height: calc(100vh - 28.125vw);
+    &.open {
+        min-height: 300px;
+        height: calc(100vh - 256px);
+
+        @include mq(desktop){
+            height: calc(100vh - 25vw);
+        }
+    }
+
+    &.fold {
+        min-height: 256px;
+        height: calc(100vh - 300px);
+
+        @include mq(desktop){
+            height: calc(100vh - 28.5vw);
+        }
     }
 }
 
@@ -30,7 +44,7 @@
         font-size: 16px;
         font-weight: 200;
         background: #eee;
-        margin: var(--font-size-sm) auto 0 auto;
+        margin: var(--font-size-sm) auto calc(var(--font-size-sm)/2) auto;
         padding: 0.75rem 1.5rem;
         border-radius: 0.3rem;
 
@@ -46,24 +60,48 @@
     }
 
     .down {
-        color: #343a40;
-        font-size: 3rem;
-        margin: auto;
-        width: 40px;
         display: block;
         cursor: pointer;
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        height: 0;
+        text-align: center;
+        overflow: hidden;
+        margin: 0 auto;
+        padding-top: 1rem;
 
-        i {
-            &:hover {
-                color: #cc693c;
-            }
+        &.btn-open {
+            opacity: 1;
+            height: 2.5rem;
         }
 
-        /*
-        @include mq(desktop){
-            font-size: calc(4*var(--font-size-lg)/5);
-            //width: var(--font-size-lg);
+        span {
+            display: table;
+            width: 1rem;
+            height: 1rem;
+            border-bottom: 0.25rem solid $color-navy;
+            border-right: 0.25rem solid $color-navy;
+            transform: rotate(45deg);
+            margin: -0.625rem auto;
+            animation: animate 2s infinite;
         }
-        */
+
+        span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+    }
+
+    @keyframes animate {
+        0% {
+            opacity: 0;
+            transform: rotate(45deg) translate(-0.625rem, -0.625rem);
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: rotate(45deg) translate(0.625rem, 0.625rem);
+        }
     }
 }

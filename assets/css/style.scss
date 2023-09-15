@@ -18,11 +18,13 @@ html, body {
 }
 
 @import 'vars';
+
 @import 'layout';
 @import "footer";
 @import "header";
 @import "about";
 @import "contents";
+@import "pagination";
+@import "post";
 
 @import "subpage";
-@import "post";

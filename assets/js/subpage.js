@@ -53,55 +53,172 @@ document.addEventListener('DOMContentLoaded', function(){
         hasInnerContainers: false
     });
 
-    $('.toc').addClass('toc-absolute');
-    var toc_top = $('.toc').offset().top - 165;
-    
-    $(window).scroll(function() {
-        if ($(this).scrollTop() >= toc_top) {
-            $('.toc').addClass('toc-fixed');
-            $('.toc').removeClass('toc-absolute');
-        } else {
-            $('.toc').addClass('toc-absolute');
-            $('.toc').removeClass('toc-fixed');
+    // typing effect
+    var category_title = document.querySelector('#category');
+
+    if (category_title) {
+        var raw_text = category_title.innerText;
+        var typing_speed = 50;
+        var i = 0;
+
+        category_title.innerHTML = "";
+
+        function typeWriter() {
+            if (i < raw_text.length) {
+                category_title.innerHTML += raw_text.charAt(i);
+                i++;
+                setTimeout(typeWriter, typing_speed);
+            }
         }
-    });
+
+        typeWriter();
+    }
+
+    // pagination
+    const paginationNumbers = document.querySelector("#pagination-numbers");
+    const paginatedList = document.querySelector(".paginated-list");
+
+    if (paginatedList) {
+        const listItems = paginatedList.querySelectorAll("li");
+        const nextButton = document.querySelector("#next-button");
+        const prevButton = document.querySelector("#prev-button");
+
+        const paginationLimit = 5;
+        const pageCount = Math.ceil(listItems.length / paginationLimit);
+        let currentPage = 1;
+
+        const disableButton = (button) => {
+            button.classList.add("disabled");
+            button.setAttribute("disabled", true);
+        };
+        
+        const enableButton = (button) => {
+            button.classList.remove("disabled");
+            button.removeAttribute("disabled");
+        };
+
+        const handlePageButtonsStatus = () => {
+            if (currentPage === 1) {
+                disableButton(prevButton);
+            } else {
+                enableButton(prevButton);
+            }
+        
+            if (pageCount === currentPage) {
+                disableButton(nextButton);
+            } else {
+                enableButton(nextButton);
+            }
+        };
+
+        const handleActivePageNumber = () => {
+            document.querySelectorAll(".pagination-number").forEach((button) => {
+                button.classList.remove("active");
+                
+                const pageIndex = Number(button.getAttribute("page-index"));
+
+                if (pageIndex == currentPage) {
+                    button.classList.add("active");
+                }
+            });
+        };
+
+        const appendPageNumber = (index) => {
+            const pageNumber = document.createElement("button");
+
+            pageNumber.className = "pagination-number";
+            pageNumber.innerHTML = index;
+            pageNumber.setAttribute("page-index", index);
+            pageNumber.setAttribute("aria-label", "Page " + index);
+
+            paginationNumbers.appendChild(pageNumber);
+        };
+
+        const getPaginationNumbers = () => {
+            for (let i = 1; i <= pageCount; i++) {
+                appendPageNumber(i);
+            }
+        };
+
+        const setCurrentPage = (pageNum) => {
+            currentPage = pageNum;
+            
+            handleActivePageNumber();
+            handlePageButtonsStatus();
+
+            const prevRange = (pageNum - 1) * paginationLimit;
+            const currRange = pageNum * paginationLimit;
+
+            listItems.forEach((item, index) => {
+                item.classList.add("hidden");
+
+                if (index >= prevRange && index < currRange) {
+                    item.classList.remove("hidden");
+                }
+            });
+        };
+
+        window.addEventListener("load", () => {
+            getPaginationNumbers();
+            setCurrentPage(1);
+
+            prevButton.addEventListener("click", () => {
+                setCurrentPage(currentPage - 1);
+            });
+            
+            nextButton.addEventListener("click", () => {
+                setCurrentPage(currentPage + 1);
+            });
+
+            document.querySelectorAll(".pagination-number").forEach((button) => {
+                const pageIndex = Number(button.getAttribute("page-index"));
+
+                if (pageIndex) {
+                    button.addEventListener("click", () => {
+                        setCurrentPage(pageIndex);
+                    });
+                }
+            });
+        });
+    }
 
     // helper
     var helper = document.querySelector('.help_box');
+    var helperMsg = document.querySelector('.speech_bubble');
     var helperComment=0;
 
-    helper.style.display="block";
+    helper.onclick = helperTalk;
 
-    $(".help_box").click(function(){
+    function helperTalk()  {
         switch (helperComment) {
             case 0:
-                $(".speech_bubble").text("잘 봤냐 맨이야~");
+                helperMsg.innerText="잘 봤냐 맨이야~";
                 break;
             case 1:
-                $(".speech_bubble").text("쓰니의 정성을 알까?\n⬇️공감💖 누르기⬇️");
+                helperMsg.innerText="쓰니의 정성을 알까?\n⬇️공감💖 누르기⬇️";
                 break;
             case 2:
-                $(".speech_bubble").text("왕댓글/왕좋아요 주신분\n왕감사~👍");
+                helperMsg.innerText="왕댓글/왕좋아요 주신분\n왕감사~👍";
                 break;
             case 3:
-                $(".speech_bubble").text("왜 그만둬, 왜?\n이제 내용 파악 다했는데");
+                helperMsg.innerText="왜 그만둬, 왜?\n이제 내용 파악 다했는데";
                 break;
             case 4:
-                $(".speech_bubble").text("글을 스크랩해도 좋은데, 원문 전체를 대놓고 가져가는 건 안된단다!💢");
+                helperMsg.innerText="글을 스크랩해도 좋은데, 원문 전체를 대놓고 가져가는 건 안된단다!💢";
                 break;
             case 5:
-                $(".speech_bubble").text("뽈롱");
+                helperMsg.innerText="뽈롱";
                 break;
             case 6:
-                $(".speech_bubble").text("다른 글들이 궁금하면\n위의 목차를 펼쳐보렴\n🔼목차(≡) 보기🔼");
+                helperMsg.innerText="다른 글들이 궁금하면\n좌측의 목차를 살펴보렴";
                 break;
             case 7:
-                $(".speech_bubble").text("🐔 최·강·한·화 🐔");
+                helperMsg.innerText="🐔 최·강·한·화 🐔";
                 break;
             default:
-                $(".speech_bubble").text("얘, 뭐가 잘 안되니?\n⬇️질문✏️ 남기기⬇️");
+                helperMsg.innerText="얘, 뭐가 잘 안되니?\n⬇️질문✏️ 남기기⬇️";
             }
         
         helperComment = (helperComment + 1)%9;
-    });
+    }
 });
