@@ -4,11 +4,16 @@
   
     // If the key exists in the map
     @if $value {
-      // Prints a media query based on the value
-      @media (min-width: $value) {
-        @content;
-      }
+        // Prints a media query based on the value
+        @media (min-width: $value) {
+            @content;
+        }
     } @else {
-      @warn "No value could be retrieved from `#{$media-wd}`. Please make sure it is defined in `$media-wd` map.";
+        @warn "No value could be retrieved from `#{$media-wd}`. Please make sure it is defined in `$media-wd` map.";
     }
+}
+
+#bubbles {
+    position: fixed;
+    z-index: -999;
 }
