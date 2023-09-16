@@ -38,14 +38,33 @@
 
     .site-owner {
         font-size: var(--font-size-lg);
-        display: block;
-        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .blink-cursor {
+        position: relative;
+        background: #fff;
+        margin-left: var(--font-size-xs);
+        line-height: var(--font-size-lg);
+        -webkit-animation: blink 1s infinite;
+        width: var(--font-size-sm);
+        height: var(--font-size-lg);
+    }
+
+    @-webkit-keyframes blink {
+        0% {background: transparent}
+        50% {background: #fff}
+        100% {background: transparent}
     }
 
     .site-description {
-        font-size: calc(4*var(--font-size-md)/5);
+        font-size: var(--font-size-ms);
         display: block;
         margin: var(--font-size-sm) auto 0 auto;
+        color: $color-orange;
     }
 }
 
@@ -79,12 +98,12 @@
         display: inline-block;
 
         &:hover {
-            color: $main;
+            color: $color-charcoal;
             background: #FFF;
         }
 
         &:active {
-            color: $main;
+            color: $color-charcoal;
             background: #FFF;
         }
     }
