@@ -1,5 +1,6 @@
 #about{
     display: flex;
+    min-height: 256px;
     width: 90%;
     max-width: 1024px;
     margin: 0 auto;
@@ -11,7 +12,6 @@
     transition: height 0.5s;
 
     &.open {
-        min-height: 300px;
         height: calc(100vh - 256px);
 
         @include mq(desktop){
@@ -20,11 +20,10 @@
     }
 
     &.fold {
-        min-height: 256px;
-        height: calc(100vh - 300px);
+        height: 256px;
 
         @include mq(desktop){
-            height: calc(100vh - 28.5vw);
+            height: min(25vw, 320px);
         }
     }
 }
@@ -44,7 +43,7 @@
         font-size: 16px;
         font-weight: 200;
         background: #eee;
-        margin: var(--font-size-sm) auto calc(var(--font-size-sm)/2) auto;
+        margin: var(--font-size-sm) auto var(--font-size-xxs) auto;
         padding: 0.75rem 1.5rem;
         border-radius: 0.3rem;
 
@@ -55,6 +54,10 @@
         }
 
         @include mq(desktop){
+            font-size: 1.125rem;
+        }
+
+        @include mq(wide){
             font-size: 1.25rem;
         }
     }
@@ -79,8 +82,8 @@
             display: table;
             width: 1rem;
             height: 1rem;
-            border-bottom: 0.25rem solid $color-navy;
-            border-right: 0.25rem solid $color-navy;
+            border-bottom: 0.25rem solid $color-wenge;
+            border-right: 0.25rem solid $color-wenge;
             transform: rotate(45deg);
             margin: -0.625rem auto;
             animation: animate 2s infinite;
