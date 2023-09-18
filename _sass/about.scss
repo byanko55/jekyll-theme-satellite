@@ -40,7 +40,7 @@
     }
 
     .page-description {
-        font-size: 16px;
+        font-size: 0.75rem;
         font-weight: 200;
         background: #eee;
         margin: var(--font-size-sm) auto var(--font-size-xxs) auto;
@@ -51,6 +51,10 @@
             color: #343a40; 
             font-style: italic;
             font-weight: 500;
+        }
+
+        @include mq(tablet){
+            font-size: 1rem;
         }
 
         @include mq(desktop){

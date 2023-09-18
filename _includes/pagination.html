@@ -46,7 +46,7 @@
                         </div>
 
                         <a href="{{ sub_page.url }}" class="txt_post">
-                            {{ sub_page.content | markdownify | strip_html | truncatewords: 20 }}
+                            {{ sub_page.content | markdownify | strip_html }}
                         </a>
                     </div>
                 </div>
