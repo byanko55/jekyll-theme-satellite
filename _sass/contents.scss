@@ -1,26 +1,43 @@
 .list-of-contents {
     padding: 0;
     margin: 0 auto;
-    width: 832px;
+    width: 100%;
 
+    @include mq(tablet){
+        min-width: 832px;
+        width: 81.25%;
+    }
+
+    /*
     @include mq(desktop){
         width: 81.25%;
     }
+    */
 }
 
 .list-of-contents .content {
     height: calc(100vh - min(320px, 25vw));
     min-height: 384px;
     list-style-type: none;
-    display: flex;
+    display: block;
     margin-bottom: var(--font-size-xl);
+
+    @include mq(tablet){
+        display: flex;
+    }
 }
 
 .icon-box {
-    width: 40%;
-    height: 100%;
+    width: 300px;
     display: flex;
     text-align: center;
+    margin: 0 auto 4rem auto;
+
+    @include mq(tablet){
+        width: 40%;
+        height: 100%;
+        margin: 0;
+    }
 
     svg {
         height: 80%;
@@ -41,19 +58,27 @@
 }
 
 .description-box {
-    width: 60%;
-    height: 100%;
     display: flex;
     position: relative;
 
+    @include mq(tablet){
+        width: 60%;
+        height: 100%;
+    }
+
     div {
         height: 30%;
-        margin: auto var(--wfont-size-md);
-        padding: var(--wfont-size-sm) var(--wfont-size-ml);
+        margin: auto 1rem;
+        padding: 2.25rem 1rem;
         display: flex;
         position: relative;
 
         border: solid 2px $color-darkbeige;
+
+        @include mq(tablet){
+            margin: auto var(--wfont-size-md);
+            padding: var(--wfont-size-sm) var(--wfont-size-ml);
+        }
 
         &:before,
         &:after { 
@@ -96,9 +121,14 @@
             position: absolute;
             margin: 0 10%;    
             font-family: 'Josefin Sans', sans-serif;
-            font-size: var(--wfont-size-ms);
+            font-size: 1.25rem;
             color: $color-wenge;
-            top: calc(-1*var(--wfont-size-ml));
+            top: -2rem;
+
+            @include mq(tablet){
+                font-size: var(--wfont-size-ms);
+                top: calc(-1*var(--wfont-size-ml));
+            }
         }
 
         .number::before {
