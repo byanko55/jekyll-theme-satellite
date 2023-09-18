@@ -179,14 +179,22 @@ main {
         }
     }
 
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
     table {
-        width: 90%;
+        display: block;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        margin: 0 auto;
+        overflow-x: auto;
+        white-space: nowrap;
         position: relative;
         margin: $line-space-lg auto;
         background-color: #fff;
         border-radius: 10px;
         border-collapse: collapse;
-        overflow: hidden;
         font-size: 1rem;
         line-height: 1.5;
         -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
@@ -198,6 +206,9 @@ main {
 
         th, td {
             border: 1px solid $color-lightgrey;
+            word-wrap: break-word;
+            white-space: initial;
+            max-width: 16rem;
         }
 
         thead tr {
