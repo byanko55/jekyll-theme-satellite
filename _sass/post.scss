@@ -18,7 +18,7 @@
 }
 
 .inner-content {
-    margin: auto 1.5rem;
+    //margin: auto 1.5rem;
 
     img {
         display: block;
@@ -60,7 +60,8 @@
         margin-top: 0;
         font-size: 2.5rem;
         font-weight: 500;
-        font-family: 'Jua';
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
         color: $color-brown;
         word-wrap: break-word;
     }
@@ -68,7 +69,7 @@
     .post-info {
         margin: 0.875rem auto;
         font-size: 1.25rem;
-        font-family: 'Lato';
+        font-family: 'Nunito Sans', sans-serif;
     
         .link-category{
             color: $color-darkorange;
@@ -82,8 +83,9 @@
 }
 
 main {
+    margin: auto 1.5rem;
     font-size: 1.125rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 
     h1, h2, h3 {
         font-family: "Helvetica";
@@ -200,7 +202,7 @@ main {
         -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
 
         thead {
-            font-family: 'Lato';
+            font-family: 'Nunito Sans', sans-serif;;
             -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
         }
 
