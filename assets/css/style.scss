@@ -2,7 +2,9 @@
 ---
 
 :root{
-    --wimg-size-ms: clamp(12.5rem, 6.25rem + 10vw, 18.75rem);
+    --wimg-size-lg: clamp(12.5rem, 6.25rem + 10vw, 18.75rem);
+    --wimg-size-md: clamp(9rem, 4.5rem + 13.5vw, 13.5rem);
+    --wimg-size-sm: clamp(7rem, 3.5rem + 10.5vw, 10.5rem);
 
     --wfont-size-ml: clamp(2.5rem, 1.25rem + 2vw, 3.75rem);
     --wfont-size-md: clamp(2rem, 1rem + 1.6vw, 3rem);
