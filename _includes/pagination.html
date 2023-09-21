@@ -5,10 +5,11 @@
 <div class="category_name">
     <h3 id="category">
         {% if page_tree.size == 2 %}
-            All Posts
+            @all_posts
         {% else %}
             {%- for sub_tree in page_tree -%}
-                {{ sub_tree }}{% unless forloop.last or forloop.first %} > {% endunless -%}
+                {{ sub_tree }}
+                {% unless forloop.last or forloop.first %} > {% endunless -%}
             {%- endfor -%}
         {% endif %}
     </h3>
