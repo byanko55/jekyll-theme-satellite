@@ -3,7 +3,7 @@ layout: subpage
 title: "Markdown from A to Z"
 theme: blog
 date: "2023-09-05"
-thumbnail: "sample.png"
+thumbnail: "/assets/img/thumbnail/sample.png"
 ---
 
 # Headings
@@ -185,7 +185,6 @@ You can use a backslash to escape the following characters.
 
 |Character|Name|
 |---|---|
-|\\|backslash|
 |\`|backtick|
 |\*|asterisk|
 |\_|underscore|
