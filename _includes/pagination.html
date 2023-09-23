@@ -23,7 +23,7 @@
             <li class="paginated-item">
                 <div class="article_content">
                     <div class="thumbnail_zone">
-                        {%- assign thumbnail_path = "/assets/img/thumbnail/" | append: sub_page.thumbnail -%}
+                        {%- assign thumbnail_path = sub_page.thumbnail -%}
                         {% if sub_page.thumbnail == nil %}
                             {%- assign thumbnail_path = "/assets/img/thumbnail/empty.jpg" -%}
                         {% endif %}
