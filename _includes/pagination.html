@@ -1,15 +1,15 @@
 {%- assign page_category = page.url -%}
-{%- assign page_tree = page_category | split: "/" -%}
+{%- assign page_tree = page_category | remove_first: "/blog/" | split: "/" -%}
 {%- assign nav_pages = site.pages -%}
 
 <div class="category_name">
     <h3 id="category">
-        {% if page_tree.size == 2 %}
+        {% if page_tree.size == 0 %}
             @all_posts
         {% else %}
             {%- for sub_tree in page_tree -%}
                 {{ sub_tree }}
-                {% unless forloop.last or forloop.first %} > {% endunless -%}
+                {% unless forloop.last %} > {% endunless -%}
             {%- endfor -%}
         {% endif %}
     </h3>
