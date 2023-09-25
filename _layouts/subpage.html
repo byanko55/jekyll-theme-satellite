@@ -41,6 +41,7 @@
                 {%- assign page_name = page_path[-1] -%}
                 {% if page_name == "index.md" and page.theme == "blog" %}
                     {% include pagination.html %}
+                    {% include loading.html %}
                 {% else %}
                     {% include post.html %}
                 {% endif %}
