@@ -41,6 +41,24 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // kept nav opened
+    var firstNavs = document.querySelectorAll('#nav-first');
+    var secondNavs = document.querySelectorAll('#nav-second');
+    var page_path = window.location.pathname.split('/');
+
+    Array.prototype.forEach.call(firstNavs, function (nav) {
+        if (page_path[2] === nav.ariaLabel){
+            nav.classList.add('active');
+        }
+    })
+
+    Array.prototype.forEach.call(secondNavs, function (nav) {
+        if (page_path[3] === nav.ariaLabel){
+            nav.classList.toggle('active');
+            nav.parentNode.classList.toggle('active');
+        }
+    })
+
     // tocbot
     var content = document.querySelector('.inner-content');
     var headings = content.querySelectorAll('h1, h2');
