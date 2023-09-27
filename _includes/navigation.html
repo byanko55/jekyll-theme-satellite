@@ -1,10 +1,11 @@
 <nav class="navigation" id="site-nav">
     {%- assign page_type = page.theme -%}
+    <!--{%- assign page_tree = page.url | remove_first: "/" | split: "/" -%}-->
 
     {%- assign nav_pages = site.pages 
         | where_exp: "item", "item.title != nil"
         | where_exp: "item", "item.theme == page_type"
-        | where_exp: "item", "item.nav_exclude != true"
+        | where_exp: "item", "item.nav_include == true"
         | sort: 'title' -%}
 
     {%- assign first_level_pages = nav_pages
@@ -17,7 +18,7 @@
 
     <ul class="nav-list">
     {%- for node in first_level_pages -%}
-        <li class="nav-list-item">
+        <li class="nav-list-item" id="nav-first" aria-label="{{ node.title }}">
             {%- if node.has_children -%}
             <button class="nav-list-expander" id="btn-reset" aria-label="toggle items in {{ node.title }} category" aria-pressed="false">
                 <i class="fa fa-angle-down"></i>
@@ -31,7 +32,7 @@
 
             <ul class="nav-list">
             {%- for child in children_list -%}
-                <li class="nav-list-item">
+                <li class="nav-list-item" id="nav-second" aria-label="{{ child.title }}">
                 {%- if child.has_children -%}
                 <button class="nav-list-expander" id="btn-reset" aria-label="toggle items in {{ child.title }} category" aria-pressed="false">
                     <i class="fa fa-angle-down"></i>
