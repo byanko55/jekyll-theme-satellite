@@ -27,7 +27,7 @@
                         {% if sub_page.thumbnail == nil %}
                             {%- assign thumbnail_path = "/assets/img/thumbnail/empty.jpg" -%}
                         {% endif %}
-                        <a href="{{ sub_page.url }}" class="thumbnail_post" style="background-image:url('{{ thumbnail_path }}') !important"></a>
+                        <a href="{{ sub_page.url }}" class="thumbnail_post" aria-label="thumbnail_post" style="background-image:url('{{ thumbnail_path }}') !important"></a>
                     </div>
 
                     <div class="box_contents">
