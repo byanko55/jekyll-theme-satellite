@@ -68,7 +68,7 @@
 
         a {
             text-decoration: none;
-            color: $color-brown;
+            color: $color-darkbrown;
         }
 
         a:hover{
@@ -86,7 +86,7 @@
         top: 0px;
         right: 0;
         font-size: 1.5rem;
-        color: $color-brown;
+        color: $color-darkbrown;
 
         @include mq(tablet){
             display: none;
@@ -131,7 +131,7 @@
 
         a {
             text-decoration: none;
-            color: $color-brown;
+            color: $color-darkbrown;
         }
   
         .nav-list-link {
@@ -246,11 +246,11 @@
     
             > .nav-list-item {
                 > .nav-list-link {
-                    color: $color-brown;
+                    color: $color-darkbrown;
                 }
         
                 > .nav-list-expander {
-                    color: $color-brown;
+                    color: $color-darkbrown;
                 }
             }
         }
