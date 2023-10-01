@@ -39,13 +39,15 @@
 
         img {
             margin: auto;
+            width: var(--img-size-lg);
+            height: var(--img-size-lg);
         }
 
         p {
             margin: 0;
-            font-size: 3rem;
+            font-size: var(--font-size-lg);
             color: $color-wenge;
-            font-family: 'GUERRILLA', sans-serif;
+            font-family: 'Righteous', sans-serif;
         }
     }
 }

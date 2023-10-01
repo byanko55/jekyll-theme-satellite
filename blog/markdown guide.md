@@ -3,7 +3,8 @@ layout: subpage
 title: "Markdown from A to Z"
 theme: blog
 date: "2023-09-05"
-thumbnail: "/assets/img/thumbnail/sample.png"
+thumbnail: "https://i.ibb.co/MRzw6T9/sample.webp"
+nav_include: true
 ---
 
 # Headings
