@@ -84,27 +84,6 @@ document.addEventListener('DOMContentLoaded', function(){
         hasInnerContainers: false
     });
 
-    // typing effect
-    var category_title = document.querySelector('#category');
-
-    if (category_title) {
-        var raw_text = category_title.innerText;
-        var typing_speed = 50;
-        var i = 0;
-
-        category_title.innerHTML = "";
-
-        function typeWriter() {
-            if (i < raw_text.length) {
-                category_title.innerHTML += raw_text.charAt(i);
-                i++;
-                setTimeout(typeWriter, typing_speed);
-            }
-        }
-
-        typeWriter();
-    }
-
     // pagination
     const paginationNumbers = document.querySelector("#pagination-numbers");
     const paginatedList = document.querySelector(".paginated-list");
