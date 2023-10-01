@@ -1,24 +1,29 @@
 .category_name {
-    display: flex;
     align-items:center;
-    justify-content:center;
+    margin:2rem 0.5rem;
 
-    h3 {
-        font-size: 1.5rem;
+    p {
+        margin: 0;
+        padding: 1rem 0;
+        font-size: 0.75rem;
         font-family: 'Consolas', Courier;
-        margin: 3rem auto 1rem auto;
         font-weight: bold;
-        text-align: center;
-        color: $color-rose;
-        padding: 2px 6px;
-        border: 2px solid #eaeaea;
-        background-color: #f4f4f4;
-        border-radius: 4px;
+        color: $color-grey;
     }
 
-    .separator {
-        font-size: 2rem;
-        color: $color-rose;
+    a {
+        color: $color-blue;
+        text-decoration: none;
+    }
+
+    h3 {
+        margin: 0;
+        font-family: 'Raleway', sans-serif;
+        color: $color-darkbrown;
+        border-bottom: 1px solid $color-lightgrey;
+        text-decoration: underline $color-grey;
+        text-underline-offset: 1rem;
+        padding-bottom: 0.675rem;
     }
 }
 
@@ -33,25 +38,23 @@
 
 .paginated-item {
     list-style-type: none;
-    height: var(--wimg-size-sm);
+    height: fit-content;
 }
 
 .article_content {
     clear: both;
-    display: flex;
     height: 100%;
     padding: 0;
     border: none;
     border-collapse:separate;
-    border-top: 1px solid $color-lightgrey;
+    border-bottom: 2px solid $color-lightgrey;
 
     .thumbnail_post {
         display: block;
-        float: left;
         background-size: cover;
         background-position: 50% 50%;
-        height: var(--wimg-size-sm);
-        aspect-ratio: 3 / 3;
+        width: 100%;
+        aspect-ratio: 5 / 3;
         border-radius: 0;
     }
 
@@ -60,7 +63,7 @@
     }
 
     .box_contents {
-        margin: 0 0.75rem;
+        margin: 0.75rem;
         position:relative;
         overflow: hidden;
     }
@@ -73,11 +76,10 @@
         width: 100%;
         display: block;
         margin: 0;
-        padding-top: 0.25rem;
         color: $color-black;
         font-family: 'Raleway', sans-serif;
         font-weight: 600;
-        font-size: 1.125rem;
+        font-size: 1rem;
         line-height: 2rem;
         word-break: normal;
         white-space: nowrap;
@@ -96,6 +98,10 @@
         color: $color-grey;
     }
 
+    .category{
+        color: $color-rosybrown;
+    }
+
     .title_post:hover,
     .category:hover {
         color: $color-rose;
@@ -103,7 +109,7 @@
 
     .txt_post {
         display: -webkit-box;
-        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
         font-size: 0.75rem;
         font-family: 'Nunito Sans', sans-serif;
         color: $color-black;
@@ -151,9 +157,18 @@
 }
 
 @include mq(tablet){
+    .category_name {
+        margin: 2rem;
+    }
+
+    .category_name p {
+        font-size: 1rem;
+        padding: 1.5rem 0;
+    }
+
     .category_name h3 {
         font-size: 2.25rem;
-        margin: 4.5rem auto 1.5rem auto;
+        padding-bottom: 0.5rem;
     }
 
     .paginated-list {
@@ -162,40 +177,11 @@
 
     .paginated-item {
         margin: 2rem 0;
+        height: 12.5rem;
     }
 
     .article_content {
-        .title_post{
-            font-size: 1.25rem;
-            padding-top: 0.5rem;
-        }
-
-        .category,
-        .date {
-            font-size: 1rem;
-        }
-
-        .category{
-            font-weight: bold;
-            color: $color-rosybrown;
-        }
-
-        .txt_post {
-            margin-top: 1.5rem;
-            font-size: 1rem;
-        }
-    }
-}
-
-@include mq(desktop){
-    .category_name h3 {
-        font-size: 3rem;
-        margin: 6rem auto 2rem auto;
-    }
-    
-    .article_content {
-        border: 1px solid $color-lightgrey;
-        border-radius: 0.75rem;
+        display: flex;
         transition: all .3s ease;
         box-shadow: 0 1px 1px 0 rgba(31, 35, 46, .15);
 
@@ -205,17 +191,72 @@
         }
 
         .thumbnail_post {
-            border-radius: 0.5rem;
+            display: block;
+            height: 12.5rem;
             aspect-ratio: 4 / 3;
+            margin: auto;
         }
 
         .box_contents {
-            margin: 0 1.25rem;
+            width: 100%;
+            margin: auto 0 auto -5rem;
+            padding-left: 1.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            background-color: rgba(255,255,255,0.875);
+            background-image: url(/assets/img/tile.png);
+            border-radius: 6px;
         }
 
         .title_post{
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             padding-top: 0.75rem;
+        }
+
+        .category,
+        .date,
+        .txt_post {
+            font-size: 1rem;
+        }
+
+        .category{
+            font-weight: bold;
+        }
+
+        .txt_post {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+@include mq(desktop){
+    .category_name {
+        margin-top: 0;
+        margin-bottom: 5rem;
+    }
+
+    .category_name p {
+        font-size: 1.125rem;
+        padding-top: 3rem;
+    }
+
+    .category_name h3 {
+        font-size: 3rem;
+    }
+
+    .paginated-item {
+        height: 15rem;
+    }
+    
+    .article_content {
+        .thumbnail_post {
+            height: 15rem;
+        }
+
+        .box_contents {
+            margin-left: -6rem;
+            border-radius: 8px;
         }
 
         .category {
@@ -228,7 +269,6 @@
 
         .txt_post {
             margin-top: 1.25rem;
-            font-size: 1rem;
         }
     }
 }
