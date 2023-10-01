@@ -30,7 +30,7 @@
         font-size: 1rem;
     }
 
-    @include mq(tablet){
+    @media (min-width: 1024px) and (min-height: 640px){
         display: flex;
     }
 }
