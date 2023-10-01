@@ -1,9 +1,8 @@
 .sidebar {
-    //position: fixed;
     z-index: 0;
     flex-wrap: wrap;
 
-    @include mq(tablet){
+    @include mq(desktop){
         position: fixed;
     }
 }
@@ -12,17 +11,12 @@
     display: flex;
     background-color: $color-beige;
 
-    @include mq(tablet){
+    @include mq(desktop){
         flex-flow: column nowrap;
         width: $leftbar-wd;
         height: 100%;
         border-right: 1px solid $color-darkbeige;
         align-items: flex-end;
-    }
-
-    @include mq(desktop){
-        width: calc(#{$leftbar-wd} + 3*(100vw - #{$leftbar-wd + $content-wd})/13);
-        min-width: $leftbar-wd;
     }
 
     @include mq(wide){
@@ -34,7 +28,7 @@
     width: 100%;
     text-align:center;
 
-    @include mq(tablet){
+    @include mq(desktop){
         width: $leftbar-wd;
         padding-top: 1rem;
     }
@@ -52,7 +46,7 @@
             width: auto !important;
             height: auto !important;
 
-            @include mq(tablet){
+            @include mq(desktop){
                 display: inline-block;
             }
         }
@@ -88,7 +82,7 @@
         font-size: 1.5rem;
         color: $color-darkbrown;
 
-        @include mq(tablet){
+        @include mq(desktop){
             display: none;
         }
     }
@@ -106,15 +100,13 @@
 
     &.nav-open {
         display: block;
-    }
-
-    @include mq(tablet){
-        display: block;
-        padding-top: 3rem;
+        border-top: 1px solid $color-grey;
     }
 
     @include mq(desktop){
         width: $leftbar-wd;
+        display: block;
+        padding-top: 3rem;
     }
 }
 
@@ -123,14 +115,24 @@
     margin-top: 0;
     margin-bottom: 0;
     list-style: none;
+    font-family: 'Raleway', sans-serif;
+
+    @include mq(desktop){
+        padding-left: 1rem;
+    }
   
     .nav-list-item {
         position: relative;
         margin: 0;
-        font-size: 1rem !important;
+        font-size: 1rem;
+
+        @include mq(tablet){
+            margin: 0.75rem 0;
+        }
 
         a {
             text-decoration: none;
+            font-weight: 600;
             color: $color-darkbrown;
         }
   
@@ -199,10 +201,6 @@
     
             .nav-list-item {
                 position: relative;
-        
-                .nav-list-link {
-                    color: $color-grey;
-                }
             }
         }
   
@@ -215,6 +213,14 @@
                 display: block;
             }
         }
+    }
+
+    #nav-second a {
+        font-weight: 400;
+    }
+
+    #nav-third a {
+        font-weight: 200;
     }
 }
 
@@ -277,6 +283,7 @@
     position: fixed;
     top: 4rem;
     max-width: $rightbar-wd;
+    margin: 0 1.5rem;
 }
 
 .toc {
@@ -288,8 +295,7 @@
     position:relative;
     font-size: 1.125rem;
     font-weight: 400;
-    padding-right: 12px;
-    padding-left: 12px;
+    padding: 0;
     direction: ltr;
 
     li:last-child {
