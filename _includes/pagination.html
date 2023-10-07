@@ -1,6 +1,6 @@
 {%- assign page_category = page.url -%}
 {%- assign page_tree = page_category | remove_first: "/" | split: "/" -%}
-{%- assign nav_pages = site.pages -%}
+{%- assign nav_pages = site.pages | sort:"date" | reverse -%}
 
 <div class="category_name">
     {%- assign page_link = "/" -%}
