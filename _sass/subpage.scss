@@ -115,7 +115,7 @@
     margin-top: 0;
     margin-bottom: 0;
     list-style: none;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lato', sans-serif;
 
     @include mq(desktop){
         padding-left: 1rem;
@@ -124,7 +124,7 @@
     .nav-list-item {
         position: relative;
         margin: 0;
-        font-size: 1rem;
+        font-size: 1.125rem;
 
         @include mq(tablet){
             margin: 0.75rem 0;
@@ -132,7 +132,7 @@
 
         a {
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 400;
             color: $color-darkbrown;
         }
   
