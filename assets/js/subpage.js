@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function(){
     })
 
     tocbot.init({
-        tocSelector: '.toc-fixed',
+        tocSelector: '.toc-board',
         contentSelector: '.inner-content',
         headingSelector:'h1, h2',
         hasInnerContainers: false

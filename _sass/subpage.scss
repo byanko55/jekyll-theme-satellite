@@ -275,20 +275,24 @@
     }
 }
 
-.toc-absolute {
-    position: absolute;
-}
-
-.toc-fixed {
+.toc {
     position: fixed;
     top: 4rem;
-    max-width: $rightbar-wd;
-    margin: 0 1.5rem;
 }
 
-.toc {
-    box-sizing: border-box;
-    overflow-y: auto;
+.toc-header {
+    color: $color-darkbrown;
+    font-size: 1.25rem;
+    padding-left: 1.5rem;
+    line-height: 2;
+    margin: 0;
+    width: fit-content;
+    border-bottom: $color-darkbeige 2px solid;
+}
+
+.toc-board {
+    max-width: $rightbar-wd;
+    margin: 0 1.5rem;
 }
 
 .toc-list {
