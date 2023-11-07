@@ -75,9 +75,26 @@
         font-size: 1.25rem;
         font-family: 'Nunito Sans', sans-serif;
     
-        .link-category{
+        .link-category,
+        .no-category{
             color: $color-darkorange;
             font-weight: 600;
+            text-decoration: none;
+        }
+
+        .link-category {
+            transition: 0.5s ease;
+            background-image: linear-gradient(
+                transparent 50%,
+                $color-lightyellow 4px,
+            );
+            background-size: 0;
+            background-repeat: no-repeat;
+            display: inline;
+
+            &:hover {
+                background-size: 100%;
+            }
         }
     }
 

@@ -6,13 +6,13 @@
                     <span class="post-title">{{ page.title }}</span>
                 {% endif %}
                 <div class="post-info">
-                    <a class="link-category">
-                        {% if page.parent %}
-                            {{ page.parent }}
-                        {% else %}
-                            None
-                        {% endif %}
-                    </a>
+                    {% if page.grand_parent %}
+                        <a class="link-category" href="/blog/{{ page.grand_parent }}">{{ page.grand_parent }}</a>
+                    {% elsif page.parent %}
+                        <a class="link-category" href="/blog/{{ page.parent }}">{{ page.parent }}</a>
+                    {% else %}
+                        <a class="no-category">None</a>
+                    {% endif %}
                     <span class="post-date">
                         {% if page.title %}
                             · {{ page.date }}
