@@ -18,16 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Pyromaniac.me
-email: yankos001@gmail.com
-linkedin_username: yankos001
+title: yankos.net
+email: byanko55@gmail.com
+linkedin_username: byanko55
 description: Research staff in Network & System Security
 about_description: With my expertise in network and cyber security, I've set up this open page and shared a wealth of resources, including network traffic dataset, tutorials, research papers, and even some of my repositories that I've developed so far. All these materials can be downloaded and configured for personal and business use alike.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
-repo_url: "https://github.com/lilpyro/jekyll-multipurpose-theme"
-username: Pyro-Maniac
-github_username: lilpyro
+repo_url: "https://github.com/byanko55/jekyll-multipurpose-theme"
+username: Yankos
+github_username: byanko55
 
 # Build settings
 theme: minima
