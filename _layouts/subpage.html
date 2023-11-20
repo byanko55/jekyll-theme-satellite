@@ -27,14 +27,6 @@
                 background-image: url("{{ page.thumbnail }}");
             }
         </style>
-        <!---
-        <style>
-            .thumbnail {
-                background: linear-gradient(to left, rgba(241,235,234,0) 12.5%, rgba(241,235,234,0.75) 50%,
-              rgba(241,235,234,1)), url("{{ page.thumbnail }}");
-            }
-        </style>
-        -->
 
         <link rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
         <script src="{{ '/assets/js/highlight.min.js' }}"></script>
@@ -43,6 +35,11 @@
     <body>
         {% include sidebar.html %}
         <div class="post">
+            <div class="inner-header">
+                <span class="dot" style="background-color: #F86158;"></span>
+                <span class="dot" style="background-color: #FBBF2D;"></span>
+                <span class="dot" style="background-color: #2ACB45;"></span>
+            </div>
             <div class="inner-content">
                 {%- assign page_path = page.path | split: "/" -%}
                 {%- assign page_name = page_path[-1] -%}

@@ -15,7 +15,7 @@
         flex-flow: column nowrap;
         width: $leftbar-wd;
         height: 100%;
-        border-right: 1px solid $color-darkbeige;
+        background: none;
         align-items: flex-end;
     }
 
@@ -107,6 +107,7 @@
         width: $leftbar-wd;
         display: block;
         padding-top: 3rem;
+        padding-right: 1rem;
     }
 }
 
@@ -126,8 +127,20 @@
         margin: 0;
         font-size: 1.125rem;
 
-        @include mq(tablet){
-            margin: 0.75rem 0;
+        @include mq(desktop) {
+            border-bottom: 2px solid #aaa;
+            border-top: 2px solid #aaa;
+            margin-bottom: -2px;
+
+            &.active {
+                a {
+                    font-weight: 600;
+                }
+
+                border-left: 1rem solid $color-lightyellow;
+                margin-left: -1rem;
+                background: #eee;
+            }
         }
 
         a {
@@ -135,23 +148,33 @@
             font-weight: 400;
             color: $color-darkbrown;
         }
+
+        .fa {
+            margin-right: 0.5rem;
+        }
+
+        .fa-star {
+            color: #2ACB45;
+        }
+
+        .fa-star-half-o {
+            color: #2c84fa;
+        }
+
+        .fa-star-o {
+            color: #F86158;
+        }
   
         .nav-list-link {
             display: flex;
             min-height: 3rem;
             align-items: center;
-            padding-right: 2rem;
-            padding-left: 1rem;
+            padding: 0.75rem 2rem 0.75rem 1rem;
   
             @include mq(tablet) {
                 min-height: 2rem;
             }
-    
-            &.active {
-                font-weight: 600;
-                text-decoration: none;
-            }
-    
+
             &:hover,
             &.active {
                 background-image: linear-gradient(
@@ -179,6 +202,11 @@
                 width: 2rem;
                 height: 2rem;
                 padding: 0.25rem;
+            }
+
+            @include mq(desktop) {
+                background-color: transparent;
+                top: 0.75rem;
             }
   
             &:hover {
@@ -277,7 +305,7 @@
 
 .toc {
     position: fixed;
-    top: 4rem;
+    top: 6rem;
 }
 
 .toc-header {
