@@ -4,7 +4,7 @@
 
     @include mq(desktop){
         margin-left: $leftbar-wd;
-        padding: 4rem 0;
+        margin: 4rem 0;
         display: inline-block;
     }
 
@@ -33,6 +33,8 @@
 }
 
 .inner-content {
+    background: #fff;
+
     img {
         display: block;
         text-align: center;
