@@ -4,7 +4,7 @@
     width: 100%;
     height: 100vh;
     z-index: -1;
-    background: #FFF4EE;
+    background: #fffcf8;
 }
 
 .sidebar {
@@ -129,123 +129,24 @@
     margin-bottom: 0;
     list-style: none;
     font-family: 'Lato', sans-serif;
-
-    @include mq(desktop){
-        padding-left: 1rem;
-    }
   
-    .nav-list-item {
+    li {
         position: relative;
         margin: 0;
         font-size: 1.125rem;
-
-        @include mq(desktop) {
-            border-bottom: 2px solid #aaa;
-            border-top: 2px solid #aaa;
-            margin-bottom: -2px;
-
-            &.active {
-                a {
-                    font-weight: 600;
-                }
-
-                border-left: 1rem solid $color-lightyellow;
-                margin-left: -1rem;
-                background: #eee;
-            }
-        }
-
-        a {
-            text-decoration: none;
-            font-weight: 400;
-            color: $color-darkbrown;
-        }
-
-        .fa {
-            margin-right: 0.5rem;
-        }
-
-        .fa-star {
-            color: #2ACB45;
-        }
-
-        .fa-star-half-o {
-            color: #2c84fa;
-        }
-
-        .fa-star-o {
-            color: #F86158;
-        }
-  
-        .nav-list-link {
-            display: flex;
-            min-height: 3rem;
-            align-items: center;
-            padding: 0.75rem 2rem 0.75rem 1rem;
-  
-            @include mq(tablet) {
-                min-height: 2rem;
-            }
-
-            &:hover,
-            &.active {
-                background-image: linear-gradient(
-                    -90deg,
-                    rgba($feedback-color, 1) 0%,
-                    rgba($feedback-color, 0.8) 80%,
-                    rgba($feedback-color, 0) 100%
-                );
-            }
-        }
-  
-        .nav-list-expander {
-            display: inline-block;
-            position: absolute;
-            right: 0;
-    
-            width: 3rem;
-            height: 3rem;
-            padding: 0.75rem;
-            background-color: $color-beige;
-            color: $color-grey;
-            border: none;
-    
-            @include mq(tablet) {
-                width: 2rem;
-                height: 2rem;
-                padding: 0.25rem;
-            }
-
-            @include mq(desktop) {
-                background-color: transparent;
-                top: 0.75rem;
-            }
-  
-            &:hover {
-                background-image: linear-gradient(
-                    -90deg,
-                    rgba($feedback-color, 1) 0%,
-                    rgba($feedback-color, 0.8) 100%
-                );
-            }
-    
-            i {
-                font-size:24px;
-            }
-        }
   
         > .nav-list {
             display: none;
-            padding-left: 0.75rem;
+            padding-left: 1.25rem;
             list-style: none;
     
-            .nav-list-item {
+            li {
                 position: relative;
             }
         }
-  
+
         &.active {
-            > .nav-list-expander i {
+            > .nav-item .nav-list-expander i {
                 transform: rotate(180deg);
             }
 
@@ -254,51 +155,118 @@
             }
         }
     }
-
-    #nav-second a {
-        font-weight: 400;
-    }
-
-    #nav-third a {
-        font-weight: 200;
-    }
 }
 
-.nav-category {
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    text-align: start;
-    text-transform: uppercase;
-    border-bottom: 1px solid $color-grey;
-    font-size: 0.6875rem;
-  
-    @include mq(tablet) {
-        padding: 0.5rem 2rem;
-        margin-top: 1rem;
-        text-align: start;
-    
-        &:first-child {
-            margin-top: 0;
+.nav-item {
+    position: relative;
+    padding: 0.75rem;
+    display: flex;
+
+    &.selected {
+        span {
+            font-weight: 600;
+            text-decoration: underline;
         }
     }
-}
 
-.nav-list.nav-category-list {
-    > .nav-list-item {
-      margin: 0;
-  
-        > .nav-list {
-            padding: 0;
-    
-            > .nav-list-item {
-                > .nav-list-link {
-                    color: $color-darkbrown;
+    a {
+        text-decoration: none;
+        font-weight: 400;
+        color: $color-darkbrown;
+    }
+
+    .nav-list-link {
+        display: flex;
+        position: relative;
+        width: 93.75%;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: .125rem;
+        transition: all .2s ease;
+
+        span {
+            position: relative;
+        }
+
+        @include mq(tablet) {
+            min-height: 2rem;
+        }
+
+        @include mq(desktop) {
+            &:hover {
+                span {
+                    font-weight: 600;
+                    text-decoration: underline;
                 }
-        
-                > .nav-list-expander {
-                    color: $color-darkbrown;
+
+                transform: scale(.9375);
+            }
+        }
+    }
+
+    .nav-lh {
+        .fa {
+            margin-right: 1.5rem;
+            margin-left: -0.375em;
+            position: relative;
+            color: $color-darkorange;
+        }
+
+        @include mq(desktop) {
+            &:before {
+                content: "";
+                position: absolute;
+                display: block;
+                left: 0;
+                border-radius: 1.5rem;
+                background: rgba($color-lightyellow, .375);
+                width: 3rem;
+                height: 3rem;
+                transition: all .3s ease;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                    background: rgba($color-lightyellow, 1);
                 }
             }
+        }
+    }
+
+    .nav-sh {
+        .fa {
+            font-size: 0.875rem;
+            margin-right: 0.75rem;
+        }
+    }
+
+    .nav-list-expander {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        vertical-align: center;
+        z-index: 1;
+        right: 0;
+        font-size:24px;
+        background-color: $color-beige;
+        color: $color-grey;
+        border: none;
+        transition: all .375s ease;
+
+        @include mq(desktop) {
+            background-color: transparent;
+        }
+
+        .fa {
+            font-weight: 900;
+            font-size: 1.75rem;
+        }
+
+        &:hover {
+            transform: scale(1.125);
+            border:dashed 1px $color-grey; 
+            border-radius:50%;
         }
     }
 }

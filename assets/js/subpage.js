@@ -27,6 +27,32 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // kept nav opened
+    var firstNavs = document.querySelectorAll('#nav-first');
+    var page_path = window.location.pathname.split('/');
+
+    Array.prototype.forEach.call(firstNavs, function (nav_first) {
+        if (page_path[2] === nav_first.ariaLabel){
+            nav_first.classList.add('active');
+
+            var secondNavs = nav_first.querySelectorAll('#nav-second');
+
+            Array.prototype.forEach.call(secondNavs, function (nav_second) {
+                if (page_path[3] === nav_second.ariaLabel){
+                    nav_second.classList.toggle('active');
+
+                    var thirdNavs = nav_second.querySelectorAll('#nav-third');
+
+                    Array.prototype.forEach.call(thirdNavs, function (nav_third) {
+                        if (page_path[4] === nav_third.ariaLabel){
+                            nav_third.classList.toggle('active');
+                        }
+                    });
+                }
+            });
+        }
+    });
+
     // navigation (toogle sub-category)
     document.addEventListener('click', function(e){
         var target = e.target;
@@ -37,27 +63,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (target) {
             e.preventDefault();
-            target.ariaPressed = target.parentNode.classList.toggle('active');
+            var nav_item = target.parentNode;
+            target.ariaPressed = nav_item.parentNode.classList.toggle('active');
         }
     });
 
-    // kept nav opened
-    var firstNavs = document.querySelectorAll('#nav-first');
-    var secondNavs = document.querySelectorAll('#nav-second');
-    var page_path = window.location.pathname.split('/');
-
-    Array.prototype.forEach.call(firstNavs, function (nav) {
-        if (page_path[2] === nav.ariaLabel){
-            nav.classList.add('active');
+    document.querySelectorAll('.nav-item').forEach((nav_item) => {
+        if (nav_item.parentNode.classList.contains('active')){
+            nav_item.classList.add('selected');
         }
-    })
-
-    Array.prototype.forEach.call(secondNavs, function (nav) {
-        if (page_path[3] === nav.ariaLabel){
-            nav.classList.toggle('active');
-            nav.parentNode.classList.toggle('active');
+        else {
+            nav_item.classList.remove('selected');
         }
-    })
+    });
+
 
     // tocbot
     var content = document.querySelector('.inner-content');

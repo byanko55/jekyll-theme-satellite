@@ -17,47 +17,53 @@
 
     <ul class="nav-list">
     {%- for node in first_level_pages -%}
-        <li class="nav-list-item" id="nav-first" aria-label="{{ node.title }}">
-            {%- if node.has_children -%}
-            <button class="nav-list-expander" id="btn-reset" aria-label="toggle items in {{ node.title }} category" aria-pressed="false">
-                <i class="fa fa-angle-down"></i>
-            </button>
-            {%- endif -%}
-            <a href="{{ node.url | relative_url }}" class="nav-list-link">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                {{ node.title }}
-            </a>
+        <li id="nav-first" aria-label="{{ node.title }}">
+            <div class="nav-item">
+                <a href="{{ node.url | relative_url }}" class="nav-list-link nav-lh">
+                    <i class="fa fa-hashtag" aria-hidden="true"></i>
+                    <span>{{ node.title }}</span>
+                </a>
+                {%- if node.has_children -%}
+                <button class="nav-list-expander" aria-label="toggle items in {{ node.title }} category" aria-pressed="false">
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                {%- endif -%}
+            </div>
             {%- if node.has_children -%}
             {%- assign children_list = second_level_pages
                 | where: "parent", node.title -%}
 
             <ul class="nav-list">
             {%- for child in children_list -%}
-                <li class="nav-list-item" id="nav-second" aria-label="{{ child.title }}">
-                {%- if child.has_children -%}
-                <button class="nav-list-expander" id="btn-reset" aria-label="toggle items in {{ child.title }} category" aria-pressed="false">
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                {%- endif -%}
-                <a href="{{ child.url | relative_url }}" class="nav-list-link">
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    {{ child.title }}
-                </a>
-                {%- if child.has_children -%}
-                    {%- assign grand_children_list = third_level_pages
-                        | where: "parent", child.title
-                        | where: "grand_parent", node.title -%}
-                    <ul class="nav-list">
-                    {%- for grand_child in grand_children_list -%}
-                    <li class="nav-list-item" id="nav-third">
-                        <a href="{{ grand_child.url | relative_url }}" class="nav-list-link">
-                            <i class="fa fa-star-o" aria-hidden="true"></i> 
-                            {{ grand_child.title }}
+                <li id="nav-second" aria-label="{{ child.title }}">
+                    <div class="nav-item">
+                        <a href="{{ child.url | relative_url }}" class="nav-list-link nav-sh">
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                            <span>{{ child.title }}</span>
                         </a>
-                    </li>
-                    {%- endfor -%}
-                    </ul>
-                {%- endif -%}
+                        {%- if child.has_children -%}
+                        <button class="nav-list-expander" aria-label="toggle items in {{ child.title }} category" aria-pressed="false">
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        {%- endif -%}
+                    </div>
+                    {%- if child.has_children -%}
+                        {%- assign grand_children_list = third_level_pages
+                            | where: "parent", child.title
+                            | where: "grand_parent", node.title -%}
+                        <ul class="nav-list">
+                        {%- for grand_child in grand_children_list -%}
+                        <li id="nav-third" aria-label="{{ grand_child.title }}">
+                            <div class="nav-item">
+                                <a href="{{ grand_child.url | relative_url }}" class="nav-list-link nav-sh">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                    <span>{{ grand_child.title }}</span>
+                                </a>
+                            </div>
+                        </li>
+                        {%- endfor -%}
+                        </ul>
+                    {%- endif -%}
                 </li>
             {%- endfor -%}
             </ul>
