@@ -4,14 +4,15 @@
 
     background-color: #eee;
     padding: 1.25rem 0;
+
+    span {
+        font-size: 1rem;
+        font-family: 'Lora', serif;
+    }
 }
 
 .footer-heading {
-    font-size: 1rem;
-    font-family: 'Lora', 'Times New Roman', serif;
     margin: 0 auto;
-    text-align: center;
-    font-weight: 200;
 
     a:-webkit-any-link {
         color: $color-darkorange;
@@ -25,10 +26,6 @@
     position: fixed;
     bottom: 1rem;
     width: $leftbar-wd;
-
-    .footer-heading {
-        font-size: 1rem;
-    }
 
     @media (min-width: 1025px) and (min-height: 640px){
         display: flex;
