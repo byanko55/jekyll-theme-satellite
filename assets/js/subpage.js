@@ -210,4 +210,34 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
     }
+
+    // code clipboard copy button
+    async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+      
+        await navigator.clipboard.writeText(text);
+    }
+
+    let blocks = document.querySelectorAll("pre");
+
+    blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+            let clip_btn = document.createElement("button");
+            let clip_img = document.createElement("i");
+
+            clip_btn.setAttribute('title', "Copy Code");
+            clip_img.classList.add("fa");
+            clip_img.classList.add("fa-files-o");
+            clip_img.ariaHidden = true;
+
+            block.appendChild(clip_btn);
+            clip_btn.appendChild(clip_img);
+
+            clip_btn.addEventListener("click", async () => {
+                await copyCode(block, clip_btn);
+            });
+        }
+    });
 });
