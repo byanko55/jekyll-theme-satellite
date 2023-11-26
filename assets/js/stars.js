@@ -6,35 +6,36 @@
 
 // Settings
 var particleCount = 40,
-  flareCount = 16,
-  motion = 0.05,
-  tilt = 0.05,
-  color = '#44b5fd',
-  particleSizeBase = 2,
-  particleSizeMultiplier = 0.5,
-  flareSizeBase = 100,
-  flareSizeMultiplier = 100,
-  lineWidth = 1,
-  linkChance = 75, // chance per frame of link, higher = smaller chance
-  linkLengthMin = 5, // min linked vertices
-  linkLengthMax = 7, // max linked vertices
-  linkOpacity = 0.25; // number between 0 & 1
-  linkFade = 90, // link fade-out frames
-  linkSpeed = 1, // distance a link travels in 1 frame
-  glareAngle = -60,
-  glareOpacityMultiplier = 0.05,
-  renderParticles = true,
-  renderParticleGlare = true,
-  renderFlares = true,
-  renderLinks = true,
-  renderMesh = false,
-  flicker = true,
-  flickerSmoothing = 15, // higher = smoother flicker
-  blurSize = 0,
-  orbitTilt = true,
-  randomMotion = true,
-  noiseLength = 1000,
-  noiseStrength = 1;
+    flareCount = 16,
+    motion = 0.05,
+    tilt = 0.05,
+    color = '#44b5fd',
+    colorPalette = ["#c13c3c", "#c13cc1", "#3c3cc1", "#3cc1c1", "#3cc13c", "#c1c13c"],
+    particleSizeBase = 2,
+    particleSizeMultiplier = 0.5,
+    flareSizeBase = 100,
+    flareSizeMultiplier = 100,
+    lineWidth = 1,
+    linkChance = 75, // chance per frame of link, higher = smaller chance
+    linkLengthMin = 5, // min linked vertices
+    linkLengthMax = 7, // max linked vertices
+    linkOpacity = 0.375; // number between 0 & 1
+    linkFade = 90, // link fade-out frames
+    linkSpeed = 1, // distance a link travels in 1 frame
+    glareAngle = -60,
+    glareOpacityMultiplier = 0.05,
+    renderParticles = true,
+    renderParticleGlare = true,
+    renderFlares = true,
+    renderLinks = true,
+    renderMesh = false,
+    flicker = true,
+    flickerSmoothing = 15, // higher = smoother flicker
+    blurSize = 0,
+    orbitTilt = true,
+    randomMotion = true,
+    noiseLength = 1000,
+    noiseStrength = 1;
 
 var canvas = document.getElementById('stars'),
     context = canvas.getContext('2d'),
@@ -53,6 +54,210 @@ var canvas = document.getElementById('stars'),
     links = [],
     particles = [],
     flares = [];
+
+// Delaunay Triangulation
+var EPSILON = 1.0 / 1048576.0;
+
+function randomColor(colors){
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function supertriangle(vertices) {
+    var xmin = Number.POSITIVE_INFINITY,
+        ymin = Number.POSITIVE_INFINITY,
+        xmax = Number.NEGATIVE_INFINITY,
+        ymax = Number.NEGATIVE_INFINITY,
+        i, dx, dy, dmax, xmid, ymid;
+
+    for(i = vertices.length; i--; ) {
+        if(vertices[i][0] < xmin) xmin = vertices[i][0];
+        if(vertices[i][0] > xmax) xmax = vertices[i][0];
+        if(vertices[i][1] < ymin) ymin = vertices[i][1];
+        if(vertices[i][1] > ymax) ymax = vertices[i][1];
+    }
+
+    dx = xmax - xmin;
+    dy = ymax - ymin;
+    dmax = Math.max(dx, dy);
+    xmid = xmin + dx * 0.5;
+    ymid = ymin + dy * 0.5;
+
+    return [
+        [xmid - 20 * dmax, ymid -      dmax],
+        [xmid            , ymid + 20 * dmax],
+        [xmid + 20 * dmax, ymid -      dmax]
+    ];
+}
+
+function circumcircle(vertices, i, j, k) {
+    var x1 = vertices[i][0],
+        y1 = vertices[i][1],
+        x2 = vertices[j][0],
+        y2 = vertices[j][1],
+        x3 = vertices[k][0],
+        y3 = vertices[k][1],
+        fabsy1y2 = Math.abs(y1 - y2),
+        fabsy2y3 = Math.abs(y2 - y3),
+        xc, yc, m1, m2, mx1, mx2, my1, my2, dx, dy;
+
+    /* Check for coincident points */
+    if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
+        throw new Error("Eek! Coincident points!");
+
+    if(fabsy1y2 < EPSILON) {
+        m2  = -((x3 - x2) / (y3 - y2));
+        mx2 = (x2 + x3) / 2.0;
+        my2 = (y2 + y3) / 2.0;
+        xc  = (x2 + x1) / 2.0;
+        yc  = m2 * (xc - mx2) + my2;
+    }
+    else if(fabsy2y3 < EPSILON) {
+        m1  = -((x2 - x1) / (y2 - y1));
+        mx1 = (x1 + x2) / 2.0;
+        my1 = (y1 + y2) / 2.0;
+        xc  = (x3 + x2) / 2.0;
+        yc  = m1 * (xc - mx1) + my1;
+    }
+    else {
+        m1  = -((x2 - x1) / (y2 - y1));
+        m2  = -((x3 - x2) / (y3 - y2));
+        mx1 = (x1 + x2) / 2.0;
+        mx2 = (x2 + x3) / 2.0;
+        my1 = (y1 + y2) / 2.0;
+        my2 = (y2 + y3) / 2.0;
+        xc  = (m1 * mx1 - m2 * mx2 + my2 - my1) / (m1 - m2);
+        yc  = (fabsy1y2 > fabsy2y3) ?
+            m1 * (xc - mx1) + my1 :
+            m2 * (xc - mx2) + my2;
+    }
+
+    dx = x2 - xc;
+    dy = y2 - yc;
+    return {i: i, j: j, k: k, x: xc, y: yc, r: dx * dx + dy * dy};
+}
+
+function dedup(edges) {
+    var i, j, a, b, m, n;
+
+    for(j = edges.length; j; ) {
+        b = edges[--j];
+        a = edges[--j];
+
+        for(i = j; i; ) {
+            n = edges[--i];
+            m = edges[--i];
+
+            if((a === m && b === n) || (a === n && b === m)) {
+                edges.splice(j, 2);
+                edges.splice(i, 2);
+                break;
+            }
+        }
+    }
+}
+
+function Delaunay(vertices, key) {
+    var n = vertices.length,
+        i, j, indices, st, open, closed, edges, dx, dy, a, b, c;
+
+    /* Bail if there aren't enough vertices to form any triangles. */
+    if(n < 3)
+        return [];
+
+    /* Slice out the actual vertices from the passed objects. (Duplicate the
+    * array even if we don't, though, since we need to make a supertriangle
+    * later on!) */
+    vertices = vertices.slice(0);
+
+    if(key)
+        for(i = n; i--; )
+            vertices[i] = vertices[i][key];
+
+    /* Make an array of indices into the vertex array, sorted by the
+    * vertices' x-position. */
+    indices = new Array(n);
+
+    for(i = n; i--; )
+        indices[i] = i;
+
+    indices.sort(function(i, j) {
+        return vertices[j][0] - vertices[i][0];
+    });
+
+    /* Next, find the vertices of the supertriangle (which contains all other
+    * triangles), and append them onto the end of a (copy of) the vertex
+    * array. */
+    st = supertriangle(vertices);
+    vertices.push(st[0], st[1], st[2]);
+    
+    /* Initialize the open list (containing the supertriangle and nothing
+    * else) and the closed list (which is empty since we havn't processed
+    * any triangles yet). */
+    open   = [circumcircle(vertices, n + 0, n + 1, n + 2)];
+    closed = [];
+    edges  = [];
+
+    /* Incrementally add each vertex to the mesh. */
+    for(i = indices.length; i--; edges.length = 0) {
+        c = indices[i];
+
+        /* For each open triangle, check to see if the current point is
+            * inside it's circumcircle. If it is, remove the triangle and add
+            * it's edges to an edge list. */
+        for(j = open.length; j--; ) {
+            /* If this point is to the right of this triangle's circumcircle,
+            * then this triangle should never get checked again. Remove it
+            * from the open list, add it to the closed list, and skip. */
+            dx = vertices[c][0] - open[j].x;
+
+            if(dx > 0.0 && dx * dx > open[j].r) {
+                closed.push(open[j]);
+                open.splice(j, 1);
+                continue;
+            }
+
+            /* If we're outside the circumcircle, skip this triangle. */
+            dy = vertices[c][1] - open[j].y;
+
+            if(dx * dx + dy * dy - open[j].r > EPSILON)
+                continue;
+
+            /* Remove the triangle and add it's edges to the edge list. */
+            edges.push(
+                open[j].i, open[j].j,
+                open[j].j, open[j].k,
+                open[j].k, open[j].i
+            );
+
+            open.splice(j, 1);
+        }
+
+        /* Remove any doubled edges. */
+        dedup(edges);
+
+        /* Add a new triangle for each edge. */
+        for(j = edges.length; j; ) {
+            b = edges[--j];
+            a = edges[--j];
+            open.push(circumcircle(vertices, a, b, c));
+        }
+    }
+
+    /* Copy any remaining open triangles to the closed list, and then
+    * remove any triangles that share a vertex with the supertriangle,
+    * building a list of triplets that represent triangles. */
+    for(i = open.length; i--; )
+        closed.push(open[i]);
+
+    open.length = 0;
+
+    for(i = closed.length; i--; )
+        if(closed[i].i < n && closed[i].j < n && closed[i].k < n)
+            open.push(closed[i].i, closed[i].j, closed[i].k);
+
+    /* Yay, we're done! */
+    return open;
+}
 
 function init() {
     var i, j, k;
@@ -78,6 +283,19 @@ function init() {
         var p = new Particle();
         particles.push(p);
         points.push([p.x*c, p.y*c]);
+    }
+
+    vertices = Delaunay(points);
+    // Create an array of "triangles" (groups of 3 indices)
+    var tri = [];
+
+    for (i = 0; i < vertices.length; i++) {
+        if (tri.length == 3) {
+            triangles.push(tri);
+            tri = [];
+        }
+
+        tri.push(vertices[i]);
     }
 
     // Tell all the particles who their neighbors are
@@ -145,7 +363,7 @@ function render() {
 
     if (blurSize > 0) {
         context.shadowBlur = blurSize;
-        context.shadowColor = color;
+        context.shadowColor = randomColor(colorPalette); //color;
     }
 
     if (renderParticles) {
@@ -173,7 +391,7 @@ function render() {
             context.lineTo(pos2.x, pos2.y);
         }
 
-        context.strokeStyle = color;
+        context.strokeStyle = randomColor(colorPalette); //color;
         context.lineWidth = lineWidth;
         context.stroke();
         context.closePath();
@@ -221,7 +439,7 @@ var Particle = function() {
     this.x = random(-0.1, 1.1, true);
     this.y = random(-0.1, 1.1, true);
     this.z = random(0,4);
-    this.color = color;
+    this.color = randomColor(colorPalette); //color;
     this.opacity = random(0.1,1,true);
     this.flicker = 0;
     this.neighbors = []; // placeholder for neighbors
@@ -267,7 +485,7 @@ var Flare = function() {
     this.x = random(-0.25, 1.25, true);
     this.y = random(-0.25, 1.25, true);
     this.z = random(0,2);
-    this.color = color;
+    this.color = randomColor(colorPalette); //color;
     this.opacity = random(0.001, 0.01, true);
 };
 
@@ -276,17 +494,6 @@ Flare.prototype.render = function() {
         r = ((this.z * flareSizeMultiplier) + flareSizeBase) * (sizeRatio() / 1000);
 
     // Feathered circles
-    /*
-    var grad = context.createRadialGradient(x+r,y+r,0,x+r,y+r,r);
-    grad.addColorStop(0, 'rgba(255,255,255,'+f.o+')');
-    grad.addColorStop(0.8, 'rgba(255,255,255,'+f.o+')');
-    grad.addColorStop(1, 'rgba(255,255,255,0)');
-    context.fillStyle = grad;
-    context.beginPath();
-    context.fillRect(x, y, r*2, r*2);
-    context.closePath();
-    */
-
     context.beginPath();
     context.globalAlpha = this.opacity;
     context.arc(pos.x, pos.y, r, 0, 2 * Math.PI, false);
@@ -461,7 +668,7 @@ Link.prototype.drawLine = function(points, alpha) {
             context.lineTo(points[i+1][0], points[i+1][1]);
         }
 
-        context.strokeStyle = color;
+        context.strokeStyle = '#000';
         context.lineWidth = lineWidth;
         context.stroke();
         context.closePath();
