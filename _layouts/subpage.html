@@ -33,6 +33,8 @@
         <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
     </head>
     <body>
+        {%- assign page_path = page.path | split: "/" -%}
+        {%- assign page_name = page_path[-1] -%}
         <canvas id="stars" width="100%" height="100%"></canvas>
         {% include sidebar.html %}
         <div class="post">
@@ -42,8 +44,6 @@
                 <span class="dot" style="background-color: #2ACB45;"></span>
             </div>
             <div class="inner-content">
-                {%- assign page_path = page.path | split: "/" -%}
-                {%- assign page_name = page_path[-1] -%}
                 {% if page_name == "index.md" and page.theme == "blog" %}
                     {% include loading.html %}
                     {% include pagination.html %}

@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     // tocbot
-    var content = document.querySelector('.inner-content');
+    var content = document.querySelector('main');
     var headings = content.querySelectorAll('h1, h2');
     var headingMap = {};
 
