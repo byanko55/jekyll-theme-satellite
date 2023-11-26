@@ -363,7 +363,7 @@ function render() {
 
     if (blurSize > 0) {
         context.shadowBlur = blurSize;
-        context.shadowColor = randomColor(colorPalette); //color;
+        context.shadowColor = randomColor(colorPalette);
     }
 
     if (renderParticles) {
@@ -391,7 +391,7 @@ function render() {
             context.lineTo(pos2.x, pos2.y);
         }
 
-        context.strokeStyle = randomColor(colorPalette); //color;
+        context.strokeStyle = randomColor(colorPalette);
         context.lineWidth = lineWidth;
         context.stroke();
         context.closePath();
@@ -439,7 +439,7 @@ var Particle = function() {
     this.x = random(-0.1, 1.1, true);
     this.y = random(-0.1, 1.1, true);
     this.z = random(0,4);
-    this.color = randomColor(colorPalette); //color;
+    this.color = randomColor(colorPalette);
     this.opacity = random(0.1,1,true);
     this.flicker = 0;
     this.neighbors = []; // placeholder for neighbors
@@ -485,7 +485,7 @@ var Flare = function() {
     this.x = random(-0.25, 1.25, true);
     this.y = random(-0.25, 1.25, true);
     this.z = random(0,2);
-    this.color = randomColor(colorPalette); //color;
+    this.color = randomColor(colorPalette);
     this.opacity = random(0.001, 0.01, true);
 };
 
@@ -529,7 +529,6 @@ Link.prototype.render = function() {
         case 0:
             // Grab the last member of the link
             var last = particles[this.verts[this.verts.length-1]];
-            //console.log(JSON.stringify(last));
             if (last && last.neighbors && last.neighbors.length > 0) {
                 // Grab a random neighbor
                 var neighbor = last.neighbors[random(0, last.neighbors.length-1)];
@@ -540,7 +539,6 @@ Link.prototype.render = function() {
                 // If we have seen that particle before, we'll just wait for the next frame
             }
             else {
-                //console.log(this.verts[0]+' prematurely moving to stage 3 (0)');
                 this.stage = 3;
                 this.finished = true;
             }
@@ -565,7 +563,6 @@ Link.prototype.render = function() {
             if (this.distances.length > 0) {
 
                 points = [];
-                //var a = 1;
 
                 // Gather all points already linked
                 for (i = 0; i < this.linked.length; i++) {
@@ -581,8 +578,6 @@ Link.prototype.render = function() {
                 if (this.traveled >= d) {
                     this.traveled = 0;
                     // We've reached the next point, add coordinates to array
-                    //console.log(this.verts[0]+' reached vertex '+(this.linked.length+1)+' of '+this.verts.length);
-
                     this.linked.push(this.verts[this.linked.length]);
                     p = particles[this.linked[this.linked.length-1]];
                     pos = position(p.x, p.y, p.z);
@@ -603,16 +598,12 @@ Link.prototype.render = function() {
                         z = ((this.traveled * b.z) + (t * a.z)) / d;
 
                     pos = position(x, y, z);
-
-                    //console.log(this.verts[0]+' traveling to vertex '+(this.linked.length+1)+' of '+this.verts.length+' ('+this.traveled+' of '+this.distances[this.linked.length]+')');
-
                     points.push([pos.x, pos.y]);
                 }
 
                 this.drawLine(points);
             }
             else {
-                //console.log(this.verts[0]+' prematurely moving to stage 3 (1)');
                 this.stage = 3;
                 this.finished = true;
             }
@@ -659,7 +650,6 @@ Link.prototype.drawLine = function(points, alpha) {
     if (typeof alpha !== 'number') alpha = linkOpacity;
 
     if (points.length > 1 && alpha > 0) {
-        //console.log(this.verts[0]+': Drawing line '+alpha);
         context.globalAlpha = alpha;
         context.beginPath();
 
@@ -668,7 +658,7 @@ Link.prototype.drawLine = function(points, alpha) {
             context.lineTo(points[i+1][0], points[i+1][1]);
         }
 
-        context.strokeStyle = '#000';
+        context.strokeStyle = '#888';
         context.lineWidth = lineWidth;
         context.stroke();
         context.closePath();
@@ -681,8 +671,6 @@ function noisePoint(i) {
     var a = nAngle * i,
         cosA = Math.cos(a),
         sinA = Math.sin(a),
-        //value = simplex.noise2D(nScale * cosA + nScale, nScale * sinA + nScale),
-        //rad = nRad + value;
         rad = nRad;
 
     return {
