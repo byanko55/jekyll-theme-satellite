@@ -4,7 +4,6 @@
     width: 100%;
     height: 100vh;
     z-index: -1;
-    background: #fffcf8;
 }
 
 .sidebar {
@@ -45,22 +44,29 @@
     .site-avatar {
         margin:0 auto;
         display: block;
-        max-width: 13.5rem;
 
         img {
             display: none;
-            max-width: 100%;
-            width: auto !important;
-            height: auto !important;
+            width: 12rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            outline: 6rem solid rgba(0,0,0,0.4);
+            outline-offset: -6rem;
+            cursor: pointer;
+            transition: .3s;
 
             @include mq(desktop){
                 display: inline-block;
             }
 
             &:hover {
-                outline: 8px solid #4ECDC4;
+                outline: 4px solid $color-lightbrown;
                 outline-offset: 8px;
             }
+        }
+
+        img + img {
+            border-radius: 50%;
         }
     }
 
@@ -111,12 +117,15 @@
 .navigation {
     display: none;
     flex: 1 1 auto;
-    overflow-y: auto;
     width: 100%;
 
     &.nav-open {
         display: block;
         border-top: 1px solid $color-grey;
+
+        @include mq(desktop){
+            border: none;
+        }
     }
 
     @include mq(desktop){
@@ -124,6 +133,7 @@
         display: block;
         padding-top: 3rem;
         padding-right: 1rem;
+        overflow-y: auto;
     }
 }
 
@@ -255,7 +265,7 @@
         height: 2rem;
         vertical-align: center;
         z-index: 2;
-        right: 0;
+        right: 8px;
         font-size:24px;
         background-color: $color-beige;
         color: $color-grey;
@@ -268,6 +278,7 @@
 
         @include mq(desktop) {
             background-color: transparent;
+            right: 0;
         }
 
         .fa {
