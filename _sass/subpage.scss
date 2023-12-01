@@ -50,7 +50,7 @@
             width: 12rem;
             aspect-ratio: 1;
             border-radius: 50%;
-            outline: 6rem solid rgba(0,0,0,0.4);
+            outline: 6rem solid rgba(255,255,255,0.3);
             outline-offset: -6rem;
             cursor: pointer;
             transition: .3s;
@@ -60,7 +60,7 @@
             }
 
             &:hover {
-                outline: 4px solid $color-lightbrown;
+                outline: 4px solid $color-orange;
                 outline-offset: 8px;
             }
         }
@@ -71,24 +71,40 @@
     }
 
     .site-name {
-        margin:0.8rem auto;
+        margin:0.8rem 1rem;
         cursor: pointer;
-        font-family: 'Caveat', sans-serif;
-        font-weight: 500;
-        font-size: 2rem;
-        letter-spacing: 1px;
+        font-size: 1.75rem;
+        font-family: Impact, sans-serif;
+        font-weight: 900;
 
         a {
             text-decoration: none;
-            color: $color-navy;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1;
+            letter-spacing: 2px;
+            color: #0D3D56;
+        }
+
+        .highlight {
+            @supports (background-clip: text) or (-webkit-background-clip: text) {
+                background-image: 
+                url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%23CD5849' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='320' cy='256' r='512' fill='%23F16C20'/%3E%3Ccircle cx='2048' cy='512' r='512' fill='%23CD5849'/%3E%3Ccircle cx='1600' cy='768' r='512' fill='%23CD0067'/%3E%3C/g%3E%3C/svg%3E%0A");
+                background-size: 150% auto;
+                background-position: center;
+                color: transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+            transition: background-size .4s;
         }
 
         a:hover{
-            color:$color-rosybrown;
+            background-size: 0 3px, 100% 3px;
         }
 
         @include mq(desktop){
-            font-size: 3rem;
+            font-size: 2.25rem;
         }
     }
 
