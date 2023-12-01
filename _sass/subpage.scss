@@ -1,9 +1,19 @@
+a {
+    text-decoration: none;
+}
+
+a, span {
+    color: $color-darkbrown;
+    font-family: "Nunito Sans", sans-serif;
+}
+
 #stars {
     display: block;
     position: fixed;
     width: 100%;
     height: 100vh;
     z-index: -1;
+    background: none;
 }
 
 .sidebar {
@@ -42,9 +52,6 @@
     }
 
     .site-avatar {
-        margin:0 auto;
-        display: block;
-
         img {
             display: none;
             width: 12rem;
@@ -52,7 +59,6 @@
             border-radius: 50%;
             outline: 6rem solid rgba(255,255,255,0.3);
             outline-offset: -6rem;
-            cursor: pointer;
             transition: .3s;
 
             @include mq(desktop){
@@ -71,18 +77,17 @@
     }
 
     .site-name {
-        margin:0.8rem 1rem;
-        cursor: pointer;
+        margin: 1rem;
         font-size: 1.75rem;
-        font-family: Impact, sans-serif;
-        font-weight: 900;
 
-        a {
-            text-decoration: none;
+        a, span {
+            font-family: Impact, sans-serif;
+            font-weight: 900;
             text-transform: uppercase;
             text-align: center;
             line-height: 1;
             letter-spacing: 2px;
+            word-spacing: -6px;
             color: #0D3D56;
         }
 
@@ -94,13 +99,7 @@
                 background-position: center;
                 color: transparent;
                 -webkit-background-clip: text;
-                background-clip: text;
             }
-            transition: background-size .4s;
-        }
-
-        a:hover{
-            background-size: 0 3px, 100% 3px;
         }
 
         @include mq(desktop){
@@ -118,7 +117,6 @@
         top: 0px;
         right: 0;
         font-size: 1.5rem;
-        color: $color-darkbrown;
 
         @include mq(desktop){
             display: none;
@@ -147,6 +145,7 @@
     @include mq(desktop){
         width: calc($leftbar-wd - 2rem);
         display: block;
+        max-height: 480px;
         padding-top: 3rem;
         padding-right: 1rem;
         overflow-y: auto;
@@ -155,14 +154,11 @@
 
 .nav-list {
     padding: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 auto;
     list-style: none;
     font-family: 'Lato', sans-serif;
   
     li {
-        position: relative;
-        margin: 0;
         font-size: 1.125rem;
   
         > .nav-list {
@@ -204,9 +200,7 @@
     }
 
     a {
-        text-decoration: none;
         font-weight: 400;
-        color: $color-darkbrown;
     }
 
     .nav-list-link {
@@ -259,11 +253,9 @@
                 transition: all .3s ease;
             }
 
-            &:hover {
-                &:before {
-                    width: 100%;
-                    background: rgba($color-lightyellow, 1);
-                }
+            &:hover:before {
+                width: 100%;
+                background: rgba($color-lightyellow, 1);
             }
         }
     }
@@ -279,12 +271,9 @@
         position: absolute;
         width: 2rem;
         height: 2rem;
-        vertical-align: center;
-        z-index: 2;
+        padding: 3px;
         right: 8px;
-        font-size:24px;
-        background-color: $color-beige;
-        color: $color-grey;
+        background: none;
         border: none;
         transition: all .375s ease;
 
@@ -299,12 +288,12 @@
 
         .fa {
             font-weight: 900;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
         }
 
         &:hover {
             transform: scale(1.125);
-            border:dashed 1px $color-grey; 
+            border:dashed 1px;
             border-radius:50%;
         }
     }
@@ -322,18 +311,70 @@
     }
 }
 
+.tools {
+    position: fixed;
+    top: 1rem;
+
+    button {
+        width: 2.75rem;
+        aspect-ratio: 1;
+        text-align: center;
+        background: #ffe390;
+        border: none;
+        border-radius: 50%;
+        margin-left: 1rem;
+
+        &:hover {
+            border: 2px solid $color-navy;
+            animation: leaves .75s ease-in-out infinite alternate;
+        }
+    }
+
+    @keyframes leaves {
+        0% {
+            transform: scale(1.0);
+            background: #ffe390;
+        }
+        100% {
+            transform: scale(1.25);
+            background: #ffd044;
+        }
+    }
+
+    i {
+        color: #3A241A;
+        font-size: 1.5rem;
+        font-weight: 900;
+        position: relative;
+    }
+
+    .fa-moon {
+        display: block;
+
+        &.active{
+            display: none;
+        }
+    }
+
+    .fa-sun {
+        display: none;
+
+        &.active{
+            display: block;
+        }
+    }
+}
+
 .toc {
     position: fixed;
     top: 6rem;
 }
 
 .toc-header {
-    color: $color-darkbrown;
     font-size: 1.25rem;
+    font-weight: 600;
     padding-left: 1.5rem;
-    line-height: 2;
-    margin: 0;
-    width: fit-content;
+    padding-bottom: 4px;
     border-bottom: $color-darkbeige 2px solid;
 }
 
@@ -343,20 +384,14 @@
 }
 
 .toc-list {
-    position:relative;
     font-size: 1.125rem;
-    font-weight: 400;
     padding: 0;
-    direction: ltr;
 
     li:last-child {
         margin-bottom: 0;
     }
 
     li a {
-        color: $color-darkgrey;
-        font-family: 'Nunito Sans';
-        text-decoration: none;
         display:inline-block;
     }
 
@@ -373,8 +408,6 @@
     .toc-list-item {
         word-break: normal;
         display: block;
-        position: relative;
-        white-space: normal;
         line-height: 150%;
     }
       

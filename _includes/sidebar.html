@@ -4,7 +4,7 @@
             <img src="{{ '/assets/img/home.webp' }}" alt="homepage" aria-label="homepage-button">
         </a>
         <h1 class="site-name">
-            <a href="/"><span class="highlight">Wonder-Wise</span><br>.net</a>
+            <a href="/"><span class="highlight">Wonder-Wise</span> .net</a>
             <button type="button" class="open-nav" id="open-nav" aria-pressed="false" aria-label="menu-button"><i class="fa fa-bars"></i></button>
         </h1>
     </div>
@@ -16,12 +16,21 @@
     </div>
 </div>
 <div class="sidebar sidebar-right">
+    <div class="tools">
+        <button id="btn-brightness">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun"></i>
+        </button>
+        <button id="btn-search">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
     {%- if page_name != "index.md" -%}
     <div class="toc">
-        <h4 class="toc-header">
+        <span class="toc-header">
             <i class="fa fa-bookmark" aria-hidden="true"></i>
             Contents
-        </h4>
+        </span>
         <div class='toc-board'></div>
     </div>
     {%- endif -%}

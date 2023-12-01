@@ -1,0 +1,175 @@
+body.dark-theme {
+    a, span {
+        color: #a0a0bd; // #8080a7;
+    }
+
+    #stars {
+        background: #333;
+    }
+
+    .sidebar-left {
+        .site-name a {
+            color: #00A080;
+        }
+
+        .navigation {
+            .nav-lh {
+                .fa {
+                    color: rgb(240, 105, 172);
+                }
+
+                @include mq(desktop) {
+                    &:before {
+                        background: rgba($color-darkorange, 1);
+                    }
+        
+                    &:hover:before {
+                        background: rgba($color-darkorange, .375);
+                    }
+                }
+            }
+
+            .nav-list-expander {
+                color: #ddd;
+
+                &:hover {
+                    border:dashed 1px #ddd;
+                }
+            }
+        }
+    }
+
+    .sidebar-right .toc .toc-list .is-active-link{
+        color: $color-orange;
+    }
+
+    .post {
+        .inner-header {
+            background: linear-gradient(180deg, rgba(128,128,128,1) 0%, rgba(112,112,112,1) 100%);
+        }
+
+        .inner-content {
+            background: #444;
+
+            @include mq(desktop){
+                box-shadow: 0 16px 16px 8px rgba(224, 220, 209, 0.25);
+            }
+        }
+
+        .transbox {
+            background-color: rgba(64, 64, 64, 0.8125);
+
+            .link-category,
+            .no-category{
+                color: $color-orange;
+            }
+
+            .link-category {
+                background-image: linear-gradient(
+                    transparent 50%,
+                    $color-darkbrown 4px,
+                );
+            }
+
+            .post-title,
+            .post-date {
+                color: #ddd;
+            }
+        }
+
+        main {
+            h1, h2, h3, p {
+                color: #eee;
+            }
+
+            a {
+                color: $color-blue;
+            }
+
+            code,
+            .highlighter-rouge .highlight {
+                border: 1px solid $color-grey;
+                background-color: #3A3A3A;
+                color: $color-lightyellow;
+            }
+
+            pre button {
+                color: #eee;
+                background-color: $color-wenge;
+            }
+
+            blockquote {
+                background: #2A3936;
+                border-left: 4px solid #3A3A3A;
+            }
+
+            table {
+                background-color: #353A3E;
+            }
+
+            table, 
+            head {
+                -webkit-box-shadow: 0 0 40px 0 rgba(255,255,255,.15);
+            }
+
+            th, td {
+                border: 2px solid #444;
+            }
+
+            thead th, 
+            tbody td {
+                color: #eee;
+            }
+
+            hr {
+                background: #eee;
+            }
+
+            img + em,
+            li {
+                color: #eee;
+            }
+        }
+    }
+
+    .category_name {
+        p {
+            color: $color-orange;
+        }
+
+        h3 {
+            color: $color-rose;
+            text-decoration: underline $color-darkorange;
+        }
+    }
+
+    .article_content {
+        .box_contents {
+            background-color: rgba(128,128,128,0.875);
+        }
+
+        .title_post,
+        .txt_post,
+        .date {
+            color: #eee;
+        }
+
+        .category{
+            color: $color-orange;
+        }
+    }
+
+    .pagination-number,
+    .pagination-button {
+        color: #eee;
+    }
+
+    .pagination-number:hover,
+    .pagination-button:not(.disabled):hover {
+        background: #888;
+    }
+
+    .footer-heading a:-webkit-any-link {
+        color: $color-orange;
+    }
+}

@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             clip_btn.setAttribute('title', "Copy Code");
             clip_img.classList.add("fa");
-            clip_img.classList.add("fa-files-o");
+            clip_img.classList.add("fa-copy");
             clip_img.ariaHidden = true;
 
             block.appendChild(clip_btn);
@@ -240,6 +240,38 @@ document.addEventListener('DOMContentLoaded', function(){
             clip_btn.addEventListener("click", async () => {
                 await copyCode(block, clip_btn);
             });
+        }
+    });
+
+    // dark mode
+    let currentTheme = localStorage.getItem('theme');
+    let isDarkMode = false;
+
+    if (currentTheme === 'dark'){
+        isDarkMode = true;
+        document.body.classList.add('dark-theme');
+    }
+    else {
+        isDarkMode = false;
+    }
+
+    const themeButton = document.querySelector("#btn-brightness");
+
+    themeButton.addEventListener('click', function() {
+        const moonIco = document.querySelector(".fa-moon");
+        const sunIco = document.querySelector(".fa-sun");
+
+        moonIco.classList.toggle('active');
+        sunIco.classList.toggle('active');
+        document.body.classList.toggle('dark-theme');
+
+        if (isDarkMode){
+            localStorage.setItem('theme', 'default');
+            isDarkMode = false;
+        }
+        else {
+            localStorage.setItem('theme', 'dark');
+            isDarkMode = true;
         }
     });
 });
