@@ -2,10 +2,6 @@
 ---
 
 :root{
-    --wimg-size-lg: clamp(12.5rem, 6.25rem + 10vw, 18.75rem);
-    --wimg-size-md: clamp(9rem, 4.5rem + 13.5vw, 13.5rem);
-    --wimg-size-sm: clamp(7rem, 3.5rem + 10.5vw, 10.5rem);
-
     --wfont-size-ml: clamp(2.5rem, 1.25rem + 2vw, 3.75rem);
     --wfont-size-md: clamp(2rem, 1rem + 1.6vw, 3rem);
     --wfont-size-ms: clamp(1.5rem, 0.75rem + 1.2vw, 2.25rem);
@@ -16,15 +12,15 @@
     --img-size-lg: clamp(12.5rem, 20vw, 25rem); // 200 ~ 400
     --img-size-md: clamp(10rem, 16vw, 20rem); // 160 ~ 320
 
-    --font-size-xxl: clamp(5rem, 8vw, 10rem); // 80 ~ 160
-    --font-size-xl: clamp(3.75rem, 6vw, 7.5rem); // 60 ~ 120
-    --font-size-lg: clamp(2.5rem, 4vw, 5rem); // 40 ~ 80
-    --font-size-ml: clamp(1.875rem, 3vw, 3.75rem); // 30 ~ 60
-    --font-size-md: clamp(1.5625rem, 2.5vw, 3.125rem); // 25 ~ 50
-    --font-size-ms: clamp(1.25rem, 2vw, 2.5rem); // 20 ~ 40
-    --font-size-sm: clamp(0.9375rem, 1.5vw, 1.875rem); // 15 ~ 30
-    --font-size-xs: clamp(0.625rem, 1vw, 1.25rem); // 10 ~ 20
-    --font-size-xxs: clamp(0.5rem, 0.8vw, 1rem); // 8 ~ 16
+    --xxl: clamp(5rem, 8vw, 10rem); // 80 ~ 160
+    --xl: clamp(3.75rem, 6vw, 7.5rem); // 60 ~ 120
+    --lg: clamp(2.5rem, 4vw, 5rem); // 40 ~ 80
+    --ml: clamp(1.875rem, 3vw, 3.75rem); // 30 ~ 60
+    --md: clamp(1.5625rem, 2.5vw, 3.125rem); // 25 ~ 50
+    --ms: clamp(1.25rem, 2vw, 2.5rem); // 20 ~ 40
+    --sm: clamp(0.9375rem, 1.5vw, 1.875rem); // 15 ~ 30
+    --xs: clamp(0.625rem, 1vw, 1.25rem); // 10 ~ 20
+    --xxs: clamp(0.5rem, 0.8vw, 1rem); // 8 ~ 16
 }
 
 html, body {

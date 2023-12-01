@@ -20,7 +20,7 @@
     min-height: 384px;
     list-style-type: none;
     display: block;
-    margin-bottom: var(--font-size-xl);
+    margin-bottom: var(--xl);
 
     @include mq(tablet){
         display: flex;

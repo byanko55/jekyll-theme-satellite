@@ -29,7 +29,7 @@
 
 .title {
     z-index: 1;
-    margin: var(--font-size-md) auto var(--font-size-xl) auto;
+    margin: var(--md) auto var(--xl) auto;
     width: 100%;
 
     h1 {
@@ -37,7 +37,7 @@
     }
 
     .site-owner {
-        font-size: var(--font-size-lg);
+        font-size: var(--lg);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -47,11 +47,11 @@
     .blink-cursor {
         position: relative;
         background: #fff;
-        margin-left: var(--font-size-xs);
-        line-height: var(--font-size-lg);
+        margin-left: var(--xs);
+        line-height: var(--lg);
         -webkit-animation: blink 1s infinite;
-        width: var(--font-size-sm);
-        height: var(--font-size-lg);
+        width: var(--sm);
+        height: var(--lg);
     }
 
     @-webkit-keyframes blink {
@@ -61,9 +61,9 @@
     }
 
     .site-description {
-        font-size: var(--font-size-ms);
+        font-size: var(--ms);
         display: block;
-        margin: var(--font-size-sm) auto 0 auto;
+        margin: var(--sm) auto 0 auto;
         color: $color-orange;
     }
 }
@@ -71,7 +71,7 @@
 .banner-icons {
     display: block;
     width: 100%;
-    margin: 0 auto var(--font-size-sm) auto;
+    margin: 0 auto var(--sm) auto;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -87,11 +87,11 @@
 
     .icon {
         color: #FFF;
-        width: var(--font-size-sm);
-        height: var(--font-size-sm);
-        font-size: var(--font-size-sm);
-        padding: var(--font-size-xs);
-        margin: 0 var(--font-size-xs);
+        width: var(--sm);
+        height: var(--sm);
+        font-size: var(--sm);
+        padding: var(--xs);
+        margin: 0 var(--xs);
         border-radius: 50%;
         border: 2px solid #FFF;
         transition: all .5s;
