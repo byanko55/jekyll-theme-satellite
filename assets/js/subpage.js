@@ -77,31 +77,33 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
-
     // tocbot
     var content = document.querySelector('main');
-    var headings = content.querySelectorAll('h1, h2');
-    var headingMap = {};
 
-    Array.prototype.forEach.call(headings, function (heading) {
-        var id = heading.id ? heading.id : heading.textContent.trim().toLowerCase()
-                .split(' ').join('-').replace(/[\!\@\#\$\%\^\&\*\(\):]/ig, '');
+    if (content){
+        var headings = content.querySelectorAll('h1, h2');
+        var headingMap = {};
 
-        headingMap[id] = !isNaN(headingMap[id]) ? ++headingMap[id] : 0;
+        Array.prototype.forEach.call(headings, function (heading) {
+            var id = heading.id ? heading.id : heading.textContent.trim().toLowerCase()
+                    .split(' ').join('-').replace(/[\!\@\#\$\%\^\&\*\(\):]/ig, '');
 
-        if (headingMap[id]) {
-            heading.id = id + '-' + headingMap[id];
-        } else {
-            heading.id = id;
-        }
-    })
+            headingMap[id] = !isNaN(headingMap[id]) ? ++headingMap[id] : 0;
 
-    tocbot.init({
-        tocSelector: '.toc-board',
-        contentSelector: '.inner-content',
-        headingSelector:'h1, h2',
-        hasInnerContainers: false
-    });
+            if (headingMap[id]) {
+                heading.id = id + '-' + headingMap[id];
+            } else {
+                heading.id = id;
+            }
+        })
+
+        tocbot.init({
+            tocSelector: '.toc-board',
+            contentSelector: '.inner-content',
+            headingSelector:'h1, h2',
+            hasInnerContainers: false
+        });
+    }
 
     // pagination
     const paginationNumbers = document.querySelector("#pagination-numbers");
