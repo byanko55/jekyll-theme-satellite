@@ -6,16 +6,9 @@
     padding: 1.25rem 0;
 
     span {
+        margin: 0 auto;
         font-size: 1rem;
         font-family: 'Lora', serif;
-    }
-}
-
-.footer-heading {
-    margin: 0 auto;
-
-    a:-webkit-any-link {
-        color: $color-darkorange;
     }
 }
 
@@ -23,9 +16,18 @@
     display: none;
     position: fixed;
     bottom: 1rem;
-    width: $leftbar-wd;
+    width: $sidebar-wd;
+
+    span {
+        padding-left: 1.5rem;
+    }
 
     @media (min-width: 1025px) and (min-height: 640px){
         display: flex;
     }
+}
+
+.site-footer a,
+.sidebar-footer a {
+    color: $color-darkorange;
 }

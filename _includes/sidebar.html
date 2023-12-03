@@ -9,11 +9,6 @@
         </h1>
     </div>
     {% include navigation.html %}
-    <div class="sidebar-footer">
-        <span class="footer-heading">
-            Copyright © | <a href="{{ site.repo_url }}">Pyro-Maniac</a>
-        </span>
-    </div>
 </div>
 <div class="sidebar sidebar-right">
     <div class="tools">
@@ -25,7 +20,7 @@
             <i class="fa fa-search"></i>
         </button>
     </div>
-    {%- if page_name != "index.md" -%}
+    {%- if page.type == "post" -%}
     <div class="toc">
         <span class="toc-header">
             <i class="fa fa-bookmark" aria-hidden="true"></i>
@@ -34,4 +29,9 @@
         <div class='toc-board'></div>
     </div>
     {%- endif -%}
+    <div class="sidebar-footer">
+        <span>
+            Copyright © | <a href="{{ site.repo_url }}">Pyro-Maniac</a>
+        </span>
+    </div>
 </div>
