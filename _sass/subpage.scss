@@ -31,7 +31,7 @@ a, span {
 
     @include mq(desktop){
         flex-flow: column nowrap;
-        width: $leftbar-wd;
+        width: $sidebar-wd;
         height: 100%;
         background: none;
         align-items: flex-end;
@@ -47,7 +47,7 @@ a, span {
     text-align:center;
 
     @include mq(desktop){
-        width: $leftbar-wd;
+        width: $sidebar-wd;
         padding-top: 4rem;
     }
 
@@ -143,12 +143,21 @@ a, span {
     }
 
     @include mq(desktop){
-        width: calc($leftbar-wd - 2rem);
+        width: calc($sidebar-wd - 1rem);
         display: block;
         max-height: 480px;
-        padding-top: 3rem;
+        margin-top: 2rem;
         padding-right: 1rem;
         overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+            background-color: #aaa;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $color-rosybrown;
+        }
     }
 }
 
@@ -292,9 +301,8 @@ a, span {
         }
 
         &:hover {
-            transform: scale(1.125);
-            border:dashed 1px;
-            border-radius:50%;
+            transform: scale(1.25);
+            color: $color-darkorange;
         }
     }
 }
@@ -379,7 +387,7 @@ a, span {
 }
 
 .toc-board {
-    max-width: $rightbar-wd;
+    max-width: $sidebar-wd;
     margin: 0 1.5rem;
 }
 
