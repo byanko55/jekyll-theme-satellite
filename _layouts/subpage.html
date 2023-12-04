@@ -22,11 +22,22 @@
         content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
         <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
-        <style>
-            .thumbnail {
-                background-image: url("{{ page.thumbnail }}");
-            }
-        </style>
+        {% if page.thumbnail %}
+            <style>
+                .thumbnail {
+                    background-image: url("{{ page.thumbnail }}");
+                }
+            </style>
+        {% else %}
+            <style>
+                .thumbnail {
+                    aspect-ratio: auto !important;
+                }
+                .transbox {
+                    transform: none;
+                }
+            </style>
+        {% endif %}
 
         <link rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
         <script src="{{ '/assets/js/highlight.min.js' }}"></script>

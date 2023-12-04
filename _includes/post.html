@@ -1,31 +1,29 @@
 <div class="post-header">
-    {% if page.thumbnail %}
-        <div class="thumbnail">
-            <div class="transbox">
-                {% if page.title %}
-                    <span class="post-title">{{ page.title }}</span>
+    <div class="thumbnail">
+        <div class="transbox">
+            {% if page.title %}
+                <span class="post-title">{{ page.title }}</span>
+            {% endif %}
+            <div class="post-info">
+                {%- assign parent_category = "None" -%}
+                {%- assign parent_url = "/" | append: page_tree[0] -%}
+                {% if page_level > 2 %}
+                    {%- assign parent_category = page_tree[1] -%}
+                    {%- assign parent_url = parent_url | append: "/" | append: page_tree[1] -%}
                 {% endif %}
-                <div class="post-info">
-                    {%- assign parent_category = "None" -%}
-                    {%- assign parent_url = "/" | append: page_tree[0] -%}
-                    {% if page_level > 2 %}
-                        {%- assign parent_category = page_tree[1] -%}
-                        {%- assign parent_url = parent_url | append: "/" | append: page_tree[1] -%}
+                {% if parent_category != "None" %}
+                    <a class="link-category" href="{{ parent_url }}">{{ parent_category }}</a>
+                {% else %}
+                    <a class="no-category">None</a>
+                {% endif %}
+                <span class="post-date">
+                    {% if page.title %}
+                        · {{ page.date }}
                     {% endif %}
-                    {% if parent_category != "None" %}
-                        <a class="link-category" href="{{ parent_url }}">{{ parent_category }}</a>
-                    {% else %}
-                        <a class="no-category">None</a>
-                    {% endif %}
-                    <span class="post-date">
-                        {% if page.title %}
-                            · {{ page.date }}
-                        {% endif %}
-                    </span>
-                </div>
+                </span>
             </div>
         </div>
-    {% endif %}
+    </div>
 </div>
 <main>
     {{ content }}
