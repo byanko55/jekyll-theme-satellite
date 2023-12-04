@@ -1,7 +1,7 @@
 ---
-layout: subpage
+type: post
 title: "Home"
-theme: datasets
+bookmark: true
 ---
 
 # To be updated

@@ -1,5 +1,5 @@
 ---
 type: list
-title: "Home"
+title: Category A
 bookmark: true
 ---

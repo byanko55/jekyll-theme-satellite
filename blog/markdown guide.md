@@ -1,10 +1,9 @@
 ---
-layout: subpage
+type: post
 title: "Markdown from A to Z"
-theme: blog
 date: "2023-09-05"
 thumbnail: "https://i.ibb.co/MRzw6T9/sample.webp"
-nav_include: true
+bookmark: true
 ---
 
 # Headings
