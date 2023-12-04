@@ -40,6 +40,7 @@
         {% endif %}
 
         <link rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="{{ '/assets/js/highlight.min.js' }}"></script>
         <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
     </head>
@@ -56,7 +57,7 @@
                 <span class="dot" style="background-color: #2ACB45;"></span>
             </div>
             <div class="inner-content">
-                {% if page.type == "list" %}
+                {% if page.type == "category" %}
                     {% include loading.html %}
                     {% include pagination.html %}
                 {% else %}
