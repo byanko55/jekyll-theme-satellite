@@ -1,5 +1,5 @@
 ---
-type: list
+type: category
 title: Subcategory c
 bookmark: true
 ---
