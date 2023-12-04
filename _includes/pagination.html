@@ -1,11 +1,10 @@
-{%- assign page_category = page.url -%}
-{%- assign page_tree = page_category | remove_first: "/" | split: "/" -%}
-{%- assign nav_pages = site.pages | sort:"date" | reverse -%}
+{%- assign list_pages = site.pages | sort:"date" | reverse -%}
 
 <div class="category_name">
     {%- assign page_link = "/" -%}
     <p>
-        {%- for sub_tree in page_tree -%}
+        {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
+        {%- for sub_tree in search_tree -%}
             {% if forloop.last %}
                 {{ sub_tree }}
             {% else %}
@@ -16,7 +15,7 @@
         {%- endfor -%}
     </p>
     <h3 id="category">
-        {% if page_tree.size == 1 %}
+        {% if page_level == 1 %}
             @ll_posts
         {% else %}
             {{ page.title }}
@@ -25,8 +24,8 @@
 </div>
 <div class="category_list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
-    {%- for sub_page in nav_pages -%}
-        {%- assign checkArray = sub_page.url | split:page_category -%} <!-- check whether the post belongs to the parent category -->
+    {%- for sub_page in list_pages -%}
+        {%- assign checkArray = sub_page.url | split:page.url -%} <!-- check whether the post belongs to the parent category -->
         {%- assign is_post = sub_page.url | split: ".html" -%} <!-- check whether its URL ends with .html -->
         {% if checkArray[0] == "" and is_post.size == 1 and is_post[0] != sub_page.url %}
             <li class="paginated-item">
@@ -45,14 +44,12 @@
                             {{ sub_page.content | markdownify | strip_html }}
                         </a>
                         <div class="info_post">
+                            {%- assign sub_page_tree = sub_page.path | split: "/" -%}
                             {%- assign parent_category = "None" -%}
-                            {%- assign parent_url = "/blog" -%}
-                            {% if sub_page.grand_parent != nil %}
-                                {%- assign parent_category = sub_page.grand_parent -%}
-                                {%- assign parent_url = "/blog/" | append: sub_page.grand_parent -%}
-                            {% elsif sub_page.parent != nil" %}
-                                {%- assign parent_category = sub_page.parent -%}
-                                {%- assign parent_url = "/blog/" | append: sub_page.parent -%}
+                            {%- assign parent_url = "/" | append: sub_page_tree[0] -%}
+                            {% if sub_page_tree.size > 2 %}
+                                {%- assign parent_category = sub_page_tree[1] -%}
+                                {%- assign parent_url = parent_url | append: "/" | append: sub_page_tree[1] -%}
                             {% endif %}
                             <a href="{{ parent_url }}" class="category">{{ parent_category }}</a>
                             <span class="date">· {{ sub_page.date }}</span>

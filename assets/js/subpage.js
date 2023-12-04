@@ -29,22 +29,24 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // kept nav opened
     var firstNavs = document.querySelectorAll('#nav-first');
-    var page_path = window.location.pathname.split('/');
+    var page_path = window.location.pathname.replace(/%20/g, " ");
+    var page_tree = page_path.split('/');
+    console.log(page_path);
 
     Array.prototype.forEach.call(firstNavs, function (nav_first) {
-        if (page_path[2] === nav_first.ariaLabel){
+        if (page_tree[2] === nav_first.ariaLabel){
             nav_first.classList.add('active');
 
             var secondNavs = nav_first.querySelectorAll('#nav-second');
 
             Array.prototype.forEach.call(secondNavs, function (nav_second) {
-                if (page_path[3] === nav_second.ariaLabel){
+                if (page_tree[3] === nav_second.ariaLabel){
                     nav_second.classList.toggle('active');
 
                     var thirdNavs = nav_second.querySelectorAll('#nav-third');
 
                     Array.prototype.forEach.call(thirdNavs, function (nav_third) {
-                        if (page_path[4] === nav_third.ariaLabel){
+                        if (page_tree[4] === nav_third.ariaLabel){
                             nav_third.classList.toggle('active');
                         }
                     });
