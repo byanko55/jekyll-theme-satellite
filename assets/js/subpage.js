@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function(){
     var firstNavs = document.querySelectorAll('#nav-first');
     var page_path = window.location.pathname.replace(/%20/g, " ");
     var page_tree = page_path.split('/');
-    console.log(page_path);
 
     Array.prototype.forEach.call(firstNavs, function (nav_first) {
         if (page_tree[2] === nav_first.ariaLabel){
@@ -276,4 +275,117 @@ document.addEventListener('DOMContentLoaded', function(){
             isDarkMode = true;
         }
     });
+
+    
+    // search box
+    const searchButton = document.querySelector("#btn-search");
+    const cancelButton = document.querySelector('#btn-clear');
+    const searchPage = document.querySelector("#search");
+
+    if (searchButton) {
+        searchButton.addEventListener('click', function() {
+            searchPage.classList.add('active');
+        });
+    }
+
+    if (searchPage) {
+        searchPage.addEventListener('click', function(event) {
+            const searchBar = document.querySelector(".search-box");
+            var target = event.target;
+
+            if (searchBar.contains(target))
+                return;
+
+            searchPage.classList.remove('active');
+        });
+    }
+
+    var posts = [];
+
+    $.getJSON('/search.json', function (data) {
+        posts = data;
+    })
+    .done(function() { console.log('getJSON request succeeded!'); })
+    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! ' + textStatus); })
+    .always(function() { console.log('getJSON request ended!'); });
+
+    $('#search-input').on('keyup', function () {
+        var keyword = this.value.toLowerCase();
+        var searchResult = [];
+
+        if (keyword.length > 0) {
+            $('#search-result').show();
+            $('#btn-clear').show();
+        } else {
+            $('#search-result').hide();
+            $('#btn-clear').hide();
+        }
+        
+        $('.result-item').remove();
+
+        for (var i = 0; i < posts.length; i++) {
+            var post = posts[i];
+
+            if ((post.type === 'post' && post.title.toLowerCase().indexOf(keyword) >= 0)
+            || (post.type === 'category' && post.path.toLowerCase().indexOf(keyword) >= 0)){
+                searchResult.push(post);
+            }
+        }
+
+        if (searchResult.length === 0) {
+            $('#search-result').append(
+                '<div class="result-item"><span class="description">There is no search result.</span></div>'
+            );
+        } else {
+            for (var i = 0; i < searchResult.length; i++) {
+                if (searchResult[i].type === 'post'){
+                    var highlighted = highlightKeyword(searchResult[i].title, keyword);
+
+                    $('#search-result').append(
+                        '<li class="result-item"><a href="' +
+                            searchResult[i].url +
+                            '"><div><i class="fa-solid fa-book"></i>' + highlighted +  
+                            '</div><div><i class="fa-solid fa-folder"></i><span class="path">' + searchResult[i].path +
+                            '</span></div><div><i class="fa-solid fa-tags"></i>Type: post' + 
+                            '</div><div><i class="fa-regular fa-calendar-days"></i>' + searchResult[i].date +
+                            '</div></a></li>'
+                    );
+                }
+                else {
+                    var highlighted = highlightKeyword(searchResult[i].path, keyword);
+
+                    $('#search-result').append(
+                        '<li class="result-item"><a href="' +
+                            searchResult[i].url +
+                            '"><div><i class="fa-solid fa-folder"></i>' + highlighted + 
+                            '</div><div><i class="fa-solid fa-tags"></i>Type: category' + 
+                            '</div></a></li>'
+                    );
+                }
+            }
+        }
+    });
+
+    if (cancelButton) {
+        cancelButton.addEventListener('click', function() {
+            $('.result-item').remove();
+            $('#search-input').val("");
+            $('#btn-clear').hide();
+        });
+    }
+
+    function highlightKeyword(txt, keyword) {
+        var index = txt.toLowerCase().lastIndexOf(keyword);
+
+        if (index >= 0) { 
+            out = txt.substring(0, index) + 
+                "<span class='highlight'>" + 
+                txt.substring(index, index+keyword.length) + 
+                "</span>" + 
+                txt.substring(index + keyword.length);
+            return out;
+        }
+
+        return txt;
+    }
 });

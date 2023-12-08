@@ -1,0 +1,30 @@
+---
+---
+[
+    {%- assign page_list = site.pages 
+        | where_exp: "item", "item.title != nil"
+    -%}
+
+    {% for page in page_list %}
+        {%- assign search_tree = page.path | split: "/" -%}
+        {%- assign tree_len = search_tree.size | minus: 1 -%}
+        {%- assign search_tree = search_tree | slice:0, tree_len -%}
+        {%- assign page_link = "" -%}
+        {%- for sub_tree in search_tree -%}
+            {% if forloop.last %}
+                {%- assign page_link = page_link | append: sub_tree -%}
+            {% else %}
+                {%- assign page_link = page_link | append: sub_tree | append: " > " -%}
+            {% endif %}
+        {%- endfor -%}
+
+        {
+            "title"    : "{{ page.title | escape }}",
+            "path"     : "{{ page_link }}",
+            "type"     : "{{ page.type }}",
+            "url"      : "{{ site.baseurl }}{{ page.url }}",
+            "date"     : "{{ page.date }}"
+        }
+        {% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+]
