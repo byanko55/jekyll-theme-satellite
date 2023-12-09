@@ -139,7 +139,7 @@ body.dark-theme {
 
         h3 {
             color: $color-orange;
-            text-decoration: underline yellowgreen;
+            text-decoration: underline $color-lightgreen;
         }
     }
 
@@ -170,7 +170,7 @@ body.dark-theme {
     }
 
     .sidebar-footer a:-webkit-any-link {
-        color: yellowgreen;
+        color: $color-lightgreen;
     }
 
     #search {
@@ -208,7 +208,7 @@ body.dark-theme {
             }
 
             button {
-                color: yellowgreen;
+                color: $color-lightgreen;
             }
         }
 
