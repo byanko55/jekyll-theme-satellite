@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (searchResult.length === 0) {
             $('#search-result').append(
-                '<div class="result-item"><span class="description">There is no search result.</span></div>'
+                '<li class="result-item"><span class="description">There is no search result.</span></li>'
             );
         } else {
             for (var i = 0; i < searchResult.length; i++) {
@@ -344,9 +344,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><div><i class="fa-solid fa-book"></i>' + highlighted +  
-                            '</div><div><i class="fa-solid fa-folder"></i><span class="path">' + searchResult[i].path +
-                            '</span></div><div><i class="fa-solid fa-tags"></i>Type: post' + 
+                            '"><div><i class="fa-solid fa-book"></i><span class="title">' + highlighted +  
+                            '</span></div><div><i class="fa-solid fa-folder"></i>' + searchResult[i].path +
+                            '</div><div><i class="fa-solid fa-tags"></i>Type: post' + 
                             '</div><div><i class="fa-regular fa-calendar-days"></i>' + searchResult[i].date +
                             '</div></a></li>'
                     );
@@ -357,8 +357,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><div><i class="fa-solid fa-folder"></i>' + highlighted + 
-                            '</div><div><i class="fa-solid fa-tags"></i>Type: category' + 
+                            '"><div><i class="fa-solid fa-folder"></i><span class="title">' + highlighted + 
+                            '</span></div><div><i class="fa-solid fa-tags"></i>Type: category' + 
                             '</div></a></li>'
                     );
                 }
