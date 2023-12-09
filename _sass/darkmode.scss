@@ -20,11 +20,11 @@ body.dark-theme {
 
                 @include mq(desktop) {
                     &:before {
-                        background: rgba($color-darkorange, 1);
+                        background: rgba($color-grey, 1);
                     }
         
                     &:hover:before {
-                        background: rgba($color-darkorange, .375);
+                        background: rgba($color-grey, .375);
                     }
                 }
             }
@@ -33,7 +33,7 @@ body.dark-theme {
                 color: #ddd;
 
                 &:hover {
-                    border:dashed 1px #ddd;
+                    color: rgb(240, 105, 172);
                 }
             }
         }
@@ -138,8 +138,8 @@ body.dark-theme {
         }
 
         h3 {
-            color: $color-rose;
-            text-decoration: underline $color-darkorange;
+            color: $color-orange;
+            text-decoration: underline yellowgreen;
         }
     }
 
@@ -169,7 +169,56 @@ body.dark-theme {
         background: #888;
     }
 
-    .footer-heading a:-webkit-any-link {
-        color: $color-orange;
+    .sidebar-footer a:-webkit-any-link {
+        color: yellowgreen;
+    }
+
+    #search {
+        background: rgba(64, 64, 64, 0.875);
+
+        ul {
+            border-bottom: 2px solid #555;
+            box-shadow: 0px 4px 8px 0 #333;
+
+            i {
+                color: #aaa;
+            }
+
+            &::-webkit-scrollbar {
+                width: 8px;
+                background-color: #aaa;
+            }
+        }
+
+        input {
+            color: #eee;
+
+            &::placeholder {
+                color: #ccc;
+            }
+        }
+
+        .input-box {
+            &:before {
+                background: #555;
+            }
+
+            &:after {
+                opacity: 0.5;
+            }
+
+            button {
+                color: yellowgreen;
+            }
+        }
+
+        .result-item{
+            border: 1px solid #555;
+            background: #333;
+
+            &:hover {
+                background: $color-wenge;
+            }
+        }
     }
 }
