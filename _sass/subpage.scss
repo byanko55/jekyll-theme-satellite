@@ -117,15 +117,12 @@ button {
         }
     }
 
-    .open-nav {
+    button {
         position: absolute;
         background-color: $color-beige;
-        background-repeat: no-repeat;
-        border: 0;
         height: 100%;
         aspect-ratio: 1;
         top: 0;
-        right: 0;
         font-size: 1.5rem;
 
         i {
@@ -138,6 +135,34 @@ button {
 
         &:hover {
             background-color: rgba(212, 201, 191, 0.7);
+        }
+    }
+
+    #btn-nav {
+        right: 0;
+    }
+
+    #btn-search {
+        right: 69px;
+    }
+
+    #btn-brightness {
+        right: 138px;
+    }
+
+    .fa-moon {
+        display: block;
+
+        &.active{
+            display: none;
+        }
+    }
+
+    .fa-sun {
+        display: none;
+
+        &.active{
+            display: block;
         }
     }
 }

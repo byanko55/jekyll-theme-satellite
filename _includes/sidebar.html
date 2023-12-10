@@ -4,8 +4,17 @@
             <img src="{{ '/assets/img/home.webp' }}" alt="homepage" aria-label="homepage-button">
         </a>
         <h1 class="site-name">
-            <a href="/"><span class="highlight">Wonder-Wise</span> .net</a>
-            <button type="button" class="open-nav" id="open-nav" aria-pressed="false" aria-label="menu-button"><i class="fa fa-bars"></i></button>
+            <a href="/"><span class="highlight">WonderWise</span> .net</a>
+            <button id="btn-brightness">
+                <i class="fa fa-moon"></i>
+                <i class="fa fa-sun"></i>
+            </button>
+            <button id="btn-search">
+                <i class="fa fa-search"></i>
+            </button>
+            <button id="btn-nav" aria-pressed="false" aria-label="menu-button">
+                <i class="fa fa-bars"></i>
+            </button>
         </h1>
     </div>
     {% include navigation.html %}

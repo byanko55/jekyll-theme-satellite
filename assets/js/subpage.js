@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // navigation (mobile)
     var siteNav = document.querySelector('#site-nav');
-    var menuButton = document.querySelector("#open-nav");
+    var menuButton = document.querySelector("#btn-nav");
 
     menuButton.addEventListener('click', function() {
         if (menuButton.classList.toggle('nav-open')) {
