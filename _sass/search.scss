@@ -1,0 +1,193 @@
+#search
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+    background: rgba(255,255,255,0.875);
+    z-index: 999;
+    text-align: center;
+
+    .wave {
+        background: rgba(253, 177, 55, 0.5);
+        border-radius: 0 0 250% 250%;
+        position: fixed;
+        width: 200%;
+        height: 13.5rem;
+        animation: wave 10s -3s linear infinite;
+        transform: translate3d(0, 0, 0);
+        opacity: 0.75;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .wave:nth-of-type(2) {
+        top: -1.5em;
+        animation: wave 18s linear reverse infinite;
+        opacity: 0.75;
+    }
+    
+    .wave:nth-of-type(3) {
+        top: -3em;
+        animation: wave 20s -1s reverse infinite;
+        opacity: 0.875;
+    }
+    
+    @keyframes wave {
+        2% {
+            transform: translateX(1);
+        }
+    
+        25% {
+            transform: translateX(-25%);
+        }
+    
+        50% {
+            transform: translateX(-50%);
+        }
+    
+        75% {
+            transform: translateX(-25%);
+        }
+    
+        100% {
+            transform: translateX(1);
+        }
+    }
+
+    .search-box {
+        margin: auto;
+        margin-top: 20vh;
+
+        .input-box {
+            position: relative;
+
+            &:before, 
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            &:before {
+                background: #fff;
+            }
+
+            &:after {
+                background-image: url('/assets/img/tile.png');
+            }
+
+            button {
+                position: absolute;
+                top: 0;
+                right: 1rem;
+                transform: translateY(90%);
+                font-size: 1.25rem;
+                color: $color-rosybrown;
+                border: none;
+                display: none;
+                background: none;
+                outline: none;
+
+                @include mq(tablet) {
+                    transform: translateY(60%);
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        input {
+            font-size: 1.5rem;
+            padding: 1rem;
+            width: 20.5rem;
+            border: 2px solid #aaa;
+            background: none;
+
+            @include mq(tablet) {
+                font-size: 3rem;
+                width: 40rem;
+            }
+        }
+    }
+
+    ul {
+        margin: auto;
+        margin-top: -1px;
+        width: 20.5rem;
+        padding: 0;
+        overflow-y: auto;
+        max-height: 24rem;
+        border-bottom: 2px solid #aaa;
+        box-shadow: 0px 4px 8px 0 #ccc;
+
+        div {
+            font-size: 1rem;
+            margin: 0.25rem;
+        }
+
+        i {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+            color: #666;
+        }
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            background-color: #ddd;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $color-rosybrown;
+        }
+
+        @include mq(tablet) {
+            width: 40rem;
+            max-height: 32rem;
+
+            div {
+                font-size: 1.125rem;
+            }
+    
+            i {
+                font-size: 1.25rem;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .result-item {
+        list-style: none;
+        text-align: justify;
+        padding: 1rem;
+        border: 1px solid #aaa;
+        background: #fff;
+
+        &:hover {
+            background: #ffe7a0;
+        }
+
+        .highlight {
+            font-weight: 900;
+            color: $color-green !important;
+        }
+
+        .title {
+            font-size: 1rem;
+
+            @include mq(tablet) {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    &.active{
+        display: flex;
+    }
+}
