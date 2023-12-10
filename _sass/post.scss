@@ -5,7 +5,7 @@
     @include mq(desktop){
         margin: 4rem 0;
         margin-left: $sidebar-wd;
-        width: max(min(calc(100vw - #{$content-wd}), $content-wd), 44rem);
+        width: max(min(calc(100vw - #{$sidebar-wd} - 2rem), $content-wd), 44rem);
         display: inline-block;
     }
 

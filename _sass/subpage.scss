@@ -7,6 +7,11 @@ a, span {
     font-family: "Nunito Sans", sans-serif;
 }
 
+button {
+    border: none;
+    background: none;
+}
+
 #stars {
     display: block;
     position: fixed;
@@ -54,11 +59,11 @@ a, span {
     .site-avatar {
         img {
             display: none;
-            width: 12rem;
+            width: 10.5rem;
             aspect-ratio: 1;
             border-radius: 50%;
-            outline: 6rem solid rgba(255,255,255,0.3);
-            outline-offset: -6rem;
+            outline: 5.25rem solid rgba(255,255,255,0.3);
+            outline-offset: -5.25rem;
             transition: .3s;
 
             @include mq(desktop){
@@ -103,7 +108,8 @@ a, span {
         }
 
         @include mq(desktop){
-            font-size: 2.25rem;
+            font-size: 2rem;
+            margin: 2rem;
         }
     }
 
@@ -143,12 +149,12 @@ a, span {
     }
 
     @include mq(desktop){
-        width: calc($sidebar-wd - 1rem);
+        width: calc($sidebar-wd - 3rem);
         display: block;
         max-height: 480px;
-        margin-top: 2rem;
-        padding-right: 1rem;
+        padding: 1.5rem;
         overflow-y: auto;
+        overflow-x: hidden;
 
         &::-webkit-scrollbar {
             width: 4px;
@@ -171,7 +177,7 @@ a, span {
         font-size: 1.125rem;
   
         > .nav-list {
-            padding-left: 1.25rem;
+            padding-left: 1.125rem;
             list-style: none;
 
             transition: max-height .5s, opacity .2s;
@@ -215,10 +221,8 @@ a, span {
     .nav-list-link {
         display: flex;
         position: relative;
-        width: 93.75%;
+        width: 95%;
         align-items: center;
-        text-transform: uppercase;
-        letter-spacing: .125rem;
         transition: all .2s ease;
 
         span {
@@ -236,14 +240,14 @@ a, span {
                     text-decoration: underline;
                 }
 
-                transform: scale(.9375);
+                transform: scale(.9);
             }
         }
     }
 
     .nav-lh {
         .fa {
-            margin-right: 1.5rem;
+            margin-right: 0.875rem;
             margin-left: -0.375em;
             position: relative;
             color: $color-darkorange;
@@ -263,7 +267,7 @@ a, span {
             }
 
             &:hover:before {
-                width: 102.5%;
+                width: 105%;
                 background: rgba($color-lightyellow, 1);
             }
         }
@@ -278,12 +282,10 @@ a, span {
 
     .nav-list-expander {
         position: absolute;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         padding: 3px;
         right: 8px;
-        background: none;
-        border: none;
         transition: all .375s ease;
 
         i {
@@ -292,12 +294,12 @@ a, span {
 
         @include mq(desktop) {
             background-color: transparent;
-            right: 0;
+            right: -8px;
         }
 
         .fa {
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         &:hover {
