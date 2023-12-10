@@ -61,7 +61,7 @@ body.dark-theme {
 
             .link-category,
             .no-category{
-                color: $color-orange;
+                color: $color-lightgreen;
             }
 
             .link-category {
@@ -96,6 +96,7 @@ body.dark-theme {
             pre button {
                 color: #eee;
                 background-color: $color-wenge;
+                box-shadow: 2px 2px $color-lightgreen;
             }
 
             blockquote {
@@ -145,7 +146,7 @@ body.dark-theme {
 
     .article_content {
         .box_contents {
-            background-color: rgba(128,128,128,0.875);
+            background-color: rgba(96, 96, 96, 0.95);
         }
 
         .title_post,
@@ -155,7 +156,7 @@ body.dark-theme {
         }
 
         .category{
-            color: $color-orange;
+            color: $color-lightgreen;
         }
     }
 
