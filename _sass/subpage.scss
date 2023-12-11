@@ -82,9 +82,10 @@ button {
     }
 
     .site-name {
-        padding: 1rem;
+        padding: 0.5rem;
         margin: 0;
-        font-size: 1.75rem;
+        font-size: 1.25rem;
+        text-align: left;
         position: relative;
         box-shadow: 0px 4px 8px 0 #aaa;
 
@@ -113,6 +114,7 @@ button {
         @include mq(desktop){
             font-size: 2rem;
             padding: 2rem;
+            text-align: center;
             box-shadow: none;
         }
     }
@@ -123,7 +125,7 @@ button {
         height: 100%;
         aspect-ratio: 1;
         top: 0;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
 
         i {
             color: $color-black;
@@ -131,6 +133,7 @@ button {
 
         @include mq(desktop){
             display: none;
+            font-size: 1.5rem;
         }
 
         &:hover {
@@ -143,11 +146,19 @@ button {
     }
 
     #btn-search {
-        right: 69px;
+        right: 43px;
+
+        @include mq(desktop){
+            right: 69px;
+        }
     }
 
     #btn-brightness {
-        right: 138px;
+        right: 86px;
+
+        @include mq(desktop){
+            right: 138px;
+        }
     }
 
     .fa-moon {
@@ -207,7 +218,7 @@ button {
     font-family: 'Lato', sans-serif;
   
     li {
-        font-size: 1.125rem;
+        font-size: 1rem;
         position: relative;
   
         > .nav-list {
@@ -237,6 +248,10 @@ button {
                 opacity: 1;
                 max-height: 256px;
             }
+        }
+
+        @include mq(desktop) {
+            font-size: 1.125rem;
         }
     }
 }
@@ -339,7 +354,11 @@ button {
 
         .fa {
             font-weight: 900;
-            font-size: 1.25rem;
+            font-size: 1rem;
+
+            @include mq(desktop) {
+                font-size: 1.25rem;
+            }
         }
 
         &:hover {
