@@ -256,35 +256,45 @@ document.addEventListener('DOMContentLoaded', function(){
         isDarkMode = false;
     }
 
-    const themeButton = document.querySelector("#btn-brightness");
+    const themeButton = document.querySelectorAll("#btn-brightness");
 
-    themeButton.addEventListener('click', function() {
-        const moonIco = document.querySelector(".fa-moon");
-        const sunIco = document.querySelector(".fa-sun");
+    themeButton.forEach((btn) => {
+        btn.addEventListener('click', function() {
+            const moonIcons = document.querySelectorAll(".fa-moon");
+            const sunIcons = document.querySelectorAll(".fa-sun");
 
-        moonIco.classList.toggle('active');
-        sunIco.classList.toggle('active');
-        document.body.classList.toggle('dark-theme');
+            moonIcons.forEach((ico) => {
+                ico.classList.toggle('active');
+            });
 
-        if (isDarkMode){
-            localStorage.setItem('theme', 'default');
-            isDarkMode = false;
-        }
-        else {
-            localStorage.setItem('theme', 'dark');
-            isDarkMode = true;
-        }
+            sunIcons.forEach((ico) => {
+                ico.classList.toggle('active');
+            });
+
+            document.body.classList.toggle('dark-theme');
+
+            if (isDarkMode){
+                localStorage.setItem('theme', 'default');
+                isDarkMode = false;
+            }
+            else {
+                localStorage.setItem('theme', 'dark');
+                isDarkMode = true;
+            }
+        });
     });
 
     
     // search box
-    const searchButton = document.querySelector("#btn-search");
+    const searchButton = document.querySelectorAll("#btn-search");
     const cancelButton = document.querySelector('#btn-clear');
     const searchPage = document.querySelector("#search");
 
     if (searchButton) {
-        searchButton.addEventListener('click', function() {
-            searchPage.classList.add('active');
+        searchButton.forEach((btn) => {
+            btn.addEventListener('click', function() {
+                searchPage.classList.add('active');
+            });
         });
     }
 
