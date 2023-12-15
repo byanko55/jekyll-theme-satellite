@@ -29,11 +29,6 @@ a {
     text-decoration: none;
 }
 
-a, span {
-    color: $color-darkbrown;
-    font-family: "Nunito Sans", sans-serif;
-}
-
 h1, h2, h3 {
     margin: 0;
 }
@@ -70,6 +65,7 @@ input::-webkit-search-results-decoration{
 @import "about";
 @import "contents";
 
+@import "subpage";
 @import "sidebar";
 @import "navigation";
 @import "pagination";
@@ -77,5 +73,4 @@ input::-webkit-search-results-decoration{
 @import "post";
 @import "search";
 
-@import "subpage";
 @import "darkmode";
