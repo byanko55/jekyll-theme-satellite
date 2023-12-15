@@ -1,4 +1,4 @@
-<nav class="navigation" id="site-nav">
+<nav id="navigation">
     {%- assign nav_pages = site.pages 
         | where_exp: "item", "item.title != nil"
         | where_exp: "item", "item.bookmark == true"

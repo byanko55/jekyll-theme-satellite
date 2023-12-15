@@ -1,3 +1,5 @@
+#category_list { width: 100%; }
+
 .category_name {
     align-items:center;
     margin:2rem 0.5rem;
@@ -27,10 +29,6 @@
     }
 }
 
-.category_list {
-    width: 100%;
-}
-
 .paginated-list {
     margin: 0;
     padding: 0;
@@ -41,7 +39,7 @@
     height: fit-content;
 }
 
-.article_content {
+#article_content {
     clear: both;
     height: 100%;
     padding: 0;
@@ -58,19 +56,15 @@
         border-radius: 0;
     }
 
-    .thumbnail_post:hover {
-        opacity: 0.8;
-    }
+    .thumbnail_post:hover { opacity: 0.8; }
 
     .box_contents {
         margin: 0.75rem;
-        position:relative;
+        position: relative;
         overflow: hidden;
     }
 
-    a {
-        text-decoration: none;
-    }
+    a { text-decoration: none; }
 
     .title_post{
         width: 100%;
@@ -88,9 +82,7 @@
         text-align: left;
     }
 
-    .info_post {
-        font-family: 'Nunito Sans', sans-serif;
-    }
+    .info_post { font-family: 'Nunito Sans', sans-serif; }
 
     .category,
     .date {
@@ -98,9 +90,7 @@
         color: $color-grey;
     }
 
-    .category{
-        color: $color-rosybrown;
-    }
+    .category{ color: $color-rosybrown; }
 
     .title_post:hover,
     .category:hover {
@@ -119,10 +109,8 @@
         -webkit-box-orient: vertical;
         word-wrap: break-word;
     }
-}
 
-.hidden {
-    display: none;
+    .hidden { display: none; }
 }
   
 .pagination-container {
@@ -157,32 +145,30 @@
 }
 
 @include mq(tablet){
-    .category_name {
-        margin: 2rem;
+    .category_name { 
+        margin: 2rem; 
+
+        p {
+            font-size: 1rem;
+            padding: 1.5rem 0;
+        }
+
+        h3 {
+            font-size: 2.25rem;
+            padding-bottom: 0.5rem;
+        }
     }
 
-    .category_name p {
-        font-size: 1rem;
-        padding: 1.5rem 0;
-    }
-
-    .category_name h3 {
-        font-size: 2.25rem;
-        padding-bottom: 0.5rem;
-    }
-
-    .paginated-list {
-        margin: auto 2rem;
-    }
+    .paginated-list { margin: auto 2rem; }
 
     .paginated-item {
         margin: 2rem 0;
         height: 12.5rem;
     }
 
-    .article_content {
+    #article_content {
         display: flex;
-        transition: all .3s ease;
+        transition: .3s;
         box-shadow: 0 1px 1px 0 rgba(31, 35, 46, .15);
 
         &:hover {
@@ -200,9 +186,10 @@
         .box_contents {
             width: 100%;
             margin: auto 0 auto -5rem;
-            padding-left: 1.5rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            padding: 0.5rem 1.5rem 0.5rem 0;
+            //padding-left: 1.5rem;
+            //padding-top: 0.5rem;
+            //padding-bottom: 0.5rem;
             background-color: rgba(255,255,255,0.95);
             background-image: url(/assets/img/tile.png);
             border-radius: 6px;
@@ -219,9 +206,7 @@
             font-size: 1rem;
         }
 
-        .category{
-            font-weight: bold;
-        }
+        .category{ font-weight: bold; }
 
         .txt_post {
             margin-top: 1rem;
@@ -234,41 +219,29 @@
     .category_name {
         margin-top: 0;
         margin-bottom: 5rem;
-    }
 
-    .category_name p {
-        font-size: 1.125rem;
-        padding-top: 3rem;
-    }
-
-    .category_name h3 {
-        font-size: 3rem;
-    }
-
-    .paginated-item {
-        height: 15rem;
-    }
-    
-    .article_content {
-        .thumbnail_post {
-            height: 15rem;
+        p {
+            font-size: 1.125rem;
+            padding-top: 3rem;
         }
+
+        h3 { font-size: 3rem; }
+    }
+
+    .paginated-item { height: 15rem; }
+    
+    #article_content {
+        .thumbnail_post { height: 15rem; }
 
         .box_contents {
             margin-left: -6rem;
             border-radius: 8px;
         }
 
-        .category {
-            font-size: 1.25rem;
-        }
+        .category { font-size: 1.25rem; }
     
-        .date {
-            font-size: 1.125rem;
-        }
+        .date { font-size: 1.125rem; }
 
-        .txt_post {
-            margin-top: 1.25rem;
-        }
+        .txt_post { margin-top: 1.25rem; }
     }
 }

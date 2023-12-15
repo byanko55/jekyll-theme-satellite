@@ -1,17 +1,6 @@
-.post {
+#post {
     max-width: $content-wd;
     margin: auto;
-
-    @include mq(desktop){
-        margin: 4rem 0;
-        margin-left: $sidebar-wd;
-        width: max(min(calc(100vw - #{$sidebar-wd} - 2rem), $content-wd), 44rem);
-        display: inline-block;
-    }
-
-    @include mq(wide){
-        margin-left: calc((100vw - #{$content-wd})/2);
-    }
 }
 
 .inner-header {
@@ -19,10 +8,6 @@
     background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(224,224,224,1) 100%);
     border-radius: 1rem 1rem 0 0;
     padding: 0.5rem 1rem;
-
-    @include mq(desktop){
-        display: block;
-    }
 
     .dot {
         height: 1rem;
@@ -43,40 +28,23 @@
         margin: auto;
     }
 
-    .thumbnail {
-        display: block;
-        width: 100%;
-        aspect-ratio: 2/1;
-        margin: auto;
-        background-size: cover;
-        background-position: center center;
-        box-shadow: 0 16px 16px 8px rgba(31, 35, 46, .15);
-    }
+    .img-xs { max-width: 12.5%; }
 
-    .img-xs {
-        max-width: 12.5%;
-    }
+    .img-sm { max-width: 25%; }
 
-    .img-sm {
-        max-width: 25%;
-    }
+    .img-md { max-width: 50%; }
 
-    .img-md {
-        max-width: 50%;
-    }
+    .img-lg { max-width: 75%; }
+}
 
-    .img-lg {
-        max-width: 75%;
-    }
-
-    @include mq(desktop){
-        border-radius: 0 0 1rem 1rem;
-        box-shadow: 0 16px 16px 8px rgba(31, 35, 46, 0.15);
-
-        .thumbnail {
-            aspect-ratio: 2.75/1;
-        }
-    }
+.thumbnail {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2/1;
+    margin: auto;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 16px 16px 8px rgba(31, 35, 46, .15);
 }
 
 .transbox {
@@ -88,51 +56,37 @@
     padding: 1rem;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8125);
+}
 
-    .post-title {
-        font-size: 1.5rem;
-        font-family: 'Lato', sans-serif;
-        font-weight: 600;
-        word-wrap: break-word;
-    }
+.post-title {
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    word-wrap: break-word;
+}
 
-    .post-info {
-        margin-top: 1.25rem;
-        font-size: 1.25rem;
-    
-        .link-category,
-        .no-category{
-            color: $color-darkorange;
-            font-weight: 600;
-        }
+.post-info {
+    margin-top: 1.25rem;
+    font-size: 1.25rem;
+}
 
-        .link-category {
-            transition: 0.5s ease;
-            background-image: linear-gradient(
-                transparent 50%,
-                $color-lightyellow 4px,
-            );
-            background-size: 0;
-            background-repeat: no-repeat;
-            display: inline;
+.link-category,
+.no-category{
+    color: $color-darkorange;
+    font-weight: 600;
+}
 
-            &:hover {
-                background-size: 100%;
-            }
-        }
-    }
+.link-category {
+    transition: .5s;
+    background-image: linear-gradient(
+        transparent 50%,
+        $color-lightyellow 4px,
+    );
+    background-size: 0;
+    background-repeat: no-repeat;
+    display: inline;
 
-    @include mq(tablet){
-        padding: 2rem;
-
-        .post-title {
-            font-size: 2.25rem;
-        }
-
-        .post-info {
-            margin-top: 2.25rem;
-        }
-    }
+    &:hover { background-size: 100%; }
 }
 
 main {
@@ -145,9 +99,7 @@ main {
     overflow-wrap: break-word;
     word-wrap: break-word;
 
-    * {
-        margin: auto;
-    }
+    * { margin: auto; }
 
     h1, h2, h3 {
         font-family: "Helvetica";
@@ -169,9 +121,7 @@ main {
         padding-top: 1.75rem;
     }
 
-    p {
-        text-align:justify;
-    }
+    p { text-align:justify; }
 
     u {
         color: $color-rose;
@@ -179,9 +129,7 @@ main {
         text-underline-offset: 2px;
     }
 
-    em {
-        padding-right: 2px;
-    }
+    em { padding-right: 2px; }
 
     a {
         color: $color-blue;
@@ -189,9 +137,7 @@ main {
         background-color: transparent;
     }
 
-    p, ul, hr, table {
-        margin-top: 2rem;
-    }
+    p, ul, hr, table { margin-top: 2rem; }
 
     code {
         margin: 0 2px;
@@ -230,7 +176,7 @@ main {
                 padding: 0.25rem;
                 background-color: #fff;
                 box-shadow: 2px 2px $color-blue;
-                border: none;
+                //border: none;
                 border-radius: 4px;
 
                 &:after {
@@ -243,7 +189,7 @@ main {
                     width: 100%;
                     height: 100%;
                     opacity: 0;
-                    transition: all 0.5s;
+                    transition: .5s;
                     box-shadow: 0 0 6px 24px #888;
                 }
 
@@ -259,9 +205,7 @@ main {
             }
 
             &:hover {
-                button {
-                    display: block;
-                }
+                button { display: block; }
             }
         }
 
@@ -288,9 +232,7 @@ main {
         }
     }
 
-    .table-wrapper {
-        overflow-x: auto;
-    }
+    .table-wrapper { overflow-x: auto; }
 
     table {
         display: block;
@@ -304,11 +246,11 @@ main {
         border-collapse: collapse;
         font-size: 1rem;
         line-height: 1.5;
-        -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+        box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
 
         thead {
             font-family: 'Nunito Sans', sans-serif;;
-            -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+            box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
         }
 
         th, td {
@@ -353,9 +295,7 @@ main {
         }
     }
 
-    li {
-        padding: 0.25rem 0;
-    }
+    li { padding: 0.25rem 0; }
 
     hr {
         border: 0;
@@ -371,15 +311,21 @@ main {
         font-size: 0.875rem;
         font-style: normal;
     }
+}
 
-    @include mq(tablet){
+@include mq(tablet){
+    .transbox { padding: 2rem; }
+
+    .post-title { font-size: 2.25rem; }
+
+    .post-info { margin-top: 2.25rem; }
+
+    main {
         padding: 2.5rem;
         padding-top: 0;
         font-size: 1.125rem;
 
-        h1, h2, h3, hr {
-            margin-bottom: -2.25rem;
-        }
+        h1, h2, h3, hr { margin-bottom: -2.25rem; }
 
         h1 {
             font-size: 2.25rem;
@@ -396,16 +342,32 @@ main {
             padding-top: 3rem;
         }
 
-        p, ul, hr, table {
-            margin-top: 3rem;
-        }
+        p, ul, hr, table { margin-top: 3rem; }
 
-        code {
-            font-size: 1rem;
-        }
+        code { font-size: 1rem; }
 
-        blockquote p {
-            font-size: 1rem;
-        }
+        blockquote p { font-size: 1rem; }
     }
+}
+
+@include mq(desktop){
+    #post {
+        margin: 4rem 0;
+        margin-left: $sidebar-wd;
+        width: max(min(calc(100vw - #{$sidebar-wd} - 2rem), $content-wd), 44rem);
+        display: inline-block;
+    }
+
+    .inner-header { display: block; }
+
+    .inner-content {
+        border-radius: 0 0 1rem 1rem;
+        box-shadow: 0 16px 16px 8px rgba(31, 35, 46, 0.15);
+    }
+
+    .thumbnail { aspect-ratio: 2.75/1; }
+}
+
+@include mq(wide){
+    #post { margin-left: calc((100vw - #{$content-wd})/2); }
 }

@@ -22,14 +22,14 @@
         {% endif %}
     </h3>
 </div>
-<div class="category_list">
+<div id="category_list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
     {%- for sub_page in list_pages -%}
         {%- assign checkArray = sub_page.url | split:page.url -%} <!-- check whether the post belongs to the parent category -->
         {%- assign is_post = sub_page.url | split: ".html" -%} <!-- check whether its URL ends with .html -->
         {% if checkArray[0] == "" and is_post.size == 1 and is_post[0] != sub_page.url %}
             <li class="paginated-item">
-                <div class="article_content">
+                <div id="article_content">
                     <div class="thumbnail_zone">
                         {%- assign thumbnail_path = sub_page.thumbnail -%}
                         {% if sub_page.thumbnail == nil %}
