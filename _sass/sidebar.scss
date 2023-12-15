@@ -1,0 +1,195 @@
+.sidebar {
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.sidebar-left {
+    display: flex;
+    background-color: $color-beige;
+}
+
+.side-banner {
+    width: 100%;
+    text-align:center;
+
+    button {
+        position: absolute;
+        background-color: $color-beige;
+        height: 100%;
+        aspect-ratio: 1;
+        top: 0;
+        font-size: 1.25rem;
+
+        i { color: $color-black; }
+
+        &:hover { background-color: rgba(212, 201, 191, 0.7); }
+    }
+
+    #btn-nav { right: 0; }
+
+    #btn-search { right: 43px; }
+
+    #btn-brightness { right: 86px; }
+
+    .fa-moon {
+        display: block;
+
+        &.active{ display: none; }
+    }
+
+    .fa-sun {
+        display: none;
+
+        &.active{ display: block; }
+    }
+}
+
+.site-avatar {
+    img {
+        display: none;
+        width: 10.5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        outline: 5.25rem solid rgba(255,255,255,0.3);
+        outline-offset: -5.25rem;
+        transition: .3s;
+
+        &:hover {
+            outline: 4px solid $color-orange;
+            outline-offset: 8px;
+        }
+    }
+
+    img + img { border-radius: 50%; }
+}
+
+.site-name {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    text-align: left;
+    position: relative;
+    box-shadow: 0px 4px 8px 0 #aaa;
+
+    a, span {
+        font-family: Impact, sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1;
+        letter-spacing: 2px;
+        word-spacing: -6px;
+        color: $color-darkblue;
+    }
+
+    .highlight {
+        @supports (background-clip: text) or (-webkit-background-clip: text) {
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%23CD5849' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='320' cy='256' r='512' fill='%23F16C20'/%3E%3Ccircle cx='2048' cy='512' r='512' fill='%23CD5849'/%3E%3Ccircle cx='1600' cy='768' r='512' fill='%23CD0067'/%3E%3C/g%3E%3C/svg%3E%0A");
+            background-size: 150% auto;
+            background-position: center;
+            color: transparent;
+            -webkit-background-clip: text;
+        }
+    }
+}
+
+.sidebar-right{ 
+    display: none;
+}
+
+.tools {
+    position: fixed;
+    top: 1rem;
+
+    button {
+        width: 2.75rem;
+        aspect-ratio: 1;
+        text-align: center;
+        background: #ffe390;
+        border: none;
+        border-radius: 50%;
+        margin-left: 1rem;
+
+        &:hover {
+            border: 2px solid $color-navy;
+            animation: leaves .75s ease-in-out infinite alternate;
+        }
+    }
+
+    @keyframes leaves {
+        0% {
+            transform: scale(1.0);
+            background: #ffe390;
+        }
+        100% {
+            transform: scale(1.25);
+            background: #ffd044;
+        }
+    }
+
+    i {
+        color: #3A241A;
+        font-size: 1.5rem;
+        font-weight: 900;
+        position: relative;
+    }
+
+    .fa-moon {
+        display: block;
+
+        &.active{ display: none; }
+    }
+
+    .fa-sun {
+        display: none;
+
+        &.active{ display: block; }
+    }
+}
+
+@include mq(desktop){
+    .sidebar { position: fixed; }
+
+    .sidebar-left{
+        flex-flow: column nowrap;
+        width: $sidebar-wd;
+        height: 100%;
+        background: none;
+        align-items: flex-end;
+    }
+
+    .side-banner{
+        width: $sidebar-wd;
+        padding-top: 4rem;
+
+        button {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        #btn-search { right: 69px; }
+
+        #btn-brightness { right: 138px; }
+    }
+
+    .site-avatar img { display: inline-block; }
+
+    .site-name {
+        font-size: 2rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: none;
+    }
+}
+
+@include mq(wide){
+    .sidebar-left{ width: calc((100vw - #{$content-wd})/2); }
+
+    .sidebar-right{
+        display: flex;
+        height: 100%;
+        align-items: flex-end;
+        width: calc((100vw - #{$content-wd})/2);
+        margin-left: calc(#{$content-wd} + (100vw - #{$content-wd})/2);
+    }
+}

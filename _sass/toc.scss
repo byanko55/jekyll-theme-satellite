@@ -1,0 +1,45 @@
+.toc {
+    position: fixed;
+    top: 6rem;
+}
+
+.toc-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding-left: 1.5rem;
+    padding-bottom: 4px;
+    border-bottom: $color-darkbeige 2px solid;
+}
+
+.toc-board {
+    max-width: $sidebar-wd;
+    margin: 0 1.5rem;
+}
+
+.toc-list {
+    font-size: 1.125rem;
+    padding: 0;
+
+    li:last-child { margin-bottom: 0; }
+
+    li a { display:inline-block; }
+
+    .node-name--H1 { margin-top: 0.5rem; }
+
+    .node-name--H2 {
+        font-size: 1rem;
+        margin-top: 0.375rem;
+        padding-left: 0.5rem;
+    }
+
+    .toc-list-item {
+        word-break: normal;
+        display: block;
+        line-height: 150%;
+    }
+      
+    .is-active-link{
+        color: $color-darkorange;
+        font-weight:950;
+    }
+}

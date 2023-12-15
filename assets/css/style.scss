@@ -25,6 +25,28 @@ html, body {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+a, span {
+    color: $color-darkbrown;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+ul {
+    list-style: none;
+}
+
 /* Disable default input cancel button */
 input::-ms-clear,
 input::-ms-reveal{
@@ -47,7 +69,11 @@ input::-webkit-search-results-decoration{
 @import "header";
 @import "about";
 @import "contents";
+
+@import "sidebar";
+@import "navigation";
 @import "pagination";
+@import "toc";
 @import "post";
 @import "search";
 
