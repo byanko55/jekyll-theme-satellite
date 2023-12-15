@@ -251,9 +251,23 @@ document.addEventListener('DOMContentLoaded', function(){
     if (currentTheme === 'dark'){
         isDarkMode = true;
         document.body.classList.add('dark-theme');
+
+        console.log("dark now");
+
+        const moonIcons = document.querySelectorAll(".fa-moon");
+        const sunIcons = document.querySelectorAll(".fa-sun");
+
+        moonIcons.forEach((ico) => {
+            ico.classList.add('active');
+        });
+
+        sunIcons.forEach((ico) => {
+            ico.classList.add('active');
+        });
     }
     else {
         isDarkMode = false;
+        console.log("why not dark??");
     }
 
     const themeButton = document.querySelectorAll("#btn-brightness");
