@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const listItems = paginatedList.querySelectorAll("li");
         const nextButton = document.querySelector("#next-button");
         const prevButton = document.querySelector("#prev-button");
+        const pageKey = "pageKey=" + document.URL;
 
         const paginationLimit = 5;
         const pageCount = Math.ceil(listItems.length / paginationLimit);
@@ -188,11 +189,20 @@ document.addEventListener('DOMContentLoaded', function(){
                     item.classList.remove("hidden");
                 }
             });
+
+            localStorage.setItem(pageKey, currentPage);
+            console.log(pageKey + " saved page: " + currentPage);
         };
 
-        window.addEventListener("load", () => {
+        window.addEventListener("load", (event) => {
+            // Load last visited page number
+            if (event.persisted 
+            || (window.performance && window.performance.navigation.type == 2)) {
+                currentPage = localStorage.getItem(pageKey);
+            }
+
             getPaginationNumbers();
-            setCurrentPage(1);
+            setCurrentPage(currentPage);
 
             prevButton.addEventListener("click", () => {
                 setCurrentPage(currentPage - 1);
@@ -215,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // code clipboard copy button
-    async function copyCode(block, button) {
+    async function copyCode(block) {
         let code = block.querySelector("code");
         let text = code.innerText;
       
