@@ -12,12 +12,12 @@
         {%- assign p_tree = p.url | remove_first: "/" | split: "/" -%}
 
         {% if p_tree[0] == page_category %}
-            {%- assign page_level = p_tree | size -%}
-            {% if page_level <= 2 and p.bookmark %}
+            {%- assign p_level = p_tree | size -%}
+            {% if p_level <= 2 and p.bookmark %}
                 {% assign first_level_pages = first_level_pages | push:p %}
-            {% elsif (page_level == 3 and p.bookmark) or (page_level == 2 and p.bookmark == nil) %}
+            {% elsif (p_level == 3 and p.bookmark) or (p_level == 2 and p.bookmark == nil) %}
                 {% assign second_level_pages = second_level_pages | push:p %}
-            {% elsif (page_level == 4 and p.bookmark) or (page_level == 3 and p.bookmark == nil) %}
+            {% elsif (p_level == 4 and p.bookmark) or (p_level == 3 and p.bookmark == nil) %}
                 {% assign third_level_pages = third_level_pages | push:p %}
             {% endif %}
         {% endif %}
