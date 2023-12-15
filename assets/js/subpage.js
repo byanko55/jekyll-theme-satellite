@@ -252,8 +252,6 @@ document.addEventListener('DOMContentLoaded', function(){
         isDarkMode = true;
         document.body.classList.add('dark-theme');
 
-        console.log("dark now");
-
         const moonIcons = document.querySelectorAll(".fa-moon");
         const sunIcons = document.querySelectorAll(".fa-sun");
 
@@ -267,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     else {
         isDarkMode = false;
-        console.log("why not dark??");
     }
 
     const themeButton = document.querySelectorAll("#btn-brightness");
@@ -345,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function(){
             $('#btn-clear').hide();
         }
         
-        $('#result-item').remove();
+        $('.result-item').remove();
 
         for (var i = 0; i < posts.length; i++) {
             var post = posts[i];
@@ -358,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (searchResult.length === 0) {
             $('#search-result').append(
-                '<li id="result-item"><span class="description">There is no search result.</span></li>'
+                '<li class="result-item"><span class="description">There is no search result.</span></li>'
             );
         } else {
             for (var i = 0; i < searchResult.length; i++) {
@@ -366,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     var highlighted = highlightKeyword(searchResult[i].title, keyword);
 
                     $('#search-result').append(
-                        '<li id="result-item"><a href="' +
+                        '<li class="result-item"><a href="' +
                             searchResult[i].url +
                             '"><div><i class="fa-solid fa-book"></i><span class="title">' + highlighted +  
                             '</span></div><div><i class="fa-solid fa-folder"></i>' + searchResult[i].path +
@@ -379,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     var highlighted = highlightKeyword(searchResult[i].path, keyword);
 
                     $('#search-result').append(
-                        '<li id="result-item"><a href="' +
+                        '<li class="result-item"><a href="' +
                             searchResult[i].url +
                             '"><div><i class="fa-solid fa-folder"></i><span class="title">' + highlighted + 
                             '</span></div><div><i class="fa-solid fa-tags"></i>Type: category' + 
@@ -392,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if (cancelButton) {
         cancelButton.addEventListener('click', function() {
-            $('#result-item').remove();
+            $('.result-item').remove();
             $('#search-input').val("");
             $('#btn-clear').hide();
         });
