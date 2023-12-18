@@ -12,8 +12,13 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
-    // code highlighter
     hljs.highlightAll();
+
+    document.querySelectorAll('.language-text, .language-plaintext').forEach(function(codeblock){
+        codeblock.querySelectorAll('.hljs-keyword, .hljs-attribute, .hljs-selector-tag').forEach(function($){
+            $.outerHTML = $.innerHTML;
+        });
+    });
 
     // navigation (mobile)
     var siteNav = document.querySelector('#navigation');
