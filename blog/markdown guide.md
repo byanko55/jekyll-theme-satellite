@@ -48,7 +48,7 @@ You can organize items into ordered and unordered lists.
 ### Ordered Lists
 To create an ordered list, add line items with numbers followed by periods. The numbers don’t have to be in numerical order, but the list should start with the number one.
 
-```md
+```
 1. First item
 2. Second item
 3. Third item
@@ -63,7 +63,7 @@ To create an ordered list, add line items with numbers followed by periods. The 
 ### Unordered Lists
 To create an unordered list, add dashes (`-`), asterisks (`*`), or plus signs (`+`) in front of line items. Indent one or more items to create a nested list.
 
-```md
+```
 * First item
 * Second item
 * Third item
@@ -92,17 +92,24 @@ If the word or phrase you want to denote as code includes one or more backticks,
 ### Code Blocks
 To create code blocks that spans multiple lines of code, set the text inside three or more backquotes ( ``` ) or tildes ( ~~~ ).
 
-```html
+```xml
 <html>
   <head>
   </head>
 </html>
 ```
 
+```python
+def foo():
+  a = 1
+  for i in [1,2,3]:
+    a += i
+```
+
 # Horizontal Rules
 To create a horizontal rule, use three or more asterisks (`***`), dashes (`---`), or underscores (`___`) on a line by themselves.
 
-```md
+```text
 ***
 
 ---
@@ -113,7 +120,7 @@ _________________
 # Links
 To create a link, enclose the link text in brackets (e.g., [Blue Archive]) and then follow it immediately with the URL in parentheses (e.g., (https://bluearchive.nexon.com)).
 
-```md
+```text
 My favorite mobile game is [Blue Archive](https://bluearchive.nexon.com).
 ```
 
@@ -126,7 +133,7 @@ My favorite mobile game is [Blue Archive](https://bluearchive.nexon.com).
 
 You can optionally add a title for a link. This will appear as a tooltip when the user hovers over the link. To add a title, enclose it in quotation marks after the URL.
 
-```md
+```text
 My favorite mobile game is [Blue Archive](https://bluearchive.nexon.com "All senseis are welcome!").
 ```
 
@@ -138,7 +145,7 @@ My favorite mobile game is [Blue Archive](https://bluearchive.nexon.com "All sen
 ### URLs and Email Addresses
 To quickly turn a URL or email address into a link, enclose it in angle brackets.
 
-```md
+```text
 <https://www.youtube.com/>
 <fake@example.com>
 ```
@@ -150,7 +157,7 @@ The rendered output looks like this:
 # Images
 To add an image, add an exclamation mark (`!`), followed by alt text in brackets, and the path or URL to the image asset in parentheses. You can optionally add a title in quotation marks after the path or URL.
 
-```md
+```text
 ![Tropical Paradise](/assets/img/example.png "Maldives, in October")
 ```
 
@@ -161,7 +168,7 @@ The rendered output looks like this:
 ### Linking Images
 To add a link to an image, enclose the Markdown for the image in brackets, and then add the link in parentheses.
 
-```md
+```text
 [![La Mancha](/assets/img/La-Mancha.png "La Mancha: Spain, Don Quixote")](https://www.britannica.com/place/La-Mancha)
 ```
 
@@ -172,7 +179,7 @@ The rendered output looks like this:
 # Escaping Characters
 To display a literal character that would otherwise be used to format text in a Markdown document, add a backslash (`\`) in front of the character.
 
-```md
+```text
 \* Without the backslash, this would be a bullet in an unordered list.
 ```
 
@@ -204,7 +211,7 @@ Many Markdown applications allow you to use `HTML` tags in Markdown-formatted te
 
 To use `HTML`, place the tags in the text of your Markdown-formatted file.
 
-```md
+```
 This **word** is bold. This <span style="font-style: italic;">word</span> is italic.
 ```
 
