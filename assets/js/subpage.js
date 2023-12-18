@@ -12,14 +12,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
-    hljs.highlightAll();
-
-    document.querySelectorAll('.language-text, .language-plaintext').forEach(function(codeblock){
-        codeblock.querySelectorAll('.hljs-keyword, .hljs-attribute, .hljs-selector-tag').forEach(function($){
-            $.outerHTML = $.innerHTML;
-        });
-    });
-
     // navigation (mobile)
     var siteNav = document.querySelector('#navigation');
     var menuButton = document.querySelector("#btn-nav");
@@ -277,9 +269,14 @@ document.addEventListener('DOMContentLoaded', function(){
         sunIcons.forEach((ico) => {
             ico.classList.add('active');
         });
+
+        // Disable highlighter default color theme
+        document.getElementById("highlight-default").disabled=true;
     }
     else {
         isDarkMode = false;
+        // Disable highlighter dark color theme
+        document.getElementById("highlight-dark").disabled=true;
     }
 
     const themeButton = document.querySelectorAll("#btn-brightness");
@@ -301,15 +298,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if (isDarkMode){
                 localStorage.setItem('theme', 'default');
+                // Disable highlighter dark color theme
+                document.getElementById("highlight-default").disabled=false;
+                document.getElementById("highlight-dark").disabled=true;
                 isDarkMode = false;
             }
             else {
                 localStorage.setItem('theme', 'dark');
+                // Disable highlighter default color theme
+                document.getElementById("highlight-default").disabled=true;
+                document.getElementById("highlight-dark").disabled=false;
                 isDarkMode = true;
             }
         });
     });
-
     
     // search box
     const searchButton = document.querySelectorAll("#btn-search");
@@ -424,4 +426,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
         return txt;
     }
+
+    // Code highlighter
+    hljs.highlightAll();
+
+    // Disable code highlights to the plaintext codeblocks
+    document.querySelectorAll('.language-text, .language-plaintext').forEach(function(codeblock){
+        codeblock.querySelectorAll('.hljs-keyword, .hljs-meta, .hljs-selector-tag').forEach(function($){
+            $.outerHTML = $.innerHTML;
+        });
+    });
 });
