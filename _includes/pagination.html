@@ -31,11 +31,11 @@
             <li class="paginated-item">
                 <div id="article_content">
                     <div class="thumbnail_zone">
-                        {%- assign thumbnail_path = sub_page.thumbnail -%}
-                        {% if sub_page.thumbnail == nil %}
-                            {%- assign thumbnail_path = "/assets/img/thumbnail/empty.jpg" -%}
+                        {% if sub_page.thumbnail != nil %}
+                            <a href="{{ sub_page.url }}" class="thumbnail_post" aria-label="thumbnail_post" style="background-image:url('{{ sub_page.thumbnail }}') !important"></a>
+                        {% else %}
+                            <a href="{{ sub_page.url }}" class="thumbnail_post empty" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
                         {% endif %}
-                        <a href="{{ sub_page.url }}" class="thumbnail_post" aria-label="thumbnail_post" style="background-image:url('{{ thumbnail_path }}') !important"></a>
                     </div>
 
                     <div class="box_contents">
