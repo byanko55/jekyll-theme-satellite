@@ -1,6 +1,6 @@
 body.dark-theme {
 
-a, span { color: $color-gray; }
+a, span { color: $color-darkkhaki; }
 
 #stars { background: #333; }
 
@@ -8,8 +8,6 @@ a, span { color: $color-gray; }
 
 .site-name {
     box-shadow: 0px 4px 8px 0 $color-black;
-
-    a { color: #00A080; }
 }
 
 .nav-lh .fa { color: $color-pink; }
@@ -32,7 +30,7 @@ a, span { color: $color-gray; }
     i { color: $color-lightgreen; }
 }
 
-.sidebar-right .toc .toc-list .is-active-link{ color: $color-orange; }
+.sidebar-right .toc .toc-list .is-active-link{ color: $color-rose; }
 
 #post {
     .inner-header { background: linear-gradient(180deg, rgba(128,128,128,1) 0%, rgba(112,112,112,1) 100%); }
@@ -189,9 +187,9 @@ main {
     .site-name { box-shadow: none; }
 
     .nav-lh {
-        &:before { background: rgba($color-grey, 1); }
+        &:before { background: rgba($color-darkslategray, 1); }
 
-        &:hover:before { background: rgba($color-grey, .375); }
+        &:hover:before { background: rgba($color-darkslategray, .75); }
     }
 
     .nav-list li > .nav-list { background: none; }
