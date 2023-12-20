@@ -103,6 +103,15 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
 
+    // link (for hover effect)
+    if (content){
+        var links = content.querySelectorAll('a');
+
+        links.forEach((link) => {
+            link.setAttribute('data-content', link.innerText);
+        });
+    }
+
     // pagination
     const paginationNumbers = document.querySelector("#pagination-numbers");
     const paginatedList = document.querySelector(".paginated-list");

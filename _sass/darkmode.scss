@@ -62,7 +62,14 @@ a, span { color: $color-gray; }
 main {
     h1, h2, h3, p { color: #eee; }
 
-    a { color: $color-blue; }
+    a { 
+        color: $color-blue; 
+
+        &::before {
+            color: $color-lightgreen;
+            text-decoration-color: $color-lightgreen;
+        }
+    }
 
     code,
     .highlighter-rouge .highlight {
