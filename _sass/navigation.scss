@@ -2,6 +2,7 @@
     display: none;
     flex: 1 1 auto;
     width: 100%;
+    margin-top: 0;
 
     &.nav-open {
         display: block;
@@ -113,10 +114,11 @@
     #navigation {
         width: calc($sidebar-wd - 3rem);
         display: block;
-        max-height: 480px;
-        padding: 1.5rem;
+        max-height: 512px;
+        padding: 0 1.5rem;
         overflow-y: auto;
         overflow-x: hidden;
+        margin-top: 4rem;
 
         &.nav-open { border: none; }
 

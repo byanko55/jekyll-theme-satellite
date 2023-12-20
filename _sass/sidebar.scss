@@ -50,7 +50,7 @@
         width: 10.5rem;
         aspect-ratio: 1;
         border-radius: 50%;
-        outline: 5.25rem solid rgba(255,255,255,0.3);
+        outline: 5.25rem solid rgba(64,64,64,0.5);
         outline-offset: -5.25rem;
         transition: .3s;
 
@@ -71,9 +71,8 @@
     box-shadow: 0px 4px 8px 0 #aaa;
 
     a, span {
-        font-family: Impact, sans-serif;
+        font-family: "Righteous", sans-serif;
         font-weight: 900;
-        text-transform: uppercase;
         text-align: center;
         line-height: 1;
         letter-spacing: 2px;
@@ -82,14 +81,7 @@
     }
 
     .highlight {
-        @supports (background-clip: text) or (-webkit-background-clip: text) {
-            background-image: 
-                url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%23CD5849' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='320' cy='256' r='512' fill='%23F16C20'/%3E%3Ccircle cx='2048' cy='512' r='512' fill='%23CD5849'/%3E%3Ccircle cx='1600' cy='768' r='512' fill='%23CD0067'/%3E%3C/g%3E%3C/svg%3E%0A");
-            background-size: 150% auto;
-            background-position: center;
-            color: transparent;
-            -webkit-background-clip: text;
-        }
+
     }
 }
 
@@ -160,7 +152,6 @@
 
     .side-banner{
         width: $sidebar-wd;
-        padding-top: 4rem;
 
         button {
             display: none;
@@ -175,10 +166,49 @@
     .site-avatar img { display: inline-block; }
 
     .site-name {
-        font-size: 2rem;
+        font-size: 1.75rem;
         padding: 2rem;
         text-align: center;
         box-shadow: none;
+
+        .highlight {
+            -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+            position:relative;
+            transition:0.5s color ease;
+            text-decoration:none;
+    
+            &:before, &:after{
+                height: 5px;
+                height: 0.35rem;
+                width: 0;
+                background: $color-rose;
+    
+                content: "";
+                transition:0.5s all ease;
+                -webkit-backface-visibility:hidden;
+                        backface-visibility:hidden;
+                position:absolute;
+            }
+    
+            &:before{
+                left: 0;
+                top: -0.25em;
+            }
+    
+            &:after{
+                right: 0;
+                bottom:-0.25em;
+            }
+    
+            &:hover{
+                color:$color-rose;
+            }
+    
+            &:hover:before, &:hover:after{
+                width:100%;
+            }
+        }
     }
 }
 
