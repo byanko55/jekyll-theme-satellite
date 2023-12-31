@@ -29,6 +29,11 @@ a {
     text-decoration: none;
 }
 
+a, span {
+    color: #3A241A;
+    font-family: "Nunito Sans", sans-serif;
+}
+
 h1, h2, h3 {
     margin: 0;
 }
@@ -58,14 +63,8 @@ input::-webkit-search-results-decoration{
 }
 
 @import 'vars';
-
 @import 'layout';
-@import "footer";
-@import "header";
-@import "about";
-@import "contents";
 
-@import "subpage";
 @import "sidebar";
 @import "navigation";
 @import "pagination";
