@@ -5,20 +5,14 @@
                 <span class="post-title">{{ page.title }}</span>
             {% endif %}
             <div class="post-info">
-                {%- assign parent_category = "None" -%}
-                {%- assign parent_url = "/" | append: page_tree[0] -%}
                 {% if page_level > 2 %}
-                    {%- assign parent_category = page_tree[1] -%}
-                    {%- assign parent_url = parent_url | append: "/" | append: page_tree[1] -%}
-                {% endif %}
-                {% if parent_category != "None" %}
-                    <a class="link-category" href="{{ parent_url }}">{{ parent_category }}</a>
+                    <a href="{{ '/' | append: page_tree[0] }}" class="link-category">{{ page_tree[0] }}</a>
                 {% else %}
-                    <a class="no-category">None</a>
+                    <span class="no-category">None</span>
                 {% endif %}
                 <span class="post-date">
                     {% if page.title %}
-                        · {{ page.date }}
+                        · {{ page.date | date: "%Y-%m-%d" }}
                     {% endif %}
                 </span>
             </div>

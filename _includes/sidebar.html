@@ -1,7 +1,7 @@
 <div class="sidebar sidebar-left">
     <div class="side-banner">
         <h1 class="site-name">
-            <a href="/"><span class="highlight">Wonderwise.net</span></a>
+            <a href="/"><span class="highlight">example.com</span></a>
             <button id="btn-brightness">
                 <i class="fa fa-moon"></i>
                 <i class="fa fa-sun"></i>
@@ -14,13 +14,22 @@
             </button>
         </h1>
         <a href="/" class="site-avatar">
-            <img src="{{ '/assets/img/home.webp' }}" alt="homepage" aria-label="homepage-button">
+            <img src="{{ '/assets/img/profile.jpg' }}" alt="homepage" aria-label="homepage-button">
         </a>
     </div>
     {% include navigation.html %}
 </div>
 <div class="sidebar sidebar-right">
-    <!--<div class="toc-header"><p>Content</p></div>-->
+    <div class="tools">
+        <button id="btn-brightness">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun"></i>
+        </button>
+        <button id="btn-search">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    {%- if page.type == "post" -%}
     <div class="toc">
         <span class="toc-header">
             <i class="fa fa-bookmark" aria-hidden="true"></i>
@@ -31,7 +40,7 @@
     {%- endif -%}
     <div class="sidebar-footer">
         <span>
-            Copyright © | <a href="{{ site.repo_url }}">Pyro-Maniac</a>
+            Copyright © | <a href="https://github.com/byanko55/jekyll-theme-MacOS">Yankos</a>
         </span>
     </div>
 </div>

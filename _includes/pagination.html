@@ -2,32 +2,34 @@
 
 <div class="category_name">
     {%- assign page_link = "/" -%}
-    <p>
-        {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
-        {%- for sub_tree in search_tree -%}
-            {% if forloop.last %}
-                {{ sub_tree }}
-            {% else %}
-                {%- assign page_link = page_link | append: sub_tree | append: "/" -%}
-                <a href="{{ page_link }}">{{ sub_tree }}</a>
-                >
-            {% endif %}
-        {%- endfor -%}
-    </p>
-    <h3 id="category">
-        {% if page_level == 2 %}
-            @ll_posts
-        {% else %}
-            {{ page.title }}
-        {% endif %}
-    </h3>
+    {% if page_level == 1 %}
+        <p></p>
+        <h3 id="category">@ll_posts</h3>
+    {% else %}
+        <p>
+            {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
+            {%- for sub_tree in search_tree -%}
+                {% if forloop.first %}
+                    <a href="/">Home</a>
+                    >
+                {% elsif forloop.last %}
+                    {{ sub_tree }}
+                {% else %}
+                    {%- assign page_link = page_link | append: sub_tree | append: "/" -%}
+                    <a href="{{ page_link }}">{{ sub_tree }}</a>
+                    >
+                {% endif %}
+            {%- endfor -%}
+        </p>
+        <h3 id="category">{{ page.title }}</h3>
+    {% endif %}
 </div>
 <div id="category_list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
     {%- for sub_page in list_pages -%}
-        {%- assign checkArray = sub_page.url | split:page.url -%} <!-- check whether the post belongs to the parent category -->
-        {%- assign is_post = sub_page.url | split: ".html" -%} <!-- check whether its URL ends with .html -->
-        {% if checkArray[0] == "" and is_post.size == 1 and is_post[0] != sub_page.url %}
+        {%- assign page_url = page.url | remove: 'index.html' -%}
+        {%- assign checkArray = sub_page.url | split:page_url -%} <!-- check whether the post belongs to the parent category -->
+        {% if checkArray[0] == "" and sub_page.type == "post" and is_post[0] != sub_page.url %}
             <li class="paginated-item">
                 <div id="article_content">
                     <div class="thumbnail_zone">
@@ -45,14 +47,12 @@
                         </a>
                         <div class="info_post">
                             {%- assign sub_page_tree = sub_page.path | split: "/" -%}
-                            {%- assign parent_category = "None" -%}
-                            {%- assign parent_url = "/" | append: sub_page_tree[0] -%}
                             {% if sub_page_tree.size > 2 %}
-                                {%- assign parent_category = sub_page_tree[1] -%}
-                                {%- assign parent_url = parent_url | append: "/" | append: sub_page_tree[1] -%}
+                                <a href="{{ '/' | append: sub_page_tree[1] }}" class="category">{{ sub_page_tree[1] }}</a>
+                            {% else %}
+                                <span class="category">None</span>
                             {% endif %}
-                            <a href="{{ parent_url }}" class="category">{{ parent_category }}</a>
-                            <span class="date">· {{ sub_page.date }}</span>
+                            <span class="date">· {{ sub_page.date | date: "%Y-%m-%d" }}</span>
                         </div>
                     </div>
                 </div>
