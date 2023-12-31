@@ -79,10 +79,6 @@
         word-spacing: -6px;
         color: $color-darkblue;
     }
-
-    .highlight {
-
-    }
 }
 
 .sidebar-right{ 
@@ -137,6 +133,21 @@
 
         &.active{ display: block; }
     }
+}
+
+.sidebar-footer{
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    width: $sidebar-wd;
+
+    a { color: $color-darkorange; }
+
+    span { padding-left: 1.5rem; }
+}
+
+@media (min-width: 1025px) and (min-height: 640px){ 
+    .sidebar-footer { display: flex; }
 }
 
 @include mq(desktop){

@@ -10,47 +10,47 @@
 
     {% for p in nav_pages %}
         {%- assign p_tree = p.url | remove_first: "/" | split: "/" -%}
+        {%- assign p_level = p_tree | size -%}
 
-        {% if p_tree[0] == page_category %}
-            {%- assign p_level = p_tree | size -%}
-            {% if p_level <= 2 and p.bookmark %}
-                {% assign first_level_pages = first_level_pages | push:p %}
-            {% elsif (p_level == 3 and p.bookmark) or (p_level == 2 and p.bookmark == nil) %}
-                {% assign second_level_pages = second_level_pages | push:p %}
-            {% elsif (p_level == 4 and p.bookmark) or (p_level == 3 and p.bookmark == nil) %}
-                {% assign third_level_pages = third_level_pages | push:p %}
-            {% endif %}
+        {% if p_level <= 2 and p.bookmark %}
+            {% assign first_level_pages = first_level_pages | push:p %}
+        {% elsif (p_level == 3 and p.bookmark) or (p_level == 2 and p.bookmark == nil) %}
+            {% assign second_level_pages = second_level_pages | push:p %}
+        {% elsif (p_level == 4 and p.bookmark) or (p_level == 3 and p.bookmark == nil) %}
+            {% assign third_level_pages = third_level_pages | push:p %}
         {% endif %}
     {% endfor %}
 
     <ul class="nav-list">
     {%- for node in first_level_pages -%}
+        {%- assign node_url = node.url | remove: 'index.html' -%}
         {%- assign children_list = second_level_pages 
-            | where_exp: "item", "item.url contains node.url"
+            | where_exp: "item", "item.url contains node_url"
             | sort: 'title' -%}
         {%- assign num_children = children_list | size -%}
         <li id="nav-first" aria-label="{{ node.title }}">
             <div class="nav-item">
-                <a href="{{ node.url | relative_url }}" class="nav-list-link nav-lh">
+                <a href="{{ node_url }}" class="nav-list-link nav-lh">
                     <i class="fa fa-hashtag" aria-hidden="true"></i>
                     <span>{{ node.title }}</span>
                 </a>
-                {%- if num_children > 0 and node.url != "/blog/" -%}
+                {%- if num_children > 0 and node_url != "/" -%}
                 <button class="nav-list-expander" aria-label="toggle items in {{ node.title }} category" aria-pressed="false">
                     <i class="fa fa-angle-down"></i>
                 </button>
                 {%- endif -%}
             </div>
-            {%- if num_children > 0 and node.url != "/blog/" -%}
+            {%- if num_children > 0 and node_url != "/" -%}
             <ul class="nav-list">
             {%- for child in children_list -%}
+                {%- assign child_url = child.url | remove: 'index.html' -%}
                 {%- assign grand_children_list = third_level_pages 
-                    | where_exp: "item", "item.url contains child.url"
+                    | where_exp: "item", "item.url contains child_url"
                     | sort: 'title' -%}
                 {%- assign num_grand_children = grand_children_list | size -%}
                 <li id="nav-second" aria-label="{{ child.title }}">
                     <div class="nav-item">
-                        <a href="{{ child.url | relative_url }}" class="nav-list-link nav-sh">
+                        <a href="{{ child_url }}" class="nav-list-link nav-sh">
                             <i class="fa fa-minus" aria-hidden="true"></i>
                             <span>{{ child.title }}</span>
                         </a>

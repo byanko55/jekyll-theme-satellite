@@ -19,42 +19,34 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Example.com
+username: username
 email: example@gmail.com
+github_username: github
 twitter_username: twitter
 instagram_username: instagram
 linkedin_username: linkedin
-description: Adorable jekyll blog theme
-about_description: With my expertise in network and cyber security, I've set up this open page and shared a wealth of resources, including network traffic dataset, tutorials, research papers, and even some of my repositories that I've developed so far. All these materials can be downloaded and configured for personal and business use alike.
+description: MacOS-styled jekyll blog theme
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
-repo_url: "https://github.com/byanko55/jekyll-multipurpose-theme"
-username: username
-github_username: github
+repo_url: "https://github.com/byanko55/jekyll-theme-MacOS"
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
 
+collections:
+  pages:
+    output: true
+    permalink: /:path.html
+
 defaults:
   -
     scope:
-      path: "toolkits"
+      path: ""
       type: "pages"
     values:
-      layout: "subpage"
-  -
-    scope:
-      path: "datasets"
-      type: "pages"
-    values:
-      layout: "subpage"
-  -
-    scope:
-      path: "blog"
-      type: "pages"
-    values:
-      layout: "subpage"
+      layout: "default"
 
 # Markdown newline activator 
 kramdown:

@@ -1,21 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include head.html %}
-  {% include loading.html %}
-  <body>
-    <canvas id="bubbles" width="100%" height="100%"></canvas>
-    <section id="header">
-      {% include header.html %}
-    </section>
-    <section id="about" class="open">
-      {% include about.html %}
-    </section>
-    <section id="contents">
-      {% include contents.html %}
-    </section>
-    {% include footer.html %}
-  </body>
-  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.webp' }}">
+        <link rel="preload" href='https://fonts.googleapis.com/css?family=Righteous&display=swap' as="style" onload="this.onload=null; this.rel='stylesheet'">
+        <link rel="preload" href="{{ '/assets/img/favicon.webp' }}" as="image">
+        <noscript>
+            <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Righteous&display=swap'>
+        </noscript>
+
+        <title>
+            {% if page.title %}{{ page.title }}
+            {% else %}{{ site.title }}
+            {% endif %}
+        </title>
+
+        <meta
+        name="description"
+        content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
+        {% if page.thumbnail %}
+            <style>
+                .thumbnail {
+                    background-image: url("{{ page.thumbnail }}");
+                }
+            </style>
+        {% else %}
+            <style>
+                .thumbnail {
+                    aspect-ratio: auto !important;
+                }
+                .transbox {
+                    transform: none;
+                }
+            </style>
+        {% endif %}
+
+        <link id="highlight-default" rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
+        <link id="highlight-dark" rel="stylesheet" href="{{ '/assets/css/highlight-dark.min.css' }}">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="{{ '/assets/js/highlight.min.js' }}"></script>
+        <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
+    </head>
+    <body>
+        <canvas id="stars" width="100%" height="100%"></canvas>
+        {%- assign page_tree = page.path | remove_first: "_pages/" | split: "/" -%}
+        {%- assign page_level = page_tree.size -%}
+        {% include sidebar.html %}
+        <div id="post">
+            <div class="inner-header">
+                <span class="dot" style="background-color: #F86158;"></span>
+                <span class="dot" style="background-color: #FBBF2D;"></span>
+                <span class="dot" style="background-color: #2ACB45;"></span>
+            </div>
+            <div class="inner-content">
+                {% if page.type == "category" %}
+                    {% include loading.html %}
+                    {% include pagination.html %}
+                {% else %}
+                    {% include post.html %}
+                {% endif %}
+            </div>
+        </div>
+        {% include search.html %}
+    </body>
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lato&display=swap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Nunito Sans&display=swap' rel='stylesheet'>  
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
+    <script src="{{ '/assets/js/stars.js' }}"></script>
+    <script src="{{ '/assets/js/main.js' }}"></script>
 </html>
