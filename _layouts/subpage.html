@@ -22,22 +22,19 @@
         content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
         <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
-        {% if page.thumbnail %}
-            <style>
-                .thumbnail {
-                    background-image: url("{{ page.thumbnail }}");
-                }
-            </style>
-        {% else %}
-            <style>
-                .thumbnail {
-                    aspect-ratio: auto !important;
-                }
-                .transbox {
-                    transform: none;
-                }
-            </style>
-        {% endif %}
+        <style>
+            .thumbnail {
+                background-image: url("{{ page.thumbnail }}");
+            }
+        </style>
+        <!---
+        <style>
+            .thumbnail {
+                background: linear-gradient(to left, rgba(241,235,234,0) 12.5%, rgba(241,235,234,0.75) 50%,
+              rgba(241,235,234,1)), url("{{ page.thumbnail }}");
+            }
+        </style>
+        -->
 
         <link id="highlight-default" rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
         <link id="highlight-dark" rel="stylesheet" href="{{ '/assets/css/highlight-dark.min.css' }}">
