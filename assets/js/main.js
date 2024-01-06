@@ -14,13 +14,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // navigation (mobile)
     var siteNav = document.querySelector('#navigation');
+    var siteContact = document.querySelector('#contact');
     var menuButton = document.querySelector("#btn-nav");
 
     menuButton.addEventListener('click', function() {
         if (menuButton.classList.toggle('nav-open')) {
             siteNav.classList.add('nav-open');
+            siteContact.classList.add('contact-open');
         } else {
             siteNav.classList.remove('nav-open');
+            siteContact.classList.remove('contact-open');
         }
     });
 

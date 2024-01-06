@@ -47,11 +47,11 @@
 .site-avatar {
     img {
         display: none;
-        width: 10.5rem;
+        width: 10rem;
         aspect-ratio: 1;
         border-radius: 50%;
-        outline: 5.25rem solid rgba(64,64,64,0.5);
-        outline-offset: -5.25rem;
+        outline: 5rem solid rgba(64,64,64,0.5);
+        outline-offset: -5rem;
         transition: .3s;
 
         &:hover {
@@ -78,6 +78,59 @@
         letter-spacing: 2px;
         word-spacing: -6px;
         color: $color-darkblue;
+    }
+}
+
+#contact{
+    display: none;
+    position: relative;
+    width: 75%;
+    transform: translateX(12.5%);
+    margin: 0;
+
+    &.contact-open {
+        display: block;
+    }
+
+    hr { border: 0; }
+
+    span{ display: none; }
+
+    ul{
+        text-align: center;
+        padding: 0;
+        margin: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        li{
+            display: inline-block;
+            font-size: 1.5rem;
+
+            a {
+                display: block;
+                padding: 6px;
+                transition: .3s;
+
+                i{
+                    font-size: 1rem;
+                    color: $color-grey;
+                }
+
+                &:hover{
+                    i {
+                        color: $color-orange;
+                    }
+
+                    transform: scale(1.5) translateY(-12.5%);
+                }
+            }
+
+            &:not(:last-child) > a {
+                margin-right: 4px;
+            }
+        }
     }
 }
 
@@ -156,7 +209,7 @@
     .sidebar-left{
         flex-flow: column nowrap;
         width: $sidebar-wd;
-        height: 100%;
+        min-height: 100%;
         background: none;
         align-items: flex-end;
     }
@@ -219,6 +272,27 @@
             &:hover:before, &:hover:after{
                 width:100%;
             }
+        }
+    }
+
+    #contact{
+        display: block;
+        width: calc($sidebar-wd - 4rem);
+        right: 2rem;
+        margin-top: 2rem;
+        transform: none;
+
+        hr { border-top: 1px solid $color-lightgrey; }
+    
+        span{
+            display: block;
+            position: absolute;
+            margin: 0;
+            top: -4px;
+            font-size: 1rem;
+            transform: translateX(-50%);
+            left: 50%;
+            background-color: #fff; 
         }
     }
 }
