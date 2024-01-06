@@ -48,7 +48,7 @@ a, span { color: lightgrey; }
     .inner-content { background: #313132; }
 }
 
-.transbox { background-color: rgba(64, 64, 64, 0.8125); }
+.transbox { background-color: rgba(64, 64, 64, 0.5); }
 
 .link-category,
 .no-category{
@@ -110,14 +110,13 @@ main {
     }
 }
 
-.category_name {
-    p { color: goldenrod; }
+.category-tree a { color: goldenrod; }
 
-    h3 {
-        color: goldenrod;
-        text-decoration: underline greenyellow;
-    }
+.category-header {
+    color: grey;
+    text-decoration: underline greenyellow;
 }
+
 
 #article_content {
     border-bottom: 2px solid #313132;

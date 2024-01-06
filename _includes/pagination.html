@@ -1,30 +1,13 @@
 {%- assign list_pages = site.pages | sort:"date" | reverse -%}
 
-<div class="category_name">
-    {%- assign page_link = "/" -%}
+<h3 class="category-header">
     {% if page_level == 1 %}
-        <p></p>
-        <h3 id="category">@ll_posts</h3>
+        All Posts
     {% else %}
-        <p>
-            {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
-            {%- for sub_tree in search_tree -%}
-                {% if forloop.first %}
-                    <a href="/">Home</a>
-                    >
-                {% elsif forloop.last %}
-                    {{ sub_tree }}
-                {% else %}
-                    {%- assign page_link = page_link | append: sub_tree | append: "/" -%}
-                    <a href="{{ page_link }}">{{ sub_tree }}</a>
-                    >
-                {% endif %}
-            {%- endfor -%}
-        </p>
-        <h3 id="category">{{ page.title }}</h3>
+        {{ page.title }}
     {% endif %}
-</div>
-<div id="category_list">
+</h3>
+<div id="category-list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
     {%- for sub_page in list_pages -%}
         {%- assign page_url = page.url | remove: 'index.html' -%}

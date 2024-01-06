@@ -57,6 +57,30 @@
                 <span class="dot" style="background-color: #2ACB45;"></span>
             </div>
             <div class="inner-content">
+                <div class="category-tree">
+                    {%- assign page_link = "/" -%}
+                    {% if page_tree[0] != "index.md" %}
+                        <p>
+                            {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
+                            {%- for sub_tree in search_tree -%}
+                                {% if forloop.first %}
+                                    <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+                                    >
+                                {% elsif forloop.last %}
+                                    {% if page.type == "category" %}
+                                        {{ sub_tree }}
+                                    {% else %}
+                                        {{ page.title }}
+                                    {% endif %}
+                                {% else %}
+                                    {%- assign page_link = page_link | append: sub_tree | append: "/" -%}
+                                    <a href="{{ page_link }}">{{ sub_tree }}</a>
+                                    >
+                                {% endif %}
+                            {%- endfor -%}
+                        </p>
+                    {% endif %}
+                </div>
                 {% if page.type == "category" %}
                     {% include loading.html %}
                     {% include pagination.html %}
