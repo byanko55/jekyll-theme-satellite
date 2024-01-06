@@ -3,6 +3,7 @@
 .category_name {
     align-items:center;
     margin:2rem 0.5rem;
+    margin-top: 0;
 
     p {
         margin: 0;
@@ -219,10 +220,7 @@
         margin-top: 0;
         margin-bottom: 5rem;
 
-        p {
-            font-size: 1.125rem;
-            padding-top: 3rem;
-        }
+        p { font-size: 1.125rem; }
 
         h3 { font-size: 3rem; }
     }
