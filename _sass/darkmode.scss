@@ -30,6 +30,16 @@ a, span { color: $color-darkkhaki; }
     i { color: $color-lightgreen; }
 }
 
+#contact{
+    ul>li>a {
+        i { color: $color-gray; }
+
+        &:hover{
+            i { color: $color-lightgreen; }
+        }
+    }
+}
+
 .sidebar-right .toc .toc-list .is-active-link{ color: $color-rose; }
 
 #post {
@@ -193,6 +203,12 @@ main {
     }
 
     .nav-list li > .nav-list { background: none; }
+
+    #contact{
+        hr { border-top: 1px solid $color-grey; }
+    
+        span{ background-color: #333; }
+    }
 
     #post .inner-content { box-shadow: 0 16px 16px 8px rgba(224, 220, 209, 0.25); }
 }

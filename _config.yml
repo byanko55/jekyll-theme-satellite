@@ -25,6 +25,7 @@ github_username: github
 twitter_username: twitter
 instagram_username: instagram
 linkedin_username: linkedin
+facebook_username: facebook
 description: MacOS-styled jekyll blog theme
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
