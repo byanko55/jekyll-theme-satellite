@@ -1,6 +1,6 @@
 body.dark-theme {
 
-a, span, h1, h2, h3 { color: lightgrey; }
+a, span, h1, h2, h3 { color: #aaa; }
 
 #stars { background: #1E1E1F; }
 
@@ -13,7 +13,7 @@ a, span, h1, h2, h3 { color: lightgrey; }
 .nav-lh .fa { color: goldenrod; }
 
 .nav-list-expander {
-    color: lightgrey;
+    color: #aaa;
 
     &:hover { color: goldenrod; }
 }
@@ -32,14 +32,14 @@ a, span, h1, h2, h3 { color: lightgrey; }
 
 #contact{
     ul>li>a {
-        i { color: lightgrey; }
+        i { color: #aaa; }
 
         &:hover{
             i { color: indianred; }
         }
     }
 
-    a { color: yellowgreen; }
+    a { color: mediumseagreen; }
 }
 
 .sidebar-right .toc .toc-list .is-active-link{ color: indianred; }
@@ -54,7 +54,7 @@ a, span, h1, h2, h3 { color: lightgrey; }
 
 .link-category,
 .no-category{
-    color: greenyellow;
+    color: mediumseagreen;
 }
 
 .link-category {
@@ -76,8 +76,8 @@ main {
         color: dodgerblue; 
 
         &::before {
-            color: greenyellow;
-            text-decoration-color: greenyellow;
+            color: mediumseagreen;
+            text-decoration-color: mediumseagreen;
         }
     }
 
@@ -101,14 +101,14 @@ main {
 
     thead th, 
     tbody td {
-        color: lightgrey;
+        color: #aaa;
     }
 
-    hr { background: lightgrey; }
+    hr { background: #aaa; }
 
     img + em,
     li {
-        color: lightgrey;
+        color: #aaa;
     }
 }
 
@@ -116,7 +116,7 @@ main {
 
 .category-header {
     color: grey;
-    text-decoration: underline greenyellow;
+    text-decoration: underline mediumseagreen;
 }
 
 
@@ -131,15 +131,15 @@ main {
     .title_post,
     .txt_post,
     .date {
-        color: lightgrey;
+        color: #aaa;
     }
 
-    .category{ color: greenyellow; }
+    .category{ color: mediumseagreen; }
 }
 
 .pagination-number,
 .pagination-button {
-    color: lightgrey;
+    color: #aaa;
 }
 
 .pagination-number:hover,
@@ -163,9 +163,9 @@ main {
     }
 
     input {
-        color: lightgrey;
+        color: #aaa;
 
-        &::placeholder { color: lightgrey; }
+        &::placeholder { color: #aaa; }
     }
 }
 
@@ -174,7 +174,7 @@ main {
 
     &:after { opacity: 0.5; }
 
-    button { color: lightgrey; }
+    button { color: #aaa; }
 }
 
 .result-item{
