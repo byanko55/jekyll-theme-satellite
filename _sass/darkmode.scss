@@ -1,6 +1,6 @@
 body.dark-theme {
 
-a, span { color: lightgrey; }
+a, span, h1, h2, h3 { color: lightgrey; }
 
 #stars { background: #1E1E1F; }
 
@@ -38,6 +38,8 @@ a, span { color: lightgrey; }
             i { color: indianred; }
         }
     }
+
+    a { color: yellowgreen; }
 }
 
 .sidebar-right .toc .toc-list .is-active-link{ color: indianred; }
@@ -145,10 +147,6 @@ main {
     background: grey;
 }
 
-.sidebar-footer a:-webkit-any-link {
-    color: greenyellow;
-}
-
 #search {
     background: rgba(64, 64, 64, 0.875);
 
@@ -206,7 +204,7 @@ main {
     #contact{
         hr { border-top: 1px solid dimgrey; }
     
-        span{ background-color: #1E1E1F; }
+        h3 { background-color: #1E1E1F; }
     }
 
     #post .inner-content { box-shadow: none; }

@@ -20,7 +20,7 @@
     {% include navigation.html %}
     <div id="contact">
         <hr>
-        <span>Contact</span>
+        <h3>Contact</h3>
         <ul class="contact-list">
             {% if site.github_username %}
                 <li><a aria-label="My Github" href="https://github.com/{{ site.github_username }}"><i class='fa-brands fa-github'></i></a></li>
@@ -41,6 +41,10 @@
                 <li><a aria-label="My LinkedIn" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
             {% endif %}
         </ul>
+        <hr>
+        <span>
+            Copyright © 2024 | <a href="https://github.com/byanko55/jekyll-theme-MacOS">Yankos</a>
+        </span>
     </div>
 </div>
 <div class="sidebar sidebar-right">
@@ -62,9 +66,4 @@
         <div class='toc-board'></div>
     </div>
     {%- endif -%}
-    <div class="sidebar-footer">
-        <span>
-            Copyright © | <a href="https://github.com/byanko55/jekyll-theme-MacOS">Yankos</a>
-        </span>
-    </div>
 </div>
