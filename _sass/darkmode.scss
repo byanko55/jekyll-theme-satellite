@@ -52,17 +52,7 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 .transbox { background-color: rgba(64, 64, 64, 0.5); }
 
-.link-category,
-.no-category{
-    color: mediumseagreen;
-}
-
-.link-category {
-    background-image: linear-gradient(
-        transparent 50%,
-        $color-darkbrown 4px,
-    );
-}
+.info-box, .info-box * { color: #32325d; }
 
 .post-title,
 .post-date {
