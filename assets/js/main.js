@@ -442,6 +442,18 @@ document.addEventListener('DOMContentLoaded', function(){
         return txt;
     }
 
+    // Page Hits
+    
+
+    // Count #comments
+    const commentBox = document.querySelector(".giscus");
+
+    if (commentBox) {
+        const comments = document.querySelectorAll(".gsc-comment");
+        $('#num-comments').text(comments.length);
+        console.log("Comment count: " + comments.length);
+    }
+
     // Code highlighter
     hljs.highlightAll();
 

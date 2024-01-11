@@ -21,7 +21,11 @@
                 </span>
                 <span class="info-box">
                     <i class="fa-solid fa-eye"></i>
-                    100
+                    <span id="page-hits"></span>
+                </span>
+                <span class="info-box">
+                    <i class="fa-solid fa-comments"></i>
+                    <span id="num-comments"></span>
                 </span>
             </div>
         </div>
@@ -29,4 +33,23 @@
 </div>
 <main>
     {{ content }}
+    {% if site.github_username %}
+        <!-- see https://giscus.app/ -->
+        <script src="https://giscus.app/client.js"
+                data-repo="{{ site.github_username }}/{{ site.github_username }}.github.io"
+                data-repo-id="[repo-id]"
+                data-category="[category]"
+                data-category-id="[category-id]"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="en"
+                crossorigin="anonymous"
+                async>
+        </script>
+        <div class="giscus" style="margin: 4rem auto;"></div>
+    {% endif %}
 </main>
