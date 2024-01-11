@@ -88,12 +88,14 @@
         text-align: left;
     }
 
-    .info_post { font-family: 'Nunito Sans', sans-serif; }
+    .info-post { 
+        font-family: 'Nunito Sans', sans-serif; 
 
-    .category,
-    .date {
-        font-size: 0.875rem;
-        color: $color-grey;
+        span { 
+            margin-right: 1rem; 
+            font-size: 0.875rem;
+            color: $color-grey;
+        }
     }
 
     .category{ color: $color-rosybrown; }
@@ -207,8 +209,7 @@
             padding-top: 0.75rem;
         }
 
-        .category,
-        .date,
+        .info-post span,
         .txt_post {
             font-size: 1rem;
         }
@@ -236,10 +237,10 @@
             margin-left: -6rem;
             border-radius: 8px;
         }
-
-        .category { font-size: 1.25rem; }
     
         .date { font-size: 1.125rem; }
+
+        .category { font-size: 1.25rem; }
 
         .txt_post { margin-top: 1.25rem; }
     }
