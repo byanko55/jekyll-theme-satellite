@@ -313,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Disable highlighter dark color theme
                 document.getElementById("highlight-default").disabled=false;
                 document.getElementById("highlight-dark").disabled=true;
+                changeGiscusTheme('light');
                 isDarkMode = false;
             }
             else {
@@ -320,10 +321,58 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Disable highlighter default color theme
                 document.getElementById("highlight-default").disabled=true;
                 document.getElementById("highlight-dark").disabled=false;
+                changeGiscusTheme('noborder_gray');
                 isDarkMode = true;
             }
         });
     });
+
+    // Initialize/Change Giscus theme
+    var giscusUserInfos = [];
+    var giscusTheme = "light";
+
+    $.getJSON('/giscus.json', function (data) {
+        giscusUserInfos = data[0];
+    })
+    .done(function() { console.log('getJSON request succeeded! [giscus.json]'); })
+    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [giscus.json] ' + textStatus); })
+    .always(function() { console.log('getJSON request ended! [giscus.json]'); });
+
+    if (currentTheme === 'dark'){
+        giscusTheme = "noborder_gray";
+    }
+
+    let giscusAttributes = {
+        "src": "https://giscus.app/client.js",
+        "data-repo": giscusUserInfos.repo,
+        "data-repo-id": giscusUserInfos.repoId,
+        "data-category": giscusUserInfos.category,
+        "data-category-id": giscusUserInfos.categoryId,
+        "data-mapping": "pathname",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-theme": giscusTheme,
+        "data-lang": "en",
+        "crossorigin": "anonymous",
+        "async": "",
+    };
+
+    let giscusScript = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+    document.body.appendChild(giscusScript);
+
+    function changeGiscusTheme(theme) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+
+        const message = {
+            setConfig: {
+              theme: theme
+            }
+        };
+
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    }
     
     // search box
     const searchButton = document.querySelectorAll("#btn-search");
@@ -355,9 +404,9 @@ document.addEventListener('DOMContentLoaded', function(){
     $.getJSON('/search.json', function (data) {
         posts = data;
     })
-    .done(function() { console.log('getJSON request succeeded!'); })
-    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! ' + textStatus); })
-    .always(function() { console.log('getJSON request ended!'); });
+    .done(function() { console.log('getJSON request succeeded! [search.json]'); })
+    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [search.json] ' + textStatus); })
+    .always(function() { console.log('getJSON request ended! [search.json]'); });
 
     $('#search-input').on('keyup', function () {
         var keyword = this.value.toLowerCase();
@@ -443,7 +492,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // Page Hits
-    
+
 
     // Count #comments
     const commentBox = document.querySelector(".giscus");
@@ -451,7 +500,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if (commentBox) {
         const comments = document.querySelectorAll(".gsc-comment");
         $('#num-comments').text(comments.length);
-        console.log("Comment count: " + comments.length);
     }
 
     // Code highlighter
