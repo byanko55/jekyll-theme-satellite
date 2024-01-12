@@ -328,56 +328,75 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // Initialize/Change Giscus theme
-    const commentBox = document.getElementById('#giscus');
+    const commentBox = document.getElementById('giscus');
 
-    if (giscus) {
+    if (commentBox) {
         var giscusUserInfos = [];
         var giscusTheme = "light";
 
         $.getJSON('/giscus.json', function (data) {
             giscusUserInfos = data[0];
         })
-        .done(function() { console.log('getJSON request succeeded! [giscus.json]'); })
+        .done(function() { 
+            console.log('getJSON request succeeded! [giscus.json]'); 
+
+            if (currentTheme === 'dark'){
+                giscusTheme = "noborder_gray";
+            }
+    
+            let giscusAttributes = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": giscusUserInfos.repo,
+                "data-repo-id": giscusUserInfos.repoId,
+                "data-category": giscusUserInfos.category,
+                "data-category-id": giscusUserInfos.categoryId,
+                "data-mapping": "pathname",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "1",
+                "data-theme": giscusTheme,
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": "",
+            };
+    
+            let giscusScript = document.createElement("script");
+            Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+        })
         .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [giscus.json] ' + textStatus); })
         .always(function() { console.log('getJSON request ended! [giscus.json]'); });
 
-        if (currentTheme === 'dark'){
-            giscusTheme = "noborder_gray";
-        }
+        // Giscus IMetadataMessage event handler
+        function handleMessage(event) {
+            if (event.origin !== 'https://giscus.app') return;
+            if (!(typeof event.data === 'object' && event.data.giscus)) return;
+          
+            const giscusData = event.data.giscus;
 
-        let giscusAttributes = {
-            "src": "https://giscus.app/client.js",
-            "data-repo": giscusUserInfos.repo,
-            "data-repo-id": giscusUserInfos.repoId,
-            "data-category": giscusUserInfos.category,
-            "data-category-id": giscusUserInfos.categoryId,
-            "data-mapping": "pathname",
-            "data-reactions-enabled": "1",
-            "data-emit-metadata": "0",
-            "data-theme": giscusTheme,
-            "data-lang": "en",
-            "crossorigin": "anonymous",
-            "async": "",
+            if (giscusData && giscusData.hasOwnProperty('discussion')) {
+                $('#num-comments').text(giscusData.discussion.totalCommentCount);
+            }
+            else {
+                $('#num-comments').text('0');
+            }
+        }
+          
+        window.addEventListener('message', handleMessage);
+    }
+
+    function changeGiscusTheme(theme) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+
+        const message = {
+            setConfig: {
+            theme: theme
+            }
         };
 
-        let giscusScript = document.createElement("script");
-        Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-        document.body.appendChild(giscusScript);
-
-        function changeGiscusTheme(theme) {
-            const iframe = document.querySelector('iframe.giscus-frame');
-            if (!iframe) return;
-
-            const message = {
-                setConfig: {
-                theme: theme
-                }
-            };
-
-            iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
     }
-    
+
     // search box
     const searchButton = document.querySelectorAll("#btn-search");
     const cancelButton = document.querySelector('#btn-clear');
@@ -497,12 +516,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Page Hits
 
-
-    // Count #comments
-    if (commentBox) {
-        const comments = document.querySelectorAll(".gsc-comment");
-        $('#num-comments').text(comments.length);
-    }
 
     // Code highlighter
     hljs.highlightAll();
