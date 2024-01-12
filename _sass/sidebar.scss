@@ -201,14 +201,14 @@
 
     .sidebar-left{
         flex-flow: column nowrap;
-        width: $sidebar-wd;
+        width: #{$sidebar-wd};
         min-height: 100%;
         background: none;
         align-items: flex-end;
     }
 
     .side-banner{
-        width: $sidebar-wd;
+        width: #{$sidebar-wd};
 
         button {
             display: none;
@@ -253,7 +253,7 @@
 
     #contact{
         display: block;
-        width: calc($sidebar-wd - 4rem);
+        width: calc(#{$sidebar-wd} - 4rem);
         right: 2rem;
         margin-top: 2rem;
         transform: none;

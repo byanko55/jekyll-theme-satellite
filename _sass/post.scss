@@ -1,5 +1,5 @@
 #post {
-    max-width: $content-wd;
+    max-width: #{$content-wd};
     margin: auto;
 }
 
@@ -409,8 +409,8 @@ main {
 @include mq(desktop){
     #post {
         margin: 4rem 0;
-        margin-left: $sidebar-wd;
-        width: max(min(calc(100vw - #{$sidebar-wd} - 2rem), $content-wd), 44rem);
+        margin-left: #{$sidebar-wd};
+        width: calc(max(min(100vw - #{$sidebar-wd} - 2rem, #{$content-wd}), 44rem));
         display: inline-block;
     }
 
