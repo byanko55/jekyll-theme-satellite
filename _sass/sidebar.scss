@@ -76,7 +76,6 @@
         text-align: center;
         line-height: 1;
         letter-spacing: 2px;
-        word-spacing: -6px;
         color: $color-darkblue;
     }
 }
@@ -224,47 +223,30 @@
     .site-avatar img { display: inline-block; }
 
     .site-name {
-        font-size: 1.75rem;
-        padding: 2rem;
+        font-size: 1.375rem;
+        padding: 1rem;
         text-align: center;
         box-shadow: none;
 
         .highlight {
-            -webkit-backface-visibility:hidden;
-            backface-visibility:hidden;
-            position:relative;
-            transition:0.5s color ease;
-            text-decoration:none;
-    
-            &:before, &:after{
-                height: 5px;
-                height: 0.35rem;
-                width: 0;
-                background: $color-rose;
-    
-                content: "";
-                transition:0.5s all ease;
-                -webkit-backface-visibility:hidden;
-                        backface-visibility:hidden;
-                position:absolute;
+            background-image: -webkit-linear-gradient(left, #808080 25%, #d7aeba 32.5%, #d26d85 40%, #b92f4f 50%, #d26d85 60%, #d7aeba 67.5%, #808080 75%);
+            background-image: linear-gradient(90deg, #806968 25%, #d7aeba 32.5%, #d26d85 40%, #b92f4f 50%, #d26d85 60%, #d7aeba 67.5%, #806968 75%);
+            background-position: right center;
+            background-size: 400% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+
+            &:hover {
+                color: #ef9671;
+                animation: slide 2s ease-in infinite;
             }
-    
-            &:before{
-                left: 0;
-                top: -0.25em;
-            }
-    
-            &:after{
-                right: 0;
-                bottom:-0.25em;
-            }
-    
-            &:hover{
-                color:$color-rose;
-            }
-    
-            &:hover:before, &:hover:after{
-                width:100%;
+
+            @keyframes slide {
+                100% {
+                    background-position: left center;
+                }
             }
         }
     }

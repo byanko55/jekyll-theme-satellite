@@ -313,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Disable highlighter dark color theme
                 document.getElementById("highlight-default").disabled=false;
                 document.getElementById("highlight-dark").disabled=true;
+                changeGiscusTheme('light');
                 isDarkMode = false;
             }
             else {
@@ -320,11 +321,82 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Disable highlighter default color theme
                 document.getElementById("highlight-default").disabled=true;
                 document.getElementById("highlight-dark").disabled=false;
+                changeGiscusTheme('noborder_gray');
                 isDarkMode = true;
             }
         });
     });
+
+    // Initialize/Change Giscus theme
+    const commentBox = document.getElementById('giscus');
+
+    if (commentBox) {
+        var giscusUserInfos = [];
+        var giscusTheme = "light";
+
+        $.getJSON('/giscus.json', function (data) {
+            giscusUserInfos = data[0];
+        })
+        .done(function() { 
+            console.log('getJSON request succeeded! [giscus.json]'); 
+
+            if (currentTheme === 'dark'){
+                giscusTheme = "noborder_gray";
+            }
     
+            let giscusAttributes = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": giscusUserInfos.repo,
+                "data-repo-id": giscusUserInfos.repoId,
+                "data-category": giscusUserInfos.category,
+                "data-category-id": giscusUserInfos.categoryId,
+                "data-mapping": "pathname",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "1",
+                "data-theme": giscusTheme,
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": "",
+            };
+    
+            let giscusScript = document.createElement("script");
+            Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [giscus.json] ' + textStatus); })
+        .always(function() { console.log('getJSON request ended! [giscus.json]'); });
+
+        // Giscus IMetadataMessage event handler
+        function handleMessage(event) {
+            if (event.origin !== 'https://giscus.app') return;
+            if (!(typeof event.data === 'object' && event.data.giscus)) return;
+          
+            const giscusData = event.data.giscus;
+
+            if (giscusData && giscusData.hasOwnProperty('discussion')) {
+                $('#num-comments').text(giscusData.discussion.totalCommentCount);
+            }
+            else {
+                $('#num-comments').text('0');
+            }
+        }
+          
+        window.addEventListener('message', handleMessage);
+    }
+
+    function changeGiscusTheme(theme) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+
+        const message = {
+            setConfig: {
+            theme: theme
+            }
+        };
+
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    }
+
     // search box
     const searchButton = document.querySelectorAll("#btn-search");
     const cancelButton = document.querySelector('#btn-clear');
@@ -355,9 +427,9 @@ document.addEventListener('DOMContentLoaded', function(){
     $.getJSON('/search.json', function (data) {
         posts = data;
     })
-    .done(function() { console.log('getJSON request succeeded!'); })
-    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! ' + textStatus); })
-    .always(function() { console.log('getJSON request ended!'); });
+    .done(function() { console.log('getJSON request succeeded! [search.json]'); })
+    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [search.json] ' + textStatus); })
+    .always(function() { console.log('getJSON request ended! [search.json]'); });
 
     $('#search-input').on('keyup', function () {
         var keyword = this.value.toLowerCase();
@@ -441,6 +513,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
         return txt;
     }
+
+    // Page Hits
+
 
     // Code highlighter
     hljs.highlightAll();

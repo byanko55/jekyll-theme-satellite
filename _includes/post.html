@@ -5,15 +5,27 @@
                 <span class="post-title">{{ page.title }}</span>
             {% endif %}
             <div class="post-info">
-                {% if page_level > 2 %}
-                    <a href="{{ '/' | append: page_tree[0] }}" class="link-category">{{ page_tree[0] }}</a>
-                {% else %}
-                    <span class="no-category">None</span>
-                {% endif %}
-                <span class="post-date">
-                    {% if page.title %}
-                        · {{ page.date | date: "%Y-%m-%d" }}
+                <span class="info-box category-box">
+                    <i class="fa-solid fa-folder"></i>
+                    {% if page_level > 2 %}
+                        <a href="{{ '/' | append: page_tree[0] }}">{{ page_tree[0] }}</a>
+                    {% else %}
+                        None
                     {% endif %}
+                </span>
+                <span class="info-box">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    {% if page.title %}
+                        {{ page.date | date: "%Y-%m-%d" }}
+                    {% endif %}
+                </span>
+                <span class="info-box">
+                    <i class="fa-solid fa-eye"></i>
+                    <span id="page-hits"></span>
+                </span>
+                <span class="info-box">
+                    <i class="fa-solid fa-comments"></i>
+                    <span id="num-comments"></span>
                 </span>
             </div>
         </div>
@@ -21,4 +33,8 @@
 </div>
 <main>
     {{ content }}
+    {% if site.github_username %}
+        <!-- see https://giscus.app/ -->
+        <div class="giscus" id="giscus" style="margin: 4rem auto;"></div>
+    {% endif %}
 </main>

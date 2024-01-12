@@ -28,7 +28,7 @@
                         <a href="{{ sub_page.url }}" class="txt_post">
                             {{ sub_page.content | markdownify | strip_html }}
                         </a>
-                        <div class="info_post">
+                        <div class="info-post">
                             {%- assign sub_page_tree = sub_page.path | split: "/" -%}
                             {% if sub_page_tree.size > 2 %}
                                 <a href="{{ '/' | append: sub_page_tree[1] }}" class="category">{{ sub_page_tree[1] }}</a>
