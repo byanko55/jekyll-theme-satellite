@@ -112,7 +112,7 @@
 
 @include mq(desktop){
     #navigation {
-        width: calc($sidebar-wd - 3rem);
+        width: calc(#{$sidebarwd} - 3rem);
         display: block;
         max-height: 512px;
         padding: 0 1.5rem;

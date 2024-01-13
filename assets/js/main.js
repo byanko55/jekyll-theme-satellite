@@ -515,7 +515,14 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // Page Hits
-
+    const pageHits = document.getElementById('page-hits');
+    if (pageHits) {
+        var resp = new XMLHttpRequest();
+        resp.open('GET', 'https://cvlian.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json');
+        resp.onerror = function() { pageHits.innerText = "0"; };
+        resp.onload = function() { pageHits.innerText = JSON.parse(this.responseText).count; };
+        resp.send();
+    }
 
     // Code highlighter
     hljs.highlightAll();
