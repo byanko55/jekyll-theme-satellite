@@ -201,14 +201,14 @@
 
     .sidebar-left{
         flex-flow: column nowrap;
-        width: #{$sidebar-wd};
+        width: #{$sidebarwd};
         min-height: 100%;
         background: none;
         align-items: flex-end;
     }
 
     .side-banner{
-        width: #{$sidebar-wd};
+        width: #{$sidebarwd};
 
         button {
             display: none;
@@ -253,7 +253,7 @@
 
     #contact{
         display: block;
-        width: calc(#{$sidebar-wd} - 4rem);
+        width: calc(#{$sidebarwd} - 4rem);
         right: 2rem;
         margin-top: 2rem;
         transform: none;
@@ -277,13 +277,13 @@
 }
 
 @include mq(wide){
-    .sidebar-left{ width: calc((100vw - #{$content-wd})/2); }
+    .sidebar-left{ width: calc((100vw - #{$contentwd})/2); }
 
     .sidebar-right{
         display: flex;
         height: 100%;
         align-items: flex-end;
-        width: calc((100vw - #{$content-wd})/2);
-        margin-left: calc(#{$content-wd} + (100vw - #{$content-wd})/2);
+        width: calc((100vw - #{$contentwd})/2);
+        margin-left: calc(#{$contentwd} + (100vw - #{$contentwd})/2);
     }
 }

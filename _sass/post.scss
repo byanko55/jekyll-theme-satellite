@@ -1,5 +1,5 @@
 #post {
-    max-width: #{$content-wd};
+    max-width: #{$contentwd};
     margin: auto;
 }
 
@@ -409,8 +409,8 @@ main {
 @include mq(desktop){
     #post {
         margin: 4rem 0;
-        margin-left: #{$sidebar-wd};
-        width: calc(max(min(100vw - #{$sidebar-wd} - 2rem, #{$content-wd}), 44rem));
+        margin-left: #{$sidebarwd};
+        width: calc(max(min(100vw - #{$sidebarwd} - 2rem, #{$contentwd}), 44rem));
         display: inline-block;
     }
 
@@ -423,5 +423,5 @@ main {
 }
 
 @include mq(wide){
-    #post { margin-left: calc((100vw - #{$content-wd})/2); }
+    #post { margin-left: calc((100vw - #{$contentwd})/2); }
 }
