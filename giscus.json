@@ -3,9 +3,9 @@ layout: none
 ---
 [
     {
-        "repo"         : "{{ site.github_username }}/{{ site.github_username }}.github.io",
-        "repoId"      : "[ENTER REPO ID HERE]",
-        "category"     : "[ENTER CATEGORY NAME HERE]",
-        "categoryId"  : "[ENTER CATEGORY ID HERE]"
+        "repo"          : "[ENTER REPO HERE]",
+        "repoId"        : "[ENTER REPO ID HERE]",
+        "category"      : "[ENTER CATEGORY NAME HERE]",
+        "categoryId"    : "[ENTER CATEGORY ID HERE]"
     }
 ]
