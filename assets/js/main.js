@@ -529,6 +529,24 @@ document.addEventListener('DOMContentLoaded', function(){
         /* some options */
     });
 
+    // Move to Top
+    if (document.querySelector('#thumbnail')){
+        const arrowButton = document.querySelector('.top-arrow');
+
+        setInterval(function(){
+            var scrollPos = document.documentElement.scrollTop;
+    
+            if (scrollPos < 512){
+                arrowButton.classList.remove('arrow-open');
+            }
+            else {
+                arrowButton.classList.add('arrow-open');
+            }
+
+            console.log(scrollPos)
+        }, 1000);
+    }
+
     // Code highlighter
     hljs.highlightAll();
 
