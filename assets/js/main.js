@@ -524,6 +524,11 @@ document.addEventListener('DOMContentLoaded', function(){
         resp.send();
     }
 
+    // Sweat Scroll
+    const scroller = new SweetScroll({
+        /* some options */
+    });
+
     // Code highlighter
     hljs.highlightAll();
 
