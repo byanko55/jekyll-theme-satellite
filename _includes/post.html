@@ -5,14 +5,17 @@
                 <span class="post-title">{{ page.title }}</span>
             {% endif %}
             <div class="post-info">
-                <span class="info-box category-box">
-                    <i class="fa-solid fa-folder"></i>
-                    {% if page_level > 2 %}
-                        <a href="{{ '/' | append: page_tree[0] }}">{{ page_tree[0] }}</a>
-                    {% else %}
+                {% if page_level > 2 %}
+                    <a class="info-box category-box" href="{{ '/' | append: page_tree[0] }}">
+                        <i class="fa-solid fa-folder"></i>
+                        {{ page_tree[0] }}
+                    </a>
+                {% else %}
+                    <span class="info-box category-box">
+                        <i class="fa-solid fa-folder"></i>
                         None
-                    {% endif %}
-                </span>
+                    </span>
+                {% endif %}
                 <span class="info-box">
                     <i class="fa-regular fa-calendar-days"></i>
                     {% if page.title %}
