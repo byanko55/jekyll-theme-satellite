@@ -1,6 +1,10 @@
 .sidebar {
     z-index: 1;
     flex-wrap: wrap;
+
+    ul, li {
+        list-style: none;
+    }
 }
 
 .sidebar-left {

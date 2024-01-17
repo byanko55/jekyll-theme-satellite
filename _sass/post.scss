@@ -189,6 +189,8 @@ main {
 
     p, ul, hr, table { margin-top: 2rem; }
 
+    li > ul { margin-top: 0; }
+
     code {
         margin: 0 2px;
         padding: 1px 5px;
