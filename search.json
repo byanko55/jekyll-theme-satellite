@@ -19,10 +19,16 @@ layout: none
             {% endif %}
         {%- endfor -%}
 
+        {% if search_tree.last == "index.md" %}
+            {%- assign page_type = "category" -%}
+        {% else %}
+            {%- assign page_type = "post" -%}
+        {% endif %}
+
         {
             "title"    : "{{ page.title | escape }}",
             "path"     : "{{ page_link }}",
-            "type"     : "{{ page.type }}",
+            "type"     : "{{ page_type }}",
             "url"      : "{{ site.baseurl }}{{ page.url }}",
             "date"     : "{{ page.date | date: '%Y-%m-%d' }}"
         }
