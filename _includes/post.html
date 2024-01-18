@@ -10,11 +10,6 @@
                         <i class="fa-solid fa-folder"></i>
                         {{ page_tree[0] }}
                     </a>
-                {% else %}
-                    <span class="info-box category-box">
-                        <i class="fa-solid fa-folder"></i>
-                        None
-                    </span>
                 {% endif %}
                 <span class="info-box">
                     <i class="fa-regular fa-calendar-days"></i>
@@ -33,6 +28,13 @@
             </div>
         </div>
     </div>
+</div>
+<div class="tags">
+    {%- for page_tag in page.tags -%}
+        <span class="tag-box theme-{{ forloop.index0 | modulo: 3 }}" tag="{{ page_tag }}">
+            {{ page_tag }}
+        </span>
+    {%- endfor -%}
 </div>
 <main>
     {{ content }}
