@@ -448,8 +448,9 @@ document.addEventListener('DOMContentLoaded', function(){
         for (var i = 0; i < posts.length; i++) {
             var post = posts[i];
 
-            if ((post.type === 'post' && post.title.toLowerCase().indexOf(keyword) >= 0)
-            || (post.type === 'category' && post.path.toLowerCase().indexOf(keyword) >= 0)){
+            if (post.title.toLowerCase().indexOf(keyword) >= 0
+            || post.path.toLowerCase().indexOf(keyword) >= 0
+            || post.tags.toLowerCase().indexOf(keyword) >= 0){
                 searchResult.push(post);
             }
         }
@@ -461,29 +462,34 @@ document.addEventListener('DOMContentLoaded', function(){
         } else {
             for (var i = 0; i < searchResult.length; i++) {
                 if (searchResult[i].type === 'post'){
-                    var highlighted = highlightKeyword(searchResult[i].title, keyword);
+                    var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
+                    var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
+                    var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
 
-                    if (searchResult[i].path === '')
-                        searchResult[i].path = "Home";
+                    if (highlighted_path === '')
+                        highlighted_path = "Home";
+
+                    if (highlighted_tags === '')
+                        highlighted_tags = "none";
 
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><div><i class="fa-solid fa-book"></i><span class="title">' + highlighted +  
-                            '</span></div><div><i class="fa-solid fa-folder"></i>' + searchResult[i].path +
-                            '</div><div><i class="fa-solid fa-tags"></i>Type: post' + 
+                            '"><div><i class="fa-solid fa-book"></i><span class="title">' + highlighted_title +  
+                            '</span></div><div><i class="fa-solid fa-folder"></i>' + highlighted_path +
+                            '</div><div><i class="fa-solid fa-tags"></i>' + highlighted_tags +
                             '</div><div><i class="fa-regular fa-calendar-days"></i>' + searchResult[i].date +
                             '</div></a></li>'
                     );
                 }
                 else {
-                    var highlighted = highlightKeyword(searchResult[i].path, keyword);
+                    var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
 
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><div><i class="fa-solid fa-folder"></i><span class="title">' + highlighted + 
-                            '</span></div><div><i class="fa-solid fa-tags"></i>Type: category' + 
+                            '"><div><i class="fa-solid fa-folder"></i><span class="title">' + highlighted_path + 
+                            '</span></div><div><i class="fa-solid fa-tags"></i>Type: category'  +
                             '</div></a></li>'
                     );
                 }
@@ -513,6 +519,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
         return txt;
     }
+
+    // 
+    console.log("{{page.tags}}");
 
     // Page Hits
     const pageHits = document.getElementById('page-hits');

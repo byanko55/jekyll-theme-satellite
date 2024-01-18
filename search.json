@@ -30,7 +30,7 @@ layout: none
             "title"    : "{{ page.title | escape }}",
             "path"     : "{{ page_link }}",
             "type"     : "{{ page_type }}",
-            "tags"     : "{{ page.tags }}",
+            "tags"     : "{{ page.tags | join: ', ' }}",
             "url"      : "{{ site.baseurl }}{{ page.url }}",
             "date"     : "{{ page.date | date: '%Y-%m-%d' }}"
         }
