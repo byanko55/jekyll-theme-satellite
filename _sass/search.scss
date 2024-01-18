@@ -29,6 +29,7 @@
             font-size: 1rem;
             margin-right: 0.5rem;
             color: #666;
+            width: 20px;
         }
 
         &::-webkit-scrollbar {
@@ -115,11 +116,19 @@
         position: absolute;
         top: 0;
         right: 1rem;
+        border-radius: 50%;
         transform: translateY(90%);
         font-size: 1.25rem;
         color: $color-rosybrown;
         display: none;
         outline: none;
+        background: #eee;
+
+        &:hover { 
+            background: transparent;
+            color: $color-darkorange;
+            border: 2px solid $color-darkorange;
+        }
     }
 }
 
@@ -159,8 +168,10 @@
     }
 
     .input-box button {
-        transform: translateY(60%);
-        font-size: 2.5rem;
+        transform: translateY(50%);
+        font-size: 2rem;
+        width: 48px;
+        height: 48px;
     }
 
     .result-item .title { font-size: 1.25rem; }

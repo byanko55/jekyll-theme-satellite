@@ -166,7 +166,16 @@ main {
 
     &:after { opacity: 0.5; }
 
-    button { color: #aaa; }
+    button {
+        background: #555;
+        color: goldenrod;
+        
+        &:hover {
+            background: transparent;
+            color: indianred;
+            border: 2px solid indianred;
+        }
+    }
 }
 
 .result-item{
