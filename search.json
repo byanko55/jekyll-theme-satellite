@@ -8,6 +8,13 @@ layout: none
 
     {% for page in page_list %}
         {%- assign search_tree = page.path | split: "/" -%}
+
+        {% if search_tree.last == "index.md" %}
+            {%- assign page_type = "category" -%}
+        {% else %}
+            {%- assign page_type = "post" -%}
+        {% endif %}
+
         {%- assign tree_len = search_tree.size | minus: 2 -%}
         {%- assign search_tree = search_tree | slice:1, tree_len -%}
         {%- assign page_link = "" -%}
@@ -19,16 +26,11 @@ layout: none
             {% endif %}
         {%- endfor -%}
 
-        {% if search_tree.last == "index.md" %}
-            {%- assign page_type = "category" -%}
-        {% else %}
-            {%- assign page_type = "post" -%}
-        {% endif %}
-
         {
             "title"    : "{{ page.title | escape }}",
             "path"     : "{{ page_link }}",
             "type"     : "{{ page_type }}",
+            "tags"     : "{{ page.tags }}",
             "url"      : "{{ site.baseurl }}{{ page.url }}",
             "date"     : "{{ page.date | date: '%Y-%m-%d' }}"
         }
