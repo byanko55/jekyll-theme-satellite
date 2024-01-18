@@ -54,13 +54,14 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 .transbox { background-color: rgba(64, 64, 64, 0.5); }
 
-.info-box, .info-box * { color: #32325d; }
+//.info-box, .info-box * { color: #32325d; }
 
 .tag-box { color: #fff; }
 
 .post-title,
-.post-date {
+.info-box * {
     color: #ddd;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 main {

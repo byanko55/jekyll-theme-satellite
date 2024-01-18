@@ -8,13 +8,18 @@
                 {% if page_level > 2 %}
                     <a class="info-box category-box" href="{{ '/' | append: page_tree[0] }}">
                         <i class="fa-solid fa-folder"></i>
-                        {{ page_tree[0] }}
+                        <span>{{ page_tree[0] }}</span>
                     </a>
+                {% else %}
+                    <span class="info-box">
+                        <i class="fa-solid fa-folder"></i>
+                        <span>None</span>
+                    </span>
                 {% endif %}
                 <span class="info-box">
                     <i class="fa-regular fa-calendar-days"></i>
                     {% if page.title %}
-                        {{ page.date | date: "%Y-%m-%d" }}
+                        <span>{{ page.date | date: "%Y-%m-%d" }}</span>
                     {% endif %}
                 </span>
                 <span class="info-box">
