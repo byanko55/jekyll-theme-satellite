@@ -5,31 +5,41 @@
                 <span class="post-title">{{ page.title }}</span>
             {% endif %}
             <div class="post-info">
-                <span class="info-box category-box">
-                    <i class="fa-solid fa-folder"></i>
-                    {% if page_level > 2 %}
-                        <a href="{{ '/' | append: page_tree[0] }}">{{ page_tree[0] }}</a>
-                    {% else %}
-                        None
-                    {% endif %}
-                </span>
+                {% if page_level > 2 %}
+                    <a class="info-box category-box" href="{{ '/' | append: page_tree[0] }}">
+                        <i class="fa-solid fa-folder"></i>
+                        <span>{{ page_tree[0] }}</span>
+                    </a>
+                {% else %}
+                    <span class="info-box">
+                        <i class="fa-solid fa-folder"></i>
+                        <span>None</span>
+                    </span>
+                {% endif %}
                 <span class="info-box">
                     <i class="fa-regular fa-calendar-days"></i>
                     {% if page.title %}
-                        {{ page.date | date: "%Y-%m-%d" }}
+                        <span>{{ page.date | date: "%Y-%m-%d" }}</span>
                     {% endif %}
                 </span>
                 <span class="info-box">
                     <i class="fa-solid fa-eye"></i>
-                    <span id="page-hits"></span>
+                    <span id="page-hits">-</span>
                 </span>
-                <span class="info-box">
+                <a class="info-box" href="#giscus" data-scroll>
                     <i class="fa-solid fa-comments"></i>
-                    <span id="num-comments"></span>
-                </span>
+                    <span id="num-comments">-</span>
+                </a>
             </div>
         </div>
     </div>
+</div>
+<div class="tags">
+    {%- for page_tag in page.tags -%}
+        <span class="tag-box theme-{{ forloop.index0 | modulo: 3 }}" contentID="{{ page_tag }}">
+            {{ page_tag }}
+        </span>
+    {%- endfor -%}
 </div>
 <main>
     {{ content }}

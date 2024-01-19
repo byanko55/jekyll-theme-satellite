@@ -53,6 +53,11 @@
         <canvas id="stars" width="100%" height="100%"></canvas>
         {%- assign page_tree = page.path | remove_first: "_pages/" | split: "/" -%}
         {%- assign page_level = page_tree.size -%}
+        {% if page_tree.last == "index.md" %}
+            {%- assign page_type = "category" -%}
+        {% else %}
+            {%- assign page_type = "post" -%}
+        {% endif %}
         {% include sidebar.html %}
         <div id="post">
             <div class="inner-header">
@@ -70,7 +75,7 @@
                                 <a href="/"><i class="fa-solid fa-house"></i> Home</a>
                                 >
                             {% elsif forloop.last %}
-                                {% if page.type == "category" %}
+                                {% if page_type == "category" %}
                                     {{ sub_tree }}
                                 {% else %}
                                     {{ page.title }}
@@ -83,7 +88,7 @@
                         {%- endfor -%}
                     </p>
                 </div>
-                {% if page.type == "category" %}
+                {% if page_type == "category" %}
                     {% include loading.html %}
                     {% include pagination.html %}
                 {% else %}
@@ -99,4 +104,5 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
     <script src="{{ '/assets/js/stars.js' }}"></script>
     <script src="{{ '/assets/js/main.js' }}"></script>
+    <script src="{{ '/assets/js/sweet-scroll.min.js' }}"></script>
 </html>

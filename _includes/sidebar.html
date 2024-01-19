@@ -57,7 +57,7 @@
             <i class="fa fa-search"></i>
         </button>
     </div>
-    {%- if page.type == "post" -%}
+    {%- if page_type == "post" -%}
     <div class="toc">
         <span class="toc-header">
             <i class="fa fa-bookmark" aria-hidden="true"></i>
@@ -65,5 +65,11 @@
         </span>
         <div class='toc-board'></div>
     </div>
+    <div class="top-arrow">
+        <a href="#" data-scroll></a>
+        <a href="#" data-scroll></a>
+        <a href="#" data-scroll></a>
+    </div>
     {%- endif -%}
+
 </div>

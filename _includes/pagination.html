@@ -1,4 +1,5 @@
 {%- assign list_pages = site.pages | sort:"date" | reverse -%}
+{%- assign post_counts = 0 -%}
 
 <h3 class="category-header">
     {% if page_level == 1 %}
@@ -11,8 +12,9 @@
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
     {%- for sub_page in list_pages -%}
         {%- assign page_url = page.url | remove: 'index.html' -%}
-        {%- assign checkArray = sub_page.url | split:page_url -%} <!-- check whether the post belongs to the parent category -->
-        {% if checkArray[0] == "" and sub_page.type == "post" and is_post[0] != sub_page.url %}
+        {% if sub_page.url contains page_url %}
+        {% unless sub_page.url contains "index.html" %}
+            {%- assign post_counts = post_counts | plus:1 -%}
             <li class="paginated-item">
                 <div id="article_content">
                     <div class="thumbnail_zone">
@@ -40,9 +42,16 @@
                     </div>
                 </div>
             </li>
+        {% endunless %}
         {% endif %}
     {%- endfor -%}
     </ul>
+    {% if post_counts == 0 %}
+        <div class="no-posts">
+            <img src="{{ '/assets/img/sorry.png'' }}"></img>
+            <h1>Sorry, No posts found</h1>
+        </div>
+    {% endif %}
 </div>
 <div class="pagination">
     <nav class="pagination-container">

@@ -4,6 +4,8 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 #stars { background: #1E1E1F; }
 
+#loading { background: #1E1E1F; }
+
 .sidebar-left { background-color: #313132; }
 
 .site-name {
@@ -52,11 +54,14 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 .transbox { background-color: rgba(64, 64, 64, 0.5); }
 
-.info-box, .info-box * { color: #32325d; }
+//.info-box, .info-box * { color: #32325d; }
+
+.tag-box { color: #fff; }
 
 .post-title,
-.post-date {
+.info-box * {
     color: #ddd;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 main {
@@ -150,7 +155,7 @@ main {
     }
 
     input {
-        color: #aaa;
+        color: gold;
 
         &::placeholder { color: #aaa; }
     }
@@ -161,7 +166,16 @@ main {
 
     &:after { opacity: 0.5; }
 
-    button { color: #aaa; }
+    button {
+        background: #555;
+        color: goldenrod;
+        
+        &:hover {
+            background: transparent;
+            color: indianred;
+            border: 2px solid indianred;
+        }
+    }
 }
 
 .result-item{
