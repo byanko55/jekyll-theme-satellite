@@ -23,6 +23,7 @@
         aspect-ratio: 1;
         top: 0;
         font-size: 1.25rem;
+        cursor: pointer;
 
         i { color: $color-black; }
 
@@ -162,6 +163,7 @@
         border: none;
         border-radius: 50%;
         margin-left: 1rem;
+        cursor: pointer;
 
         &:hover {
             border: 2px solid $color-navy;
@@ -240,7 +242,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
 
             &:hover {
                 color: #ef9671;

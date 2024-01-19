@@ -26,17 +26,17 @@
                     <i class="fa-solid fa-eye"></i>
                     <span id="page-hits">-</span>
                 </span>
-                <span class="info-box" href="#giscus" data-scroll>
+                <a class="info-box" href="#giscus" data-scroll>
                     <i class="fa-solid fa-comments"></i>
                     <span id="num-comments">-</span>
-                </span>
+                </a>
             </div>
         </div>
     </div>
 </div>
 <div class="tags">
     {%- for page_tag in page.tags -%}
-        <span class="tag-box theme-{{ forloop.index0 | modulo: 3 }}" tag="{{ page_tag }}">
+        <span class="tag-box theme-{{ forloop.index0 | modulo: 3 }}" contentID="{{ page_tag }}">
             {{ page_tag }}
         </span>
     {%- endfor -%}
