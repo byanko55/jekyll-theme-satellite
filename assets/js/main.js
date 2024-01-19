@@ -520,8 +520,16 @@ document.addEventListener('DOMContentLoaded', function(){
         return txt;
     }
 
-    // 
-    console.log("{{page.tags}}");
+    // Tag EventListener
+    document.querySelectorAll('.tag-box').forEach(function(tagButton){
+        tagButton.addEventListener('click', function() {
+            const contentID = tagButton.getAttribute('contentID');
+            searchPage.classList.add('active');
+
+            $('#search-input').val(contentID);
+            $('#search-input').trigger('keyup');
+        });
+    });
 
     // Page Hits
     const pageHits = document.getElementById('page-hits');
