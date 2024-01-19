@@ -83,7 +83,15 @@
 
 .search-box {
     margin: auto;
-    margin-top: 20vh;
+    margin-top: 12vh;
+
+    h1 { 
+        margin-bottom: 2rem;
+        color: #fff;
+        opacity: 0.8;
+        font-weight: 200;
+        font-family: 'Righteous', sans-serif;
+    }
 
     input {
         font-size: 1.5rem;
@@ -119,15 +127,20 @@
         border-radius: 50%;
         transform: translateY(90%);
         font-size: 1.25rem;
-        color: $color-rosybrown;
-        display: none;
+        color: $color-grey;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
         outline: none;
         background: #eee;
+    }
+
+    #btn-clear { 
+        display: none; 
+        cursor: pointer;
 
         &:hover { 
             background: transparent;
-            color: $color-darkorange;
-            border: 2px solid $color-darkorange;
+            color: indianred;
+            border: 2px solid indianred;
         }
     }
 }

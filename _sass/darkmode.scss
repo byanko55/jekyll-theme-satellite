@@ -54,8 +54,6 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 .transbox { background-color: rgba(64, 64, 64, 0.5); }
 
-//.info-box, .info-box * { color: #32325d; }
-
 .tag-box { color: #fff; }
 
 .post-title,
@@ -154,12 +152,10 @@ main {
         }
     }
 
-    input {
-        color: gold;
-
-        &::placeholder { color: #aaa; }
-    }
+    input, input::placeholder { color: #ccc; }
 }
+
+.search-box h1 { color: #fff; }
 
 .input-box {
     &:before { background: #5a5a5b; }
@@ -167,14 +163,8 @@ main {
     &:after { opacity: 0.5; }
 
     button {
-        background: #555;
-        color: goldenrod;
-        
-        &:hover {
-            background: transparent;
-            color: indianred;
-            border: 2px solid indianred;
-        }
+        background: #777;
+        color: #ddd;
     }
 }
 

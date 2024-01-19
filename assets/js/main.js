@@ -438,9 +438,11 @@ document.addEventListener('DOMContentLoaded', function(){
         if (keyword.length > 0) {
             $('#search-result').show();
             $('#btn-clear').show();
+            $('#btn-glass').hide();
         } else {
             $('#search-result').hide();
             $('#btn-clear').hide();
+            $('#btn-glass').show();
         }
         
         $('.result-item').remove();
@@ -502,6 +504,7 @@ document.addEventListener('DOMContentLoaded', function(){
             $('.result-item').remove();
             $('#search-input').val("");
             $('#btn-clear').hide();
+            $('#btn-glass').show();
         });
     }
 
