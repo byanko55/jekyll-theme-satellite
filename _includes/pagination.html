@@ -35,9 +35,12 @@
                             {% if sub_page_tree.size > 2 %}
                                 <a href="{{ '/' | append: sub_page_tree[1] }}" class="category">{{ sub_page_tree[1] }}</a>
                             {% else %}
-                                <span class="category">None</span>
+                                <a class="category">None</a>
                             {% endif %}
-                            <span class="date">· {{ sub_page.date | date: "%Y-%m-%d" }}</span>
+                            {%- assign posting_date = page.date | date: "%Y-%m-%d" -%}
+                            {% if posting_date != "1900-01-01" %}
+                                <span class="date">· {{ sub_page.date | date: "%Y-%m-%d" }}</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

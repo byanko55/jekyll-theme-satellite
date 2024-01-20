@@ -18,9 +18,14 @@
                 {% endif %}
                 <span class="info-box">
                     <i class="fa-regular fa-calendar-days"></i>
-                    {% if page.title %}
-                        <span>{{ page.date | date: "%Y-%m-%d" }}</span>
-                    {% endif %}
+                    <span>
+                        {%- assign posting_date = page.date | date: "%Y-%m-%d" -%}
+                        {% if posting_date == "1900-01-01" %}
+                            -
+                        {% else %}
+                            {{ posting_date }}
+                        {% endif %}
+                    </span>
                 </span>
                 {% if site.goatcounter_code != nil %}
                     <span class="info-box">
