@@ -105,6 +105,10 @@ main {
     }
 }
 
+#related-posts .title { color: dimgrey; }
+
+#related-posts li:hover { box-shadow: 8px 8px 16px -4px rgba(255, 255, 255, .2); }
+
 .category-tree a { color: goldenrod; }
 
 .category-header {
