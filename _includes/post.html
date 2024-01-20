@@ -18,14 +18,21 @@
                 {% endif %}
                 <span class="info-box">
                     <i class="fa-regular fa-calendar-days"></i>
-                    {% if page.title %}
-                        <span>{{ page.date | date: "%Y-%m-%d" }}</span>
-                    {% endif %}
+                    <span>
+                        {%- assign posting_date = page.date | date: "%Y-%m-%d" -%}
+                        {% if posting_date == "1900-01-01" %}
+                            -
+                        {% else %}
+                            {{ posting_date }}
+                        {% endif %}
+                    </span>
                 </span>
-                <span class="info-box">
-                    <i class="fa-solid fa-eye"></i>
-                    <span id="page-hits">-</span>
-                </span>
+                {% if site.goatcounter_code != nil %}
+                    <span class="info-box">
+                        <i class="fa-solid fa-eye"></i>
+                        <span id="page-hits" usercode="{{ goatcounter_code }}">-</span>
+                    </span>
+                {% endif %}
                 <a class="info-box" href="#giscus" data-scroll>
                     <i class="fa-solid fa-comments"></i>
                     <span id="num-comments">-</span>
@@ -47,4 +54,11 @@
         <!-- see https://giscus.app/ -->
         <div class="giscus" id="giscus" style="margin: 4rem auto;"></div>
     {% endif %}
+    <div id="related-box">
+        <span>
+            <i class="fa-solid fa-feather-pointed"></i>
+            You May Also Like
+        </span>
+        <ul id="related-posts"></ul>
+    </div>
 </main>

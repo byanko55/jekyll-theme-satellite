@@ -427,7 +427,12 @@ document.addEventListener('DOMContentLoaded', function(){
     $.getJSON('/search.json', function (data) {
         posts = data;
     })
-    .done(function() { console.log('getJSON request succeeded! [search.json]'); })
+    .done(function() { 
+        console.log('getJSON request succeeded! [search.json]');
+
+        // Related Posts
+        displayRelatedPosts(posts);
+    })
     .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [search.json] ' + textStatus); })
     .always(function() { console.log('getJSON request ended! [search.json]'); });
 
@@ -438,9 +443,11 @@ document.addEventListener('DOMContentLoaded', function(){
         if (keyword.length > 0) {
             $('#search-result').show();
             $('#btn-clear').show();
+            $('#btn-glass').hide();
         } else {
             $('#search-result').hide();
             $('#btn-clear').hide();
+            $('#btn-glass').show();
         }
         
         $('.result-item').remove();
@@ -502,6 +509,7 @@ document.addEventListener('DOMContentLoaded', function(){
             $('.result-item').remove();
             $('#search-input').val("");
             $('#btn-clear').hide();
+            $('#btn-glass').show();
         });
     }
 
@@ -531,11 +539,98 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
 
+    // Related Posts
+    function displayRelatedPosts(pages){
+        const refBox = document.getElementById('related-box');
+
+        if (!refBox) return;
+
+        var relatedPosts = [];
+        var currPost = pages.find(obj => {return obj.url === location.pathname});
+
+        let currTags = currPost.tags.split(', ');
+        let currCategory = currPost.path.split(' > ').pop();
+
+        for (var i = 0; i < pages.length; i++) {
+            let page = pages[i];
+
+            if (page.type === 'category') continue;
+
+            if (page.title === currPost.title) continue;
+
+            let tags = page.tags.split(', ');
+            let category = page.path.split(' > ').pop();
+            let correlationScore = 0;
+
+            for (var j = 0; j < currTags.length; j++){
+                if (tags.indexOf(currTags[j]) != -1) correlationScore += 1;
+            }
+
+            if (category === currCategory) correlationScore += 1;
+
+            if (correlationScore == 0) continue;
+
+            relatedPosts.push({
+                'title': page.title,
+                'date': page.date,
+                'category': category,
+                'url': page.url,
+                'thumbnail': page.image,
+                'score': correlationScore
+            });
+        }
+
+        relatedPosts.sort(function (a, b) {
+            if(a.hasOwnProperty('score')){
+                return b.score - a.score;
+            }
+        });
+
+        if (relatedPosts.length == 0){
+            $('#related-box').hide();
+            return;
+        }
+
+        for (var i = 0; i < Math.min(relatedPosts.length, 6); i++){
+            let post = relatedPosts[i];
+            let date = '-';
+            let category = 'No category';
+
+            if (post.date !== '1900-01-01'){
+                date = new Date(post.date);
+                date = date.toLocaleString('en-US', {day: 'numeric', month:'long', year:'numeric'});
+            }
+
+            if (post.category !== '') category = post.category;
+
+            if (post.thumbnail === ''){
+                post.thumbnail = "/assets/img/thumbnail/empty.jpg";
+            }
+
+            $('#related-posts').append(
+                '<li class="related-item"><a href="' + post.url +
+                    '"><img src="' + post.thumbnail + 
+                    '"/><p class="category">' + category +  
+                    '</p><p class="title">' + post.title + 
+                    '</p><p class="date">' + date +
+                    '</p></a></li>'
+            );
+        }
+    }
+
     // Page Hits
     const pageHits = document.getElementById('page-hits');
+
     if (pageHits) {
+        const goatcounterCode = pageHits.getAttribute('usercode');
+        const requestURL = 'https://' 
+            + goatcounterCode 
+            + '.goatcounter.com/counter/' 
+            + encodeURIComponent(location.pathname) 
+            + '.json';
+
         var resp = new XMLHttpRequest();
-        resp.open('GET', 'https://cvlian.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json');
+        resp.open('GET', requestURL);
         resp.onerror = function() { pageHits.innerText = "0"; };
         resp.onload = function() { pageHits.innerText = JSON.parse(this.responseText).count; };
         resp.send();
@@ -559,8 +654,6 @@ document.addEventListener('DOMContentLoaded', function(){
             else {
                 arrowButton.classList.add('arrow-open');
             }
-
-            console.log(scrollPos)
         }, 1000);
     }
 

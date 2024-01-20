@@ -413,6 +413,80 @@ main {
     }
 }
 
+#related-box span { font-size: 1.5rem; }
+
+#related-posts {
+    display: inline-table;
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0;
+
+    li {
+        float: left;
+        position: relative;
+        width: 30%;
+        margin-left: 5%;
+        margin-bottom: 2rem;
+        padding: 0;
+        list-style: none;
+        transition: .3s;
+
+        &:hover {
+            transform: translate(0px, -4px);
+            box-shadow: 8px 8px 16px -4px rgba(0, 0, 255, .2);
+        }
+    }
+
+    li:nth-child(3n+1) {
+        margin-left: 0;
+    }
+
+    a {
+        width: 100%;
+        display: inline-block;
+        text-decoration: none;
+
+        p { 
+            width: 100%;
+            margin: 8px 0;
+            line-height: 1.25;
+            font-family: 'Lato', sans-serif;
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1.5/1;
+    }
+
+    .category {
+        color: rgb(100, 200, 200);
+        font-size: 1rem;
+    }
+
+    .title {
+        display: -webkit-box;
+        color: $color-darkbrown;
+        font-size: 1.125rem;
+        font-weight: 600;
+        height: 2.5em;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+    }
+
+    .date {
+        color: goldenrod;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+    }
+}
+
 @include mq(tablet){
     .transbox { padding: 2rem; }
 

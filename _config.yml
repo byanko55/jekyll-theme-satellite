@@ -52,6 +52,7 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+      date: "1900-01-01"
 
 # Markdown newline activator 
 kramdown:
