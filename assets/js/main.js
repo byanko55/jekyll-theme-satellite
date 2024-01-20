@@ -591,10 +591,17 @@ document.addEventListener('DOMContentLoaded', function(){
             return;
         }
 
-        for (var i = 0; i < Math.max(relatedPosts.length, 6); i++){
+        for (var i = 0; i < Math.min(relatedPosts.length, 6); i++){
             let post = relatedPosts[i];
-            let date = new Date(post.date);
-            date = date.toLocaleString('en-US', {day: 'numeric', month:'long', year:'numeric'});
+            let date = '-';
+            let category = 'No category';
+
+            if (post.date !== '1900-01-01'){
+                date = new Date(post.date);
+                date = date.toLocaleString('en-US', {day: 'numeric', month:'long', year:'numeric'});
+            }
+
+            if (post.category !== '') category = post.category;
 
             if (post.thumbnail === ''){
                 post.thumbnail = "/assets/img/thumbnail/empty.jpg";
@@ -603,7 +610,7 @@ document.addEventListener('DOMContentLoaded', function(){
             $('#related-posts').append(
                 '<li class="related-item"><a href="' + post.url +
                     '"><img src="' + post.thumbnail + 
-                    '"/><p class="category">' + post.category +  
+                    '"/><p class="category">' + category +  
                     '</p><p class="title">' + post.title + 
                     '</p><p class="date">' + date +
                     '</p></a></li>'
