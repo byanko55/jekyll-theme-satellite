@@ -453,6 +453,8 @@ document.addEventListener('DOMContentLoaded', function(){
         for (var i = 0; i < posts.length; i++) {
             var post = posts[i];
 
+            if (post.title === 'Home' && post.type == 'category') continue;
+
             if (post.title.toLowerCase().indexOf(keyword) >= 0
             || post.path.toLowerCase().indexOf(keyword) >= 0
             || post.tags.toLowerCase().indexOf(keyword) >= 0){
@@ -466,13 +468,14 @@ document.addEventListener('DOMContentLoaded', function(){
             );
         } else {
             for (var i = 0; i < searchResult.length; i++) {
+                var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
+
+                if (highlighted_path === '')
+                    highlighted_path = "Home";
+
                 if (searchResult[i].type === 'post'){
                     var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
-                    var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
                     var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
-
-                    if (highlighted_path === '')
-                        highlighted_path = "Home";
 
                     if (highlighted_tags === '')
                         highlighted_tags = "none";
@@ -480,21 +483,19 @@ document.addEventListener('DOMContentLoaded', function(){
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><table><thead><tr><td><i class="fa-solid fa-book"></i></td><td>' + highlighted_title +  
-                            '</td></tr></thead><tbody><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path +
+                            '"><table><thead><tr><th><i class="fa-solid fa-book"></i></th><th>' + highlighted_title +  
+                            '</th></tr></thead><tbody><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path +
                             '</td></tr><tr><td><i class="fa-solid fa-tags"></i></td><td>' + highlighted_tags +
                             '</td></tr><tr><td><i class="fa-regular fa-calendar-days"></i></td><td>' + searchResult[i].date +
                             '</td></tr></tbody></table></a></li>'
                     );
                 }
                 else {
-                    var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
-
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><table><thead><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path + 
-                            '</td></tr></thead><tbody><tr><td><i class="fa-solid fa-tags"></i></td><td>Type: category'  +
+                            '"><table><thead><tr><th><i class="fa-solid fa-folder"></i></th><th>' + highlighted_path + 
+                            '</th></tr></thead><tbody><tr><td><i class="fa-solid fa-tags"></i></td><td>Type: category'  +
                             '</td></tr></tbody></table></a></li>'
                     );
                 }
