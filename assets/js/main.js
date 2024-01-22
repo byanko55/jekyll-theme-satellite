@@ -200,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function(){
             });
 
             localStorage.setItem(pageKey, currentPage);
-            console.log(pageKey + " saved page: " + currentPage);
         };
 
         window.addEventListener("load", (event) => {
@@ -406,6 +405,7 @@ document.addEventListener('DOMContentLoaded', function(){
         searchButton.forEach((btn) => {
             btn.addEventListener('click', function() {
                 searchPage.classList.add('active');
+                $('#search-input').focus();
             });
         });
     }
@@ -443,11 +443,9 @@ document.addEventListener('DOMContentLoaded', function(){
         if (keyword.length > 0) {
             $('#search-result').show();
             $('#btn-clear').show();
-            $('#btn-glass').hide();
         } else {
             $('#search-result').hide();
             $('#btn-clear').hide();
-            $('#btn-glass').show();
         }
         
         $('.result-item').remove();
@@ -482,11 +480,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><div><i class="fa-solid fa-book"></i><span class="title">' + highlighted_title +  
-                            '</span></div><div><i class="fa-solid fa-folder"></i>' + highlighted_path +
-                            '</div><div><i class="fa-solid fa-tags"></i>' + highlighted_tags +
-                            '</div><div><i class="fa-regular fa-calendar-days"></i>' + searchResult[i].date +
-                            '</div></a></li>'
+                            '"><table><thead><tr><td><i class="fa-solid fa-book"></i></td><td>' + highlighted_title +  
+                            '</td></tr></thead><tbody><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path +
+                            '</td></tr><tr><td><i class="fa-solid fa-tags"></i></td><td>' + highlighted_tags +
+                            '</td></tr><tr><td><i class="fa-regular fa-calendar-days"></i></td><td>' + searchResult[i].date +
+                            '</td></tr></tbody></table></a></li>'
                     );
                 }
                 else {
@@ -495,9 +493,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     $('#search-result').append(
                         '<li class="result-item"><a href="' +
                             searchResult[i].url +
-                            '"><div><i class="fa-solid fa-folder"></i><span class="title">' + highlighted_path + 
-                            '</span></div><div><i class="fa-solid fa-tags"></i>Type: category'  +
-                            '</div></a></li>'
+                            '"><table><thead><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path + 
+                            '</td></tr></thead><tbody><tr><td><i class="fa-solid fa-tags"></i></td><td>Type: category'  +
+                            '</td></tr></tbody></table></a></li>'
                     );
                 }
             }
@@ -509,7 +507,6 @@ document.addEventListener('DOMContentLoaded', function(){
             $('.result-item').remove();
             $('#search-input').val("");
             $('#btn-clear').hide();
-            $('#btn-glass').show();
         });
     }
 
