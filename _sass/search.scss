@@ -20,13 +20,15 @@
         border-bottom: 2px solid #aaa;
         box-shadow: 0px 4px 8px 0 #ccc;
 
+        /*
         div {
             font-size: 1rem;
             margin: 0.25rem;
         }
+        */
 
         i {
-            font-size: 1rem;
+            //font-size: 1rem;
             margin-right: 0.5rem;
             color: #666;
             width: 20px;
@@ -37,7 +39,7 @@
             background-color: #ddd;
         }
 
-        &::-webkit-scrollbar-thumb { background-color: $color-rosybrown; }
+        &::-webkit-scrollbar-thumb { background-color: rosybrown; }
     }
 
     &.active{ display: flex; }
@@ -83,19 +85,20 @@
 
 .search-box {
     margin: auto;
-    margin-top: 12vh;
+    margin-top: 6vh; //12vh;
 
     h1 { 
         margin-bottom: 2rem;
         color: #fff;
         opacity: 0.8;
+        font-size: 1.5rem;
         font-weight: 200;
         font-family: 'Righteous', sans-serif;
     }
 
     input {
-        font-size: 1.5rem;
-        padding: 1rem;
+        font-size: 1.25rem;
+        padding: 0.5rem;
         width: 20.5rem;
         border: 2px solid #aaa;
         background: none;
@@ -122,17 +125,24 @@
 
     button {
         position: absolute;
+        display: none; 
+        cursor: pointer;
         top: 0;
-        right: 1rem;
+        right: 8px;
+        width: 22px;
+        aspect-ratio: 1.0;
         border-radius: 50%;
-        transform: translateY(90%);
-        font-size: 1.25rem;
-        color: $color-grey;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-        outline: none;
-        background: #eee;
+        transform: translateY(50%);
+        font-size: 14px;
+        //color: dimgrey;
+        //text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        //outline: none;
+        background: slategrey !important;
+
+        i { color: #fff !important; }
     }
 
+    /*
     #btn-clear { 
         display: none; 
         cursor: pointer;
@@ -143,23 +153,35 @@
             border: 2px solid indianred;
         }
     }
+    */
 }
 
 .result-item {
     list-style: none;
     text-align: justify;
-    padding: 1rem;
+    padding: 0.5rem; //1rem;
     border: 1px solid #aaa;
     background: #fff;
 
     &:hover { background: #ffe7a0; }
 
-    .highlight {
-        font-weight: 900;
-        color: $color-green !important;
+    table {
+        th, td { 
+            text-align: left;
+            vertical-align: top; 
+        }
+
+        th { font-size: 1rem; }
+
+        td { font-size: 0.875rem; }
     }
 
-    .title { font-size: 1rem; }
+    .highlight {
+        font-weight: 900;
+        color: yellowgreen !important;
+    }
+
+    //.title { font-size: 1rem; }
 }
 
 @include mq(tablet) {
@@ -175,17 +197,35 @@
         }
     }
 
+    .search-box { 
+        margin-top: 12vh; 
+    
+        h1 { font-size: 2.5rem; }
+    }
+
     .search-box input {
-        font-size: 3rem;
+        font-size: 2rem;
+        padding: 1rem;
         width: 40rem;
     }
 
     .input-box button {
-        transform: translateY(50%);
-        font-size: 2rem;
-        width: 48px;
-        height: 48px;
+        //transform: translateY(50%);
+        font-size: 1.25rem;
+        width: 36px;
+        right: 16px;
+        //height: 48px;
     }
 
-    .result-item .title { font-size: 1.25rem; }
+    .result-item {
+        padding: 1rem;
+
+        table {
+            th { font-size: 1.25rem; }
+
+            td { font-size: 1.125rem; }
+        }
+
+        .title { font-size: 1.25rem; }
+    }
 }

@@ -15,6 +15,8 @@
 .side-banner {
     width: 100%;
     text-align:center;
+    //padding: 0.5rem 0;
+    box-shadow: 0px 4px 8px 0 #aaa;
 
     button {
         position: absolute;
@@ -23,18 +25,18 @@
         aspect-ratio: 1;
         top: 0;
         font-size: 1.25rem;
-        cursor: pointer;
+        //cursor: pointer;
 
-        i { color: $color-black; }
+        // i { color: black; }
 
         &:hover { background-color: rgba(212, 201, 191, 0.7); }
     }
 
     #btn-nav { right: 0; }
 
-    #btn-search { right: 43px; }
+    #btn-search { right: 38px; } //43px; }
 
-    #btn-brightness { right: 86px; }
+    #btn-brightness { right: 76px; } //86px; }
 
     .fa-moon {
         display: block;
@@ -60,7 +62,7 @@
         transition: .3s;
 
         &:hover {
-            outline: 4px solid $color-orange;
+            outline: 4px solid orange;
             outline-offset: 8px;
         }
     }
@@ -70,18 +72,18 @@
 
 .site-name {
     padding: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: left;
     position: relative;
-    box-shadow: 0px 4px 8px 0 #aaa;
+    // box-shadow: 0px 4px 8px 0 #aaa;
 
     a, span {
-        font-family: "Righteous", sans-serif;
-        font-weight: 900;
-        text-align: center;
-        line-height: 1;
+        //font-family: "Righteous", sans-serif;
+        //font-weight: 900;
+        //text-align: center;
+        //line-height: 1;
         letter-spacing: 2px;
-        color: $color-darkblue;
+        //color: midnightblue;
     }
 }
 
@@ -90,13 +92,11 @@
     position: relative;
     width: 75%;
     transform: translateX(12.5%);
-    margin: 0;
+    //margin: 0;
     text-align: center;
-    padding-bottom: 1rem;
+    padding: 1rem 0; //padding-bottom: 1rem;
 
-    &.contact-open {
-        display: block;
-    }
+    &.contact-open { display: block; }
 
     hr { 
         border: 0;
@@ -124,21 +124,17 @@
 
                 i{
                     font-size: 1rem;
-                    color: $color-grey;
+                    color: dimgrey;
                 }
 
                 &:hover{
-                    i {
-                        color: $color-orange;
-                    }
+                    i { color: orange; }
 
                     transform: scale(1.5) translateY(-12.5%);
                 }
             }
 
-            &:not(:last-child) > a {
-                margin-right: 4px;
-            }
+            &:not(:last-child) > a { margin-right: 4px; }
         }
     }
 
@@ -166,7 +162,7 @@
         cursor: pointer;
 
         &:hover {
-            border: 2px solid $color-navy;
+            border: 2px solid midnightblue;
             animation: leaves .75s ease-in-out infinite alternate;
         }
     }
@@ -183,7 +179,7 @@
     }
 
     i {
-        color: #3A241A;
+        color: #3A241A !important;
         font-size: 1.5rem;
         font-weight: 900;
         position: relative;
@@ -202,6 +198,27 @@
     }
 }
 
+@include mq(tablet){
+    .side-banner {
+        button { font-size: 1.75rem; }
+
+        #btn-search { right: 60px; }
+
+        #btn-brightness { right: 120px; }
+    }
+    
+    .site-name { 
+        padding: 1rem;
+        font-size: 1.375rem; 
+    }
+
+    #contact {
+        ul li a i { font-size: 1.125rem; }
+
+        span { font-size: 1rem; }
+    }
+}
+
 @include mq(desktop){
     .sidebar { position: fixed; }
 
@@ -215,6 +232,7 @@
 
     .side-banner{
         width: #{$sidebarwd};
+        box-shadow: none !important;
 
         button {
             display: none;
@@ -232,11 +250,13 @@
         font-size: 1.375rem;
         padding: 1rem;
         text-align: center;
-        box-shadow: none;
+        // box-shadow: none;
 
         .highlight {
-            background-image: -webkit-linear-gradient(left, #808080 25%, #d7aeba 32.5%, #d26d85 40%, #b92f4f 50%, #d26d85 60%, #d7aeba 67.5%, #808080 75%);
-            background-image: linear-gradient(90deg, #806968 25%, #d7aeba 32.5%, #d26d85 40%, #b92f4f 50%, #d26d85 60%, #d7aeba 67.5%, #806968 75%);
+            font-weight: 600;
+            font-family: 'Righteous', sans-serif;
+            background-image: -webkit-linear-gradient(left, #a95770 25%, #ff4d7c 32.5%, #97d0ec 50%, #ff4d7c 67.5%, #a95770 75%);
+            background-image: linear-gradient(90deg, #a95770 25%, #ff4d7c 32.5%, #97d0ec 50%, #ff4d7c 67.5%, #a95770 75%);
             background-position: right center;
             background-size: 400% auto;
             -webkit-background-clip: text;
@@ -264,7 +284,7 @@
         transform: none;
 
         hr { 
-            border-top: 1px solid $color-lightgrey;
+            border-top: 1px solid lightgrey;
             margin: 0.5rem;
         }
     
@@ -272,7 +292,7 @@
             display: block;
             position: absolute;
             margin: 0;
-            top: -4px;
+            top: 14px; //-4px;
             font-size: 1rem;
             transform: translateX(-50%);
             left: 50%;

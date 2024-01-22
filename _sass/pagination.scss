@@ -1,24 +1,31 @@
 #category-list { width: 100%; }
 
 .category-tree {
-    align-items:center;
+    //align-items:center;
     margin:0 0.5rem;
+    position: relative;
+    font-size: 0.875rem;
 
     p {
         margin: 0;
         padding: 1rem 0;
-        padding-left: 1rem;
-        text-indent: -0.5rem;
+        padding-left: 1.5rem;
+        //text-indent: -0.5rem;
         line-height: 150%;
-        font-size: 0.75rem;
-        font-family: 'Consolas', Courier;
+        //font-size: 0.875rem;
+        //font-family: 'Consolas', Courier;
         font-weight: bold;
-        color: $color-grey;
+        color: slategrey;
     }
 
     a {
-        color: $color-blue;
+        color: dodgerblue;
         text-decoration: none;
+    }
+
+    i {
+        position: absolute;
+        top: 18px;
     }
 }
 
@@ -26,9 +33,9 @@
     margin: 0 0.5rem;
     margin-bottom: 1.5rem;
     font-family: 'Lato', sans-serif;
-    color: $color-darkbrown;
-    border-bottom: 1px solid $color-lightgrey;
-    text-decoration: underline $color-grey;
+    //color: $color-darkbrown;
+    border-bottom: 1px solid lightgrey;
+    text-decoration: underline dimgrey;
     text-underline-offset: 1rem;
     padding-bottom: 0.675rem;
 }
@@ -44,12 +51,14 @@
 }
 
 #article_content {
+    /*
     clear: both;
     height: 100%;
     padding: 0;
     border: none;
     border-collapse:separate;
-    border-bottom: 2px solid $color-lightgrey;
+    */
+    border-bottom: 2px solid lightgrey;
 
     .thumbnail_post {
         display: block;
@@ -73,11 +82,13 @@
     a { text-decoration: none; }
 
     .title_post{
+        /*
         width: 100%;
         display: block;
         margin: 0;
-        color: $color-black;
+        color: black;
         font-family: 'Lato', sans-serif;
+        */
         font-weight: 600;
         font-size: 1rem;
         line-height: 2rem;
@@ -88,17 +99,18 @@
         text-align: left;
     }
 
-    .info-post { 
-        font-family: 'Nunito Sans', sans-serif; 
+    .info-post {
+        font-size: 0.875rem;
+        //font-family: 'Nunito Sans', sans-serif; 
 
         span { 
             margin-right: 1rem; 
-            font-size: 0.875rem;
-            color: $color-grey;
+            //font-size: 0.875rem;
+            color: dimgrey;
         }
     }
 
-    .category{ color: $color-rosybrown; }
+    .category{ color: mediumseagreen !important; }
 
     .title_post:hover,
     .category:hover {
@@ -108,9 +120,9 @@
     .txt_post {
         display: -webkit-box;
         margin-bottom: 0.75rem;
-        font-size: 0.75rem;
-        font-family: 'Nunito Sans', sans-serif;
-        color: $color-black;
+        font-size: 0.875rem;
+        //font-family: 'Nunito Sans', sans-serif;
+        color: grey !important; //color: black;
         overflow: hidden;
         text-overflow: ellipsis;
         -webkit-line-clamp: 2;
@@ -135,7 +147,7 @@
 .hidden { display: none; }
   
 .pagination-container {
-    width: calc(100% - 2rem);
+    width: 90%; //calc(100% - 2rem);
     display: flex;
     align-items: center;
     padding: 4rem 0;
@@ -145,13 +157,14 @@
 
 .pagination-number,
 .pagination-button{
-    font-size: 1.125rem;
-    background-color: transparent;
-    border: none;
-    margin: 0.25rem 0.25rem;
+    font-size: 1rem;
+    //background-color: transparent;
+    //border: none;
+    margin: 4px;
     cursor: pointer;
-    height: 2.5rem;
+    //height: 2.5rem;
     width: 2.5rem;
+    aspect-ratio: 1.0;
     border-radius: .2rem;
 }
 
@@ -168,13 +181,16 @@
 @include mq(tablet){
     .category-tree {
         margin: 0 2rem;
+        font-size: 1.125rem;
 
         p {
-            font-size: 1rem;
+            //font-size: 1rem;
             padding: 1.5rem 0;
-            padding-left: 1.5rem;
-            text-indent: -0.75rem;
+            padding-left: 2rem; //1.5rem;
+            //text-indent: -0.75rem;
         }
+
+        i { top: 28px; }
     }
 
     .category-header {
@@ -222,9 +238,9 @@
             padding-top: 0.75rem;
         }
 
-        .info-post span,
+        .info-post,
         .txt_post {
-            font-size: 1rem;
+            font-size: 1.125rem;
         }
 
         .category{ font-weight: bold; }
@@ -234,10 +250,15 @@
             margin-bottom: 1.5rem;
         }
     }
+
+    .pagination-number,
+    .pagination-button{
+        font-size: 1.125rem;
+    }
 }
 
 @include mq(desktop){
-    .category-tree p { font-size: 1.125rem; }
+    //.category-tree p { font-size: 1.125rem; }
 
     .category-header { font-size: 3rem; }
 
