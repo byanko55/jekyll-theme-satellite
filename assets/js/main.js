@@ -640,11 +640,12 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // Move to Top
-    if (document.querySelector('#thumbnail')){
+    if (document.querySelector('.thumbnail')){
         const arrowButton = document.querySelector('.top-arrow');
 
         setInterval(function(){
             var scrollPos = document.documentElement.scrollTop;
+            console.log(scrollPos);
     
             if (scrollPos < 512){
                 arrowButton.classList.remove('arrow-open');
