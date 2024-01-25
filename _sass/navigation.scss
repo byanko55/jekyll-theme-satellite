@@ -114,10 +114,10 @@
 
 @include mq(desktop){
     #navigation {
-        width: calc(#{$sidebarwd} - 3rem);
+        width: calc(#{$sidebarwd} - 2.5rem);
         display: block;
-        max-height: 512px;
-        padding: 0 1.5rem;
+        max-height: calc(100vh - 26rem);
+        padding: 0 1.25rem;
         overflow-y: auto;
         overflow-x: hidden;
         margin-top: 2rem;
@@ -130,6 +130,13 @@
         }
 
         &::-webkit-scrollbar-thumb { background-color: rosybrown; }
+    }
+
+    .nav-list {
+        position: relative;
+        //max-height: calc(100% - 48rem);
+        //overflow-y: auto;
+        //overflow-x: hidden;
     }
 
     .nav-list li {

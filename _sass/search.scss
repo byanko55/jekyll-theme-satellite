@@ -10,13 +10,18 @@
     z-index: 999;
     text-align: center;
 
+    ul, input {
+        min-width: 20rem;
+        width: 50vw;
+    }
+
     ul {
         margin: auto;
         margin-top: -1px;
-        width: 20.5rem;
+        //width: 20.5rem;
         padding: 0;
         overflow-y: auto;
-        max-height: 24rem;
+        max-height: 60vh; //24rem;
         border-bottom: 2px solid #aaa;
         box-shadow: 0px 4px 8px 0 #ccc;
 
@@ -31,7 +36,7 @@
             //font-size: 1rem;
             margin-right: 0.5rem;
             color: #666;
-            width: 20px;
+            //width: 20px;
         }
 
         &::-webkit-scrollbar {
@@ -50,7 +55,7 @@
     border-radius: 0 0 250% 250%;
     position: fixed;
     width: 200%;
-    height: 13.5rem;
+    height: 12rem;
     animation: wave 10s -3s linear infinite;
     transform: translate3d(0, 0, 0);
     opacity: 0.75;
@@ -85,10 +90,10 @@
 
 .search-box {
     margin: auto;
-    margin-top: 6vh; //12vh;
+    margin-top: 2rem; //12vh;
 
     h1 { 
-        margin-bottom: 2rem;
+        margin-bottom: 1rem; //2rem;
         color: #fff;
         opacity: 0.8;
         font-size: 1.5rem;
@@ -99,7 +104,7 @@
     input {
         font-size: 1.25rem;
         padding: 0.5rem;
-        width: 20.5rem;
+        //width: 20.5rem;
         border: 2px solid #aaa;
         background: none;
     }
@@ -174,6 +179,10 @@
         th { font-size: 1rem; }
 
         td { font-size: 0.875rem; }
+
+        .fa-book { color: dodgerblue !important; }
+
+        th .fa-folder { color: mediumseagreen !important; }
     }
 
     .highlight {
@@ -185,22 +194,29 @@
 }
 
 @include mq(tablet) {
-    #search ul {
-        width: 40rem;
-        max-height: 32rem;
+    #search {
+        ul, input { width: 40rem; }
 
-        div { font-size: 1.125rem; }
+        ul {
+            //width: 40rem;
+            //max-height: 32rem;
 
-        i {
-            font-size: 1.25rem;
-            margin-right: 1rem;
+            div { font-size: 1.125rem; }
+
+            i {
+                //font-size: 1.25rem;
+                margin-right: 1rem;
+            }
         }
     }
 
     .search-box { 
-        margin-top: 12vh; 
+        margin-top: 4rem; 
     
-        h1 { font-size: 2.5rem; }
+        h1 { 
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
     }
 
     .search-box input {
@@ -223,7 +239,7 @@
         table {
             th { font-size: 1.25rem; }
 
-            td { font-size: 1.125rem; }
+            td { font-size: 1rem; }
         }
 
         .title { font-size: 1.25rem; }
