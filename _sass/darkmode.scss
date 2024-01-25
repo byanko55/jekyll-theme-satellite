@@ -6,17 +6,9 @@ a, span, p, h1, h2, h3, i { color: #aaa; }
 
 .sidebar-left { background-color: #313132; }
 
-/*
-.site-name {
-    box-shadow: 0px 4px 8px 0 black;
-}
-*/
-
 .nav-lh .fa { color: goldenrod; }
 
 .nav-list-expander {
-    //color: #aaa;
-
     &:hover { color: goldenrod; }
 }
 
@@ -36,8 +28,6 @@ a, span, p, h1, h2, h3, i { color: #aaa; }
 
 #contact{
     ul>li>a {
-        //i { color: #aaa; }
-
         &:hover{
             i { color: indianred; }
         }
@@ -46,8 +36,6 @@ a, span, p, h1, h2, h3, i { color: #aaa; }
     a { color: mediumseagreen; }
 }
 
-//.sidebar-right .toc .toc-list .is-active-link{ color: indianred; }
-
 #post {
     .inner-header { background: #464647; }
 
@@ -55,10 +43,6 @@ a, span, p, h1, h2, h3, i { color: #aaa; }
 }
 
 .transbox { background-color: rgba(64, 64, 64, 0.5); }
-
-/*
-.tag-box { color: #fff; }
-*/
 
 .post-title,
 .info-box * {
@@ -129,7 +113,6 @@ main {
 
     .title_post { color: slategrey; }
 
-    //.txt_post, .date { color: #aaa; }
     .date { color: #aaa; }
 
     .category{ color: mediumseagreen; }
@@ -169,13 +152,6 @@ main {
     &:before { background: #5a5a5b; }
 
     &:after { opacity: 0.5; }
-
-    /*
-    button {
-        background: #777;
-        color: #ddd;
-    }
-    */
 }
 
 .result-item{

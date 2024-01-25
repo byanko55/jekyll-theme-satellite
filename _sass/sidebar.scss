@@ -15,7 +15,6 @@
 .side-banner {
     width: 100%;
     text-align:center;
-    //padding: 0.5rem 0;
     box-shadow: 0px 4px 8px 0 #aaa;
 
     button {
@@ -25,18 +24,15 @@
         aspect-ratio: 1;
         top: 0;
         font-size: 1.25rem;
-        //cursor: pointer;
-
-        // i { color: black; }
 
         &:hover { background-color: rgba(212, 201, 191, 0.7); }
     }
 
     #btn-nav { right: 0; }
 
-    #btn-search { right: 38px; } //43px; }
+    #btn-search { right: 38px; }
 
-    #btn-brightness { right: 76px; } //86px; }
+    #btn-brightness { right: 76px; }
 
     .fa-moon {
         display: block;
@@ -75,22 +71,13 @@
     font-size: 1rem;
     text-align: left;
     position: relative;
-    // box-shadow: 0px 4px 8px 0 #aaa;
 
-    a, span {
-        //font-family: "Righteous", sans-serif;
-        //font-weight: 900;
-        //text-align: center;
-        //line-height: 1;
-        letter-spacing: 2px;
-        //color: midnightblue;
-    }
+    a, span { letter-spacing: 2px; }
 }
 
 .side-info {
     position: relative;
     width: 100%;
-    //height: calc(100% - 14rem);
 }
 
 #contact{
@@ -98,9 +85,8 @@
     position: relative;
     width: 75%;
     transform: translateX(12.5%);
-    //margin: 0;
     text-align: center;
-    padding: 1rem 0; //padding-bottom: 1rem;
+    padding: 1rem 0;
 
     &.contact-open { display: block; }
 
@@ -256,7 +242,6 @@
         font-size: 1.375rem;
         padding: 1rem;
         text-align: center;
-        // box-shadow: none;
 
         .highlight {
             font-weight: 600;
@@ -290,9 +275,7 @@
 
     #contact{
         display: block;
-        //position: absolute;
         width: calc(#{$sidebarwd} - 4rem);
-        //right: 2rem;
         margin-top: 2rem;
         padding: 1rem 2rem;
         transform: none;
@@ -306,7 +289,7 @@
             display: block;
             position: absolute;
             margin: 0;
-            top: 14px; //-4px;
+            top: 14px;
             font-size: 1rem;
             transform: translateX(-50%);
             left: 50%;

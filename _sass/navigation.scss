@@ -2,7 +2,6 @@
     display: none;
     flex: 1 1 auto;
     width: 100%;
-    //margin-top: 0;
 
     &.nav-open {
         display: block;
@@ -13,11 +12,9 @@
 .nav-list {
     padding: 0;
     margin: 0 auto;
-    //font-family: 'Lato', sans-serif;
   
     li {
         font-size: 1rem;
-        //position: relative;
   
         > .nav-list {
             padding-left: 1.125rem;
@@ -46,7 +43,6 @@
 .nav-item {
     position: relative;
     padding: 0.75rem;
-    //display: flex;
     border-bottom: 1px solid #aaa;
 
     &.selected {
@@ -68,19 +64,13 @@
 
 .nav-lh {
     .fa {
-        //margin-right: 0.875rem;
         margin-left: -0.25rem;
         position: relative;
         color: $color-darkorange;
     }
 }
 
-.nav-sh {
-    .fa {
-        font-size: 0.875rem;
-        //margin-right: 0.75rem;
-    }
-}
+.nav-sh .fa { font-size: 0.875rem; }
 
 .nav-list-expander {
     position: absolute;
@@ -89,14 +79,10 @@
     top: 0;
     right: 8px;
     cursor: pointer;
-    //transition: .3s;
 
     &, i { transition: .3s; }
 
-    .fa {
-        //font-weight: 900;
-        font-size: 1.125rem;
-    }
+    .fa { font-size: 1.125rem; }
 
     &:hover {
         transform: scale(1.25);
@@ -132,18 +118,9 @@
         &::-webkit-scrollbar-thumb { background-color: rosybrown; }
     }
 
-    .nav-list {
-        position: relative;
-        //max-height: calc(100% - 48rem);
-        //overflow-y: auto;
-        //overflow-x: hidden;
-    }
+    .nav-list { position: relative; }
 
-    .nav-list li {
-        //font-size: 1.125rem;
-
-        > .nav-list { background: none; }
-    }
+    .nav-list li > .nav-list { background: none; }
 
     .nav-item { border: none; }
 
@@ -177,14 +154,12 @@
 
         &:hover:before {
             width: 105%;
-            background: gold; //rgba(gold, 1);
+            background: gold;
         }
     }
 
     .nav-list-expander {
         background-color: transparent;
         right: -24px;
-
-        //.fa { font-size: 1.25rem; }
     }
 }

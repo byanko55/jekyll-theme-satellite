@@ -18,25 +18,15 @@
     ul {
         margin: auto;
         margin-top: -1px;
-        //width: 20.5rem;
         padding: 0;
         overflow-y: auto;
-        max-height: 60vh; //24rem;
+        max-height: 60vh;
         border-bottom: 2px solid #aaa;
         box-shadow: 0px 4px 8px 0 #ccc;
 
-        /*
-        div {
-            font-size: 1rem;
-            margin: 0.25rem;
-        }
-        */
-
         i {
-            //font-size: 1rem;
             margin-right: 0.5rem;
             color: #666;
-            //width: 20px;
         }
 
         &::-webkit-scrollbar {
@@ -90,10 +80,10 @@
 
 .search-box {
     margin: auto;
-    margin-top: 2rem; //12vh;
+    margin-top: 2rem;
 
     h1 { 
-        margin-bottom: 1rem; //2rem;
+        margin-bottom: 1rem;
         color: #fff;
         opacity: 0.8;
         font-size: 1.5rem;
@@ -104,7 +94,6 @@
     input {
         font-size: 1.25rem;
         padding: 0.5rem;
-        //width: 20.5rem;
         border: 2px solid #aaa;
         background: none;
     }
@@ -139,32 +128,16 @@
         border-radius: 50%;
         transform: translateY(50%);
         font-size: 14px;
-        //color: dimgrey;
-        //text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-        //outline: none;
         background: slategrey !important;
 
         i { color: #fff !important; }
     }
-
-    /*
-    #btn-clear { 
-        display: none; 
-        cursor: pointer;
-
-        &:hover { 
-            background: transparent;
-            color: indianred;
-            border: 2px solid indianred;
-        }
-    }
-    */
 }
 
 .result-item {
     list-style: none;
     text-align: justify;
-    padding: 0.5rem; //1rem;
+    padding: 0.5rem;
     border: 1px solid #aaa;
     background: #fff;
 
@@ -189,8 +162,6 @@
         font-weight: 900;
         color: yellowgreen !important;
     }
-
-    //.title { font-size: 1rem; }
 }
 
 @include mq(tablet) {
@@ -198,15 +169,9 @@
         ul, input { width: 40rem; }
 
         ul {
-            //width: 40rem;
-            //max-height: 32rem;
-
             div { font-size: 1.125rem; }
 
-            i {
-                //font-size: 1.25rem;
-                margin-right: 1rem;
-            }
+            i { margin-right: 1rem; }
         }
     }
 
@@ -226,11 +191,9 @@
     }
 
     .input-box button {
-        //transform: translateY(50%);
         font-size: 1.25rem;
         width: 36px;
         right: 16px;
-        //height: 48px;
     }
 
     .result-item {

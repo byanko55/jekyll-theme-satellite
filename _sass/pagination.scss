@@ -1,7 +1,6 @@
 #category-list { width: 100%; }
 
 .category-tree {
-    //align-items:center;
     margin:0 0.5rem;
     position: relative;
     font-size: 0.875rem;
@@ -10,10 +9,7 @@
         margin: 0;
         padding: 1rem 0;
         padding-left: 1.5rem;
-        //text-indent: -0.5rem;
         line-height: 150%;
-        //font-size: 0.875rem;
-        //font-family: 'Consolas', Courier;
         font-weight: bold;
         color: slategrey;
     }
@@ -33,7 +29,6 @@
     margin: 0 0.5rem;
     margin-bottom: 1.5rem;
     font-family: 'Lato', sans-serif;
-    //color: $color-darkbrown;
     border-bottom: 1px solid lightgrey;
     text-decoration: underline dimgrey;
     text-underline-offset: 1rem;
@@ -51,13 +46,6 @@
 }
 
 #article_content {
-    /*
-    clear: both;
-    height: 100%;
-    padding: 0;
-    border: none;
-    border-collapse:separate;
-    */
     border-bottom: 2px solid lightgrey;
 
     .thumbnail_post {
@@ -82,13 +70,6 @@
     a { text-decoration: none; }
 
     .title_post{
-        /*
-        width: 100%;
-        display: block;
-        margin: 0;
-        color: black;
-        font-family: 'Lato', sans-serif;
-        */
         font-weight: 600;
         font-size: 1rem;
         line-height: 2rem;
@@ -101,11 +82,9 @@
 
     .info-post {
         font-size: 0.875rem;
-        //font-family: 'Nunito Sans', sans-serif; 
 
         span { 
-            margin-right: 1rem; 
-            //font-size: 0.875rem;
+            margin-right: 1rem;
             color: dimgrey;
         }
     }
@@ -121,8 +100,7 @@
         display: -webkit-box;
         margin-bottom: 0.75rem;
         font-size: 0.875rem;
-        //font-family: 'Nunito Sans', sans-serif;
-        color: grey !important; //color: black;
+        color: grey !important;
         overflow: hidden;
         text-overflow: ellipsis;
         -webkit-line-clamp: 2;
@@ -147,7 +125,7 @@
 .hidden { display: none; }
   
 .pagination-container {
-    width: 90%; //calc(100% - 2rem);
+    width: 90%;
     display: flex;
     align-items: center;
     padding: 4rem 0;
@@ -158,11 +136,8 @@
 .pagination-number,
 .pagination-button{
     font-size: 1rem;
-    //background-color: transparent;
-    //border: none;
     margin: 4px;
     cursor: pointer;
-    //height: 2.5rem;
     width: 2.5rem;
     aspect-ratio: 1.0;
     border-radius: .2rem;
@@ -184,10 +159,8 @@
         font-size: 1.125rem;
 
         p {
-            //font-size: 1rem;
             padding: 1.5rem 0;
-            padding-left: 2rem; //1.5rem;
-            //text-indent: -0.75rem;
+            padding-left: 2rem;
         }
 
         i { top: 28px; }
@@ -258,8 +231,6 @@
 }
 
 @include mq(desktop){
-    //.category-tree p { font-size: 1.125rem; }
-
     .category-header { font-size: 3rem; }
 
     .paginated-item { height: 15rem; }
