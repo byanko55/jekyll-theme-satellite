@@ -8,7 +8,7 @@
     font-weight: 600;
     padding-left: 1.5rem;
     padding-bottom: 4px;
-    border-bottom: $color-darkbeige 2px solid;
+    border-bottom: burlywood 2px solid;
 }
 
 .toc-board {
@@ -39,7 +39,7 @@
     }
       
     .is-active-link{
-        color: $color-darkorange;
+        color: indianred !important;
         font-weight:950;
     }
 }

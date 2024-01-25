@@ -30,7 +30,7 @@
                 {% if site.goatcounter_code != nil %}
                     <span class="info-box">
                         <i class="fa-solid fa-eye"></i>
-                        <span id="page-hits" usercode="{{ goatcounter_code }}">-</span>
+                        <span id="page-hits" usercode="{{ site.goatcounter_code }}">-</span>
                     </span>
                 {% endif %}
                 <a class="info-box" href="#giscus" data-scroll>
@@ -50,7 +50,7 @@
 </div>
 <main>
     {{ content }}
-    {% if site.github_username %}
+    {% if site.enable_giscus %}
         <!-- see https://giscus.app/ -->
         <div class="giscus" id="giscus" style="margin: 4rem auto;"></div>
     {% endif %}
@@ -62,3 +62,6 @@
         <ul id="related-posts"></ul>
     </div>
 </main>
+<div class="top-arrow">
+    <i class="fa-solid fa-arrow-up" href="#" data-scroll></i>
+</div>

@@ -1,41 +1,33 @@
 body.dark-theme {
 
-a, span, h1, h2, h3 { color: #aaa; }
+a, span, p, h1, h2, h3, i { color: #aaa; }
 
-#stars { background: #1E1E1F; }
-
-#loading { background: #1E1E1F; }
+#stars, #loading { background: #1E1E1F; }
 
 .sidebar-left { background-color: #313132; }
-
-.site-name {
-    box-shadow: 0px 4px 8px 0 black;
-}
 
 .nav-lh .fa { color: goldenrod; }
 
 .nav-list-expander {
-    color: #aaa;
-
     &:hover { color: goldenrod; }
 }
 
-.nav-list li > .nav-list { background: #1E1E1F; }
+.nav-list li > .nav-list { background: #464647; }
 
 .side-banner {
+    box-shadow: 0px 4px 8px 0 black;
+
     button {
         background-color: #313132;
 
         &:hover { background-color: #1E1E1F; }
     }
 
-    i { color: indianred; }
+    i { color: $color-aqua; }
 }
 
 #contact{
     ul>li>a {
-        i { color: #aaa; }
-
         &:hover{
             i { color: indianred; }
         }
@@ -43,8 +35,6 @@ a, span, h1, h2, h3 { color: #aaa; }
 
     a { color: mediumseagreen; }
 }
-
-.sidebar-right .toc .toc-list .is-active-link{ color: indianred; }
 
 #post {
     .inner-header { background: #464647; }
@@ -54,8 +44,6 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 .transbox { background-color: rgba(64, 64, 64, 0.5); }
 
-.tag-box { color: #fff; }
-
 .post-title,
 .info-box * {
     color: #ddd;
@@ -64,6 +52,8 @@ a, span, h1, h2, h3 { color: #aaa; }
 
 main {
     h1, h2, h3, p { color: #969697; }
+
+    strong { color: lightgrey; }
 
     a { 
         color: dodgerblue; 
@@ -112,28 +102,25 @@ main {
 .category-tree a { color: goldenrod; }
 
 .category-header {
-    color: grey;
-    text-decoration: underline mediumseagreen;
+    color: slategrey;
+    text-decoration: underline slategrey;
 }
 
-
 #article_content {
-    border-bottom: 2px solid #313132;
+    border-bottom: 2px solid #464647;
 
     .box_contents { background-image: none; }
 
-    .title_post,
-    .txt_post,
-    .date {
-        color: #aaa;
-    }
+    .title_post { color: slategrey; }
+
+    .date { color: #aaa; }
 
     .category{ color: mediumseagreen; }
 }
 
 .pagination-number,
 .pagination-button {
-    color: #aaa;
+    color: #ccc;
 }
 
 .pagination-number:hover,
@@ -165,11 +152,6 @@ main {
     &:before { background: #5a5a5b; }
 
     &:after { opacity: 0.5; }
-
-    button {
-        background: #777;
-        color: #ddd;
-    }
 }
 
 .result-item{

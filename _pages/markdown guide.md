@@ -17,9 +17,9 @@ To create a heading, add number signs (#) in front of a word or phrase. The numb
 
 |Markdown|HTML|Rendered Output|
 |---|---|---|
-|\# Header 1|<h1>Header 1</h1>|<span style="font-size:2.25rem;">Header 1</span>|
-|\#\# Header 2|<h2>Header 2</h2>|<span style="font-size:1.75rem;">Header 2</span>|
-|\#\#\# Header 3|<h3>Header 3</h3>|<span style="font-size:1.375rem;">Header 3</span>|
+|\# Header 1|<h1>Header 1</h1>|<span class="sh1">Header 1</span>|
+|\#\# Header 2|<h2>Header 2</h2>|<span class="sh2">Header 2</span>|
+|\#\#\# Header 3|<h3>Header 3</h3>|<span class="sh3">Header 3</span>|
 
 # Emphasis
 ---

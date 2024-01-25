@@ -17,34 +17,36 @@
             <img src="{{ '/assets/img/profile.jpg' }}" alt="homepage" aria-label="homepage-button">
         </a>
     </div>
-    {% include navigation.html %}
-    <div id="contact">
-        <hr>
-        <h3>Contact</h3>
-        <ul class="contact-list">
-            {% if site.github_username %}
-                <li><a aria-label="My Github" href="https://github.com/{{ site.github_username }}"><i class='fa-brands fa-github'></i></a></li>
-            {% endif %}
-            {% if site.email %}
-                <li><a aria-label="My Email" href="{{ site.email }}"><i class="fa fa-envelope"></i></a></li>
-            {% endif %}
-            {% if site.twitter_username %}
-                <li><a aria-label="My Twitter" href="https://twitter.com/{{ site.twitter_username }}"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a></li>
-            {% endif %}
-            {% if site.instagram_username %}
-                <li><a aria-label="My Instagram" href="https://www.instagram.com/{{ site.instagram_username }}"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-            {% endif %}
-            {% if site.facebook_username %}
-                <li><a aria-label="My Facebook" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>
-            {% endif %}
-            {% if site.linkedin_username %}
-                <li><a aria-label="My LinkedIn" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
-            {% endif %}
-        </ul>
-        <hr>
-        <span>
-            Copyright © 2024 | <a href="https://github.com/byanko55/jekyll-theme-MacOS">Yankos</a>
-        </span>
+    <div class="side-info">
+        {% include navigation.html %}
+        <div id="contact">
+            <hr>
+            <h3>Contact</h3>
+            <ul class="contact-list">
+                {% if site.github_username %}
+                    <li><a aria-label="My Github" href="https://github.com/{{ site.github_username }}"><i class='fa-brands fa-github'></i></a></li>
+                {% endif %}
+                {% if site.email %}
+                    <li><a aria-label="My Email" href="{{ site.email }}"><i class="fa fa-envelope"></i></a></li>
+                {% endif %}
+                {% if site.twitter_username %}
+                    <li><a aria-label="My Twitter" href="https://twitter.com/{{ site.twitter_username }}"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.instagram_username %}
+                    <li><a aria-label="My Instagram" href="https://www.instagram.com/{{ site.instagram_username }}"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.facebook_username %}
+                    <li><a aria-label="My Facebook" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if site.linkedin_username %}
+                    <li><a aria-label="My LinkedIn" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
+                {% endif %}
+            </ul>
+            <hr>
+            <span>
+                Copyright © 2024 | <a href="https://github.com/byanko55/jekyll-theme-MacOS">Yankos</a>
+            </span>
+        </div>
     </div>
 </div>
 <div class="sidebar sidebar-right">
@@ -65,11 +67,5 @@
         </span>
         <div class='toc-board'></div>
     </div>
-    <div class="top-arrow">
-        <a href="#" data-scroll></a>
-        <a href="#" data-scroll></a>
-        <a href="#" data-scroll></a>
-    </div>
     {%- endif -%}
-
 </div>

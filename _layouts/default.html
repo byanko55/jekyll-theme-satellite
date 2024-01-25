@@ -68,11 +68,12 @@
             <div class="inner-content">
                 <div class="category-tree">
                     {%- assign page_link = "/" -%}
+                    <i class="fa-solid fa-house"></i>
                     <p>
                         {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
                         {%- for sub_tree in search_tree -%}
                             {% if forloop.first %}
-                                <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+                                <a href="/">Home</a>
                                 >
                             {% elsif forloop.last %}
                                 {% if page_type == "category" %}

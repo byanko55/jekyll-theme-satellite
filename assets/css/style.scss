@@ -1,25 +1,6 @@
 ---
 ---
 
-:root{
-    --wfont-size-ml: clamp(2.5rem, 1.25rem + 2vw, 3.75rem);
-    --wfont-size-md: clamp(2rem, 1rem + 1.6vw, 3rem);
-    --wfont-size-ms: clamp(1.5rem, 0.75rem + 1.2vw, 2.25rem);
-    --wfont-size-sm: clamp(1rem, 0.5rem + 0.8vw, 1.5rem);
-    --wfont-size-xs: clamp(0.75rem, 0.375rem + 0.6vw, 1.125rem);
-    --wfont-size-xxs: clamp(0.5rem, 0.25rem + 0.4vw, 0.75rem);
-
-    --xxl: clamp(5rem, 8vw, 10rem); // 80 ~ 160
-    --xl: clamp(3.75rem, 6vw, 7.5rem); // 60 ~ 120
-    --lg: clamp(2.5rem, 4vw, 5rem); // 40 ~ 80
-    --ml: clamp(1.875rem, 3vw, 3.75rem); // 30 ~ 60
-    --md: clamp(1.5625rem, 2.5vw, 3.125rem); // 25 ~ 50
-    --ms: clamp(1.25rem, 2vw, 2.5rem); // 20 ~ 40
-    --sm: clamp(0.9375rem, 1.5vw, 1.875rem); // 15 ~ 30
-    --xs: clamp(0.625rem, 1vw, 1.25rem); // 10 ~ 20
-    --xxs: clamp(0.5rem, 0.8vw, 1rem); // 8 ~ 16
-}
-
 html, body {
     margin: 0;
     padding: 0;
@@ -29,7 +10,7 @@ a {
     text-decoration: none;
 }
 
-a, span, h1, h2, h3 {
+a, span, p, h1, h2, h3, i {
     color: #3A241A;
     font-family: "Nunito Sans", sans-serif;
 }
@@ -41,6 +22,7 @@ h1, h2, h3 {
 button {
     border: none;
     background: none;
+    padding: 0;
 }
 
 /* Disable default input cancel button */
@@ -60,6 +42,10 @@ input::-webkit-search-results-decoration{
 
 @import 'vars';
 @import 'layout';
+
+:root{
+    --pagewidth-desktop: calc(max(min(100vw - #{$sidebarwd} - 2rem, #{$contentwd}), 44rem));
+}
 
 @import "sidebar";
 @import "navigation";
