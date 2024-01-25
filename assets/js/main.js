@@ -199,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             });
 
+            $('html, body').scrollTop(0);
             localStorage.setItem(pageKey, currentPage);
         };
 
@@ -466,39 +467,46 @@ document.addEventListener('DOMContentLoaded', function(){
             $('#search-result').append(
                 '<li class="result-item"><span class="description">There is no search result.</span></li>'
             );
-        } else {
-            for (var i = 0; i < searchResult.length; i++) {
-                var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
 
-                if (highlighted_path === '')
-                    highlighted_path = "Home";
+            return;
+        } 
 
-                if (searchResult[i].type === 'post'){
-                    var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
-                    var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
+        searchResult.sort(function (a, b) {
+            if (a.type == 'category') return 1;
 
-                    if (highlighted_tags === '')
-                        highlighted_tags = "none";
+            return -1;
+        });
 
-                    $('#search-result').append(
-                        '<li class="result-item"><a href="' +
-                            searchResult[i].url +
-                            '"><table><thead><tr><th><i class="fa-solid fa-book"></i></th><th>' + highlighted_title +  
-                            '</th></tr></thead><tbody><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path +
-                            '</td></tr><tr><td><i class="fa-solid fa-tags"></i></td><td>' + highlighted_tags +
-                            '</td></tr><tr><td><i class="fa-regular fa-calendar-days"></i></td><td>' + searchResult[i].date +
-                            '</td></tr></tbody></table></a></li>'
-                    );
-                }
-                else {
-                    $('#search-result').append(
-                        '<li class="result-item"><a href="' +
-                            searchResult[i].url +
-                            '"><table><thead><tr><th><i class="fa-solid fa-folder"></i></th><th>' + highlighted_path + 
-                            '</th></tr></thead><tbody><tr><td><i class="fa-solid fa-tags"></i></td><td>Type: category'  +
-                            '</td></tr></tbody></table></a></li>'
-                    );
-                }
+        for (var i = 0; i < searchResult.length; i++) {
+            var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
+
+            if (highlighted_path === '')
+                highlighted_path = "Home";
+
+            if (searchResult[i].type === 'post'){
+                var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
+                var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
+
+                if (highlighted_tags === '')
+                    highlighted_tags = "none";
+
+                $('#search-result').append(
+                    '<li class="result-item"><a href="' +
+                        searchResult[i].url +
+                        '"><table><thead><tr><th><i class="fa-solid fa-book"></i></th><th>' + highlighted_title +  
+                        '</th></tr></thead><tbody><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path +
+                        '</td></tr><tr><td><i class="fa-solid fa-tags"></i></td><td>' + highlighted_tags +
+                        '</td></tr><tr><td><i class="fa-regular fa-calendar-days"></i></td><td>' + searchResult[i].date +
+                        '</td></tr></tbody></table></a></li>'
+                );
+            }
+            else {
+                $('#search-result').append(
+                    '<li class="result-item"><a href="' +
+                        searchResult[i].url +
+                        '"><table><thead><tr><th><i class="fa-solid fa-folder"></i></th><th>' + highlighted_path + 
+                        '</th></tr></thead></table></a></li>'
+                );
             }
         }
     });
