@@ -28,7 +28,7 @@
         }
 
         &.active {
-            > .nav-item .nav-list-expander i { transform: rotate(180deg); }
+            > .nav-item .nav-list-expander svg { transform: rotate(180deg); }
 
             > .nav-list {
                 opacity: 1;
@@ -37,7 +37,11 @@
         }
     }
 
-    .fa { margin-right: 0.5rem; }
+    svg { 
+        margin-right: 0.5rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 
 .nav-item {
@@ -62,15 +66,17 @@
     span { position: relative; }
 }
 
-.nav-lh {
-    .fa {
-        margin-left: -0.25rem;
-        position: relative;
-        color: $color-darkorange;
-    }
+.nav-lh svg {
+    margin-left: -0.25rem;
+    position: relative;
+    fill: $color-darkorange;
+    transform: translateY(-2px);
 }
 
-.nav-sh .fa { font-size: 0.875rem; }
+.nav-sh svg { 
+    width: 14px;
+    margin-left: 0;
+}
 
 .nav-list-expander {
     position: absolute;
@@ -80,13 +86,13 @@
     right: 8px;
     cursor: pointer;
 
-    &, i { transition: .3s; }
+    &, svg { transition: .3s; }
 
-    .fa { font-size: 1.125rem; }
+    svg { width: 18px; }
 
     &:hover {
         transform: scale(1.25);
-        color: $color-darkorange;
+        svg { fill: $color-darkorange; }
     }
 }
 
@@ -95,7 +101,11 @@
 
     .nav-list li { font-size: 1.125rem; }
 
-    .nav-list-expander .fa { font-size: 1.25rem; }
+    .nav-sh svg { width: 16px; }
+
+    .nav-lh svg { width: 18px; }
+
+    .nav-list-expander svg { width: 20px; }
 }
 
 @include mq(desktop){
@@ -121,6 +131,8 @@
     .nav-list { position: relative; }
 
     .nav-list li > .nav-list { background: none; }
+
+    .nav-lh svg { transform: none; }
 
     .nav-item { border: none; }
 
@@ -160,6 +172,6 @@
 
     .nav-list-expander {
         background-color: transparent;
-        right: -24px;
+        right: -16px;
     }
 }

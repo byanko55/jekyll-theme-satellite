@@ -73,10 +73,12 @@
 .post-info {
     margin-top: 1.25rem;
     font-size: 0.875rem;
+
+    svg { width: 14px; }
 }
 
 .info-box {
-    display: inline-block;
+    display: inline-flex;
     border-radius: 8px;
     margin: 0;
     padding: 6px;
@@ -104,7 +106,7 @@
         box-shadow: 0 3px 48px 12px rgba(100, 200, 200, 1);
     }
 
-    i { margin-right: 4px; }
+    svg { margin-right: 4px; }
 }
 
 .tags { margin: 1rem; }
@@ -272,9 +274,13 @@ main {
                 background-color: #ddd;
                 border-radius: 4px;
 
-                i { 
-                    color: slategrey !important; 
-                    text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+                svg {
+                    background-color: darkslategrey !important; 
+                    -webkit-mask-image: url(/assets/img/icon/clipboard-regular.svg);
+                    mask-image: url(/assets/img/icon/clipboard-regular.svg);
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    mask-size: 80%;
                 }
 
                 &:after {
@@ -389,6 +395,12 @@ main {
     margin-top: 2rem;
 
     span { font-size: 1.25rem; }
+
+    svg { 
+        width: 20px;
+        display: inline-flex;
+        transform: translateY(3px);
+    }
 }
 
 #related-posts {
@@ -425,7 +437,7 @@ main {
             width: 100%;
             margin: 8px 0;
             line-height: 1.25;
-            font-family: 'Lato', sans-serif;
+            font-family: Verdana, Tahoma, sans-serif;
         }
     }
 
@@ -484,12 +496,12 @@ main {
         left: 2px;
     }
 
-    i {
-        font-size: 28px;
+    svg {
+        width: 28px;
         top: 11px;
-        left: 13.5px;
-        color: #fff !important;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        left: 10px;
+        fill: #fff !important;
+        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
         position: absolute;
         animation: ascend 2s infinite;
     }
@@ -522,6 +534,8 @@ main {
     .post-info { 
         margin-top: 4rem; 
         font-size: 1.25rem;
+
+        svg { width: 20px; }
     }
 
     .info-box {
@@ -533,6 +547,8 @@ main {
             background-size: 0 4px, 100% 4px;
             box-shadow: 0 4px 64px 16px rgba(100, 200, 200, 1);
         }
+
+        svg { margin-right: 8px; }
     }
 
     .tags { margin: 1rem 3rem; }
@@ -591,6 +607,8 @@ main {
         margin-top: 4rem;
 
         span { font-size: 1.5rem; }
+
+        svg { width: 24px; }
     }
 
     #related-posts li { width: 30%; }

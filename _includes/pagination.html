@@ -1,13 +1,13 @@
 {%- assign list_pages = site.pages | sort:"date" | reverse -%}
 {%- assign post_counts = 0 -%}
 
-<h3 class="category-header">
+<p class="category-header">
     {% if page_level == 1 %}
         All Posts
     {% else %}
         {{ page.title }}
     {% endif %}
-</h3>
+</p>
 <div id="category-list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
     {%- for sub_page in list_pages -%}
@@ -19,9 +19,9 @@
                 <div id="article_content">
                     <div class="thumbnail_zone">
                         {% if sub_page.thumbnail != nil %}
-                            <a href="{{ sub_page.url }}" class="thumbnail_post" aria-label="thumbnail_post" style="background-image:url('{{ sub_page.thumbnail }}') !important"></a>
+                            <a href="{{ sub_page.url }}" class="thumbnail_post" loading="lazy" aria-label="thumbnail_post" style="background-image:url('{{ sub_page.thumbnail }}') !important"></a>
                         {% else %}
-                            <a href="{{ sub_page.url }}" class="thumbnail_post empty" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
+                            <a href="{{ sub_page.url }}" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
                         {% endif %}
                     </div>
 
@@ -35,7 +35,7 @@
                             {% if sub_page_tree.size > 2 %}
                                 <a href="{{ '/' | append: sub_page_tree[1] }}" class="category">{{ sub_page_tree[1] }}</a>
                             {% else %}
-                                <a class="category">None</a>
+                                <span class="category">None</span>
                             {% endif %}
                             {%- assign posting_date = sub_page.date | date: "%Y-%m-%d" -%}
                             {% if posting_date != "1900-01-01" %}

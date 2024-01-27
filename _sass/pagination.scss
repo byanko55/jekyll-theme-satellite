@@ -19,20 +19,23 @@
         text-decoration: none;
     }
 
-    i {
+    svg {
         position: absolute;
+        display: inline-flex;
         top: 18px;
+        width: 14px;
     }
 }
 
 .category-header {
     margin: 0 0.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-family: Verdana, Tahoma, sans-serif;
     border-bottom: 1px solid lightgrey;
     text-decoration: underline dimgrey;
-    text-underline-offset: 1rem;
-    padding-bottom: 0.675rem;
+    text-underline-offset: 12px;
+    padding-bottom: 8px;
 }
 
 .paginated-list {
@@ -163,12 +166,16 @@
             padding-left: 2rem;
         }
 
-        i { top: 28px; }
+        svg { 
+            top: 28px;
+            width: 18px;
+        }
     }
 
     .category-header {
         font-size: 2.25rem;
         padding-bottom: 0.5rem;
+        text-underline-offset: 16px;
         margin: 0 2rem;
         margin-bottom: 3rem;   
     }

@@ -19,6 +19,14 @@ h1, h2, h3 {
     margin: 0;
 }
 
+svg {
+    width: 16px;
+    aspect-ratio: 1.0;
+    fill: #3A241A;
+    display: block;
+    margin: auto;
+}
+
 button {
     border: none;
     background: none;

@@ -2,14 +2,18 @@ body.dark-theme {
 
 a, span, p, h1, h2, h3, i { color: #aaa; }
 
+svg { fill: #aaa; }
+
 #stars, #loading { background: #1E1E1F; }
 
 .sidebar-left { background-color: #313132; }
 
-.nav-lh .fa { color: goldenrod; }
+.nav-lh svg { fill: goldenrod; }
 
 .nav-list-expander {
-    &:hover { color: goldenrod; }
+    &:hover { 
+        svg { fill: goldenrod; } 
+    }
 }
 
 .nav-list li > .nav-list { background: #464647; }
@@ -23,13 +27,13 @@ a, span, p, h1, h2, h3, i { color: #aaa; }
         &:hover { background-color: #1E1E1F; }
     }
 
-    i { color: $color-aqua; }
+    svg { fill: $color-aqua; }
 }
 
 #contact{
     ul>li>a {
         &:hover{
-            i { color: indianred; }
+            svg { fill: indianred; }
         }
     }
 
@@ -42,16 +46,18 @@ a, span, p, h1, h2, h3, i { color: #aaa; }
     .inner-content { background: #313132; }
 }
 
-.transbox { background-color: rgba(64, 64, 64, 0.5); }
+.transbox { background-color: rgba(64, 64, 64, 0.6); }
 
 .post-title,
 .info-box * {
-    color: #ddd;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    color: #eee;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    fill : #eee;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
 }
 
 main {
-    h1, h2, h3, p { color: #969697; }
+    h1, h2, h3, p { color: #aaa; }
 
     strong { color: lightgrey; }
 
@@ -115,7 +121,7 @@ main {
 
     .date { color: #aaa; }
 
-    .category{ color: mediumseagreen; }
+    .category { color: mediumseagreen; }
 }
 
 .pagination-number,
@@ -135,7 +141,7 @@ main {
         border-bottom: 2px solid #464647;
         box-shadow: 0px 4px 8px 0 #1E1E1F;
 
-        i { color: grey; }
+        svg { fill: grey; }
 
         &::-webkit-scrollbar {
             width: 8px;

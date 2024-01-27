@@ -130,7 +130,10 @@
         font-size: 14px;
         background: slategrey !important;
 
-        i { color: #fff !important; }
+        svg { 
+            fill: #fff !important;
+            width: 14px;
+        }
     }
 }
 
@@ -146,16 +149,46 @@
     table {
         th, td { 
             text-align: left;
-            vertical-align: top; 
+            vertical-align: top;
         }
 
         th { font-size: 1rem; }
 
         td { font-size: 0.875rem; }
 
-        .fa-book { color: dodgerblue !important; }
+        svg {
+            background-color: darkslategrey !important; 
+            mask-repeat: no-repeat;
+            display: inline-flex;
+            width: 14px;
+            margin-right: 8px;
+            transform: translateY(2px);
+        }
 
-        th .fa-folder { color: mediumseagreen !important; }
+        .ico-book {
+            background-color: dodgerblue !important;
+            -webkit-mask-image: url(/assets/img/icon/book-solid.svg);
+            mask-image: url(/assets/img/icon/book-solid.svg);
+        }
+
+        .ico-folder {
+            -webkit-mask-image: url(/assets/img/icon/folder-open-regular.svg);
+            mask-image: url(/assets/img/icon/folder-open-regular.svg);
+        }
+
+        .ico-tags {
+            -webkit-mask-image: url(/assets/img/icon/tags-solid.svg);
+            mask-image: url(/assets/img/icon/tags-solid.svg);
+        }
+
+        .ico-calendar {
+            -webkit-mask-image: url(/assets/img/icon/calendar-days-regular.svg);
+            mask-image: url(/assets/img/icon/calendar-days-regular.svg);
+        }
+
+        th .ico-folder { background-color: mediumseagreen !important; }
+    
+        .ico-book, th .ico-folder { width: 18px; }
     }
 
     .highlight {
@@ -191,9 +224,10 @@
     }
 
     .input-box button {
-        font-size: 1.25rem;
         width: 36px;
         right: 16px;
+
+        svg { width: 20px; }
     }
 
     .result-item {
@@ -203,6 +237,10 @@
             th { font-size: 1.25rem; }
 
             td { font-size: 1rem; }
+
+            svg { width: 16px; }
+
+            .ico-book, th .ico-folder { width: 20px; }
         }
 
         .title { font-size: 1.25rem; }
