@@ -161,19 +161,19 @@ The rendered output looks like this:
 To add an image, add an exclamation mark (`!`), followed by alt text in brackets, and the path or URL to the image asset in parentheses. You can optionally add a title in quotation marks after the path or URL.
 
 ```text
-![Tropical Paradise](/assets/img/example.png "Maldives, in October")
+![Tropical Paradise](/assets/img/example.jpg "Maldives, in October")
 ```
 
-The rendered output looks like this: ![Tropical Paradise](/assets/img/example.png "Maldives, in October")
+The rendered output looks like this: ![Tropical Paradise](/assets/img/example.jpg "Maldives, in October")
 
 ### Linking Images
 To add a link to an image, enclose the Markdown for the image in brackets, and then add the link in parentheses.
 
 ```text
-[![La Mancha](/assets/img/La-Mancha.png "La Mancha: Spain, Don Quixote")](https://www.britannica.com/place/La-Mancha)
+[![La Mancha](/assets/img/La-Mancha.jpg "La Mancha: Spain, Don Quixote")](https://www.britannica.com/place/La-Mancha)
 ```
 
-The rendered output looks like this: [![La Mancha](/assets/img/La-Mancha.png "La Mancha: Spain, Don Quixote")](https://www.britannica.com/place/La-Mancha)
+The rendered output looks like this: [![La Mancha](/assets/img/La-Mancha.jpg "La Mancha: Spain, Don Quixote")](https://www.britannica.com/place/La-Mancha)
 
 # Escaping Characters
 To display a literal character that would otherwise be used to format text in a Markdown document, add a backslash (`\`) in front of the character.
