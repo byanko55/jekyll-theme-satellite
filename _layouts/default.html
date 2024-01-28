@@ -31,7 +31,14 @@
         {% else %}
             <style>
                 .thumbnail {
-                    background-image: url("{{ '/assets/img/thumbnail/empty.webp' }}");
+                    aspect-ratio: auto !important;
+                }
+                .transbox {
+                    transform: none;
+                    position: relative;
+                    margin: auto;
+                    left: 0;
+                    top: 0;
                 }
             </style>
         {% endif %}
@@ -88,8 +95,6 @@
         </div>
         {% include search.html %}
     </body>
-    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Nunito Sans&display=swap' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{ '/assets/js/highlight.min.js' }}"></script>
     <link id="highlight-default" rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">

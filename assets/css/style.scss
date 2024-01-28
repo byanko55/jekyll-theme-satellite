@@ -1,6 +1,30 @@
 ---
 ---
 
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/NunitoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/assets/fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/Lato-Regular.ttf);
+}
+
 html, body {
     margin: 0;
     padding: 0;
