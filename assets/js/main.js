@@ -12,6 +12,39 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // Lazy image loading
+    var content = document.querySelector('main');
+
+    if (content){
+        var images = content.querySelectorAll('img');
+
+        images.forEach((img) => {
+            img.setAttribute('loading', 'lazy');
+        });
+    }
+
+    function loadImage(image) {
+        var i = new Image();
+
+        i.onload = function() {
+            image.classList.add('lazy-loaded')
+            image.src = image.dataset.lazySrc
+        }
+
+        i.onerror = function() {image.classList.add('lazy-error')}
+        i.src = image.dataset.lazySrc
+    }
+
+    function onIntersection(entries) {
+        for (var e in entries) {
+            if(entries[e].intersectionRatio <= 0) continue
+            observer.unobserve(entries[e].target) // Stop watching
+            loadImage(entries[e].target)
+        }
+    }
+
+
+
     // navigation (mobile)
     var siteNav = document.querySelector('#navigation');
     var siteContact = document.querySelector('#contact');
@@ -79,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // tocbot
-    var content = document.querySelector('main');
+    //var content = document.querySelector('main');
 
     if (content){
         var headings = content.querySelectorAll('h1, h2');
