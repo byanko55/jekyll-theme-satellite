@@ -5,7 +5,7 @@ tags:
     - epic novel
     - adventure
 date: "2023-12-05"
-thumbnail: "/assets/img/La-Mancha.png"
+thumbnail: "/assets/img/La-Mancha.jpg"
 ---
 
 # About the book

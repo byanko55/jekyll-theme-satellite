@@ -5,11 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.webp' }}">
-        <link rel="preload" href='https://fonts.googleapis.com/css?family=Righteous&display=swap' as="style" onload="this.onload=null; this.rel='stylesheet'">
         <link rel="preload" href="{{ '/assets/img/favicon.webp' }}" as="image">
-        <noscript>
-            <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Righteous&display=swap'>
-        </noscript>
         {% if site.goatcounter_code %}
             <script data-goatcounter="https://{{ site.goatcounter_code }}.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
@@ -39,15 +35,15 @@
                 }
                 .transbox {
                     transform: none;
+                    position: relative;
+                    margin: auto;
+                    left: 0;
+                    top: 0;
                 }
             </style>
         {% endif %}
-
-        <link id="highlight-default" rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
-        <link id="highlight-dark" rel="stylesheet" href="{{ '/assets/css/highlight-dark.min.css' }}">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="{{ '/assets/js/highlight.min.js' }}"></script>
         <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
+        <script src="{{ '/assets/js/sweet-scroll.min.js' }}"></script>
     </head>
     <body>
         <canvas id="stars" width="100%" height="100%"></canvas>
@@ -68,7 +64,7 @@
             <div class="inner-content">
                 <div class="category-tree">
                     {%- assign page_link = "/" -%}
-                    <i class="fa-solid fa-house"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
                     <p>
                         {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
                         {%- for sub_tree in search_tree -%}
@@ -99,11 +95,10 @@
         </div>
         {% include search.html %}
     </body>
-    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Lato&display=swap' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Nunito Sans&display=swap' rel='stylesheet'>  
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ '/assets/js/highlight.min.js' }}"></script>
+    <link id="highlight-default" rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
+    <link id="highlight-dark" rel="stylesheet" href="{{ '/assets/css/highlight-dark.min.css' }}">
     <script src="{{ '/assets/js/stars.js' }}"></script>
     <script src="{{ '/assets/js/main.js' }}"></script>
-    <script src="{{ '/assets/js/sweet-scroll.min.js' }}"></script>
 </html>

@@ -12,6 +12,39 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // Lazy image loading
+    var content = document.querySelector('main');
+
+    if (content){
+        var images = content.querySelectorAll('img');
+
+        images.forEach((img) => {
+            img.setAttribute('loading', 'lazy');
+        });
+    }
+
+    function loadImage(image) {
+        var i = new Image();
+
+        i.onload = function() {
+            image.classList.add('lazy-loaded')
+            image.src = image.dataset.lazySrc
+        }
+
+        i.onerror = function() {image.classList.add('lazy-error')}
+        i.src = image.dataset.lazySrc
+    }
+
+    function onIntersection(entries) {
+        for (var e in entries) {
+            if(entries[e].intersectionRatio <= 0) continue
+            observer.unobserve(entries[e].target) // Stop watching
+            loadImage(entries[e].target)
+        }
+    }
+
+
+
     // navigation (mobile)
     var siteNav = document.querySelector('#navigation');
     var siteContact = document.querySelector('#contact');
@@ -79,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // tocbot
-    var content = document.querySelector('main');
+    //var content = document.querySelector('main');
 
     if (content){
         var headings = content.querySelectorAll('h1, h2');
@@ -247,11 +280,9 @@ document.addEventListener('DOMContentLoaded', function(){
         // only add button if browser supports Clipboard API
         if (navigator.clipboard) {
             let clip_btn = document.createElement("button");
-            let clip_img = document.createElement("i");
+            let clip_img = document.createElement("svg");
 
             clip_btn.setAttribute('title', "Copy Code");
-            clip_img.classList.add("fa");
-            clip_img.classList.add("fa-copy");
             clip_img.ariaHidden = true;
 
             block.appendChild(clip_btn);
@@ -271,8 +302,8 @@ document.addEventListener('DOMContentLoaded', function(){
         isDarkMode = true;
         document.body.classList.add('dark-theme');
 
-        const moonIcons = document.querySelectorAll(".fa-moon");
-        const sunIcons = document.querySelectorAll(".fa-sun");
+        const moonIcons = document.querySelectorAll(".ico-dark");
+        const sunIcons = document.querySelectorAll(".ico-light");
 
         moonIcons.forEach((ico) => {
             ico.classList.add('active');
@@ -295,8 +326,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     themeButton.forEach((btn) => {
         btn.addEventListener('click', function() {
-            const moonIcons = document.querySelectorAll(".fa-moon");
-            const sunIcons = document.querySelectorAll(".fa-sun");
+            const moonIcons = document.querySelectorAll(".btn-dark");
+            const sunIcons = document.querySelectorAll(".btn-light");
 
             moonIcons.forEach((ico) => {
                 ico.classList.toggle('active');
@@ -493,10 +524,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 $('#search-result').append(
                     '<li class="result-item"><a href="' +
                         searchResult[i].url +
-                        '"><table><thead><tr><th><i class="fa-solid fa-book"></i></th><th>' + highlighted_title +  
-                        '</th></tr></thead><tbody><tr><td><i class="fa-solid fa-folder"></i></td><td>' + highlighted_path +
-                        '</td></tr><tr><td><i class="fa-solid fa-tags"></i></td><td>' + highlighted_tags +
-                        '</td></tr><tr><td><i class="fa-regular fa-calendar-days"></i></td><td>' + searchResult[i].date +
+                        '"><table><thead><tr><th><svg class="ico-book"></svg></th><th>' + highlighted_title +  
+                        '</th></tr></thead><tbody><tr><td><svg class="ico-folder"></svg></td><td>' + highlighted_path +
+                        '</td></tr><tr><td><svg class="ico-tags"></svg></td><td>' + highlighted_tags +
+                        '</td></tr><tr><td><svg class="ico-calendar"></svg></td><td>' + searchResult[i].date +
                         '</td></tr></tbody></table></a></li>'
                 );
             }
@@ -504,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 $('#search-result').append(
                     '<li class="result-item"><a href="' +
                         searchResult[i].url +
-                        '"><table><thead><tr><th><i class="fa-solid fa-folder"></i></th><th>' + highlighted_path + 
+                        '"><table><thead><tr><th><svg class="ico-folder"></svg></th><th>' + highlighted_path + 
                         '</th></tr></thead></table></a></li>'
                 );
             }

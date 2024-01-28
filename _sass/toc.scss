@@ -6,14 +6,21 @@
 .toc-header {
     font-size: 1.25rem;
     font-weight: 600;
-    padding-left: 1.5rem;
+    padding-left: 0.75rem;
     padding-bottom: 4px;
     border-bottom: burlywood 2px solid;
+
+    svg { 
+        width: 16px;
+        display: inline-flex;
+        transform: translateY(2px);
+    }
 }
 
 .toc-board {
     max-width: #{$sidebarwd};
-    margin: 0 1.5rem;
+    margin: 0;
+    margin-left: 2rem;
 }
 
 .toc-list {
