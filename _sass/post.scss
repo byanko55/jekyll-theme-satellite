@@ -24,17 +24,17 @@
     img {
         display: block;
         text-align: center;
-        max-width: 100%;
+        width: 100%;
         margin: auto;
     }
 
-    .img-xs { max-width: 12.5%; }
+    .img-xs { width: 12.5% !important; }
 
-    .img-sm { max-width: 25%; }
+    .img-sm { width: 25% !important; }
 
-    .img-md { max-width: 50%; }
+    .img-md { width: 50% !important; }
 
-    .img-lg { max-width: 75%; }
+    .img-lg { width: 75% !important; }
 }
 
 .thumbnail {
@@ -64,6 +64,7 @@
 }
 
 .post-title {
+    font-family: 'Lato', sans-serif;
     font-size: 1.25rem;
     word-spacing: 4px;
     font-weight: 600;
