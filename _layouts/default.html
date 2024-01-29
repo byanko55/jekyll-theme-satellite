@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% seo %}
         <link rel="shortcut icon" type="image/png" href="{{ '/assets/img/favicon.webp' }}">
         <link rel="preload" href="{{ '/assets/img/favicon.webp' }}" as="image">
         {% if site.goatcounter_code %}
@@ -101,4 +102,12 @@
     <link id="highlight-dark" rel="stylesheet" href="{{ '/assets/css/highlight-dark.min.css' }}">
     <script src="{{ '/assets/js/stars.js' }}"></script>
     <script src="{{ '/assets/js/main.js' }}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+    </script>
 </html>
