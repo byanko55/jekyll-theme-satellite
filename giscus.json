@@ -3,9 +3,9 @@ layout: none
 ---
 [
     {
-        "repo"          : "[ENTER REPO HERE]",
-        "repoId"        : "[ENTER REPO ID HERE]",
-        "category"      : "[ENTER CATEGORY NAME HERE]",
-        "categoryId"    : "[ENTER CATEGORY ID HERE]"
+        "repo"          : "",
+        "repoId"        : "",
+        "category"      : "",
+        "categoryId"    : ""
     }
 ]

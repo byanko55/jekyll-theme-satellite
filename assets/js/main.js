@@ -369,7 +369,9 @@ document.addEventListener('DOMContentLoaded', function(){
             giscusUserInfos = data[0];
         })
         .done(function() { 
-            console.log('getJSON request succeeded! [giscus.json]'); 
+            console.log('getJSON request succeeded! [giscus.json]');
+
+            if (giscusUserInfos.repo === '') return;
 
             if (currentTheme === 'dark'){
                 giscusTheme = "noborder_gray";

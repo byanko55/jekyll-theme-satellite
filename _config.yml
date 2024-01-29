@@ -31,7 +31,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
 repo_url: "https://github.com/byanko55/jekyll-theme-MacOS"
 goatcounter_code:
-enable_giscus: true
 
 # Build settings
 theme: minima
