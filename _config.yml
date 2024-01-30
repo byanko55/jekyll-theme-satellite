@@ -20,18 +20,27 @@
 
 title: Example.com
 username: username
+description: "Satellite - jekyll blog theme"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
+repo_url: "https://github.com/byanko55/jekyll-theme-satellite"
+
+# Social Links
 email: example@gmail.com
 github_username: github
 twitter_username: twitter
 instagram_username: instagram
 linkedin_username: linkedin
 facebook_username: facebook
-description: "Satellite - jekyll blog theme"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
-repo_url: "https://github.com/byanko55/jekyll-theme-satellite"
+
+# External API
+giscus_repo:
+giscus_repoId:
+giscus_category:
+giscus_categoryId:
 goatcounter_code:
 google_analytics:
+
 
 # Build settings
 plugins:
