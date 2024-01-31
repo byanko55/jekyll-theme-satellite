@@ -112,8 +112,6 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // tocbot
-    //var content = document.querySelector('main');
-
     if (content){
         var headings = content.querySelectorAll('h1, h2');
         var headingMap = {};
@@ -452,115 +450,12 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
 
-    var posts = [];
-
-    $.getJSON('/search.json', function (data) {
-        posts = data;
-    })
-    .done(function() { 
-        console.log('getJSON request succeeded! [search.json]');
-
-        // Related Posts
-        displayRelatedPosts(posts);
-    })
-    .fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! [search.json] ' + textStatus); })
-    .always(function() { console.log('getJSON request ended! [search.json]'); });
-
-    $('#search-input').on('keyup', function () {
-        var keyword = this.value.toLowerCase();
-        var searchResult = [];
-
-        if (keyword.length > 0) {
-            $('#search-result').show();
-            $('#btn-clear').show();
-        } else {
-            $('#search-result').hide();
-            $('#btn-clear').hide();
-        }
-        
-        $('.result-item').remove();
-
-        for (var i = 0; i < posts.length; i++) {
-            var post = posts[i];
-
-            if (post.title === 'Home' && post.type == 'category') continue;
-
-            if (post.title.toLowerCase().indexOf(keyword) >= 0
-            || post.path.toLowerCase().indexOf(keyword) >= 0
-            || post.tags.toLowerCase().indexOf(keyword) >= 0){
-                searchResult.push(post);
-            }
-        }
-
-        if (searchResult.length === 0) {
-            $('#search-result').append(
-                '<li class="result-item"><span class="description">There is no search result.</span></li>'
-            );
-
-            return;
-        } 
-
-        searchResult.sort(function (a, b) {
-            if (a.type == 'category') return 1;
-
-            return -1;
-        });
-
-        for (var i = 0; i < searchResult.length; i++) {
-            var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
-
-            if (highlighted_path === '')
-                highlighted_path = "Home";
-
-            if (searchResult[i].type === 'post'){
-                var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
-                var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
-
-                if (highlighted_tags === '')
-                    highlighted_tags = "none";
-
-                $('#search-result').append(
-                    '<li class="result-item"><a href="' +
-                        searchResult[i].url +
-                        '"><table><thead><tr><th><svg class="ico-book"></svg></th><th>' + highlighted_title +  
-                        '</th></tr></thead><tbody><tr><td><svg class="ico-folder"></svg></td><td>' + highlighted_path +
-                        '</td></tr><tr><td><svg class="ico-tags"></svg></td><td>' + highlighted_tags +
-                        '</td></tr><tr><td><svg class="ico-calendar"></svg></td><td>' + searchResult[i].date +
-                        '</td></tr></tbody></table></a></li>'
-                );
-            }
-            else {
-                $('#search-result').append(
-                    '<li class="result-item"><a href="' +
-                        searchResult[i].url +
-                        '"><table><thead><tr><th><svg class="ico-folder"></svg></th><th>' + highlighted_path + 
-                        '</th></tr></thead></table></a></li>'
-                );
-            }
-        }
-    });
-
     if (cancelButton) {
         cancelButton.addEventListener('click', function() {
             $('.result-item').remove();
             $('#search-input').val("");
             $('#btn-clear').hide();
         });
-    }
-
-    function highlightKeyword(txt, keyword) {
-        var index = txt.toLowerCase().lastIndexOf(keyword);
-
-        if (index >= 0) { 
-            out = txt.substring(0, index) + 
-                "<span class='highlight'>" + 
-                txt.substring(index, index+keyword.length) + 
-                "</span>" + 
-                txt.substring(index + keyword.length);
-            return out;
-        }
-
-        return txt;
     }
 
     // Tag EventListener

@@ -1,0 +1,126 @@
+{%- assign page_list = site.pages 
+    | where_exp: "item", "item.title != nil"
+-%}
+<script>
+    var posts = [];
+
+    {% for page in page_list %}
+        {%- assign search_tree = page.path | split: "/" -%}
+
+        {% if search_tree.last == "index.md" %}
+            {%- assign page_type = "category" -%}
+        {% else %}
+            {%- assign page_type = "post" -%}
+        {% endif %}
+
+        {%- assign tree_len = search_tree.size | minus: 2 -%}
+        {%- assign search_tree = search_tree | slice:1, tree_len -%}
+        {%- assign page_link = "" -%}
+        {%- for sub_tree in search_tree -%}
+            {% if forloop.last %}
+                {%- assign page_link = page_link | append: sub_tree -%}
+            {% else %}
+                {%- assign page_link = page_link | append: sub_tree | append: " > " -%}
+            {% endif %}
+        {%- endfor -%}
+
+        posts.push({
+            'title'    : "{{ page.title | escape }}",
+            'path'     : "{{ page_link }}",
+            'type'     : "{{ page_type }}",
+            'tags'     : "{{ page.tags | join: ', ' }}",
+            'url'      : "{{ site.baseurl }}{{ page.url }}",
+            'image'    : "{{ page.thumbnail }}",
+            'date'     : "{{ page.date | date: '%Y-%m-%d' }}"
+        });
+    {% endfor %}
+
+    $('#search-input').on('keyup', function () {
+        var keyword = this.value.toLowerCase();
+        var searchResult = [];
+
+        if (keyword.length > 0) {
+            $('#search-result').show();
+            $('#btn-clear').show();
+        } else {
+            $('#search-result').hide();
+            $('#btn-clear').hide();
+        }
+        
+        $('.result-item').remove();
+
+        for (var i = 0; i < posts.length; i++) {
+            var post = posts[i];
+
+            if (post.title === 'Home' && post.type == 'category') continue;
+
+            if (post.title.toLowerCase().indexOf(keyword) >= 0
+            || post.path.toLowerCase().indexOf(keyword) >= 0
+            || post.tags.toLowerCase().indexOf(keyword) >= 0){
+                searchResult.push(post);
+            }
+        }
+
+        if (searchResult.length === 0) {
+            $('#search-result').append(
+                '<li class="result-item"><span class="description">There is no search result.</span></li>'
+            );
+
+            return;
+        } 
+
+        searchResult.sort(function (a, b) {
+            if (a.type == 'category') return 1;
+
+            return -1;
+        });
+
+        for (var i = 0; i < searchResult.length; i++) {
+            var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
+
+            if (highlighted_path === '')
+                highlighted_path = "Home";
+
+            if (searchResult[i].type === 'post'){
+                var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
+                var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
+
+                if (highlighted_tags === '')
+                    highlighted_tags = "none";
+
+                $('#search-result').append(
+                    '<li class="result-item"><a href="' +
+                        searchResult[i].url +
+                        '"><table><thead><tr><th><svg class="ico-book"></svg></th><th>' + highlighted_title +  
+                        '</th></tr></thead><tbody><tr><td><svg class="ico-folder"></svg></td><td>' + highlighted_path +
+                        '</td></tr><tr><td><svg class="ico-tags"></svg></td><td>' + highlighted_tags +
+                        '</td></tr><tr><td><svg class="ico-calendar"></svg></td><td>' + searchResult[i].date +
+                        '</td></tr></tbody></table></a></li>'
+                );
+            }
+            else {
+                $('#search-result').append(
+                    '<li class="result-item"><a href="' +
+                        searchResult[i].url +
+                        '"><table><thead><tr><th><svg class="ico-folder"></svg></th><th>' + highlighted_path + 
+                        '</th></tr></thead></table></a></li>'
+                );
+            }
+        }
+    });
+
+    function highlightKeyword(txt, keyword) {
+        var index = txt.toLowerCase().lastIndexOf(keyword);
+
+        if (index >= 0) { 
+            out = txt.substring(0, index) + 
+                "<span class='highlight'>" + 
+                txt.substring(index, index+keyword.length) + 
+                "</span>" + 
+                txt.substring(index + keyword.length);
+            return out;
+        }
+
+        return txt;
+    }
+</script>
