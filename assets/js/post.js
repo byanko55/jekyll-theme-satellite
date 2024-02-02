@@ -71,15 +71,19 @@ document.addEventListener('DOMContentLoaded', function(){
     // Initialize/Change Giscus theme
     var giscusTheme = "light";
 
-    const giscus_repo = $('meta[name="giscus-repo"]').attr("content");
-    const giscus_repoId = $('meta[name="giscus-repoId"]').attr("content");
-    const giscus_category = $('meta[name="giscus-category"]').attr("content");
-    const giscus_categoryId = $('meta[name="giscus-categoryId"]').attr("content");
+    const giscus_repo = $('meta[name="giscus_repo"]').attr("content");
+    const giscus_repoId = $('meta[name="giscus_repoId"]').attr("content");
+    const giscus_category = $('meta[name="giscus_category"]').attr("content");
+    const giscus_categoryId = $('meta[name="giscus_categoryId"]').attr("content");
+
+    console.log(giscus_repo);
 
     if (giscus_repo !== undefined) {
         if (currentTheme === 'dark'){
             giscusTheme = "noborder_gray";
         }
+
+        console.log("what?");
 
         let giscusAttributes = {
             "src": "https://giscus.app/client.js",
@@ -99,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function(){
         let giscusScript = document.createElement("script");
         Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
         document.body.appendChild(giscusScript);
+
+        console.log("what??");
     }
 
     // Giscus IMetadataMessage event handler
