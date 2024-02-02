@@ -1,0 +1,53 @@
+title: Example.com
+description: "Introduction for you blog"
+logo_img: "/assets/img/favicon.webp"
+profile_img: "/assets/img/profile.jpg"
+
+# Social Links
+email: example@gmail.com
+github_username: github
+twitter_username: twitter
+instagram_username: instagram
+linkedin_username: linkedin
+facebook_username: facebook
+
+# External API
+giscus_repo:
+giscus_repoId:
+giscus_category:
+giscus_categoryId:
+goatcounter_code:
+google_analytics:
+
+# # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                 #
+#   Not recommended to touch the materials below  #
+#                                                 #
+#    Any changes may contribute to malfunction    #
+#                                                 #
+# # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Build settings
+theme: jekyll-theme-satellite
+
+exclude:
+  - _posts
+
+collections:
+  pages:
+    output: true
+    permalink: /:path.html
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      date: "1900-01-01"
+
+# Markdown newline activator 
+kramdown:
+  input: GFM
+  hard_wrap: true
