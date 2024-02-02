@@ -1,5 +1,5 @@
 title: Example.com
-description: "Satellite - jekyll blog theme"
+description: "Introduction for you blog"
 logo_img: "/assets/img/favicon.webp"
 profile_img: "/assets/img/profile.jpg"
 
@@ -12,21 +12,26 @@ linkedin_username: linkedin
 facebook_username: facebook
 
 # External API
-giscus_repo: "byanko55/byanko55.github.io"
-giscus_repoId: "R_kgDOLM6LCA"
-giscus_category: "Q&A"
-giscus_categoryId: "DIC_kwDOLM6LCM4Cc4-i"
+giscus_repo:
+giscus_repoId:
+giscus_category:
+giscus_categoryId:
 goatcounter_code:
 google_analytics:
 
+# # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                 #
+#   Not recommended to touch the materials below  #
+#                                                 #
+#    Any changes may contribute to malfunction    #
+#                                                 #
+# # # # # # # # # # # # # # # # # # # # # # # # # #
+
 # Build settings
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
+theme: jekyll-theme-satellite
 
 exclude:
-  - guide/
+  - _posts
 
 collections:
   pages:

@@ -43,6 +43,12 @@
         word-break: normal;
         display: block;
         line-height: 150%;
+        animation: .5s ease-out 0s 1 slide;
+
+        @keyframes slide {
+            0% { transform: scaleY(0); }
+            100% { transform: scaleY(1); }
+        }
     }
       
     .is-active-link{

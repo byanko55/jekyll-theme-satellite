@@ -30,32 +30,18 @@ Then, scroll down from the manual page and choose the `Discussion Category` opti
 
 ![Verification](https://i.ibb.co/0hqLWX0/giscus-03.png)
 
-### Copy  `giscus.json`
+### Copy  `_config.yml`
 
 Now, you get the giscus script. Copy the four properties marked with a red box as shown below:
 
 ![](https://i.ibb.co/Z154x8P/giscus-04.png)
 
-Paste those values to `giscus.json` placed in the root directory.
+Paste those values to `_config.yml` placed in the root directory.
 
 ```
-[
-    {
-        "repo"          : "[ENTER REPO HERE]",
-        "repoId"        : "[ENTER REPO ID HERE]",
-        "category"      : "[ENTER CATEGORY NAME HERE]",
-        "categoryId"    : "[ENTER CATEGORY ID HERE]"
-    }
-]
+# External API
+giscus_repo: "[ENTER REPO HERE]"
+giscus_repoId: "[ENTER REPO ID HERE]"
+giscus_category: "[ENTER CATEGORY NAME HERE]"
+giscus_categoryId: "[ENTER CATEGORY ID HERE]"
 ```
-
-## Disable Giscus API
-
-If you won't utilize the Giscus API, then open the configuration file (`_config.yml`) and change the `enable_giscus` field to *false*.
-
-```
-# in `_config.yml`
-
-enable_giscus: false
-```
-

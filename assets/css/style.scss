@@ -1,33 +1,23 @@
 ---
 ---
 
-@font-face {
-    font-family: 'Nunito Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/assets/fonts/NunitoSans-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Righteous';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url(/assets/fonts/Righteous-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/assets/fonts/Lato-Regular.ttf);
-}
-
 html, body {
     margin: 0;
     padding: 0;
+}
+
+.fonts-loaded {
+    a, span, p {
+        font-family: "Nunito Sans", 'Lucida Sans', sans-serif;
+    }
+
+    h1, h2, h3 {
+        font-family: "Lato", Helvetica, sans-serif;
+    }
+
+    mark {
+        font-family: 'Righteous', sans-serif;
+    }
 }
 
 a {
@@ -36,11 +26,19 @@ a {
 
 a, span, p, h1, h2, h3, i {
     color: #3A241A;
-    font-family: "Nunito Sans", sans-serif;
 }
 
-h1, h2, h3 {
+a, span, p {
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+h1, h2, h3, mark {
     margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+mark {
+    background-color: transparent;
 }
 
 svg {

@@ -82,13 +82,13 @@
     margin: auto;
     margin-top: 2rem;
 
-    h1 { 
+    mark { 
         margin-bottom: 1rem;
-        color: #fff;
+        color: #fff !important;
         opacity: 0.8;
         font-size: 1.5rem;
         font-weight: 200;
-        font-family: 'Righteous', sans-serif;
+        display: block;
     }
 
     input {
@@ -211,7 +211,7 @@
     .search-box { 
         margin-top: 4rem; 
     
-        h1 { 
+        mark { 
             font-size: 2.5rem;
             margin-bottom: 2rem;
         }

@@ -64,11 +64,11 @@
 }
 
 .post-title {
-    font-family: 'Lato', sans-serif;
     font-size: 1.25rem;
     word-spacing: 4px;
     font-weight: 600;
     word-wrap: break-word;
+    font-family: Cambria, sans-serif;
 }
 
 .post-info {
@@ -181,7 +181,6 @@ main {
     padding: 1rem;
     margin: auto;
     font-size: 1rem;
-    font-family: 'Nunito Sans', sans-serif;
     line-height: 200%;
     position: relative;
     overflow-wrap: break-word;
@@ -190,7 +189,6 @@ main {
     * { margin: auto; }
 
     h1, h2, h3 {
-        font-family: "Helvetica";
         margin-bottom: -1.5rem;
         padding-top: 2rem;
     }

@@ -150,6 +150,8 @@
         border: none;
         border-radius: 50%;
         margin-left: 1rem;
+        position: relative;
+        vertical-align: top;
         cursor: pointer;
 
         &:hover {
@@ -173,18 +175,26 @@
         fill: #3A241A !important;
         width: 24px;
         position: relative;
+        transition: all .3s;
+    }
+
+    .ico-dark, .ico-light { 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .ico-dark {
-        display: block;
+        transform: translate(-50%, -50%) scale(1);
 
-        &.active{ display: none; }
+        &.active{ transform: translate(-50%, -50%) scale(0); }
     }
 
     .ico-light {
-        display: none;
+        transform: translate(-50%, -50%) scale(0);
 
-        &.active{ display: block; }
+        &.active{ transform: translate(-50%, -50%) scale(1); }
     }
 }
 
@@ -243,7 +253,6 @@
 
         .highlight {
             font-weight: 600;
-            font-family: 'Righteous', sans-serif;
             background-image: -webkit-linear-gradient(left, #a95770 25%, #ff4d7c 32.5%, #97d0ec 50%, #ff4d7c 67.5%, #a95770 75%);
             background-image: linear-gradient(90deg, #a95770 25%, #ff4d7c 32.5%, #97d0ec 50%, #ff4d7c 67.5%, #a95770 75%);
             background-position: right center;
@@ -254,10 +263,10 @@
 
             &:hover {
                 color: #ef9671;
-                animation: slide 2s ease-in infinite;
+                animation: slidetext 2s ease-in infinite;
             }
 
-            @keyframes slide {
+            @keyframes slidetext {
                 100% {
                     background-position: left center;
                 }

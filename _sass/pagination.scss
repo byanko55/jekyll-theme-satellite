@@ -31,7 +31,6 @@
     margin: 0 0.5rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
-    font-family: 'Lato', sans-serif;
     border-bottom: 1px solid lightgrey;
     text-decoration: underline dimgrey;
     text-underline-offset: 12px;
@@ -72,8 +71,7 @@
 
     a { text-decoration: none; }
 
-    .title_post{
-        font-family: 'Lato', sans-serif;
+    .title_post {
         font-weight: 600;
         font-size: 1rem;
         line-height: 2rem;
@@ -112,7 +110,7 @@
     text-align: center;
 
     img {
-        width: 50%;
+        width: 50% !important;
         aspect-ratio: 2/1;
     }
 

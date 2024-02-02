@@ -1,13 +1,13 @@
 {%- assign list_pages = site.pages | sort:"date" | reverse -%}
 {%- assign post_counts = 0 -%}
 
-<p class="category-header">
+<h1 class="category-header">
     {% if page_level == 1 %}
         All Posts
     {% else %}
         {{ page.title }}
     {% endif %}
-</p>
+</h1>
 <div id="category-list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
     {%- for sub_page in list_pages -%}
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="box_contents">
-                        <a href="{{ sub_page.url }}" class="title_post">{{ sub_page.title }}</a>
+                        <a href="{{ sub_page.url }}"><h1 class="title_post">{{ sub_page.title }}</h1></a>
                         <a href="{{ sub_page.url }}" class="txt_post">
                             {{ sub_page.content | markdownify | strip_html }}
                         </a>

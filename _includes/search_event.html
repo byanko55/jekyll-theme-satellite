@@ -1,0 +1,44 @@
+{%- assign page_list = site.pages 
+    | where_exp: "item", "item.title != nil"
+-%}
+<script src="{{ '/assets/js/search.js' }}" type="text/javascript"></script>
+<script>
+    var posts = [];
+
+    {% for page in page_list %}
+        {%- assign psearch_tree = page.path | split: "/" -%}
+
+        {% if psearch_tree.last == "index.md" %}
+            {%- assign p_type = "category" -%}
+        {% else %}
+            {%- assign p_type = "post" -%}
+        {% endif %}
+
+        {%- assign tree_len = psearch_tree.size | minus: 2 -%}
+        {%- assign psearch_tree = psearch_tree | slice:1, tree_len -%}
+        {%- assign p_link = "" -%}
+        {%- for sub_tree in psearch_tree -%}
+            {% if forloop.last %}
+                {%- assign p_link = p_link | append: sub_tree -%}
+            {% else %}
+                {%- assign p_link = p_link | append: sub_tree | append: " > " -%}
+            {% endif %}
+        {%- endfor -%}
+
+        posts.push({
+            'title'    : "{{ page.title | escape }}",
+            'path'     : "{{ p_link }}",
+            'type'     : "{{ p_type }}",
+            'tags'     : "{{ page.tags | join: ', ' }}",
+            'url'      : "{{ site.baseurl }}{{ page.url }}",
+            'image'    : "{{ page.thumbnail }}",
+            'date'     : "{{ page.date | date: '%Y-%m-%d' }}"
+        });
+    {% endfor %}
+
+    searchPost(posts);
+
+    {% if page_type == "post" %}
+        searchRelated(posts);
+    {% endif %}
+</script>
