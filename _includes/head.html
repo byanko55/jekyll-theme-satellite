@@ -7,6 +7,21 @@
 <link rel="preload" href="{{ '/assets/css/fonts.css' }}" as="style" onload="this.onload=null; this.rel='stylesheet'">
 <link rel="stylesheet" href="{{ '/assets/css/fonts.css' }}">
 
+<script src="{{ '/assets/js/fontfaceobserver.js' }}" type="text/javascript"></script>
+<script type="text/javascript">
+    const nunitoObserver = new FontFaceObserver('Nunito Sans');
+    const righteousObserver = new FontFaceObserver('Righteous');
+    const latoObserver = new FontFaceObserver('Lato');
+  
+    Promise.all([
+        nunitoObserver.load(),
+        righteousObserver.load(),
+        latoObserver.load(),
+    ]).then(function(){
+        document.documentElement.className += " fonts-loaded";
+    });
+</script>
+
 <title>
     {% if page.title %}{{ page.title }}
     {% else %}{{ site.title }}
