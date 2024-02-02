@@ -24,6 +24,7 @@ description: "Satellite - jekyll blog theme"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
 repo_url: "https://github.com/byanko55/jekyll-theme-satellite"
+profile_img: "/assets/img/profile.jpg"
 
 # Social Links
 email: example@gmail.com
@@ -62,7 +63,7 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "default"
+      layout: "page"
       date: "1900-01-01"
 
 # Markdown newline activator 
