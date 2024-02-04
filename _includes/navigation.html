@@ -34,7 +34,7 @@
     <ul class="nav-list">
     {%- for node in first_level_pages -%}
         {%- assign node_url = node.url | remove: 'index.html' -%}
-        {%- assign node_title = node.path | remove: 'index.md' | split: "/" | last | replace: "_pages", "Home" -%}
+        {%- assign node_title = node.path | remove: 'index.md' | split: "/" | last | remove: '.md' | replace: "_pages", "Home" -%}
         {%- assign children_list = second_level_pages 
             | where_exp: "item", "item.url contains node_url"
             | sort: 'url' -%}
@@ -55,7 +55,7 @@
             <ul class="nav-list">
             {%- for child in children_list -%}
                 {%- assign child_url = child.url | remove: 'index.html' -%}
-                {%- assign child_title = child.path | remove: 'index.md' | split: "/" | last -%}
+                {%- assign child_title = child.path | remove: 'index.md' | split: "/" | last | remove: '.md' -%}
                 {%- assign grand_children_list = third_level_pages 
                     | where_exp: "item", "item.url contains child_url"
                     | sort: 'url' -%}
@@ -75,7 +75,7 @@
                     {%- if num_grand_children > 0 -%}
                         <ul class="nav-list">
                         {%- for grand_child in grand_children_list -%}
-                            {%- assign grand_child_title = grand_child.path | remove: 'index.md' | split: "/" | last -%}
+                            {%- assign grand_child_title = grand_child.path | remove: 'index.md' | split: "/" | last | remove: '.md' -%}
                             <li id="nav-third" aria-label="{{ grand_child_title }}">
                                 <div class="nav-item">
                                     <a href="{{ grand_child.url | relative_url }}" class="nav-list-link nav-sh">
