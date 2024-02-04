@@ -12,10 +12,10 @@ linkedin_username: linkedin
 facebook_username: facebook
 
 # External API
-giscus_repo: "byanko55/byanko55.github.io"
-giscus_repoId: "R_kgDOLM6LCA"
-giscus_category: "Q&A"
-giscus_categoryId: "DIC_kwDOLM6LCM4Cc4-i"
+giscus_repo:
+giscus_repoId:
+giscus_category:
+giscus_categoryId:
 goatcounter_code:
 google_analytics:
 
@@ -26,7 +26,7 @@ plugins:
   - jekyll-seo-tag
 
 exclude:
-  - guide/
+  - docs/
 
 collections:
   pages:
