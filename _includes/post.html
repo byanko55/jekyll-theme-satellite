@@ -41,9 +41,9 @@
         </div>
     </div>
 </div>
-<div class="tags">
+<div class="tag-box">
     {%- for page_tag in page.tags -%}
-        <span class="tag-box theme-{{ forloop.index0 | modulo: 3 }}" contentID="{{ page_tag }}">
+        <span class="tag theme-{{ forloop.index0 | modulo: 3 }}" contentID="{{ page_tag }}">
             {{ page_tag }}
         </span>
     {%- endfor -%}
