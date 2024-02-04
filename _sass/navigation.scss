@@ -20,7 +20,7 @@
             padding-left: 1.125rem;
             background: #eee;
 
-            transition: max-height .5s, opacity .2s;
+            transition: max-height .5s ease-in-out, opacity .3s;
             opacity: 0;
             max-height: 0;
     
@@ -32,7 +32,7 @@
 
             > .nav-list {
                 opacity: 1;
-                max-height: 256px;
+                max-height: 768px;
             }
         }
     }
