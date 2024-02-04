@@ -5,6 +5,7 @@ tags:
     - education
 date: "2023-12-03"
 thumbnail: "/assets/img/thumbnail/book.jpg"
+bookmark: true
 ---
 
 # What is Lorem Ipsum?

@@ -1,4 +1,2 @@
 ---
-title: "Home"
-bookmark: true
 ---
