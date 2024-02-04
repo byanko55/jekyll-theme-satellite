@@ -37,16 +37,16 @@ An emotional and adorable blog theme powered by ***Jekyll***. Live demo is avail
 
 ## Installation
 
-There are two way to setup this theme:
+There are two ways to setup this theme:
 
 ### Method 1: Build from source (Recommended)
 Fork this repository or download the [source](https://github.com/byanko55/jekyll-theme-satellite/releases) as a zip. 
 
-If you use as destination a repository named USERNAME.github.io then your url will be https://USERNAME.github.io/.
+If you use as destination a repository named USERNAME.github.io, then your url will be https://USERNAME.github.io/.
 
 
 ### Method 2: Utilize Gem package
-Create a clean site directory (Follow the **Instruction 1~4** described in [here](https://jekyllrb.com/docs/)).
+Create a clean site directory (Follow the **Instruction 1~4** described [here](https://jekyllrb.com/docs/)).
 
 The following materials are redundant, so remove them.
 * index.markdown
@@ -107,7 +107,7 @@ You can find useful manuals for customizing your site from the below table:
 |Enabling ***Visitor counter***|[link](https://github.com/byanko55/jekyll-theme-satellite/blob/master/docs/Visitor%20Counter.md)|
 
 ## Contribution
-If you would like to report a bug, or request a new feature, please open [an issue](https://github.com/byanko55/jekyll-theme-satellite/blob/master/docs/Contribution%20Guidelines.md) We are open to any kind of feedback or collaboration.
+If you would like to report a bug or request a new feature, please open [an issue](https://github.com/byanko55/jekyll-theme-satellite/issues) We are open to any kind of feedback or collaboration.
 
 ## License
 © 2024 *Yankos*. This theme is available as open source under the terms of the [MIT License](https://opensource.org/license/mit/).
