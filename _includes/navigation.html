@@ -1,14 +1,13 @@
 <nav id="navigation">
-    {%- assign nav_pages = site.pages 
-        | where_exp: "item", "item.bookmark == true or item.name == 'index.md'"
-        | sort: 'url'
-    -%}
-
     {% assign first_level_pages = "" | split, "" %}
     {% assign second_level_pages = "" | split, "" %}
     {% assign third_level_pages = "" | split, "" %}
 
-    {% for p in nav_pages %}
+    {% for p in site.pages %}
+        {% if p.bookmark == nil and p.name != 'index.md' %}
+            {% continue %}
+        {% endif %}
+
         {%- assign p_tree = p.url | remove_first: "/" | split: "/" -%}
         {%- assign p_level = p_tree | size -%}
 
@@ -31,13 +30,16 @@
         {% endif %}
     {% endfor %}
 
+    {% assign first_level_pages = first_level_pages | sort: 'url' %}
+    {% assign second_level_pages = second_level_pages | sort: 'url' %}
+    {% assign third_level_pages = third_level_pages | sort: 'url' %}
+
     <ul class="nav-list">
     {%- for node in first_level_pages -%}
         {%- assign node_url = node.url | remove: 'index.html' -%}
         {%- assign node_title = node.path | remove: 'index.md' | split: "/" | last | remove: '.md' | replace: "_pages", "Home" -%}
         {%- assign children_list = second_level_pages 
-            | where_exp: "item", "item.url contains node_url"
-            | sort: 'url' -%}
+            | where_exp: "item", "item.url contains node_url" -%}
         {%- assign num_children = children_list | size -%}
         <li id="nav-first" aria-label="{{ node_title }}">
             <div class="nav-item">
@@ -57,8 +59,7 @@
                 {%- assign child_url = child.url | remove: 'index.html' -%}
                 {%- assign child_title = child.path | remove: 'index.md' | split: "/" | last | remove: '.md' -%}
                 {%- assign grand_children_list = third_level_pages 
-                    | where_exp: "item", "item.url contains child_url"
-                    | sort: 'url' -%}
+                    | where_exp: "item", "item.url contains child_url" -%}
                 {%- assign num_grand_children = grand_children_list | size -%}
                 <li id="nav-second" aria-label="{{ child_title }}">
                     <div class="nav-item">
