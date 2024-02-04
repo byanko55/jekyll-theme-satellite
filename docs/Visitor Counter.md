@@ -12,9 +12,7 @@ Create new account in [here](https://www.goatcounter.com/signup)
 
 You will access your blog statistics at `https://[my-code].goatcounter.com`.
 
-### Add your code to site configuration
-
-In `_config.yml`,
+### Add your code to `_config.yml`
 
 ```
 goatcounter_code: [my-code]
