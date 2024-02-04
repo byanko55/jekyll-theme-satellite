@@ -4,12 +4,16 @@
     {% assign third_level_pages = "" | split, "" %}
 
     {% for p in site.pages %}
-        {% if p.bookmark == nil and p.name != 'index.md' %}
+        {%- assign p_tree = p.url | remove_first: "/" | split: "/" -%}
+        {%- assign p_name = p_tree | last -%}
+        {%- assign p_level = p_tree | size -%}
+
+        {% if p.bookmark == nil and p_name != 'index.html' %}
+            <script>
+                console.log('{{ p.url }} {{ p.id }}');
+            </script>
             {% continue %}
         {% endif %}
-
-        {%- assign p_tree = p.url | remove_first: "/" | split: "/" -%}
-        {%- assign p_level = p_tree | size -%}
 
         {% if p.bookmark %}
             {% if p_level == 1 %}

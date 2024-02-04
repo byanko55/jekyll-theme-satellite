@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-satellite"
-  spec.version       = "1.2.2"
+  spec.version       = "1.2.3"
   spec.authors       = ["Yankos"]
   spec.email         = ["byanko55@gmail.com"]
 
@@ -16,6 +16,8 @@ Gem::Specification.new do |spec|
   spec.files        += []
 
   spec.add_runtime_dependency "jekyll", "~> 3.9.3"
+  spec.add_runtime_dependency "kramdown-parser-gfm", "~> 1.1.0"
+  spec.add_runtime_dependency "webrick", "~> 1.6.1"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.12"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.3"
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.6"
