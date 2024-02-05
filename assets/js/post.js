@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // Tag EventListener
     const searchPage = document.querySelector("#search");
 
-    document.querySelectorAll('.tag-box').forEach(function(tagButton){
+    document.querySelectorAll('.tag-box .tag').forEach(function(tagButton){
         tagButton.addEventListener('click', function() {
             const contentID = tagButton.getAttribute('contentID');
             searchPage.classList.add('active');
