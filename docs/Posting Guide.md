@@ -1,6 +1,7 @@
 # Publishing your blog post
 
 This section deals with the step-by-step process of how to write and publish posts on your site.
+<br></br>
 
 ## Make `_pages` directory
 Create a directory named `_pages` in root if you do not have it.
@@ -9,6 +10,7 @@ Create a directory named `_pages` in root if you do not have it.
 $ mkdir _pages
 $ cd _pages
 ```
+<br></br>
 
 ## Organize your directory structure
 
@@ -21,6 +23,7 @@ Our theme provides a hierarchical directory structure. You may create subdirecto
 |   ├── Subcatecory b
 |   ├── Subcatecory c
 ```
+<br></br>
 
 ### Note: Make sure all directories have an `index.md` inside of them.
 
@@ -30,12 +33,14 @@ The next step is, placing `index.md` files in both `_pages` directory and its su
 ---
 ---
 ```
+<br></br>
 
 Or you can type the following command from each directory.
 
 ```
 $ echo -e "---\n---" > index.md
 ```
+<br></br>
 
 Your `_pages` structure now looks like this:
 
@@ -51,6 +56,7 @@ Your `_pages` structure now looks like this:
 |   ├── Subcatecory c
 |       └── index.md
 ```
+<br></br>
 
 ## Write a blog post
 
@@ -59,6 +65,7 @@ Create a post with file extension: `.md` (ex., *Post-name.md*).
 All blog post files must begin with front matter typically used to set a title or other metadata.
 
 **Note that the `title` and `date` fields can't be left blank.** 
+<br></br>
 
 For a simple example:
 
@@ -74,6 +81,7 @@ date: "2023-12-01"
 
 I hope you like it!
 ```
+<br></br>
 
 ### Setting a Post Thumbnail Image
 
@@ -88,6 +96,7 @@ thumbnail: "/assets/img/thumbnail/bricks.webp"
 ```
 
 <img src="https://i.ibb.co/T8Rsb6L/21312.webp" height="400px" align="center"/>
+<br></br>
 
 ### Category Tag
 
@@ -106,8 +115,10 @@ thumbnail: "/assets/img/thumbnail/nightgardenflower.jpg"
 ```
 
 <img src="https://i.ibb.co/LDKJC7p/1231.webp" height="400px" align="center"/>
+<br></br>
 
 Note that the `tags` attribute won't be reflected to the sidebar navigation.
+<br></br>
 
 ### Bookmark
 
@@ -127,6 +138,7 @@ bookmark: true
 ```
 
 <img src="https://i.ibb.co/2sFZNNK/21313.webp" height="400px" align="center"/>
+<br></br>
 
 ## Example `_pages` structure
 

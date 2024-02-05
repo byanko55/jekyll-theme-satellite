@@ -4,7 +4,9 @@
 [![Jekyll](https://img.shields.io/badge/gem%20version-3.2.33-blue.svg)](gem)
 
 # Satellite🛰️ - Jekyll blog theme
-An emotional and adorable blog theme powered by ***Jekyll***. Live demo is available here: [https://byanko55.github.io](https://byanko55.github.io)
+An emotional and adorable blog theme powered by ***Jekyll***. 
+
+Live demo is available [here](https://byanko55.github.io)
 
 ![Demo Page](https://i.ibb.co/h1QF06V/demo.webp)
 
@@ -19,6 +21,8 @@ An emotional and adorable blog theme powered by ***Jekyll***. Live demo is avail
 <img src="https://i.ibb.co/4NwrTyj/image-2.webp" height="400px" align="center"/>
 <img src="https://i.ibb.co/WvyBzkL/Animation.gif" height="400px" align="center"/>
 </p>
+
+<br></br>
 
 ## Features
 
@@ -35,15 +39,18 @@ An emotional and adorable blog theme powered by ***Jekyll***. Live demo is avail
 * Table of Contents
 * Visitor Counter (*goatcounter*)
 
+<br></br>
+
 ## Installation
 
 There are two ways to setup this theme:
+<br></br>
 
 ### Method 1: Build from source (Recommended)
-Fork this repository or download the [source](https://github.com/byanko55/jekyll-theme-satellite/releases) as a zip. 
+Fork [this repository](https://github.com/byanko55/jekyll-theme-satellite) or download the [source](https://github.com/byanko55/jekyll-theme-satellite/releases) as a zip. 
 
 If you use as destination a repository named USERNAME.github.io, then your url will be https://USERNAME.github.io/.
-
+<br></br>
 
 ### Method 2: Utilize Gem package
 Create a clean site directory (Follow the **Instruction 1~4** described [here](https://jekyllrb.com/docs/)).
@@ -52,6 +59,7 @@ The following materials are redundant, so remove them.
 * index.markdown
 * about.markdown
 * 404.html
+<br></br>
 
 Then, add this line to your Jekyll site's `Gemfile`:
 
@@ -60,6 +68,7 @@ gem "jekyll-theme-satellite"
 ```
 
 You need to replace the initial `_config.yml` file with the [prepared one](https://github.com/byanko55/jekyll-theme-satellite/blob/master/docs/_config.yml).
+<br></br>
 
 ### Modify your site setting
 
@@ -79,6 +88,7 @@ instagram_username: instagram
 linkedin_username: linkedin
 facebook_username: facebook
 ```
+<br></br>
 
 ### Run site locally
 
@@ -87,6 +97,7 @@ From the site root directory, install the dependencies:
 ```
 bundle install
 ```
+<br></br>
 
 Start a Jekyll service.
 
@@ -95,6 +106,7 @@ bundle exec jekyll serve
 ```
 
 Now open [http://localhost:4000](http://localhost:4000) in your browser.
+<br></br>
 
 ## Customizing
 
@@ -105,9 +117,11 @@ You can find useful manuals for customizing your site from the below table:
 |Posting guidelines|[link](https://github.com/byanko55/jekyll-theme-satellite/blob/master/docs/Posting%20Guide.md)|
 |Enabling ***comment system***|[link](https://github.com/byanko55/jekyll-theme-satellite/blob/master/docs/Comment%20System.md)|
 |Enabling ***Visitor counter***|[link](https://github.com/byanko55/jekyll-theme-satellite/blob/master/docs/Visitor%20Counter.md)|
+<br></br>
 
 ## Contribution
 If you would like to report a bug or request a new feature, please open [an issue](https://github.com/byanko55/jekyll-theme-satellite/issues) We are open to any kind of feedback or collaboration.
+<br></br>
 
 ## License
 © 2024 *Yankos*. This theme is available as open source under the terms of the [MIT License](https://opensource.org/license/mit/).
