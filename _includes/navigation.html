@@ -9,9 +9,6 @@
         {%- assign p_level = p_tree | size -%}
 
         {% if p.bookmark == nil and p_name != 'index.html' %}
-            <script>
-                console.log('{{ p.url }} {{ p.id }}');
-            </script>
             {% continue %}
         {% endif %}
 
