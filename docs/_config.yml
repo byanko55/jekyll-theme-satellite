@@ -28,6 +28,10 @@ google_analytics:
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Build settings
+
+# If you want to deploy Git Page, but choosing the second Installation method (described in README.md)
+# rather than fork, then replace the below line with `remote_theme: byanko55/jekyll-theme-satellite`.
+# Otherwise, DO NOT change it.
 theme: jekyll-theme-satellite
 
 exclude:
