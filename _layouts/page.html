@@ -4,6 +4,7 @@
     {%- assign page_level = page_tree.size -%}
     {% if page_tree.last == "index.md" %}
         {%- assign page_type = "category" -%}
+        {%- assign category_title = page.path | remove: 'index.md' | split: "/" | last -%}
     {% else %}
         {%- assign page_type = "post" -%}
     {% endif %}

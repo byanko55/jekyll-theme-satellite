@@ -1,6 +1,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+    {% if page.url == "/index.html" %}
+        Home
+    {% elsif page_type == "category" %}
+        {{ category_title }}
+    {% else %}
+        {{ page.title }}
+    {% endif %}
+</title>
 {% seo %}
 
 <link rel="shortcut icon" type="image/png" href="{{ site.logo_img }}">
@@ -21,12 +30,6 @@
         document.documentElement.className += " fonts-loaded";
     });
 </script>
-
-<title>
-    {% if page.title %}{{ page.title }}
-    {% else %}{{ site.title }}
-    {% endif %}
-</title>
 
 <meta
 name="description"
