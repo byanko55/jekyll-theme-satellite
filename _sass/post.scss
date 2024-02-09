@@ -118,7 +118,7 @@
 .tag {
     float: left;
     position: relative;
-    margin-left: 24px;
+    margin: 8px 12px;
     padding:0 10px 0 12px;
     line-height: 1.5rem;
     color: #fff !important;
@@ -436,7 +436,9 @@ main {
         }
     }
 
-    li:nth-child(3n+1) { margin-left: 0; }
+    @media (max-width: 768px){
+        li:nth-child(2n+1) { margin-left: 0; }
+    }
 
     a {
         width: 100%;
@@ -566,9 +568,9 @@ main {
         margin-top: 1rem;
     }
 
-    .tag { 
-        margin-left: 32px;
-        padding:0 14px 0 16px;
+    .tag {
+        margin: 12px 16px; 
+        padding: 0 14px 0 16px;
         line-height: 2rem;
         font-size: 1.125rem;
 
@@ -619,7 +621,11 @@ main {
         svg { width: 24px; }
     }
 
-    #related-posts li { width: 30%; }
+    #related-posts {
+        li { width: 30%; }
+
+        li:nth-child(3n+1) { margin-left: 0; }
+    }
 }
 
 @include mq(desktop){
