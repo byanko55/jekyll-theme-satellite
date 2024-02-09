@@ -1,17 +1,21 @@
 function searchPost(pages){
-    $('#search-input').on('keyup', function () {
+    document.getElementById('search-input').addEventListener('keyup', function() {
         var keyword = this.value.toLowerCase();
-        var searchResult = [];
+        var matchedPosts = [];
+        const searchResults = document.getElementById('search-result');
+        const prevResults = document.querySelector(".result-item");
     
         if (keyword.length > 0) {
-            $('#search-result').show();
-            $('#btn-clear').show();
+            searchResults.style.display = 'block';
+            document.getElementById('btn-clear').style.display = 'block';
         } else {
-            $('#search-result').hide();
-            $('#btn-clear').hide();
+            searchResults.style.display = 'none';
+            document.getElementById('btn-clear').style.display = 'none';
         }
         
-        $('.result-item').remove();
+        Array.from(document.querySelectorAll('.result-item')).forEach(function (item) {
+            item.remove();
+        });
     
         for (var i = 0; i < pages.length; i++) {
             var post = pages[i];
@@ -21,55 +25,58 @@ function searchPost(pages){
             if (post.title.toLowerCase().indexOf(keyword) >= 0
             || post.path.toLowerCase().indexOf(keyword) >= 0
             || post.tags.toLowerCase().indexOf(keyword) >= 0){
-                searchResult.push(post);
+                matchedPosts.push(post);
             }
         }
     
-        if (searchResult.length === 0) {
-            $('#search-result').append(
-                '<li class="result-item"><span class="description">There is no search result.</span></li>'
-            );
-    
+        if (matchedPosts.length === 0) {
+            insertItem('<span class="description">There is no search result.</span>');
+
             return;
         } 
     
-        searchResult.sort(function (a, b) {
+        matchedPosts.sort(function (a, b) {
             if (a.type == 'category') return 1;
     
             return -1;
         });
     
-        for (var i = 0; i < searchResult.length; i++) {
-            var highlighted_path = highlightKeyword(searchResult[i].path, keyword);
+        for (var i = 0; i < matchedPosts.length; i++) {
+            var highlighted_path = highlightKeyword(matchedPosts[i].path, keyword);
     
             if (highlighted_path === '')
                 highlighted_path = "Home";
     
-            if (searchResult[i].type === 'post'){
-                var highlighted_title = highlightKeyword(searchResult[i].title, keyword);
-                var highlighted_tags = highlightKeyword(searchResult[i].tags, keyword);
+            if (matchedPosts[i].type === 'post'){
+                var highlighted_title = highlightKeyword(matchedPosts[i].title, keyword);
+                var highlighted_tags = highlightKeyword(matchedPosts[i].tags, keyword);
     
                 if (highlighted_tags === '')
                     highlighted_tags = "none";
-    
-                $('#search-result').append(
-                    '<li class="result-item"><a href="' +
-                        searchResult[i].url +
-                        '"><table><thead><tr><th><svg class="ico-book"></svg></th><th>' + highlighted_title +  
-                        '</th></tr></thead><tbody><tr><td><svg class="ico-folder"></svg></td><td>' + highlighted_path +
-                        '</td></tr><tr><td><svg class="ico-tags"></svg></td><td>' + highlighted_tags +
-                        '</td></tr><tr><td><svg class="ico-calendar"></svg></td><td>' + searchResult[i].date +
-                        '</td></tr></tbody></table></a></li>'
+
+                insertItem('<a href="' +
+                    matchedPosts[i].url +
+                    '"><table><thead><tr><th><svg class="ico-book"></svg></th><th>' + highlighted_title +  
+                    '</th></tr></thead><tbody><tr><td><svg class="ico-folder"></svg></td><td>' + highlighted_path +
+                    '</td></tr><tr><td><svg class="ico-tags"></svg></td><td>' + highlighted_tags +
+                    '</td></tr><tr><td><svg class="ico-calendar"></svg></td><td>' + matchedPosts[i].date +
+                    '</td></tr></tbody></table></a>'
                 );
             }
             else {
-                $('#search-result').append(
-                    '<li class="result-item"><a href="' +
-                        searchResult[i].url +
-                        '"><table><thead><tr><th><svg class="ico-folder"></svg></th><th>' + highlighted_path + 
-                        '</th></tr></thead></table></a></li>'
+                insertItem('<a href="' +
+                    matchedPosts[i].url +
+                    '"><table><thead><tr><th><svg class="ico-folder"></svg></th><th>' + highlighted_path + 
+                    '</th></tr></thead></table></a>'
                 );
             }
+        }
+
+        function insertItem(inner_html){
+            let contents = document.createElement("li");
+            contents.classList.add("result-item");
+            contents.innerHTML = inner_html;
+            searchResults.append(contents);
         }
     });
 
@@ -91,6 +98,7 @@ function searchPost(pages){
 
 function searchRelated(pages){
     const refBox = document.getElementById('related-box');
+    const refResults = document.getElementById('related-posts');
 
     if (!refBox) return;
 
@@ -136,7 +144,7 @@ function searchRelated(pages){
     });
 
     if (relatedPosts.length == 0){
-        $('#related-box').hide();
+        refBox.style.display = 'none';
         return;
     }
 
@@ -156,13 +164,15 @@ function searchRelated(pages){
             post.thumbnail = "/assets/img/thumbnail/empty.jpg";
         }
 
-        $('#related-posts').append(
-            '<li class="related-item"><a href="' + post.url +
-                '"><img src="' + post.thumbnail + 
-                '"/><p class="category">' + category +  
-                '</p><p class="title">' + post.title + 
-                '</p><p class="date">' + date +
-                '</p></a></li>'
-        );
+        let contents = document.createElement("li");
+        contents.classList.add("related-item");
+        contents.innerHTML = '<a href="' + post.url +
+            '"><img src="' + post.thumbnail + 
+            '"/><p class="category">' + category +  
+            '</p><p class="title">' + post.title + 
+            '</p><p class="date">' + date +
+            '</p></a>';
+
+        refResults.append(contents);
     }
 }

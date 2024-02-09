@@ -10,18 +10,6 @@ document.addEventListener('DOMContentLoaded', function(){
         themeIcons.forEach((ico) => {
             ico.classList.add('active');
         });
-        /*
-        const moonIcons = document.querySelectorAll(".ico-dark");
-        const sunIcons = document.querySelectorAll(".ico-light");
-
-        moonIcons.forEach((ico) => {
-            ico.classList.add('active');
-        });
-
-        sunIcons.forEach((ico) => {
-            ico.classList.add('active');
-        });
-        */
     }
     else {
         isDarkMode = false;
@@ -152,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function(){
         searchButton.forEach((btn) => {
             btn.addEventListener('click', function() {
                 searchPage.classList.add('active');
-                $('#search-input').focus();
+                document.getElementById("search-input").focus();
             });
         });
     }
@@ -171,9 +159,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if (cancelButton) {
         cancelButton.addEventListener('click', function() {
-            $('.result-item').remove();
-            $('#search-input').val("");
-            $('#btn-clear').hide();
+            document.getElementById('btn-clear').style.display = 'none';
+            document.getElementById('search-input').value = "";
+
+            Array.from(document.querySelectorAll('.result-item')).forEach(function (item) {
+                item.remove();
+            });
         });
     }
 });

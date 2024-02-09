@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function(){
     // Initialize/Change Giscus theme
     var giscusTheme = "light";
 
-    const giscus_repo = $('meta[name="giscus_repo"]').attr("content");
-    const giscus_repoId = $('meta[name="giscus_repoId"]').attr("content");
-    const giscus_category = $('meta[name="giscus_category"]').attr("content");
-    const giscus_categoryId = $('meta[name="giscus_categoryId"]').attr("content");
+    const giscus_repo = document.querySelector('meta[name="giscus_repo"]').content;
+    const giscus_repoId = document.querySelector('meta[name="giscus_repoId"]').content;
+    const giscus_category = document.querySelector('meta[name="giscus_category"]').content;
+    const giscus_categoryId = document.querySelector('meta[name="giscus_categoryId"]').content;
 
     if (giscus_repo !== undefined) {
         if (currentTheme === 'dark'){
@@ -107,12 +107,13 @@ document.addEventListener('DOMContentLoaded', function(){
         if (!(typeof event.data === 'object' && event.data.giscus)) return;
         
         const giscusData = event.data.giscus;
+        const commentCount = document.getElementById('num-comments');
 
         if (giscusData && giscusData.hasOwnProperty('discussion')) {
-            $('#num-comments').text(giscusData.discussion.totalCommentCount);
+            commentCount.innerText = giscusData.discussion.totalCommentCount;
         }
         else {
-            $('#num-comments').text('0');
+            commentCount.innerText = '0';
         }
     }
         
@@ -124,10 +125,11 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.tag-box .tag').forEach(function(tagButton){
         tagButton.addEventListener('click', function() {
             const contentID = tagButton.getAttribute('contentID');
+            const inpuxBox = document.getElementById('search-input');
             searchPage.classList.add('active');
 
-            $('#search-input').val(contentID);
-            $('#search-input').trigger('keyup');
+            inpuxBox.value = contentID;
+            inpuxBox.dispatchEvent(new KeyboardEvent('keyup'));
         });
     });
 

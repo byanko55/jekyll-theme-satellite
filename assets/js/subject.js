@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             });
 
-            $('html, body').scrollTop(0);
+            window.scrollTo({top:0});
             localStorage.setItem(pageKey, currentPage);
         };
 
