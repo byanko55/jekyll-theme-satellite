@@ -405,10 +405,18 @@ main {
     padding:0;
     list-style:none;
     transition:.3s;
+    overflow: hidden;
 
     &:hover {
-      transform:translate(0px, -4px);
       box-shadow:8px 8px 16px -4px rgba(0, 0, 255, .2);
+
+      -webkit-transform:scale(1.05);
+      -moz-transform:scale(1.05);
+      transform:scale(1.05);
+
+      img {
+        opacity:.7;
+      }
     }
   }
 
@@ -433,6 +441,7 @@ main {
     display:block;
     width:100%;
     aspect-ratio:1.5/1;
+    transition:.3s;
   }
 
   .category {

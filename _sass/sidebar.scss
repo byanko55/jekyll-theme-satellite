@@ -42,6 +42,8 @@
   }
 }
 
+.site-tab img { display: none; }
+
 .site-avatar {
   img {
     display:none;
@@ -61,7 +63,7 @@
   img + img { border-radius:50%; }
 }
 
-.site-name {
+.site-tab {
   padding:8px;
   font-size:1rem;
   text-align:left;
@@ -192,7 +194,7 @@
   #btn-brightness { right:120px; }
 }
 
-.site-name { 
+.site-tab { 
   padding:1rem;
   font-size:1.375rem; 
 }
@@ -231,30 +233,41 @@
 
 .site-avatar img { display:inline-block; }
 
-.site-name {
+.site-tab {
   font-size:1.375rem;
   padding:1rem;
   text-align:center;
+  position:relative;
+}
 
-  .highlight {
-    font-weight:600;
-    background-image:-webkit-linear-gradient(left, #a95770 25%, #ff4d7c 32.5%, #97d0ec 50%, #ff4d7c 67.5%, #a95770 75%);
-    background-image:linear-gradient(90deg, #a95770 25%, #ff4d7c 32.5%, #97d0ec 50%, #ff4d7c 67.5%, #a95770 75%);
-    background-position:right center;
-    background-size:400% auto;
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
+.site-name {
+  position:relative;
 
-    &:hover {
-      color:#ef9671;
-      animation:slidetext 2s ease-in infinite;
+  img, mark { transition:.5s ease; }
+  mark { 
+    color:$color-wenge;
+    word-break:break-word;
+  }
+
+  img {
+    display:inline-block;
+    width:32px;
+    height:32px;
+    top:-4px;
+    left:0;
+    left:-40px;
+    position:absolute;
+    transform:rotateY(90deg);
+  }
+
+  &:hover {
+    mark { 
+      color:$color-rose;
+      margin-left:40px;
     }
-
-    @keyframes slidetext {
-      100% {
-        background-position:left center;
-      }
+    img { 
+      left:0;
+      transform:rotateY(360deg); 
     }
   }
 }
