@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function(){
-    var content = document.querySelector('main');
+    var innerContent = document.querySelector('main');
     let currentTheme = localStorage.getItem('theme');
 
     // tocbot
-    var headings = content.querySelectorAll('h1, h2');
+    var headings = innerContent.querySelectorAll('h1, h2');
     var headingMap = {};
 
     Array.prototype.forEach.call(headings, function (heading) {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // link (for hover effect)
-    var links = content.querySelectorAll('a:not(.related-item a)');
+    var links = innerContent.querySelectorAll('a:not(.related-item a)');
 
     links.forEach((link) => {
         link.setAttribute('data-content', link.innerText);
@@ -174,11 +174,15 @@ document.addEventListener('DOMContentLoaded', function(){
     // Code highlighter
     if (currentTheme === 'dark'){
         // Disable highlighter default color theme
-        document.getElementById("highlight-default").disabled=true;
+        Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
+            codeblock.classList.add('pre-dark');
+        });
     }
     else {
         // Disable highlighter dark color theme
-        document.getElementById("highlight-dark").disabled=true;
+        Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
+            codeblock.classList.add('pre-light');
+        });
     }
 
     hljs.highlightAll();

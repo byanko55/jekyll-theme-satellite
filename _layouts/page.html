@@ -77,10 +77,9 @@
     {% else %}
         <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
         <script src="{{ '/assets/js/highlight.min.js' }}"></script>
-        <link id="highlight-default" rel="stylesheet" href="{{ '/assets/css/highlight-default.min.css' }}">
-        <link id="highlight-dark" rel="stylesheet" href="{{ '/assets/css/highlight-dark.min.css' }}">
+        <link id="highlight" rel="stylesheet" href="{{ '/assets/css/highlight.min.css' }}">
         <script src="{{ '/assets/js/post.js' }}"></script>
     {% endif %}
-    {% include search_event.html %}
     <script src="{{ '/assets/js/common.js' }}"></script>
+    {% include search_event.html %}
 </html>
