@@ -76,9 +76,10 @@
         <script src="{{ '/assets/js/subject.js' }}"></script>
     {% else %}
         <script src="{{ '/assets/js/tocbot.min.js' }}"></script>
-        <script src="{{ '/assets/js/highlight.min.js' }}"></script>
-        <link id="highlight" rel="stylesheet" href="{{ '/assets/css/highlight.min.css' }}">
         <script src="{{ '/assets/js/post.js' }}"></script>
+        <link rel="preload" href="{{ '/assets/css/highlight.min.css' }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ '/assets/css/highlight.min.css' }}"></noscript>
+        <script defer src="{{ '/assets/js/highlight.min.js' }}"></script>
     {% endif %}
     <script src="{{ '/assets/js/common.js' }}"></script>
     {% include search_event.html %}
