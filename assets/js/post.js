@@ -2,13 +2,6 @@ document.addEventListener('DOMContentLoaded', function(){
     var content = document.querySelector('main');
     let currentTheme = localStorage.getItem('theme');
 
-    // Lazy image loading
-    var images = content.querySelectorAll('img');
-
-    images.forEach((img) => {
-        img.setAttribute('loading', 'lazy');
-    });
-
     // tocbot
     var headings = content.querySelectorAll('h1, h2');
     var headingMap = {};
@@ -151,11 +144,6 @@ document.addEventListener('DOMContentLoaded', function(){
         resp.send();
     }
 
-    // Sweat Scroll
-    const scroller = new SweetScroll({
-        /* some options */
-    });
-
     // Move to Top
     if (document.querySelector('.thumbnail')){
         const arrowButton = document.querySelector('.top-arrow');
@@ -170,7 +158,18 @@ document.addEventListener('DOMContentLoaded', function(){
                 arrowButton.classList.add('arrow-open');
             }
         }, 1000);
+
+        arrowButton.addEventListener('click', function(){
+            window.scroll({top:0, behavior:'smooth'});
+        });
     }
+
+    // Move to Comment
+    document.getElementById('comments-counter').addEventListener('click', function(){
+        document.getElementById("giscus").scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 
     // Code highlighter
     if (currentTheme === 'dark'){
