@@ -4,27 +4,74 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // tocbot
     var headings = innerContent.querySelectorAll('h1, h2');
-    var headingMap = {};
+    var prevHead;
 
-    Array.prototype.forEach.call(headings, function (heading) {
-        var id = heading.id ? heading.id : heading.textContent.trim().toLowerCase()
-                .split(' ').join('-').replace(/[\!\@\#\$\%\^\&\*\(\):]/ig, '');
+    const tocBorad = document.querySelector(".toc-board");
+    
+    Array.from(headings).forEach(function(heading){
+        let tocItem = document.createElement("li");
+        tocItem.classList.add("toc-list-item");
 
-        headingMap[id] = !isNaN(headingMap[id]) ? ++headingMap[id] : 0;
+        let itemLink = document.createElement("a");
+        itemLink.classList.add("toc-link");
+        itemLink.id = "toc-id-" + heading.textContent;
+        itemLink.textContent = heading.textContent;
 
-        if (headingMap[id]) {
-            heading.id = id + '-' + headingMap[id];
-        } else {
-            heading.id = id;
+        tocItem.append(itemLink);
+
+        itemLink.addEventListener('click', function(){
+            heading.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        console.log(heading.textContent, heading.getBoundingClientRect().top);
+
+        if (heading.tagName == 'H1'){
+            itemLink.classList.add("node-name--H1");
+            prevHead = tocItem;
+            tocBorad.append(tocItem);
         }
-    })
+        else {
+            itemLink.classList.add("node-name--H2");
 
-    tocbot.init({
-        tocSelector: '.toc-board',
-        contentSelector: '.inner-content',
-        headingSelector:'h1, h2',
-        hasInnerContainers: false
+            if (prevHead == undefined) {
+                tocBorad.append(tocItem);
+                return;
+            }
+
+            let subList = prevHead.querySelector('ol');
+
+            if (!subList){
+                subList = document.createElement("ol");
+                subList.classList.add("toc-list");
+                prevHead.append(subList);
+            }
+
+            subList.append(tocItem);
+        }
     });
+
+    setInterval(function(){
+        var scrollPos = document.documentElement.scrollTop;
+
+        Array.from(tocBorad.querySelectorAll('.toc-link')).forEach(function(link){
+            link.classList.remove('is-active-link');
+        });
+
+        var currHead;
+
+        Array.from(headings).forEach(function(heading){
+            let headPos = heading.getBoundingClientRect().top + window.scrollY - 512;
+
+            if (scrollPos > headPos) currHead = heading;
+        });
+
+        if (currHead != undefined){
+            let tocLink = document.getElementById("toc-id-" + currHead.textContent);
+            tocLink.classList.add('is-active-link');
+        }
+    }, 200);
 
     // link (for hover effect)
     var links = innerContent.querySelectorAll('a:not(.related-item a)');

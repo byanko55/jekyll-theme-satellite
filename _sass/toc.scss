@@ -18,13 +18,13 @@
 
 .toc-board {
   max-width:#{$sidebarwd};
-  margin:0;
-  margin-left:2rem;
+  margin: 1rem 0 1rem 2rem !important;
 }
 
-.toc-list {
+.toc-board, .toc-list {
   font-size:1.125rem;
   padding:0;
+  margin: 0 auto;
 
   li a { display:inline-block; }
   li:last-child { margin-bottom:0; }
@@ -33,14 +33,17 @@
   .node-name--H2 {
     font-size:1rem;
     margin-top:6px;
-    padding-left:8px;
+    padding-left:16px;
   }
 
   .toc-list-item {
     word-break:normal;
     line-height:150%;
 
-    a { animation:.5s ease-out 0s 1 slide; }
+    a { 
+      animation:.5s ease-out 0s 1 slide;
+      cursor: pointer;
+    }
 
     @keyframes slide {
       0% { transform:scaleY(0); }
