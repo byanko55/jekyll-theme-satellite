@@ -2,46 +2,46 @@
 ---
 
 body {
-    margin: 0;
-    background: 
-        repeating-linear-gradient(
-        to right, transparent, 
-        transparent 100px, 
-        white 100px, 
-        white 112px
-        ),
-        repeating-linear-gradient(
-        to bottom, transparent,  
-        transparent 100px, 
-        white 100px, 
-        white 112px
-        ),
-        linear-gradient(45deg, pink, skyblue);
+  margin:0;
+  background:
+    repeating-linear-gradient(
+    to right, transparent, 
+    transparent 100px, 
+    white 100px, 
+    white 112px
+    ),
+    repeating-linear-gradient(
+    to bottom, transparent, 
+    transparent 100px, 
+    white 100px, 
+    white 112px
+    ),
+    linear-gradient(45deg, pink, skyblue);
 }
 
 .blank-page {
-    display: table-cell;
-    z-index: 0;
-    background: #fff;
-    margin: 1rem auto;
-    width: 100vw;
-    height: 45vh;
-    vertical-align: middle;
+  display:table-cell;
+  z-index:0;
+  background:#fff;
+  margin:1rem auto;
+  width:100vw;
+  height:45vh;
+  vertical-align:middle;
 
-    .go-home {
-        text-decoration: none;
-        margin-left: 5vw;
-        font-size: 1.25rem;
-    }
+  .go-home {
+    text-decoration:none;
+    margin-left:5vw;
+    font-size:1.25rem;
+  }
 
-    .not-found-msg { text-align: center; }
+  .not-found-msg { text-align:center; }
 
-    .sour-face {
-        margin: 3rem auto;
-        font-size: 5rem;
-        line-height: 1;
-        letter-spacing: -1px;
-    }
+  .sour-face {
+    margin:3rem auto;
+    font-size:5rem;
+    line-height:1;
+    letter-spacing:-1px;
+  }
 }
 
-.container { display: none; }
+.container { display:none; }
