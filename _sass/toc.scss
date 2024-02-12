@@ -1,58 +1,58 @@
 .toc {
-    position: fixed;
-    top: 6rem;
+  position:fixed;
+  top:6rem;
 }
 
 .toc-header {
-    font-size: 1.25rem;
-    font-weight: 600;
-    padding-left: 0.75rem;
-    padding-bottom: 4px;
-    border-bottom: burlywood 2px solid;
+  font-size:1.25rem;
+  font-weight:600;
+  padding:0 0 4px 12px;
+  border-bottom:burlywood 2px solid;
 
-    svg { 
-        width: 16px;
-        display: inline-flex;
-        transform: translateY(2px);
-    }
+  svg { 
+    width:16px;
+    display:inline-flex;
+    transform:translateY(2px);
+  }
 }
 
 .toc-board {
-    max-width: #{$sidebarwd};
-    margin: 0;
-    margin-left: 2rem;
+  max-width:#{$sidebarwd};
+  margin: 1rem 0 1rem 2rem !important;
 }
 
-.toc-list {
-    font-size: 1.125rem;
-    padding: 0;
+.toc-board, .toc-list {
+  font-size:1.125rem;
+  padding:0;
+  margin: 0 auto;
 
-    li:last-child { margin-bottom: 0; }
+  li a { display:inline-block; }
+  li:last-child { margin-bottom:0; }
 
-    li a { display:inline-block; }
+  .node-name--H1 { margin-top:8px; }
+  .node-name--H2 {
+    font-size:1rem;
+    margin-top:6px;
+    padding-left:16px;
+  }
 
-    .node-name--H1 { margin-top: 0.5rem; }
+  .toc-list-item {
+    word-break:normal;
+    line-height:150%;
 
-    .node-name--H2 {
-        font-size: 1rem;
-        margin-top: 0.375rem;
-        padding-left: 0.5rem;
+    a { 
+      animation:.5s ease-out 0s 1 slide;
+      cursor: pointer;
     }
 
-    .toc-list-item {
-        word-break: normal;
-        display: block;
-        line-height: 150%;
-        animation: .5s ease-out 0s 1 slide;
-
-        @keyframes slide {
-            0% { transform: scaleY(0); }
-            100% { transform: scaleY(1); }
-        }
+    @keyframes slide {
+      0% { transform:scaleY(0); }
+      100% { transform:scaleY(1); }
     }
-      
-    .is-active-link{
-        color: indianred !important;
-        font-weight:950;
-    }
+  }
+   
+  .is-active-link{
+    color:indianred !important;
+    font-weight:950;
+  }
 }

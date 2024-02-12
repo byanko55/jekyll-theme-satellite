@@ -1,8 +1,7 @@
 {%- assign page_list = site.pages 
     | where_exp: "item", "item.title != nil"
 -%}
-<script src="{{ '/assets/js/search.js' }}" type="text/javascript"></script>
-<script>
+<script defer>
     var posts = [];
 
     {% for page in page_list %}

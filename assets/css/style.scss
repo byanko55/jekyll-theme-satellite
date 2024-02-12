@@ -2,67 +2,46 @@
 ---
 
 html, body {
-    margin: 0;
-    padding: 0;
+  margin:0;
+  padding:0;
 }
 
 .fonts-loaded {
-    a, span, p {
-        font-family: "Nunito Sans", 'Lucida Sans', sans-serif;
-    }
-
-    h1, h2, h3 {
-        font-family: "Lato", Helvetica, sans-serif;
-    }
-
-    mark {
-        font-family: 'Righteous', sans-serif;
-    }
+  a, span, p { font-family:"Nunito Sans", 'Lucida Sans', sans-serif; }
+  h1, h2, h3 { font-family:"Lato", Helvetica, sans-serif; }
+  mark { font-family:'Righteous', sans-serif; }
 }
 
-a {
-    text-decoration: none;
-}
-
-a, span, p, h1, h2, h3, i {
-    color: #3A241A;
-}
-
-a, span, p {
-    font-family: 'Lucida Sans', sans-serif;
-}
-
+a { text-decoration:none; }
+a, span, p, h1, h2, h3, i { color:#3A241A; }
+a, span, p { font-family:'Lucida Sans', sans-serif; }
 h1, h2, h3, mark {
-    margin: 0;
-    font-family: Helvetica, sans-serif;
+  margin:0;
+  font-family:Helvetica, sans-serif;
 }
-
-mark {
-    background-color: transparent;
-}
+mark { background-color:transparent; }
 
 svg {
-    width: 16px;
-    aspect-ratio: 1.0;
-    fill: #3A241A;
-    display: block;
-    margin: auto;
+  width:16px;
+  aspect-ratio:1.0;
+  fill:#3A241A;
+  display:block;
+  margin:auto;
 }
 
 button {
-    border: none;
-    background: none;
-    padding: 0;
+  border:none;
+  background:none;
+  padding:0;
 }
 
 /* Disable default input cancel button */
 input::-ms-clear,
 input::-ms-reveal{
 	display:none;
-    width:0;
-    height:0;
+  width:0;
+  height:0;
 }
-
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button,
 input::-webkit-search-results-button,
@@ -74,7 +53,7 @@ input::-webkit-search-results-decoration{
 @import 'layout';
 
 :root{
-    --pagewidth-desktop: calc(max(min(100vw - #{$sidebarwd} - 2rem, #{$contentwd}), 44rem));
+  --pagewidth-desktop:calc(max(min(100vw - #{$sidebarwd} - 2rem, #{$contentwd}), 44rem));
 }
 
 @import "sidebar";
@@ -83,5 +62,4 @@ input::-webkit-search-results-decoration{
 @import "toc";
 @import "post";
 @import "search";
-
 @import "darkmode";

@@ -5,7 +5,7 @@
     {% if page_level == 1 %}
         All Posts
     {% else %}
-        {{ page.path | remove: 'index.md' | split: "/" | last }}
+        {{ category_title }}
     {% endif %}
 </h1>
 <div id="category-list">
