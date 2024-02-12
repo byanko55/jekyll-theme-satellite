@@ -128,12 +128,6 @@ document.addEventListener('DOMContentLoaded', function(){
             codeblock.classList.add('pre-dark');
         });
     }
-    else {
-        // Disable highlighter dark color theme
-        Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
-            codeblock.classList.add('pre-light');
-        });
-    }
 });
 
 window.addEventListener('load', function(){

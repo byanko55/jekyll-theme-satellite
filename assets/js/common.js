@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 localStorage.setItem('theme', 'default');
                 // Disable highlighter dark color theme
                 Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
-                    codeblock.classList.add('pre-light');
                     codeblock.classList.remove('pre-dark');
                 });
                 changeGiscusTheme('light');
@@ -115,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Disable highlighter default color theme
                 Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
                     codeblock.classList.add('pre-dark');
-                    codeblock.classList.remove('pre-light');
                 });
                 changeGiscusTheme('noborder_gray');
                 isDarkMode = true;
