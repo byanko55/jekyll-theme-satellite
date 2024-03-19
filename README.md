@@ -39,7 +39,6 @@ Live demo is available [here](https://byanko55.github.io)
 * Table of Contents
 * Visitor Counter (*goatcounter*)
 
-<br></br>
 
 ## Installation
 
@@ -88,7 +87,7 @@ instagram_username: instagram
 linkedin_username: linkedin
 facebook_username: facebook
 ```
-<br></br>
+
 
 ### Run site locally
 
@@ -97,7 +96,7 @@ From the site root directory, install the dependencies:
 ```
 bundle install
 ```
-<br></br>
+
 
 Start a Jekyll service.
 
