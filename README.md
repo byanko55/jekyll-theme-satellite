@@ -57,7 +57,6 @@ Create a clean site directory (Follow the **Instruction 1~4** described [here](h
 The following materials are redundant, so remove them.
 * index.markdown
 * about.markdown
-* 404.html
 <br></br>
 
 Then, add this line to your Jekyll site's `Gemfile`:
