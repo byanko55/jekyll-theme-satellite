@@ -16,7 +16,7 @@ You will access your blog statistics at `https://[my-code].goatcounter.com`.
 
 ### Add your code to `_config.yml`
 
-```
+```yml
 goatcounter_code: [my-code]
 ```
 <br></br>
