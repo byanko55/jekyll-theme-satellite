@@ -6,7 +6,7 @@ This section deals with the step-by-step process of how to write and publish pos
 ## Make `_pages` directory
 Create a directory named `_pages` in root if you do not have it.
 
-```
+```bash
 $ mkdir _pages
 $ cd _pages
 ```
@@ -37,7 +37,7 @@ The next step is, placing `index.md` files in both `_pages` directory and its su
 
 Or you can type the following command from each directory.
 
-```
+```bash
 $ echo -e "---\n---" > index.md
 ```
 <br></br>
@@ -69,7 +69,7 @@ All blog post files must begin with front matter typically used to set a title o
 
 For a simple example:
 
-```
+```yml
 ---
 title: "Example Post"
 date: "2023-12-01"
@@ -87,7 +87,7 @@ I hope you like it!
 
 Add `thumbnail` attribute to the post that you'd like to show a representative image when rendered.
 
-```
+```yml
 ---
 title: "Example Post: thumbnail exists"
 date: "2023-12-02"
@@ -102,7 +102,7 @@ thumbnail: "/assets/img/thumbnail/bricks.webp"
 
 You can use a grouping of post topics by specifying the `tags` field. It is helpful when you'd like to search related posts or pin them on the bottom of the page.
 
-```
+```yml
 ---
 title: "Classic Literature #1: Romeo and Juliet"
 tags:
@@ -124,7 +124,7 @@ Note that the `tags` attribute won't be reflected to the sidebar navigation.
 
 Setting `bookmark: true` makes the sidebar nav list display the corresponding post entity.
 
-```
+```yml
 ---
 title: "Markdown from A to Z"
 tags:

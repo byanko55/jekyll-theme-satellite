@@ -45,7 +45,7 @@ Now, you get the giscus script. Copy the four properties marked with a red box a
 
 Paste those values to `_config.yml` placed in the root directory.
 
-```
+```yml
 # External API
 giscus_repo: "[ENTER REPO HERE]"
 giscus_repoId: "[ENTER REPO ID HERE]"

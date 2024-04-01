@@ -2,6 +2,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 [![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%204.3.2-green.svg)](https://jekyllrb.com/)
 [![Jekyll](https://img.shields.io/badge/gem%20version-3.2.33-blue.svg)](gem)
+<a href="https://jekyll-themes.com/[GITHUB USER NAME]/[GITHUB REPOSITORY NAME]">
+  <img
+    src="https://img.shields.io/badge/featured%20on-JT-red.svg"
+    height="20"
+    alt="Jekyll Themes Shield"
+  />
+</a>
 
 # Satellite🛰️ - Jekyll blog theme
 An emotional and adorable blog theme powered by ***Jekyll***. 
@@ -61,7 +68,7 @@ The following materials are redundant, so remove them.
 
 Then, add this line to your Jekyll site's `Gemfile`:
 
-```
+```bash
 gem "jekyll-theme-satellite"
 ```
 
@@ -72,7 +79,7 @@ You need to replace the initial `_config.yml` file with the [prepared one](https
 
 Now fill in the **site variable** such as blog name, profile image, and social accounts in `_config.yml`.
 
-```
+```yml
 title: Example.com
 description: "Satellite - jekyll blog theme"
 logo_img: "/assets/img/favicon.webp"
