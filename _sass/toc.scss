@@ -1,6 +1,7 @@
 .toc {
   position:fixed;
   top:6rem;
+  display: none;
 }
 
 .toc-header {
@@ -55,4 +56,8 @@
     color:indianred !important;
     font-weight:950;
   }
+}
+
+@include mq(wide){
+  .toc{ display: block; }
 }

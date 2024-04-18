@@ -302,14 +302,18 @@
   }
 }
 
+.sidebar-right{
+  display:flex;
+  height:100%;
+  margin-left:calc(var(--pagewidth-desktop) + #{$sidebarwd}/2);
+}
+
 }
 
 @include mq(wide){
 
 .sidebar-left{ width:calc((100vw - #{$contentwd})/2); }
 .sidebar-right{
-  display:flex;
-  height:100%;
   width:calc((100vw - #{$contentwd})/2);
   margin-left:calc(#{$contentwd} + (100vw - #{$contentwd})/2);
 }
