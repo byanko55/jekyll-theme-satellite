@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         {% include head.html %}
-        <link rel="stylesheet" href="{{ '/assets/css/404.css' }}">
+        <link rel="stylesheet" href="{{ '/assets/css/404.css' | prepend: site.baseurl }}">
     </head>
     <body>
         <div class="blank-page">
@@ -14,5 +14,5 @@
         </div>
         </div>
     </body>
-    <script src="{{ '/assets/js/404.js' }}"></script>
+    <script src="{{ '/assets/js/404.js' | prepend: site.baseurl }}"></script>
 </html>

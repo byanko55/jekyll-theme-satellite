@@ -2,7 +2,7 @@
     <div class="side-banner">
         <h1 class="site-tab">
             <a href="/" class="site-name">
-                <img src="{{ '/assets/img/icon/house.webp' }}" alt="">
+                <img src="{{ '/assets/img/icon/house.webp' | prepend: site.baseurl }}" alt="">
                 <mark>{{ site.title }}</mark>
             </a>
             <button id="btn-brightness" aria-label="brightness-button">
@@ -17,7 +17,7 @@
             </button>
         </h1>
         <a href="/" class="site-avatar" aria-label="site-avatar">
-            <img src="{{ site.profile_img }}" loading="lazy" alt="homepage" aria-label="homepage-button">
+            <img src="{{ site.profile_img | prepend: site.baseurl }}" loading="lazy" alt="homepage" aria-label="homepage-button">
         </a>
     </div>
     <div class="side-info">

@@ -51,7 +51,7 @@
     </ul>
     {% if post_counts == 0 %}
         <div class="no-posts">
-            <img src="{{ '/assets/img/sorry.png'' }}"></img>
+            <img src="{{ '/assets/img/sorry.png'' | prepend: site.baseurl }}"></img>
             <h1>Sorry, No posts found</h1>
         </div>
     {% endif %}
