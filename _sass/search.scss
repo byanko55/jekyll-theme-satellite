@@ -145,30 +145,14 @@
     td { font-size:0.875rem; }
 
     svg {
-      background-color:darkslategrey; 
+      fill: darkslategrey; 
       mask-repeat:no-repeat;
       display:inline-flex;
       width:14px;
       margin-right:8px;
       transform:translateY(2px);
     }
-    .ico-book {
-      background-color:dodgerblue !important;
-      -webkit-mask-image:url(/assets/img/icon/book-solid.svg);
-      mask-image:url(/assets/img/icon/book-solid.svg);
-    }
-    .ico-folder {
-      -webkit-mask-image:url(/assets/img/icon/folder-open-regular.svg);
-      mask-image:url(/assets/img/icon/folder-open-regular.svg);
-    }
-    .ico-tags {
-      -webkit-mask-image:url(/assets/img/icon/tags-solid.svg);
-      mask-image:url(/assets/img/icon/tags-solid.svg);
-    }
-    .ico-calendar {
-      -webkit-mask-image:url(/assets/img/icon/calendar-days-regular.svg);
-      mask-image:url(/assets/img/icon/calendar-days-regular.svg);
-    }
+    .ico-book { fill: dodgerblue !important; }
     .ico-book, th .ico-folder { width:18px; }
     th .ico-folder { background-color:mediumseagreen !important; }
   }
