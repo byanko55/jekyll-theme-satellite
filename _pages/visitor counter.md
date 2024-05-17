@@ -5,7 +5,7 @@ tags:
     - utility
     - goatcounter
 date: "2024-02-02"
-thumbnail: "https://i.ibb.co/xj20N3N/card.webp"
+thumbnail: "/assets/img/thumbnail/goatcounter.webp"
 bookmark: true
 ---
 
