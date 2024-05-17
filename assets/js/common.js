@@ -32,8 +32,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // kept nav opened
     var firstNavs = document.querySelectorAll('#nav-first');
+    var baseurl = document.querySelector('meta[name="baseurl"]').content;
     var page_path = window.location.pathname.replace(/%20/g, " ");
+    page_path = page_path.replace(baseurl, "");
     var page_tree = page_path.split('/');
+    alert(page_path);
 
     Array.prototype.forEach.call(firstNavs, function (nav_first) {
         if (page_tree[1] === nav_first.ariaLabel){

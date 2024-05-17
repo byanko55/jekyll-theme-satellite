@@ -44,7 +44,7 @@
         {%- assign num_children = children_list | size -%}
         <li id="nav-first" aria-label="{{ node_title }}">
             <div class="nav-item">
-                <a href="{{ node_url }}" class="nav-list-link nav-lh">
+                <a href="{{ node_url | prepend: site.baseurl }}" class="nav-list-link nav-lh">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128h95.1l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H347.1L325.8 320H384c17.7 0 32 14.3 32 32s-14.3 32-32 32H315.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7H155.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l21.3-128H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320h95.1l21.3-128H187.1z"/></svg>
                     <span>{{ node_title }}</span>
                 </a>
@@ -64,7 +64,7 @@
                 {%- assign num_grand_children = grand_children_list | size -%}
                 <li id="nav-second" aria-label="{{ child_title }}">
                     <div class="nav-item">
-                        <a href="{{ child_url }}" class="nav-list-link nav-sh">
+                        <a href="{{ child_url | prepend: site.baseurl }}" class="nav-list-link nav-sh">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg>
                             <span>{{ child_title }}</span>
                         </a>
@@ -80,7 +80,7 @@
                             {%- assign grand_child_title = grand_child.path | remove: 'index.md' | split: "/" | last | remove: '.md' -%}
                             <li id="nav-third" aria-label="{{ grand_child_title }}">
                                 <div class="nav-item">
-                                    <a href="{{ grand_child.url | relative_url }}" class="nav-list-link nav-sh">
+                                    <a href="{{ grand_child.url | prepend: site.baseurl }}" class="nav-list-link nav-sh">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg>
                                         <span>{{ grand_child_title }}</span>
                                     </a>
