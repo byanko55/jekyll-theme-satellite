@@ -26,7 +26,7 @@
             {% if page.thumbnail %}
                 <style>
                     .thumbnail {
-                        background-image: url("{{ page.thumbnail }}");
+                        background-image: url("{{ page.thumbnail | prepend: site.baseurl }}");
                     }
                 </style>
             {% else %}

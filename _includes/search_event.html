@@ -29,8 +29,8 @@
             'path'     : "{{ p_link }}",
             'type'     : "{{ p_type }}",
             'tags'     : "{{ page.tags | join: ', ' }}",
-            'url'      : "{{ site.baseurl }}{{ page.url }}",
-            'image'    : "{{ page.thumbnail }}",
+            'url'      : "{{ page.url | prepend: site.baseurl }}",
+            'image'    : "{{ page.thumbnail | prepend: site.baseurl }}",
             'date'     : "{{ page.date | date: '%Y-%m-%d' }}"
         });
     {% endfor %}
