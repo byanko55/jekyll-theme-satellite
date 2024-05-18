@@ -1,3 +1,5 @@
+var baseurl = document.querySelector('meta[name="baseurl"]').content;
+
 document.addEventListener('DOMContentLoaded', function(){
     // Init theme
     let currentTheme = localStorage.getItem('theme');
@@ -32,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // kept nav opened
     var firstNavs = document.querySelectorAll('#nav-first');
-    var baseurl = document.querySelector('meta[name="baseurl"]').content;
     var page_path = window.location.pathname.replace(/%20/g, " ");
     page_path = page_path.replace(baseurl, "");
     var page_tree = page_path.split('/');
@@ -232,17 +233,17 @@ function searchPost(pages){
 
                 insertItem('<a href="' +
                     matchedPosts[i].url +
-                    '"><table><thead><tr><th><svg class="ico-book" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></th><th>' + highlighted_title +  
-                    '</th></tr></thead><tbody><tr><td><svg class="ico-folder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg></td><td>' + highlighted_path +
-                    '</td></tr><tr><td><svg class="ico-tags" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></td><td>' + highlighted_tags +
-                    '</td></tr><tr><td><svg class="ico-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192h80v56H48V192zm0 104h80v64H48V296zm128 0h96v64H176V296zm144 0h80v64H320V296zm80-48H320V192h80v56zm0 160v40c0 8.8-7.2 16-16 16H320V408h80zm-128 0v56H176V408h96zm-144 0v56H64c-8.8 0-16-7.2-16-16V408h80zM272 248H176V192h96v56z"/></svg></td><td>' + matchedPosts[i].date +
+                    '"><table><thead><tr><th><svg class="ico-book"></svg></th><th>' + highlighted_title +  
+                    '</th></tr></thead><tbody><tr><td><svg class="ico-folder"></svg></td><td>' + highlighted_path +
+                    '</td></tr><tr><td><svg class="ico-tags"></svg></td><td>' + highlighted_tags +
+                    '</td></tr><tr><td><svg class="ico-calendar"></svg></td><td>' + matchedPosts[i].date +
                     '</td></tr></tbody></table></a>'
                 );
             }
             else {
                 insertItem('<a href="' +
                     matchedPosts[i].url +
-                    '"><table><thead><tr><th><svg class="ico-folder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg></th><th>' + highlighted_path + 
+                    '"><table><thead><tr><th><svg class="ico-folder"></svg></th><th>' + highlighted_path + 
                     '</th></tr></thead></table></a>'
                 );
             }
@@ -336,8 +337,8 @@ function searchRelated(pages){
 
         if (post.category !== '') category = post.category;
 
-        if (post.thumbnail === ''){
-            post.thumbnail = "/assets/img/thumbnail/empty.jpg";
+        if (post.thumbnail === baseurl){
+            post.thumbnail += "/assets/img/thumbnail/empty.jpg";
         }
 
         let contents = document.createElement("li");
