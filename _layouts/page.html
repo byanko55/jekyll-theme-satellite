@@ -25,9 +25,16 @@
 
             {% if page.thumbnail %}
                 <style>
-                    .thumbnail {
-                        background-image: url("{{ page.thumbnail | prepend: site.baseurl }}");
-                    }
+                    {%- assign check_localasset = page.thumbnail | split:'/' -%}
+                    {% if check_localasset[0] == '' %}
+                        .thumbnail {
+                            background-image: url("{{ page.thumbnail | prepend: site.baseurl }}");
+                        }
+                    {% else %}
+                        .thumbnail {
+                            background-image: url("{{ page.thumbnail }}");
+                        }
+                    {% endif %}
                 </style>
             {% else %}
                 <style>

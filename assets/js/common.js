@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function(){
         btn.addEventListener('click', function() {
             const moonIcons = document.querySelectorAll(".ico-dark");
             const sunIcons = document.querySelectorAll(".ico-light");
+            const codeblocks = innerContent.querySelectorAll('pre');
 
             moonIcons.forEach((ico) => {
                 ico.classList.toggle('active');
@@ -106,18 +107,24 @@ document.addEventListener('DOMContentLoaded', function(){
             if (isDarkMode){
                 localStorage.setItem('theme', 'default');
                 // Disable highlighter dark color theme
-                Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
-                    codeblock.classList.remove('pre-dark');
-                });
+                if (codeblocks) {
+                    Array.from(codeblocks).forEach(function (codeblock){
+                        codeblock.classList.remove('pre-dark');
+                    });
+                }
+
                 changeGiscusTheme('light');
                 isDarkMode = false;
             }
             else {
                 localStorage.setItem('theme', 'dark');
                 // Disable highlighter default color theme
-                Array.from(innerContent.querySelectorAll('pre')).forEach(function (codeblock){
-                    codeblock.classList.add('pre-dark');
-                });
+                if (codeblocks) {
+                    Array.from(codeblocks).forEach(function (codeblock){
+                        codeblock.classList.add('pre-dark');
+                    });
+                }
+
                 changeGiscusTheme('noborder_gray');
                 isDarkMode = true;
             }
@@ -336,10 +343,6 @@ function searchRelated(pages){
         }
 
         if (post.category !== '') category = post.category;
-
-        if (post.thumbnail === baseurl){
-            post.thumbnail += "/assets/img/thumbnail/empty.jpg";
-        }
 
         let contents = document.createElement("li");
         contents.classList.add("related-item");
