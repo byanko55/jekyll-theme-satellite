@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function(){
         btn.addEventListener('click', function() {
             const moonIcons = document.querySelectorAll(".ico-dark");
             const sunIcons = document.querySelectorAll(".ico-light");
-            const codeblocks = innerContent.querySelectorAll('pre');
+            const codeblocks = innerContent != null ? innerContent.querySelectorAll('pre') : null;
 
             moonIcons.forEach((ico) => {
                 ico.classList.toggle('active');
