@@ -19,6 +19,10 @@ giscus_categoryId:
 goatcounter_code:
 google_analytics:
 
+# If your repo name follows the format "<user-name>.github.io", then leave the below blank.
+# Otherwise, set its value as "/<repo-name>". ex) baseurl: /myblog
+baseurl:
+
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                 #
 #   Not recommended to touch the materials below  #

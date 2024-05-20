@@ -2,11 +2,11 @@
 <html lang="en">
     <head>
         {% include head.html %}
-        <link rel="stylesheet" href="{{ '/assets/css/404.css' }}">
+        <link rel="stylesheet" href="{{ '/assets/css/404.css' | prepend: site.baseurl }}">
     </head>
     <body>
         <div class="blank-page">
-        <a href="/" class="go-home">↩️ GO HOME</a>
+        <a href="{{ '/' | prepend: site.baseurl }}" class="go-home">↩️ GO HOME</a>
         <div class="not-found-msg">
             <h1 class="sour-face">`Φ ⌒ `Φ ?</h1>
             <p style="font-size:1.75rem; color:#fa4251;">404: Page not found</p>
@@ -14,5 +14,5 @@
         </div>
         </div>
     </body>
-    <script src="{{ '/assets/js/404.js' }}"></script>
+    <script src="{{ '/assets/js/404.js' | prepend: site.baseurl }}"></script>
 </html>

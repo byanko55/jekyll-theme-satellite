@@ -10,8 +10,8 @@
     {% endif %}
     <head>
         {% include head.html %}
-        <link rel="preload" href="{{ site.profile_img }}" as="image">
-        <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
+        <link rel="preload" href="{{ site.profile_img | prepend: site.baseurl }}" as="image">
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' | prepend: site.baseurl }}">
         {% if page_type == "post" %}
             {% if site.goatcounter_code %}
                 <script data-goatcounter="https://{{ site.goatcounter_code }}.goatcounter.com/count"
@@ -25,9 +25,16 @@
 
             {% if page.thumbnail %}
                 <style>
-                    .thumbnail {
-                        background-image: url("{{ page.thumbnail }}");
-                    }
+                    {%- assign check_localasset = page.thumbnail | split:'/' -%}
+                    {% if check_localasset[0] == '' %}
+                        .thumbnail {
+                            background-image: url("{{ page.thumbnail | prepend: site.baseurl }}");
+                        }
+                    {% else %}
+                        .thumbnail {
+                            background-image: url("{{ page.thumbnail }}");
+                        }
+                    {% endif %}
                 </style>
             {% else %}
                 <style>
@@ -73,13 +80,13 @@
     </body>
     {% include footer.html %}
     {% if page_type == "category" %}
-        <script src="{{ '/assets/js/subject.js' }}"></script>
+        <script src="{{ '/assets/js/subject.js' | prepend: site.baseurl }}"></script>
     {% else %}
-        <script src="{{ '/assets/js/post.js' }}"></script>
-        <link rel="preload" href="{{ '/assets/css/highlight.min.css' }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{{ '/assets/css/highlight.min.css' }}"></noscript>
-        <script defer src="{{ '/assets/js/highlight.min.js' }}"></script>
+        <script src="{{ '/assets/js/post.js' | prepend: site.baseurl }}"></script>
+        <link rel="preload" href="{{ '/assets/css/highlight.min.css' | prepend: site.baseurl }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ '/assets/css/highlight.min.css' | prepend: site.baseurl }}"></noscript>
+        <script defer src="{{ '/assets/js/highlight.min.js' | prepend: site.baseurl }}"></script>
     {% endif %}
-    <script src="{{ '/assets/js/common.js' }}"></script>
+    <script src="{{ '/assets/js/common.js' | prepend: site.baseurl }}"></script>
     {% include search_event.html %}
 </html>

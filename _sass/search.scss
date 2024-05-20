@@ -105,7 +105,7 @@
     z-index:-1;
   }
   &:before { background:#fff; }
-  &:after { background-image:url('/assets/img/tile.png'); }
+  &:after { background-image:url($baseurl + '/assets/img/tile.png'); }
 
   button {
     position:absolute;
@@ -145,7 +145,7 @@
     td { font-size:0.875rem; }
 
     svg {
-      background-color:darkslategrey; 
+      background-color:darkslategrey;  
       mask-repeat:no-repeat;
       display:inline-flex;
       width:14px;
@@ -154,20 +154,20 @@
     }
     .ico-book {
       background-color:dodgerblue !important;
-      -webkit-mask-image:url(/assets/img/icon/book-solid.svg);
-      mask-image:url(/assets/img/icon/book-solid.svg);
+      -webkit-mask-image:url($baseurl + '/assets/img/icon/book-solid.svg');
+      mask-image:url($baseurl + '/assets/img/icon/book-solid.svg');
     }
     .ico-folder {
-      -webkit-mask-image:url(/assets/img/icon/folder-open-regular.svg);
-      mask-image:url(/assets/img/icon/folder-open-regular.svg);
+      -webkit-mask-image:url($baseurl + '/assets/img/icon/folder-open-regular.svg');
+      mask-image:url($baseurl + '/assets/img/icon/folder-open-regular.svg');
     }
     .ico-tags {
-      -webkit-mask-image:url(/assets/img/icon/tags-solid.svg);
-      mask-image:url(/assets/img/icon/tags-solid.svg);
+      -webkit-mask-image:url($baseurl + '/assets/img/icon/tags-solid.svg');
+      mask-image:url($baseurl + '/assets/img/icon/tags-solid.svg');
     }
     .ico-calendar {
-      -webkit-mask-image:url(/assets/img/icon/calendar-days-regular.svg);
-      mask-image:url(/assets/img/icon/calendar-days-regular.svg);
+      -webkit-mask-image:url($baseurl + '/assets/img/icon/calendar-days-regular.svg');
+      mask-image:url($baseurl + '/assets/img/icon/calendar-days-regular.svg');
     }
     .ico-book, th .ico-folder { width:18px; }
     th .ico-folder { background-color:mediumseagreen !important; }

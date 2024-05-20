@@ -19,21 +19,25 @@
                 <div id="article_content">
                     <div class="thumbnail_zone">
                         {% if sub_page.thumbnail != nil %}
-                            <a href="{{ sub_page.url }}" class="thumbnail_post" loading="lazy" aria-label="thumbnail_post" style="background-image:url('{{ sub_page.thumbnail }}') !important"></a>
+                            {%- assign thumbnail_url = sub_page.thumbnail -%}
+                            {%- assign check_localasset = thumbnail_url | split:'/' -%}
+                            {% if check_localasset[0] == '' %}
+                                {%- assign thumbnail_url = thumbnail_url | prepend: site.baseurl -%}
+                            {% endif %}
+                            <a href="{{ sub_page.url | prepend: site.baseurl }}" class="thumbnail_post" loading="lazy" aria-label="thumbnail_post" style="background-image:url('{{ thumbnail_url }}') !important"></a>
                         {% else %}
-                            <a href="{{ sub_page.url }}" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
+                            <a href="{{ sub_page.url | prepend: site.baseurl }}" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('{{ '/assets/img/thumbnail/empty.jpg' | prepend: site.baseurl }}') !important"></a>
                         {% endif %}
                     </div>
-
                     <div class="box_contents">
-                        <a href="{{ sub_page.url }}"><h1 class="title_post">{{ sub_page.title }}</h1></a>
-                        <a href="{{ sub_page.url }}" class="txt_post">
+                        <a href="{{ sub_page.url | prepend: site.baseurl }}"><h1 class="title_post">{{ sub_page.title }}</h1></a>
+                        <a href="{{ sub_page.url | prepend: site.baseurl }}" class="txt_post">
                             {{ sub_page.content | markdownify | strip_html }}
                         </a>
                         <div class="info-post">
                             {%- assign sub_page_tree = sub_page.path | split: "/" -%}
                             {% if sub_page_tree.size > 2 %}
-                                <a href="{{ '/' | append: sub_page_tree[1] }}" class="category">{{ sub_page_tree[1] }}</a>
+                                <a href="{{ '/' | append: sub_page_tree[1] | prepend: site.baseurl }}" class="category">{{ sub_page_tree[1] }}</a>
                             {% else %}
                                 <span class="category">None</span>
                             {% endif %}
@@ -51,7 +55,7 @@
     </ul>
     {% if post_counts == 0 %}
         <div class="no-posts">
-            <img src="{{ '/assets/img/sorry.png'' }}"></img>
+            <img src="{{ '/assets/img/sorry.png'' | prepend: site.baseurl }}"></img>
             <h1>Sorry, No posts found</h1>
         </div>
     {% endif %}

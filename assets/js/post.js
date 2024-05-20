@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
 
-        console.log(heading.textContent, heading.getBoundingClientRect().top);
-
         if (heading.tagName == 'H1'){
             itemLink.classList.add("node-name--H1");
             prevHead = tocItem;

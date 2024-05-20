@@ -5,7 +5,7 @@
         {%- assign search_tree = page.path | remove: "/index.md" | split: "/" -%}
         {%- for sub_tree in search_tree -%}
             {% if forloop.first %}
-                <a href="/">Home</a>
+                <a href="{{ site.baseurl | append: '/' }}">Home</a>
                 >
             {% elsif forloop.last %}
                 {% if page_type == "category" %}
@@ -15,7 +15,7 @@
                 {% endif %}
             {% else %}
                 {%- assign page_link = page_link | append: sub_tree | append: "/" -%}
-                <a href="{{ page_link }}">{{ sub_tree }}</a>
+                <a href="{{ page_link | prepend: site.baseurl }}">{{ sub_tree }}</a>
                 >
             {% endif %}
         {%- endfor -%}

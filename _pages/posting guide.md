@@ -4,7 +4,7 @@ tags:
     - user manual
     - writing format
 date: "2024-02-04"
-thumbnail: "https://i.ibb.co/MRzw6T9/sample.webp"
+thumbnail: "/assets/img/thumbnail/sample.png"
 bookmark: true
 ---
 

@@ -24,13 +24,24 @@
             {% endif %}
         {%- endfor -%}
 
+        {%- assign thumbnail_url = page.thumbnail -%}
+
+        {% if thumbnail_url != nil %}
+            {%- assign check_localasset = thumbnail_url | split:'/' -%}
+            {% if check_localasset[0] == '' %}
+                {%- assign thumbnail_url = thumbnail_url | prepend: site.baseurl -%}
+            {% endif %}
+        {% else %}
+            {%- assign thumbnail_url = '/assets/img/thumbnail/empty.jpg' | prepend: site.baseurl -%}
+        {% endif %}
+
         posts.push({
             'title'    : "{{ page.title | escape }}",
             'path'     : "{{ p_link }}",
             'type'     : "{{ p_type }}",
             'tags'     : "{{ page.tags | join: ', ' }}",
-            'url'      : "{{ site.baseurl }}{{ page.url }}",
-            'image'    : "{{ page.thumbnail }}",
+            'url'      : "{{ page.url | prepend: site.baseurl }}",
+            'image'    : "{{ thumbnail_url }}",
             'date'     : "{{ page.date | date: '%Y-%m-%d' }}"
         });
     {% endfor %}

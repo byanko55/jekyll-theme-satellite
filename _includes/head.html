@@ -12,7 +12,7 @@
 </title>
 {% seo %}
 
-<link rel="shortcut icon" type="image/png" href="{{ site.logo_img }}">
+<link rel="shortcut icon" type="image/png" href="{{ site.logo_img | prepend: site.baseurl }}">
 <style>
 @font-face {
     font-family: 'Nunito Sans';
@@ -20,7 +20,7 @@
     font-weight: 400;
     font-display: optional;
     src: local('Nunito Sans'),
-         url(/assets/fonts/NunitoSans-Regular.woff2) format("woff2");
+         url("{{ site.baseurl }}/assets/fonts/NunitoSans-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -29,7 +29,7 @@
     font-weight: 600;
     font-display: optional;
     src: local('Righteous'),
-         url(/assets/fonts/Righteous-Regular.woff2) format("woff2");
+         url("{{ site.baseurl }}/assets/fonts/Righteous-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -38,11 +38,11 @@
     font-weight: 400;
     font-display: optional;
     src: local('Lato'),
-         url(/assets/fonts/Lato-Regular.woff2) format("woff2");
+         url("{{ site.baseurl }}/assets/fonts/Lato-Regular.woff2") format("woff2");
 }
 </style>
 
-<script src="{{ '/assets/js/fontfaceobserver.js' }}" type="text/javascript"></script>
+<script src="{{ '/assets/js/fontfaceobserver.js' | prepend: site.baseurl }}" type="text/javascript"></script>
 <script type="text/javascript">
     const nunitoObserver = new FontFaceObserver('Nunito Sans');
     const righteousObserver = new FontFaceObserver('Righteous');
@@ -57,6 +57,7 @@
     });
 </script>
 
+<meta name="baseurl" content="{{ site.baseurl }}">
 <meta
 name="description"
 content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
